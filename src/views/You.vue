@@ -208,7 +208,10 @@ export default {
 
 .tab-kamu { margin-top: 14px; }
 .tab-kamu >>> .el-tabs__nav-wrap::after { height: 1px; background: var(--line); }
-.tab-kamu >>> .el-tabs__item { padding: 0 12px; }
+.tab-kamu >>> .el-tabs__item { padding: 0 9px; font-size: 13.5px; }
+.tab-kamu >>> .el-tabs__nav-prev,
+.tab-kamu >>> .el-tabs__nav-next { display: none; }
+.tab-kamu >>> .el-tabs__nav-scroll { padding: 0 2px; }
 
 .post-konten { margin: 6px 0 0; font-size: 14.5px; }
 
