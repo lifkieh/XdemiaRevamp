@@ -1,0 +1,99 @@
+[
+  {
+    "id": "ch-1",
+    "nama": "Nadia Putri",
+    "inisial": "N",
+    "cuplikan": "Nanti aku kirim catatannya ya",
+    "waktu": "09.42",
+    "belumDibaca": 2,
+    "pesan": [
+      { "id": "p-1", "dari": "mereka", "teks": "Ka, kamu udah kelar modul statistika?", "waktu": "09.30" },
+      { "id": "p-2", "dari": "saya", "teks": "Tinggal 2 modul, mentok di p-value hehe", "waktu": "09.35" },
+      { "id": "p-3", "dari": "mereka", "teks": "Sama banget. Nanti aku kirim catatannya ya", "waktu": "09.42" }
+    ]
+  },
+  {
+    "id": "ch-2",
+    "nama": "Kelompok Skripsi",
+    "inisial": "K",
+    "cuplikan": "Bagas: besok kumpul jam 4 ya",
+    "waktu": "08.15",
+    "belumDibaca": 5,
+    "pesan": [
+      { "id": "p-1", "dari": "mereka", "teks": "Bab 2 punyaku udah 70%", "waktu": "08.02" },
+      { "id": "p-2", "dari": "saya", "teks": "Mantap, aku masih nyari referensi", "waktu": "08.10" },
+      { "id": "p-3", "dari": "mereka", "teks": "Besok kumpul jam 4 ya", "waktu": "08.15" }
+    ]
+  },
+  {
+    "id": "ch-3",
+    "nama": "Bagas Wirawan",
+    "inisial": "B",
+    "cuplikan": "Esainya kirim aja, nanti aku baca",
+    "waktu": "Kemarin",
+    "belumDibaca": 0,
+    "pesan": [
+      { "id": "p-1", "dari": "saya", "teks": "Kak, boleh minta review esai LPDP?", "waktu": "20.11" },
+      { "id": "p-2", "dari": "mereka", "teks": "Boleh. Esainya kirim aja, nanti aku baca", "waktu": "20.30" }
+    ]
+  },
+  {
+    "id": "ch-4",
+    "nama": "Data Enthusiast ID",
+    "inisial": "D",
+    "cuplikan": "Sinta: link sesi live udah dishare",
+    "waktu": "Kemarin",
+    "belumDibaca": 0,
+    "pesan": [
+      { "id": "p-1", "dari": "mereka", "teks": "Link sesi live udah dishare di pengumuman", "waktu": "17.20" },
+      { "id": "p-2", "dari": "saya", "teks": "Siap, ikut hadir", "waktu": "17.45" }
+    ]
+  },
+  {
+    "id": "ch-5",
+    "nama": "Sinta Larasati",
+    "inisial": "S",
+    "cuplikan": "Makasih rekomendasinya!",
+    "waktu": "2 hari lalu",
+    "belumDibaca": 0,
+    "pesan": [
+      { "id": "p-1", "dari": "saya", "teks": "Coba materi anatomi yang di Xdemia, visualnya bagus", "waktu": "11.05" },
+      { "id": "p-2", "dari": "mereka", "teks": "Makasih rekomendasinya!", "waktu": "11.20" }
+    ]
+  },
+  {
+    "id": "ch-6",
+    "nama": "Yoga Pratama",
+    "inisial": "Y",
+    "cuplikan": "Portofolio kamu udah rapi kok",
+    "waktu": "3 hari lalu",
+    "belumDibaca": 0,
+    "pesan": [
+      { "id": "p-1", "dari": "saya", "teks": "Bang, portofolio aku kurang apa ya?", "waktu": "14.02" },
+      { "id": "p-2", "dari": "mereka", "teks": "Portofolio kamu udah rapi kok, tinggal tambahin cerita masalahnya", "waktu": "14.30" }
+    ]
+  },
+  {
+    "id": "ch-7",
+    "nama": "Ruang Beasiswa",
+    "inisial": "R",
+    "cuplikan": "Pendaftaran batch 2 dibuka",
+    "waktu": "4 hari lalu",
+    "belumDibaca": 0,
+    "pesan": [
+      { "id": "p-1", "dari": "mereka", "teks": "Pendaftaran batch 2 dibuka minggu depan", "waktu": "10.00" }
+    ]
+  },
+  {
+    "id": "ch-8",
+    "nama": "Dewi Anggraini",
+    "inisial": "D",
+    "cuplikan": "Latihan speaking bareng lagi yuk",
+    "waktu": "1 minggu lalu",
+    "belumDibaca": 0,
+    "pesan": [
+      { "id": "p-1", "dari": "mereka", "teks": "Latihan speaking bareng lagi yuk, jam 8 malam", "waktu": "19.10" },
+      { "id": "p-2", "dari": "saya", "teks": "Ayo, aku siapin topiknya", "waktu": "19.25" }
+    ]
+  }
+]

@@ -1,0 +1,12 @@
+[
+  { "id": "n-1", "tipe": "beasiswa", "teks": "Beasiswa Unggulan Kemendikbud tutup 3 hari lagi.", "waktu": "5 menit lalu", "baru": true },
+  { "id": "n-2", "tipe": "suka", "teks": "Nadia Putri dan 12 orang lain menyukai postingan kamu.", "waktu": "40 menit lalu", "baru": true },
+  { "id": "n-3", "tipe": "belajar", "teks": "Streak belajar kamu 6 hari. Lanjutkan hari ini biar nggak putus.", "waktu": "2 jam lalu", "baru": false },
+  { "id": "n-4", "tipe": "komentar", "teks": "Bagas Wirawan membalas komentar kamu di \"Tips esai LPDP\".", "waktu": "5 jam lalu", "baru": false },
+  { "id": "n-5", "tipe": "komunitas", "teks": "Data Enthusiast Indonesia mengadakan sesi live Sabtu 19.30 WIB.", "waktu": "8 jam lalu", "baru": false },
+  { "id": "n-6", "tipe": "pengikut", "teks": "Sinta Larasati mulai mengikuti kamu.", "waktu": "1 hari lalu", "baru": false },
+  { "id": "n-7", "tipe": "belajar", "teks": "Modul \"Uji hipotesis & p-value\" siap dilanjutkan.", "waktu": "1 hari lalu", "baru": false },
+  { "id": "n-8", "tipe": "beasiswa", "teks": "Erasmus Mundus tutup 2 hari lagi. Berkas kamu belum lengkap.", "waktu": "2 hari lalu", "baru": false },
+  { "id": "n-9", "tipe": "suka", "teks": "Yoga Pratama menyukai jurnal yang kamu simpan.", "waktu": "3 hari lalu", "baru": false },
+  { "id": "n-10", "tipe": "komunitas", "teks": "Pejuang Beasiswa Luar Negeri menyambut kamu sebagai anggota baru.", "waktu": "4 hari lalu", "baru": false }
+]
