@@ -11,6 +11,11 @@ export default {
     jumlahTersimpan: (state) => state.beasiswa.length + state.materi.length
   },
   mutations: {
+    // dipakai plugin persist saat memuat isi localStorage
+    HYDRATE (state, data) {
+      state.beasiswa = data.beasiswa
+      state.materi = data.materi
+    },
     TOGGLE_BEASISWA (state, id) {
       const i = state.beasiswa.indexOf(id)
       if (i === -1) state.beasiswa.push(id)
