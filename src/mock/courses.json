@@ -1,0 +1,147 @@
+[
+  {
+    "id": "c-1",
+    "judul": "Statistika Dasar untuk Data",
+    "penyedia": "Xdemia Belajar",
+    "durasi": "3 jam",
+    "progress": 65,
+    "deskripsi": "Ngerti angka sebelum ngerti kode. Materi ini bahas rata-rata, sebaran, sampai uji hipotesis pakai contoh sehari-hari, tanpa rumus yang bikin kabur.",
+    "modul": [
+      { "id": "m-1", "judul": "Kenapa statistika penting", "selesai": true },
+      { "id": "m-2", "judul": "Rata-rata, median, modus", "selesai": true },
+      { "id": "m-3", "judul": "Sebaran data & standar deviasi", "selesai": true },
+      { "id": "m-4", "judul": "Uji hipotesis & p-value", "selesai": false },
+      { "id": "m-5", "judul": "Latihan studi kasus", "selesai": false }
+    ]
+  },
+  {
+    "id": "c-2",
+    "judul": "Python untuk Pemula",
+    "penyedia": "Komunitas Data Indonesia",
+    "durasi": "5 jam",
+    "progress": 30,
+    "deskripsi": "Mulai dari nol sampai bisa bikin skrip yang beneran kepakai. Fokus latihan, bukan teori panjang.",
+    "modul": [
+      { "id": "m-1", "judul": "Pasang Python & editor", "selesai": true },
+      { "id": "m-2", "judul": "Variabel dan tipe data", "selesai": true },
+      { "id": "m-3", "judul": "Perulangan & kondisi", "selesai": false },
+      { "id": "m-4", "judul": "Fungsi", "selesai": false },
+      { "id": "m-5", "judul": "Baca file CSV", "selesai": false },
+      { "id": "m-6", "judul": "Proyek kecil: laporan otomatis", "selesai": false }
+    ]
+  },
+  {
+    "id": "c-3",
+    "judul": "Nulis Esai Beasiswa yang Nyantol",
+    "penyedia": "Ruang Beasiswa",
+    "durasi": "2 jam",
+    "progress": 0,
+    "deskripsi": "Kerangka esai motivasi dan kontribusi yang dipakai penerima LPDP, Chevening, dan Australia Awards. Ada contoh esai lengkap plus bedahnya.",
+    "modul": [
+      { "id": "m-1", "judul": "Apa yang dicari penilai", "selesai": false },
+      { "id": "m-2", "judul": "Kerangka cerita 3 babak", "selesai": false },
+      { "id": "m-3", "judul": "Nulis rencana kontribusi", "selesai": false },
+      { "id": "m-4", "judul": "Bedah contoh esai", "selesai": false }
+    ]
+  },
+  {
+    "id": "c-4",
+    "judul": "Dasar Desain Antarmuka",
+    "penyedia": "Belajar UI/UX Bareng",
+    "durasi": "4 jam",
+    "progress": 12,
+    "deskripsi": "Prinsip hierarki, spasi, dan warna yang bikin tampilan enak dilihat tanpa perlu bakat seni.",
+    "modul": [
+      { "id": "m-1", "judul": "Hierarki visual", "selesai": true },
+      { "id": "m-2", "judul": "Spasi & grid", "selesai": false },
+      { "id": "m-3", "judul": "Warna & kontras", "selesai": false },
+      { "id": "m-4", "judul": "Tipografi", "selesai": false },
+      { "id": "m-5", "judul": "Latihan redesain layar", "selesai": false }
+    ]
+  },
+  {
+    "id": "c-5",
+    "judul": "IELTS Speaking Tanpa Panik",
+    "penyedia": "English Circle ID",
+    "durasi": "3 jam",
+    "progress": 0,
+    "deskripsi": "Pola jawaban part 1 sampai 3, plus latihan bicara 2 menit yang bisa dilakukan sendiri di kamar.",
+    "modul": [
+      { "id": "m-1", "judul": "Format tes speaking", "selesai": false },
+      { "id": "m-2", "judul": "Part 1: jawab singkat tapi berisi", "selesai": false },
+      { "id": "m-3", "judul": "Part 2: bicara 2 menit", "selesai": false },
+      { "id": "m-4", "judul": "Part 3: diskusi abstrak", "selesai": false },
+      { "id": "m-5", "judul": "Latihan mandiri", "selesai": false }
+    ]
+  },
+  {
+    "id": "c-6",
+    "judul": "Baca Jurnal Ilmiah dengan Cepat",
+    "penyedia": "Xdemia Belajar",
+    "durasi": "1,5 jam",
+    "progress": 0,
+    "deskripsi": "Teknik baca lompat-lompat yang dipakai peneliti biar nggak tenggelam di satu paper seharian.",
+    "modul": [
+      { "id": "m-1", "judul": "Anatomi paper", "selesai": false },
+      { "id": "m-2", "judul": "Urutan baca yang benar", "selesai": false },
+      { "id": "m-3", "judul": "Bikin catatan ringkas", "selesai": false }
+    ]
+  },
+  {
+    "id": "c-7",
+    "judul": "Kelola Waktu Ala Mahasiswa Sibuk",
+    "penyedia": "Xdemia Belajar",
+    "durasi": "1 jam",
+    "progress": 0,
+    "deskripsi": "Sistem sederhana buat ngatur kuliah, organisasi, dan belajar mandiri tanpa aplikasi ribet.",
+    "modul": [
+      { "id": "m-1", "judul": "Petakan beban seminggu", "selesai": false },
+      { "id": "m-2", "judul": "Blok waktu belajar", "selesai": false },
+      { "id": "m-3", "judul": "Evaluasi mingguan", "selesai": false }
+    ]
+  },
+  {
+    "id": "c-8",
+    "judul": "Pengantar Machine Learning",
+    "penyedia": "Data Enthusiast Indonesia",
+    "durasi": "6 jam",
+    "progress": 0,
+    "deskripsi": "Konsep model, data latih, dan evaluasi dijelaskan pakai analogi sehari-hari sebelum masuk kode.",
+    "modul": [
+      { "id": "m-1", "judul": "Apa itu model", "selesai": false },
+      { "id": "m-2", "judul": "Data latih & data uji", "selesai": false },
+      { "id": "m-3", "judul": "Regresi linear", "selesai": false },
+      { "id": "m-4", "judul": "Klasifikasi", "selesai": false },
+      { "id": "m-5", "judul": "Evaluasi model", "selesai": false },
+      { "id": "m-6", "judul": "Proyek akhir", "selesai": false }
+    ]
+  },
+  {
+    "id": "c-9",
+    "judul": "Riset Literatur untuk Skripsi",
+    "penyedia": "Universitas Brawijaya",
+    "durasi": "2,5 jam",
+    "progress": 0,
+    "deskripsi": "Cara nyari, nyaring, dan nyusun referensi biar bab 2 nggak jadi tempelan.",
+    "modul": [
+      { "id": "m-1", "judul": "Nyari sumber yang layak", "selesai": false },
+      { "id": "m-2", "judul": "Kelola referensi", "selesai": false },
+      { "id": "m-3", "judul": "Nyusun tinjauan pustaka", "selesai": false },
+      { "id": "m-4", "judul": "Hindari plagiarisme", "selesai": false }
+    ]
+  },
+  {
+    "id": "c-10",
+    "judul": "Bikin Portofolio Data Pertama",
+    "penyedia": "Data Enthusiast Indonesia",
+    "durasi": "4 jam",
+    "progress": 0,
+    "deskripsi": "Dari milih dataset sampai nulis cerita hasil analisis yang dibaca perekrut.",
+    "modul": [
+      { "id": "m-1", "judul": "Pilih masalah, bukan dataset", "selesai": false },
+      { "id": "m-2", "judul": "Bersihin data", "selesai": false },
+      { "id": "m-3", "judul": "Visualisasi seperlunya", "selesai": false },
+      { "id": "m-4", "judul": "Tulis ceritanya", "selesai": false }
+    ]
+  }
+]

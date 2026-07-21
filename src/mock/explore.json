@@ -1,0 +1,14 @@
+[
+  { "id": "e-1", "tipe": "orang", "nama": "Nadia Putri", "inisial": "N", "info": "Mahasiswa Psikologi · UGM", "aksi": "Ikuti" },
+  { "id": "e-2", "tipe": "orang", "nama": "Yoga Pratama", "inisial": "Y", "info": "Data Analyst · Jakarta", "aksi": "Ikuti" },
+  { "id": "e-3", "tipe": "orang", "nama": "Bagas Wirawan", "inisial": "B", "info": "Alumni Teknik Elektro · ITB", "aksi": "Ikuti" },
+  { "id": "e-4", "tipe": "komunitas", "nama": "Data Enthusiast Indonesia", "inisial": "D", "info": "12.480 anggota", "aksi": "Gabung" },
+  { "id": "e-5", "tipe": "komunitas", "nama": "Pejuang Beasiswa Luar Negeri", "inisial": "P", "info": "38.902 anggota", "aksi": "Gabung" },
+  { "id": "e-6", "tipe": "komunitas", "nama": "Belajar UI/UX Bareng", "inisial": "B", "info": "7.115 anggota", "aksi": "Gabung" },
+  { "id": "e-7", "tipe": "kampus", "nama": "Universitas Brawijaya", "inisial": "UB", "info": "Malang · 62 program studi", "aksi": "Ikuti" },
+  { "id": "e-8", "tipe": "kampus", "nama": "Institut Teknologi Bandung", "inisial": "IT", "info": "Bandung · 49 program studi", "aksi": "Ikuti" },
+  { "id": "e-9", "tipe": "kampus", "nama": "Universitas Gadjah Mada", "inisial": "UG", "info": "Yogyakarta · 78 program studi", "aksi": "Ikuti" },
+  { "id": "e-10", "tipe": "jurnal", "nama": "Jurnal Pendidikan Digital", "inisial": "JP", "info": "214 tulisan · terbit tiap bulan", "aksi": "Ikuti" },
+  { "id": "e-11", "tipe": "jurnal", "nama": "Jurnal Riset Kesehatan Masyarakat", "inisial": "JR", "info": "97 tulisan · terbit tiap kuartal", "aksi": "Ikuti" },
+  { "id": "e-12", "tipe": "jurnal", "nama": "Catatan Riset Data Indonesia", "inisial": "CR", "info": "58 tulisan · terbit tiap bulan", "aksi": "Ikuti" }
+]

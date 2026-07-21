@@ -1,0 +1,14 @@
+[
+  { "id": "s-1", "nama": "Beasiswa Unggulan Kemendikbud", "inisial": "BU", "penyelenggara": "Kemendikbudristek", "jenjang": "S1", "negara": "Indonesia", "sisaHari": 3, "cakupan": "Biaya kuliah penuh + uang saku" },
+  { "id": "s-2", "nama": "LPDP Reguler", "inisial": "LP", "penyelenggara": "Kementerian Keuangan", "jenjang": "S2", "negara": "Indonesia", "sisaHari": 12, "cakupan": "Kuliah, hidup, tiket, asuransi" },
+  { "id": "s-3", "nama": "Chevening Scholarship", "inisial": "CH", "penyelenggara": "Pemerintah Inggris", "jenjang": "S2", "negara": "Inggris", "sisaHari": 21, "cakupan": "Kuliah penuh + tunjangan hidup" },
+  { "id": "s-4", "nama": "Australia Awards", "inisial": "AA", "penyelenggara": "Pemerintah Australia", "jenjang": "S2", "negara": "Australia", "sisaHari": 45, "cakupan": "Kuliah, hidup, pelatihan bahasa" },
+  { "id": "s-5", "nama": "MEXT Research Student", "inisial": "MX", "penyelenggara": "Pemerintah Jepang", "jenjang": "S3", "negara": "Jepang", "sisaHari": 8, "cakupan": "Kuliah + tunjangan bulanan" },
+  { "id": "s-6", "nama": "DAAD EPOS", "inisial": "DA", "penyelenggara": "Pemerintah Jerman", "jenjang": "S2", "negara": "Jerman", "sisaHari": 33, "cakupan": "Tunjangan bulanan + tiket" },
+  { "id": "s-7", "nama": "Beasiswa Bank Indonesia", "inisial": "BI", "penyelenggara": "Bank Indonesia", "jenjang": "S1", "negara": "Indonesia", "sisaHari": 5, "cakupan": "Uang saku + pembinaan" },
+  { "id": "s-8", "nama": "Fulbright Master Degree", "inisial": "FB", "penyelenggara": "AMINEF", "jenjang": "S2", "negara": "Amerika Serikat", "sisaHari": 60, "cakupan": "Kuliah, hidup, tiket" },
+  { "id": "s-9", "nama": "KAIST Undergraduate", "inisial": "KA", "penyelenggara": "KAIST", "jenjang": "S1", "negara": "Korea Selatan", "sisaHari": 27, "cakupan": "Kuliah penuh + asrama" },
+  { "id": "s-10", "nama": "Beasiswa Djarum Plus", "inisial": "DJ", "penyelenggara": "Djarum Foundation", "jenjang": "S1", "negara": "Indonesia", "sisaHari": 17, "cakupan": "Uang saku + pelatihan soft skill" },
+  { "id": "s-11", "nama": "NTU Research Scholarship", "inisial": "NT", "penyelenggara": "Nanyang Technological University", "jenjang": "S3", "negara": "Singapura", "sisaHari": 39, "cakupan": "Kuliah + stipend riset" },
+  { "id": "s-12", "nama": "Erasmus Mundus Joint Master", "inisial": "EM", "penyelenggara": "Uni Eropa", "jenjang": "S2", "negara": "Jerman", "sisaHari": 2, "cakupan": "Kuliah, hidup, mobilitas antar-kampus" }
+]

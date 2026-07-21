@@ -1,0 +1,114 @@
+[
+  {
+    "id": "fd-1",
+    "tipe": "learning_nudge",
+    "judul": "Lanjutin Statistika Dasar",
+    "deskripsi": "Tinggal 2 modul lagi sebelum kelar. Kira-kira 25 menit.",
+    "progress": 65,
+    "materiId": "c-1"
+  },
+  {
+    "id": "fd-2",
+    "tipe": "post",
+    "penulis": "Nadia Putri",
+    "inisial": "N",
+    "peran": "Mahasiswa Psikologi · UGM",
+    "waktu": "10 menit lalu",
+    "konten": "Tips kecil buat yang gampang burnout belajar: pasang timer 25 menit, kerjain satu hal aja. Selesai timer, berdiri. Udah, gitu doang. Konsisten 3 minggu dan bedanya kerasa banget.",
+    "suka": 128,
+    "komentar": 19
+  },
+  {
+    "id": "fd-3",
+    "tipe": "scholarship_alert",
+    "judul": "Beasiswa Unggulan Kemendikbud tutup 3 hari lagi",
+    "deskripsi": "S1 & S2 · Indonesia · berkas bisa nyusul sampai tahap 2.",
+    "beasiswaId": "s-1"
+  },
+  {
+    "id": "fd-4",
+    "tipe": "article",
+    "judul": "Cara Baca Jurnal Ilmiah Tanpa Pusing",
+    "sumber": "Jurnal Belajar Xdemia",
+    "waktu": "1 jam lalu",
+    "ringkasan": "Baca abstrak, lompat ke kesimpulan, baru balik ke metode. Urutannya bukan dari atas ke bawah.",
+    "baca": "4 menit baca"
+  },
+  {
+    "id": "fd-5",
+    "tipe": "post",
+    "penulis": "Bagas Wirawan",
+    "inisial": "B",
+    "peran": "Alumni · Teknik Elektro ITB",
+    "waktu": "2 jam lalu",
+    "konten": "Baru selesai wawancara beasiswa Chevening. Pertanyaannya nggak seseram rumor, tapi mereka bener-bener ngulik rencana balik ke Indonesia. Siapin itu serius.",
+    "suka": 342,
+    "komentar": 47
+  },
+  {
+    "id": "fd-6",
+    "tipe": "community_update",
+    "judul": "Komunitas Data Enthusiast Indonesia",
+    "deskripsi": "Sesi live \"Bedah Portofolio Data\" mulai Sabtu 19.30 WIB.",
+    "anggota": "12.480 anggota"
+  },
+  {
+    "id": "fd-7",
+    "tipe": "post",
+    "penulis": "Sinta Larasati",
+    "inisial": "S",
+    "peran": "Mahasiswa Kedokteran · Unair",
+    "waktu": "4 jam lalu",
+    "konten": "Nanya dong, ada yang punya rekomendasi materi anatomi yang visual? Baca teks doang bikin ngantuk 😭",
+    "suka": 76,
+    "komentar": 33
+  },
+  {
+    "id": "fd-8",
+    "tipe": "article",
+    "judul": "5 Kesalahan Umum Waktu Nulis Esai Beasiswa",
+    "sumber": "Ruang Beasiswa",
+    "waktu": "6 jam lalu",
+    "ringkasan": "Paling sering: cerita panjang soal masa kecil, tapi lupa jawab kenapa kamu yang harus dipilih.",
+    "baca": "6 menit baca"
+  },
+  {
+    "id": "fd-9",
+    "tipe": "learning_nudge",
+    "judul": "Streak kamu 6 hari",
+    "deskripsi": "Belajar 10 menit hari ini biar streak-nya nggak putus.",
+    "progress": 0,
+    "materiId": "c-3"
+  },
+  {
+    "id": "fd-10",
+    "tipe": "post",
+    "penulis": "Yoga Pratama",
+    "inisial": "Y",
+    "peran": "Data Analyst · Jakarta",
+    "waktu": "8 jam lalu",
+    "konten": "Portofolio > IPK, tapi cuma kalau portofolionya beneran nyelesain masalah. Tiga proyek yang jelas ceritanya lebih ngefek dari sepuluh proyek tutorial.",
+    "suka": 512,
+    "komentar": 64
+  },
+  {
+    "id": "fd-11",
+    "tipe": "article",
+    "judul": "Belajar Python 30 Menit Sehari, Realistis Nggak?",
+    "sumber": "Jurnal Belajar Xdemia",
+    "waktu": "12 jam lalu",
+    "ringkasan": "Realistis, asal 30 menitnya buat ngoding, bukan nonton video orang ngoding.",
+    "baca": "5 menit baca"
+  },
+  {
+    "id": "fd-12",
+    "tipe": "post",
+    "penulis": "Dewi Anggraini",
+    "inisial": "D",
+    "peran": "Mahasiswa Sastra Inggris · UI",
+    "waktu": "1 hari lalu",
+    "konten": "IELTS 7.0 dari 5.5 dalam 4 bulan, modal latihan speaking sama temen tiap malam. Gratis, cuma butuh malu-maluin diri sendiri dikit.",
+    "suka": 289,
+    "komentar": 41
+  }
+]
