@@ -1,0 +1,21 @@
+{
+  "id": "u-raka",
+  "name": "Raka Mahendra",
+  "initial": "R",
+  "handle": "@rakabelajar",
+  "bio": "Mahasiswa Informatika. Lagi ngulik data science sambil nyari beasiswa S2.",
+  "campus": "Universitas Brawijaya",
+  "streak": 6,
+  "stats": { "postingan": 24, "pengikut": 312, "mengikuti": 187 },
+  "posts": [
+    { "id": "up-1", "waktu": "2 hari lalu", "konten": "Akhirnya kelar modul 3 Statistika Dasar. Ternyata p-value nggak semenakutkan itu 😮‍💨", "suka": 34, "komentar": 5 },
+    { "id": "up-2", "waktu": "5 hari lalu", "konten": "Ada yang udah pernah daftar LPDP jalur reguler? Butuh tips esai kontribusi.", "suka": 58, "komentar": 21 },
+    { "id": "up-3", "waktu": "1 minggu lalu", "konten": "Bikin dashboard pertama pakai Python. Jelek tapi jalan, itu yang penting.", "suka": 91, "komentar": 12 }
+  ],
+  "files": [
+    { "id": "f-1", "nama": "Catatan Statistika Dasar.pdf", "ukuran": "2,4 MB", "waktu": "3 hari lalu" },
+    { "id": "f-2", "nama": "Draft Esai LPDP.docx", "ukuran": "68 KB", "waktu": "1 minggu lalu" },
+    { "id": "f-3", "nama": "Dataset Latihan Pandas.csv", "ukuran": "1,1 MB", "waktu": "2 minggu lalu" },
+    { "id": "f-4", "nama": "Sertifikat Webinar Data.png", "ukuran": "420 KB", "waktu": "3 minggu lalu" }
+  ]
+}
