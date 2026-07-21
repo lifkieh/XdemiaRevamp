@@ -37,8 +37,8 @@ export default {
 
 .chip {
   flex: none;
-  min-height: 36px;
-  padding: 0 14px;
+  min-height: var(--tap);
+  padding: 0 16px;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--card);

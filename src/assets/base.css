@@ -167,8 +167,22 @@ a { color: inherit; text-decoration: none; }
   border-color: var(--brand-dark);
 }
 .el-button { border-radius: 999px; }
-.el-button--small { min-height: 34px; }
-.el-input__inner { border-radius: 999px; height: 44px; line-height: 44px; }
+
+/* Element UI dipakai dengan size "small"; paksa semua kontrol tetap >=44px (tap target) */
+.el-button--small,
+.el-button--mini { min-height: var(--tap); }
+
+.el-input__inner,
+.el-input--small .el-input__inner,
+.el-input--mini .el-input__inner {
+  border-radius: 999px;
+  height: var(--tap);
+  line-height: var(--tap);
+}
+
+.el-input__icon,
+.el-input--small .el-input__icon,
+.el-input--mini .el-input__icon { line-height: var(--tap); }
 .el-progress-bar__inner { background: var(--brand); }
 .el-tabs__active-bar { background-color: var(--brand); }
 .el-tabs__item.is-active { color: var(--brand); }

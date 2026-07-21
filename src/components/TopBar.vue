@@ -17,7 +17,9 @@
         <span>Notif</span>
       </button>
 
-      <router-link to="/you" class="avatar" aria-label="Halaman kamu">{{ inisial }}</router-link>
+      <router-link to="/you" class="avatar-tap" aria-label="Halaman kamu">
+        <span class="avatar">{{ inisial }}</span>
+      </router-link>
     </div>
   </header>
 </template>
@@ -70,10 +72,20 @@ export default {
 
 .topbar-btn i { font-size: 19px; }
 
+/* area tap 44px, lingkaran visual tetap 36px */
+.avatar-tap {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  margin-left: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
 .avatar {
   width: 36px;
   height: 36px;
-  margin-left: 6px;
   border-radius: 50%;
   background: var(--brand);
   color: #fff;

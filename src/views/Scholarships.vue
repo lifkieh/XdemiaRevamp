@@ -1,10 +1,8 @@
 <template>
   <div class="screen">
     <div class="row beasiswa-head">
-      <div class="grow">
-        <h1 class="title-lg">Beasiswa</h1>
-        <p class="muted">{{ jumlahTersimpan }} tersimpan</p>
-      </div>
+      <h1 class="title-lg grow">Beasiswa</h1>
+      <span class="pill">{{ jumlahTersimpan }} tersimpan</span>
     </div>
 
     <SearchBar v-model="kueri" placeholder="Cari nama beasiswa atau negara" />
@@ -129,9 +127,10 @@ export default {
 
 <style scoped>
 .beasiswa-head { margin: 4px 2px 10px; }
-.beasiswa-head .title-lg { margin-bottom: 2px; }
 
-.filter-baris > * + * { margin-top: -2px; }
+/* tiga baris chip dirapatkan supaya kartu pertama tetap kelihatan tanpa scroll */
+.filter-baris > * + * { margin-top: -6px; }
+.filter-baris >>> .chips { padding-bottom: 6px; }
 
 .hasil-info { margin: 2px 2px 8px; }
 
