@@ -5,7 +5,7 @@
       <div class="profil-isi">
         <div class="avatar-besar">{{ profil.initial }}</div>
         <h1 class="title-lg" data-content="true">{{ profil.name }}</h1>
-        <p class="muted">{{ profil.handle }} · {{ profil.campus }}</p>
+        <p class="muted">{{ profil.handle }} · {{ profil.Institute }}</p>
         <p class="bio" data-content="true">{{ profil.bio }}</p>
 
         <div class="statistik">

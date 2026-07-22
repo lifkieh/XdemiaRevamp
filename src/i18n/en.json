@@ -69,7 +69,7 @@
     "shortcuts": "Shortcuts",
     "settings": "Settings",
     "mainNav": "Main navigation",
-    "searchPlaceholder": "Search people, communities, campuses, journals, articles"
+    "searchPlaceholder": "Search people, communities, Institute, journals, articles"
   },
   "home": {
     "composer": "What are you learning today?",
@@ -131,7 +131,7 @@
   },
   "explore": {
     "title": "Explore",
-    "searchPlaceholder": "Search people, communities, campuses, journals, articles",
+    "searchPlaceholder": "Search people, communities, Institute, journals, articles",
     "emptyTitle": "No matches",
     "emptyText": "Try another keyword or a different filter.",
     "allJournals": "All journals",
@@ -140,7 +140,7 @@
       "all": "All",
       "orang": "People",
       "komunitas": "Communities",
-      "kampus": "Campuses",
+      "kampus": "Institute",
       "organisasi": "Organisations",
       "jurnal": "Journals",
       "artikel": "Newsroom",
@@ -149,7 +149,7 @@
     "types": {
       "orang": "Person",
       "komunitas": "Community",
-      "kampus": "Campus",
+      "kampus": "Institute",
       "organisasi": "Organisation",
       "jurnal": "Journal",
       "artikel": "Article",
@@ -336,7 +336,7 @@
   },
   "journal": {
     "title": "Journals",
-    "subtitle": "Open journals from campuses and communities.",
+    "subtitle": "Open journals from Institute and communities.",
     "searchPlaceholder": "Search journal, publisher, or field",
     "count": "{n} journals",
     "emptyTitle": "No journals found",
@@ -400,7 +400,7 @@
     "emptySavedText": "Tap Save on a scholarship or course you like.",
     "menu": {
       "editProfile": "Edit profile",
-      "editProfileSub": "Name, bio, photo, and campus",
+      "editProfileSub": "Name, bio, photo, and Institute",
       "privacy": "Privacy",
       "privacySub": "Who can see your activity",
       "notifications": "Notifications",
@@ -482,8 +482,8 @@
     "displayNamePlaceholder": "Your name",
     "bio": "Short bio",
     "bioPlaceholder": "Tell people a little about you",
-    "campus": "Campus",
-    "campusPlaceholder": "Campus name",
+    "Institute": "Institute",
+    "InstitutePlaceholder": "Institute name",
     "privacy": "Privacy & permissions",
     "whoCanSee": "Who can see your profile",
     "everyone": "Everyone",
@@ -495,7 +495,7 @@
     "openMessagesSub": "When off, only followers can message you.",
     "signature": "Email signature",
     "signatureSub": "Used when you send invitations or files by email.",
-    "signaturePlaceholder": "Sign-off, name, campus",
+    "signaturePlaceholder": "Sign-off, name, Institute",
     "status": "Status",
     "online": "Online",
     "offline": "Offline",

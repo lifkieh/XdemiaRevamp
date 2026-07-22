@@ -41,8 +41,8 @@
       </div>
 
       <div class="isian">
-        <label class="label">{{ $t('settings.campus') }}</label>
-        <el-input v-model="form.kampus" :placeholder="$t('settings.campusPlaceholder')" />
+        <label class="label">{{ $t('settings.Institute') }}</label>
+        <el-input v-model="form.kampus" :placeholder="$t('settings.InstitutePlaceholder')" />
       </div>
     </div>
 
@@ -131,7 +131,7 @@ export default {
       form: {
         nama: profil.name,
         bio: profil.bio,
-        kampus: profil.campus,
+        kampus: profil.Institute,
         siapaLihat: 'semua',
         bisaDicari: true,
         pesanBebas: false,
