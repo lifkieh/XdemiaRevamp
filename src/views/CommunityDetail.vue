@@ -1,7 +1,7 @@
 <template>
   <div class="screen screen-komunitas">
     <button class="tap kembali" @click="$router.back()">
-      <i class="el-icon-arrow-left"></i><span>Kembali</span>
+      <i class="el-icon-arrow-left"></i><span>{{ $t('common.back') }}</span>
     </button>
 
     <CardSkeleton v-if="memuat" :jumlah="3" />
@@ -9,10 +9,10 @@
     <EmptyState
       v-else-if="!komunitas"
       ikon="el-icon-warning-outline"
-      judul="Komunitas nggak ketemu"
-      pesan="Mungkin sudah dihapus atau tautannya salah."
+      :judul="$t('community.notFoundTitle')"
+      :pesan="$t('community.notFoundText')"
     >
-      <el-button type="primary" @click="$router.push('/explore')">Cari komunitas lain</el-button>
+      <el-button type="primary" @click="$router.push('/explore')">{{ $t('community.notFoundAction') }}</el-button>
     </EmptyState>
 
     <template v-else>
@@ -21,7 +21,7 @@
         <div class="profil-isi">
           <div class="logo-komunitas">{{ komunitas.inisial }}</div>
           <h1 class="title-lg">{{ komunitas.nama }}</h1>
-          <p class="muted">{{ jumlahAnggota }} anggota · {{ komunitas.tipe }}</p>
+          <p class="muted">{{ $t('common.members', { n: jumlahAnggota }) }} · {{ komunitas.tipe }}</p>
 
           <div class="aksi">
             <el-button
@@ -29,44 +29,44 @@
               :type="gabung ? 'default' : 'primary'"
               @click="toggleGabung"
             >
-              {{ gabung ? 'Keluar komunitas' : 'Gabung' }}
+              {{ gabung ? $t('common.leave') : $t('common.join') }}
             </el-button>
             <el-button class="tombol-ikon" @click="belumTersedia">
-              <i class="el-icon-share"></i> Bagikan
+              <i class="el-icon-share"></i> {{ $t('common.share') }}
             </el-button>
           </div>
         </div>
       </div>
 
       <el-tabs v-model="tab" class="tab-komunitas">
-        <el-tab-pane label="Tentang" name="tentang">
+        <el-tab-pane :label="$t('community.tabs.about')" name="tentang">
           <div class="card">
-            <p class="title">Tentang komunitas</p>
+            <p class="title">{{ $t('community.aboutTitle') }}</p>
             <p class="deskripsi">{{ komunitas.deskripsi }}</p>
           </div>
 
           <div class="card">
-            <p class="title">Info</p>
+            <p class="title">{{ $t('common.info') }}</p>
             <div class="info">
-              <span class="muted">Dibuat</span>
+              <span class="muted">{{ $t('common.created') }}</span>
               <span>{{ komunitas.dibuat }}</span>
             </div>
             <div class="info">
-              <span class="muted">Tipe</span>
+              <span class="muted">{{ $t('common.type') }}</span>
               <span class="pill">{{ komunitas.tipe }}</span>
             </div>
             <div class="info">
-              <span class="muted">Anggota</span>
+              <span class="muted">{{ $t('common.membersTab') }}</span>
               <span>{{ jumlahAnggota }}</span>
             </div>
             <div class="info">
-              <span class="muted">Aturan</span>
+              <span class="muted">{{ $t('common.rules') }}</span>
               <span class="aturan">{{ komunitas.aturan }}</span>
             </div>
           </div>
         </el-tab-pane>
 
-        <el-tab-pane label="Diskusi" name="diskusi">
+        <el-tab-pane :label="$t('community.tabs.discussion')" name="diskusi">
           <div v-for="d in komunitas.diskusi" :key="d.id" class="card">
             <div class="row row-top">
               <div class="thumb thumb-round">{{ d.inisial }}</div>
@@ -78,16 +78,16 @@
             <p class="post-konten">{{ d.konten }}</p>
             <div class="card-foot">
               <button class="tap" @click="belumTersedia">
-                <i class="el-icon-star-off"></i><span>Suka {{ d.suka }}</span>
+                <i class="el-icon-star-off"></i><span>{{ $t('common.like') }} {{ d.suka }}</span>
               </button>
               <button class="tap" @click="belumTersedia">
-                <i class="el-icon-chat-line-round"></i><span>Komentar {{ d.komentar }}</span>
+                <i class="el-icon-chat-line-round"></i><span>{{ $t('common.comment') }} {{ d.komentar }}</span>
               </button>
             </div>
           </div>
         </el-tab-pane>
 
-        <el-tab-pane label="Anggota" name="anggota">
+        <el-tab-pane :label="$t('community.tabs.members')" name="anggota">
           <BaseCard
             v-for="a in komunitas.daftarAnggota"
             :key="a.id"
@@ -97,12 +97,12 @@
             bulat
           >
             <template slot="action">
-              <el-button size="small" @click="belumTersedia">Ikuti</el-button>
+              <el-button size="small" @click="belumTersedia">{{ $t('common.follow') }}</el-button>
             </template>
           </BaseCard>
         </el-tab-pane>
 
-        <el-tab-pane label="File" name="file">
+        <el-tab-pane :label="$t('community.tabs.files')" name="file">
           <BaseCard
             v-for="b in komunitas.berkas"
             :key="b.id"
@@ -111,7 +111,7 @@
             :subjudul="b.ukuran + ' · ' + b.waktu"
           >
             <template slot="action">
-              <el-button size="small" @click="belumTersedia">Unduh</el-button>
+              <el-button size="small" @click="belumTersedia">{{ $t('common.download') }}</el-button>
             </template>
           </BaseCard>
         </el-tab-pane>
@@ -162,11 +162,11 @@ export default {
     toggleGabung () {
       this.gabung = !this.gabung
       this.$message({
-        message: this.gabung ? 'Kamu gabung ke ' + this.komunitas.nama : 'Kamu keluar dari ' + this.komunitas.nama,
+        message: this.gabung ? this.$t('community.joinedToast', { name: this.komunitas.nama }) : this.$t('community.leftToast', { name: this.komunitas.nama }),
         type: this.gabung ? 'success' : 'info'
       })
     },
-    belumTersedia () { this.$message('Belum aktif di prototipe ini.') }
+    belumTersedia () { this.$message(this.$t('common.notAvailable')) }
   }
 }
 </script>

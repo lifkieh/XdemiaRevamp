@@ -1,7 +1,7 @@
 <template>
   <div class="screen">
     <button class="tap kembali" @click="$router.back()">
-      <i class="el-icon-arrow-left"></i><span>Kembali</span>
+      <i class="el-icon-arrow-left"></i><span>{{ $t('common.back') }}</span>
     </button>
 
     <CardSkeleton v-if="memuat" :jumlah="3" />
@@ -9,10 +9,10 @@
     <EmptyState
       v-else-if="!acara"
       ikon="el-icon-warning-outline"
-      judul="Acara nggak ketemu"
-      pesan="Mungkin sudah dihapus atau tautannya salah."
+      :judul="$t('event.notFoundTitle')"
+      :pesan="$t('event.notFoundText')"
     >
-      <el-button type="primary" @click="$router.push('/events')">Lihat semua acara</el-button>
+      <el-button type="primary" @click="$router.push('/events')">{{ $t('event.notFoundAction') }}</el-button>
     </EmptyState>
 
     <template v-else>
@@ -22,15 +22,15 @@
         </div>
         <div class="hero-isi">
           <h1 class="title-lg">{{ acara.judul }}</h1>
-          <p class="muted">Diselenggarakan {{ acara.penyelenggara }}</p>
+          <p class="muted">{{ $t('event.organiser', { name: acara.penyelenggara }) }}</p>
 
           <div class="pil-baris">
-            <span class="pill">{{ acara.akses }}</span>
-            <span class="pill">{{ acara.privasi }}</span>
+            <span class="pill">{{ $t('eventAccess.' + acara.akses) }}</span>
+            <span class="pill">{{ $t('eventPrivacy.' + acara.privasi) }}</span>
             <span v-if="acara.hadiah > 0" class="pill pill-warn">
-              <i class="el-icon-trophy"></i> Hadiah {{ rupiah(acara.hadiah) }}
+              <i class="el-icon-trophy"></i> {{ $t('event.prize', { amount: rupiah(acara.hadiah) }) }}
             </span>
-            <span v-if="acara.lewat" class="pill">Sudah lewat</span>
+            <span v-if="acara.lewat" class="pill">{{ $t('event.past') }}</span>
           </div>
 
           <div class="ringkas">
@@ -38,21 +38,21 @@
               <i class="el-icon-date"></i>
               <div>
                 <p class="ringkas-judul">{{ acara.tanggal }}</p>
-                <p class="muted">Mulai {{ acara.waktu }}</p>
+                <p class="muted">{{ $t('common.start') }} {{ acara.waktu }}</p>
               </div>
             </div>
             <div class="ringkas-baris">
               <i :class="acara.daring ? 'el-icon-video-camera' : 'el-icon-location-outline'"></i>
               <div>
                 <p class="ringkas-judul">{{ acara.lokasi }}</p>
-                <p class="muted">{{ acara.daring ? 'Acara daring' : 'Acara tatap muka' }}</p>
+                <p class="muted">{{ acara.daring ? $t('event.online') : $t('event.offline') }}</p>
               </div>
             </div>
             <div class="ringkas-baris">
               <i class="el-icon-user"></i>
               <div>
-                <p class="ringkas-judul">{{ acara.peserta }} orang {{ acara.lewat ? 'hadir' : 'ikut' }}</p>
-                <p class="muted">Kuota {{ acara.akses === 'Tertutup' ? 'terbatas' : 'terbuka' }}</p>
+                <p class="ringkas-judul">{{ acara.lewat ? $t('event.attended', { n: acara.peserta }) : $t('event.joining', { n: acara.peserta }) }}</p>
+                <p class="muted">{{ acara.akses === 'Tertutup' ? $t('event.quotaLimited') : $t('event.quotaOpen') }}</p>
               </div>
             </div>
           </div>
@@ -64,25 +64,25 @@
               :disabled="acara.lewat"
               @click="toggleIkut"
             >
-              {{ acara.lewat ? 'Acara sudah lewat' : (ikut ? 'Batal ikut' : 'Ikut acara') }}
+              {{ acara.lewat ? $t('event.over') : (ikut ? $t('event.cancelJoin') : $t('event.joinEvent')) }}
             </el-button>
             <el-button class="tombol-simpan" @click="toggleSimpan">
               <i :class="tersimpan ? 'el-icon-star-on' : 'el-icon-collection-tag'"></i>
-              {{ tersimpan ? 'Tersimpan' : 'Simpan' }}
+              {{ tersimpan ? $t('common.saved') : $t('common.save') }}
             </el-button>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <p class="title">Tentang acara</p>
+        <p class="title">{{ $t('event.aboutEvent') }}</p>
         <p class="paragraf">{{ acara.deskripsi }}</p>
       </div>
 
       <section class="section">
         <div class="section-head">
-          <h2 class="title">Peserta</h2>
-          <span class="muted">{{ acara.daftarPeserta.length }} ditampilkan</span>
+          <h2 class="title">{{ $t('event.participants') }}</h2>
+          <span class="muted">{{ $t('event.shown', { n: acara.daftarPeserta.length }) }}</span>
         </div>
         <BaseCard
           v-for="p in acara.daftarPeserta"
@@ -132,7 +132,7 @@ export default {
     toggleIkut () {
       this.ikut = !this.ikut
       this.$message({
-        message: this.ikut ? 'Kamu ikut: ' + this.acara.judul : 'Batal ikut acara',
+        message: this.ikut ? this.$t('event.joinedToast', { name: this.acara.judul }) : this.$t('event.cancelledToast', { name: this.acara.judul }),
         type: this.ikut ? 'success' : 'info'
       })
     },

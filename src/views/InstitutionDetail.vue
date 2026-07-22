@@ -1,7 +1,7 @@
 <template>
   <div class="screen">
     <button class="tap kembali" @click="$router.back()">
-      <i class="el-icon-arrow-left"></i><span>Kembali</span>
+      <i class="el-icon-arrow-left"></i><span>{{ $t('common.back') }}</span>
     </button>
 
     <CardSkeleton v-if="memuat" :jumlah="3" />
@@ -9,10 +9,10 @@
     <EmptyState
       v-else-if="!lembaga"
       ikon="el-icon-warning-outline"
-      judul="Halaman nggak ketemu"
-      pesan="Mungkin sudah dihapus atau tautannya salah."
+      :judul="$t('institution.notFoundTitle')"
+      :pesan="$t('institution.notFoundText')"
     >
-      <el-button type="primary" @click="$router.push('/explore')">Jelajah lainnya</el-button>
+      <el-button type="primary" @click="$router.push('/explore')">{{ $t('institution.notFoundAction') }}</el-button>
     </EmptyState>
 
     <template v-else>
@@ -24,8 +24,8 @@
           <p class="muted">{{ lembaga.tipe }} · {{ lembaga.kota }}, {{ lembaga.negara }}</p>
 
           <div class="pil-baris">
-            <span class="pill">{{ pengikut }} pengikut</span>
-            <span v-if="lembaga.prodi > 0" class="pill">{{ lembaga.prodi }} program studi</span>
+            <span class="pill">{{ $t('common.followers', { n: pengikut }) }}</span>
+            <span v-if="lembaga.prodi > 0" class="pill">{{ $t('institution.programmes', { n: lembaga.prodi }) }}</span>
           </div>
 
           <div class="aksi">
@@ -34,33 +34,33 @@
               :type="mengikuti ? 'default' : 'primary'"
               @click="toggleIkuti"
             >
-              {{ mengikuti ? 'Berhenti mengikuti' : 'Ikuti' }}
+              {{ mengikuti ? $t('common.unfollow') : $t('common.follow') }}
             </el-button>
             <el-button class="tombol-ikon" @click="belumTersedia">
-              <i class="el-icon-share"></i> Bagikan
+              <i class="el-icon-share"></i> {{ $t('common.share') }}
             </el-button>
           </div>
         </div>
       </div>
 
       <el-tabs v-model="tab" class="tab-lembaga">
-        <el-tab-pane label="Tentang" name="tentang">
+        <el-tab-pane :label="$t('institution.tabs.about')" name="tentang">
           <div class="card">
-            <p class="title">Tentang</p>
+            <p class="title">{{ $t('common.about') }}</p>
             <p class="paragraf">{{ lembaga.deskripsi }}</p>
           </div>
           <div class="card">
-            <p class="title">Info</p>
-            <div class="info"><span class="muted">Tipe</span><span>{{ lembaga.tipe }}</span></div>
-            <div class="info"><span class="muted">Lokasi</span><span>{{ lembaga.kota }}, {{ lembaga.negara }}</span></div>
-            <div class="info"><span class="muted">Pengikut</span><span>{{ pengikut }}</span></div>
+            <p class="title">{{ $t('common.info') }}</p>
+            <div class="info"><span class="muted">{{ $t('common.type') }}</span><span>{{ lembaga.tipe }}</span></div>
+            <div class="info"><span class="muted">{{ $t('common.location') }}</span><span>{{ lembaga.kota }}, {{ lembaga.negara }}</span></div>
+            <div class="info"><span class="muted">{{ $t('you.stats.followers') }}</span><span>{{ pengikut }}</span></div>
             <div v-if="lembaga.prodi > 0" class="info">
-              <span class="muted">Program studi</span><span>{{ lembaga.prodi }}</span>
+              <span class="muted">{{ $t('institution.programmesLabel') }}</span><span>{{ lembaga.prodi }}</span>
             </div>
           </div>
         </el-tab-pane>
 
-        <el-tab-pane label="Anggota" name="anggota">
+        <el-tab-pane :label="$t('institution.tabs.members')" name="anggota">
           <BaseCard
             v-for="a in lembaga.anggota"
             :key="a.id"
@@ -70,7 +70,7 @@
             bulat
           >
             <template slot="action">
-              <el-button size="small" @click="belumTersedia">Ikuti</el-button>
+              <el-button size="small" @click="belumTersedia">{{ $t('common.follow') }}</el-button>
             </template>
           </BaseCard>
         </el-tab-pane>
@@ -113,11 +113,11 @@ export default {
     toggleIkuti () {
       this.mengikuti = !this.mengikuti
       this.$message({
-        message: this.mengikuti ? 'Mengikuti ' + this.lembaga.nama : 'Berhenti mengikuti',
+        message: this.mengikuti ? this.$t('explore.nowFollowing', { name: this.lembaga.nama }) : this.$t('common.unfollow'),
         type: this.mengikuti ? 'success' : 'info'
       })
     },
-    belumTersedia () { this.$message('Belum aktif di prototipe ini.') }
+    belumTersedia () { this.$message(this.$t('common.notAvailable')) }
   }
 }
 </script>

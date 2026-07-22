@@ -1,7 +1,7 @@
 <template>
   <div class="screen">
     <button class="tap kembali" @click="$router.back()">
-      <i class="el-icon-arrow-left"></i><span>Kembali</span>
+      <i class="el-icon-arrow-left"></i><span>{{ $t('common.back') }}</span>
     </button>
 
     <CardSkeleton v-if="memuat" :jumlah="3" />
@@ -9,10 +9,10 @@
     <EmptyState
       v-else-if="!jurnal"
       ikon="el-icon-warning-outline"
-      judul="Jurnal nggak ketemu"
-      pesan="Mungkin sudah dihapus atau tautannya salah."
+      :judul="$t('journal.notFoundTitle')"
+      :pesan="$t('journal.notFoundText')"
     >
-      <el-button type="primary" @click="$router.push('/jurnal')">Lihat semua jurnal</el-button>
+      <el-button type="primary" @click="$router.push('/jurnal')">{{ $t('journal.notFoundAction') }}</el-button>
     </EmptyState>
 
     <template v-else>
@@ -27,10 +27,10 @@
 
         <p class="paragraf">{{ jurnal.deskripsi }}</p>
 
-        <div class="info"><span class="muted">ISSN</span><span>{{ jurnal.issn }}</span></div>
-        <div class="info"><span class="muted">Bidang</span><span class="pill">{{ jurnal.bidang }}</span></div>
-        <div class="info"><span class="muted">Jadwal terbit</span><span>{{ jurnal.terbit }}</span></div>
-        <div class="info"><span class="muted">Jumlah tulisan</span><span>{{ jurnal.jumlahTulisan }}</span></div>
+        <div class="info"><span class="muted">{{ $t('journal.issn') }}</span><span>{{ jurnal.issn }}</span></div>
+        <div class="info"><span class="muted">{{ $t('journal.table.field') }}</span><span class="pill">{{ jurnal.bidang }}</span></div>
+        <div class="info"><span class="muted">{{ $t('journal.schedule') }}</span><span>{{ jurnal.terbit }}</span></div>
+        <div class="info"><span class="muted">{{ $t('journal.articleCount') }}</span><span>{{ jurnal.jumlahTulisan }}</span></div>
 
         <div class="aksi">
           <el-button
@@ -38,30 +38,30 @@
             :type="mengikuti ? 'default' : 'primary'"
             @click="toggleIkuti"
           >
-            {{ mengikuti ? 'Berhenti mengikuti' : 'Ikuti jurnal' }}
+            {{ mengikuti ? $t('common.unfollow') : $t('journal.followJournal') }}
           </el-button>
         </div>
       </div>
 
       <section class="section">
         <div class="section-head">
-          <h2 class="title">Daftar tulisan</h2>
-          <span class="muted">{{ jurnal.tulisan.length }} terbaru</span>
+          <h2 class="title">{{ $t('journal.articleList') }}</h2>
+          <span class="muted">{{ $t('journal.latest', { n: jurnal.tulisan.length }) }}</span>
         </div>
 
         <div class="card tabel-bungkus">
           <el-table :data="jurnal.tulisan" style="width: 100%">
-            <el-table-column prop="judul" label="Judul" sortable min-width="200">
+            <el-table-column prop="judul" :label="$t('journal.table.title')" sortable min-width="200">
               <template slot-scope="baris">
                 <span class="judul-tulisan">{{ baris.row.judul }}</span>
               </template>
             </el-table-column>
-            <el-table-column prop="deskripsi" label="Deskripsi" min-width="180">
+            <el-table-column prop="deskripsi" :label="$t('journal.table.description')" min-width="180">
               <template slot-scope="baris">
                 <span class="muted">{{ baris.row.deskripsi }}</span>
               </template>
             </el-table-column>
-            <el-table-column prop="terbit" label="Terbit" sortable width="130" />
+            <el-table-column prop="terbit" :label="$t('journal.table.published')" sortable width="130" />
           </el-table>
         </div>
       </section>
@@ -97,7 +97,7 @@ export default {
     toggleIkuti () {
       this.mengikuti = !this.mengikuti
       this.$message({
-        message: this.mengikuti ? 'Mengikuti ' + this.jurnal.nama : 'Berhenti mengikuti',
+        message: this.mengikuti ? this.$t('explore.nowFollowing', { name: this.jurnal.nama }) : this.$t('common.unfollow'),
         type: this.mengikuti ? 'success' : 'info'
       })
     }

@@ -4,24 +4,24 @@
       <header class="drawer-head">
         <button class="tap" @click="kembali">
           <i class="el-icon-arrow-left"></i>
-          <span>{{ aktif ? 'Daftar' : 'Tutup' }}</span>
+          <span>{{ aktif ? $t('chat.list') : $t('common.close') }}</span>
         </button>
-        <p class="title grow drawer-judul">{{ aktif ? aktif.nama : 'Chat' }}</p>
+        <p class="title grow drawer-judul">{{ aktif ? aktif.nama : $t('chat.title') }}</p>
         <button v-if="!aktif" class="tap tombol-baru" @click="komposerTerbuka = true">
-          <i class="el-icon-edit"></i><span>Baru</span>
+          <i class="el-icon-edit"></i><span>{{ $t('chat.new') }}</span>
         </button>
       </header>
 
       <!-- Daftar percakapan -->
       <template v-if="!aktif">
-        <FilterChips v-model="tab" :opsi="opsiTab" class="tab-chat" />
+        <FilterChips :value="labelTab" :opsi="opsiTab" class="tab-chat" @input="pilihTab" />
 
         <div class="daftar">
           <EmptyState
             v-if="daftar.length === 0"
             ikon="el-icon-chat-dot-round"
-            judul="Belum ada percakapan"
-            pesan="Mulai chat baru lewat tombol di kanan atas."
+            :judul="$t('chat.emptyTitle')"
+            :pesan="$t('chat.emptyText')"
           />
 
           <button
@@ -61,7 +61,7 @@
         </div>
 
         <form class="kirim" @submit.prevent="kirim">
-          <el-input v-model="draf" placeholder="Tulis pesan..." />
+          <el-input v-model="draf" :placeholder="$t('chat.messagePlaceholder')" />
           <el-button type="primary" native-type="submit" class="tombol-kirim">
             <i class="el-icon-position"></i>
           </el-button>
@@ -72,13 +72,13 @@
       <div v-if="komposerTerbuka" class="komposer">
         <header class="drawer-head">
           <button class="tap" @click="komposerTerbuka = false">
-            <i class="el-icon-arrow-left"></i><span>Batal</span>
+            <i class="el-icon-arrow-left"></i><span>{{ $t('common.cancel') }}</span>
           </button>
-          <p class="title grow drawer-judul">Chat baru</p>
+          <p class="title grow drawer-judul">{{ $t('chat.newTitle') }}</p>
         </header>
 
         <div class="daftar">
-          <p class="muted petunjuk">Pilih orang yang mau kamu ajak ngobrol.</p>
+          <p class="muted petunjuk">{{ $t('chat.pickRecipient') }}</p>
           <button
             v-for="o in penerima"
             :key="o.id"
@@ -116,15 +116,21 @@ export default {
       chats: chatsData.map((c) => ({ ...c, pesan: c.pesan.slice() })),
       aktif: null,
       draf: '',
-      tab: 'Semua',
-      opsiTab: ['Semua', 'Pribadi', 'Grup'],
+      tab: 'all',
+      idTab: ['all', 'direct', 'group'],
       komposerTerbuka: false
     }
   },
   computed: {
+    opsiTab () {
+      return this.idTab.map((id) => this.$t('chat.filters.' + id))
+    },
+    labelTab () {
+      return this.$t('chat.filters.' + this.tab)
+    },
     daftar () {
-      if (this.tab === 'Pribadi') return this.chats.filter((c) => c.tipe === 'pribadi')
-      if (this.tab === 'Grup') return this.chats.filter((c) => c.tipe === 'grup')
+      if (this.tab === 'direct') return this.chats.filter((c) => c.tipe === 'pribadi')
+      if (this.tab === 'group') return this.chats.filter((c) => c.tipe === 'grup')
       return this.chats
     },
     penerima () {
@@ -133,6 +139,10 @@ export default {
     }
   },
   methods: {
+    pilihTab (label) {
+      const i = this.opsiTab.indexOf(label)
+      if (i !== -1) this.tab = this.idTab[i]
+    },
     kembali () {
       if (this.aktif) this.aktif = null
       else this.$emit('tutup')
@@ -143,8 +153,8 @@ export default {
         nama: o.nama,
         inisial: o.inisial,
         tipe: 'pribadi',
-        cuplikan: 'Percakapan baru',
-        waktu: 'Baru saja',
+        cuplikan: this.$t('chat.newConversation'),
+        waktu: this.$t('chat.justNow'),
         belumDibaca: 0,
         pesan: []
       }
@@ -159,7 +169,7 @@ export default {
         id: 'p-' + (this.aktif.pesan.length + 1),
         dari: 'saya',
         teks,
-        waktu: 'Baru saja'
+        waktu: this.$t('chat.justNow')
       })
       this.aktif.cuplikan = teks
       this.draf = ''

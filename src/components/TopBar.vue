@@ -1,13 +1,13 @@
 <template>
   <header class="topbar" :class="{ 'topbar-desktop': isDesktop }">
     <div class="topbar-inner">
-      <router-link v-if="!isDesktop" to="/" class="logo" aria-label="Beranda Xdemia">xδ</router-link>
+      <router-link v-if="!isDesktop" to="/" class="logo" :aria-label="$t('nav.home')">xδ</router-link>
 
       <!-- desktop: search jadi pintu utama, langsung di top bar -->
       <div v-if="isDesktop" class="cari grow">
         <el-input
           v-model="kueri"
-          placeholder="Cari orang, komunitas, kampus, jurnal, artikel"
+          :placeholder="$t('nav.searchPlaceholder')"
           prefix-icon="el-icon-search"
           clearable
           @keyup.enter.native="cari"
@@ -20,22 +20,22 @@
         <el-badge :value="jumlahKeranjang" :hidden="jumlahKeranjang === 0">
           <i class="el-icon-shopping-cart-2"></i>
         </el-badge>
-        <span>Keranjang</span>
+        <span>{{ $t('nav.cart') }}</span>
       </router-link>
 
       <button class="tap topbar-btn btn-chat" @click="$emit('buka-chat')">
         <i class="el-icon-chat-dot-round"></i>
-        <span>Chat</span>
+        <span>{{ $t('nav.chat') }}</span>
       </button>
 
       <button class="tap topbar-btn btn-notif" @click="$emit('buka-notif')">
         <el-badge :value="notifBelumDibaca" :hidden="notifBelumDibaca === 0">
           <i class="el-icon-bell"></i>
         </el-badge>
-        <span>Notif</span>
+        <span>{{ $t('nav.notifications') }}</span>
       </button>
 
-      <router-link to="/you" class="avatar-tap" aria-label="Halaman kamu">
+      <router-link to="/you" class="avatar-tap" :aria-label="$t('nav.you')">
         <span class="avatar">{{ inisial }}</span>
       </router-link>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="screen">
     <button class="tap kembali" @click="$router.back()">
-      <i class="el-icon-arrow-left"></i><span>Kembali</span>
+      <i class="el-icon-arrow-left"></i><span>{{ $t('common.back') }}</span>
     </button>
 
     <CardSkeleton v-if="memuat" :jumlah="3" />
@@ -9,10 +9,10 @@
     <EmptyState
       v-else-if="!beasiswa"
       ikon="el-icon-warning-outline"
-      judul="Beasiswa nggak ketemu"
-      pesan="Mungkin sudah ditutup atau tautannya salah."
+      :judul="$t('scholarship.notFoundTitle')"
+      :pesan="$t('scholarship.notFoundText')"
     >
-      <el-button type="primary" @click="$router.push('/scholarships')">Lihat semua beasiswa</el-button>
+      <el-button type="primary" @click="$router.push('/scholarships')">{{ $t('scholarship.notFoundAction') }}</el-button>
     </EmptyState>
 
     <template v-else>
@@ -26,39 +26,39 @@
           <div class="pil-baris">
             <span class="pill">{{ beasiswa.jenjang }}</span>
             <span class="pill">{{ beasiswa.negara }}</span>
-            <span class="pill" :class="{ 'pill-warn': beasiswa.sisaHari <= 7 }">tutup {{ beasiswa.sisaHari }} hari lagi</span>
+            <span class="pill" :class="{ 'pill-warn': beasiswa.sisaHari <= 7 }">{{ $t('common.daysLeft', { n: beasiswa.sisaHari }) }}</span>
           </div>
 
           <div class="aksi">
             <el-button type="primary" class="tombol-utama" @click="kunjungi">
-              <i class="el-icon-link"></i> Kunjungi situs beasiswa
+              <i class="el-icon-link"></i> {{ $t('scholarship.visitSite') }}
             </el-button>
             <el-button class="tombol-simpan" @click="toggleSimpan">
               <i :class="tersimpan ? 'el-icon-star-on' : 'el-icon-collection-tag'"></i>
-              {{ tersimpan ? 'Tersimpan' : 'Simpan' }}
+              {{ tersimpan ? $t('common.saved') : $t('common.save') }}
             </el-button>
           </div>
         </div>
       </div>
 
       <div class="card">
-        <p class="title">Tentang beasiswa ini</p>
+        <p class="title">{{ $t('scholarship.about') }}</p>
         <p class="paragraf">{{ beasiswa.tentang }}</p>
         <div class="info">
-          <span class="muted">Cakupan</span>
+          <span class="muted">{{ $t('scholarship.coverage') }}</span>
           <span>{{ beasiswa.cakupan }}</span>
         </div>
       </div>
 
       <div class="card">
-        <p class="title">Syarat</p>
+        <p class="title">{{ $t('scholarship.requirements') }}</p>
         <ul class="daftar-titik">
           <li v-for="(s, i) in beasiswa.syarat" :key="'sy-' + i">{{ s }}</li>
         </ul>
       </div>
 
       <div class="card">
-        <p class="title">Yang kamu dapat</p>
+        <p class="title">{{ $t('scholarship.benefits') }}</p>
         <ul class="daftar-centang">
           <li v-for="(b, i) in beasiswa.benefit" :key="'bn-' + i">
             <i class="el-icon-check"></i><span>{{ b }}</span>
@@ -67,7 +67,7 @@
       </div>
 
       <div class="card">
-        <p class="title">Cara daftar</p>
+        <p class="title">{{ $t('scholarship.howToApply') }}</p>
         <ol class="daftar-langkah">
           <li v-for="(c, i) in beasiswa.caraDaftar" :key="'cd-' + i">
             <span class="nomor">{{ i + 1 }}</span>
@@ -78,8 +78,8 @@
 
       <section class="section">
         <div class="section-head">
-          <h2 class="title">Beasiswa lain yang cocok</h2>
-          <router-link to="/scholarships" class="muted">Lihat semua</router-link>
+          <h2 class="title">{{ $t('scholarship.similar') }}</h2>
+          <router-link to="/scholarships" class="muted">{{ $t('common.seeAll') }}</router-link>
         </div>
         <BaseCard
           v-for="b in mirip"
@@ -93,7 +93,7 @@
           <template slot="meta">
             <span class="pill">{{ b.jenjang }}</span>
             <span class="pill">{{ b.negara }}</span>
-            <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">tutup {{ b.sisaHari }} hari lagi</span>
+            <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">{{ $t('common.daysLeft', { n: b.sisaHari }) }}</span>
           </template>
         </BaseCard>
       </section>
@@ -141,12 +141,12 @@ export default {
     toggleSimpan () {
       this.$store.dispatch('bookmarks/toggleBeasiswa', this.beasiswa.id)
       this.$message({
-        message: this.tersimpan ? 'Disimpan: ' + this.beasiswa.nama : 'Dihapus dari tersimpan',
+        message: this.tersimpan ? this.$t('scholarship.savedToast', { name: this.beasiswa.nama }) : this.$t('scholarship.removedToast'),
         type: this.tersimpan ? 'success' : 'info'
       })
     },
     kunjungi () {
-      this.$message('Situs contoh: ' + this.beasiswa.situs + ' (prototipe, tautan tidak dibuka)')
+      this.$message(this.$t('scholarship.siteNote', { site: this.beasiswa.situs }))
     }
   }
 }

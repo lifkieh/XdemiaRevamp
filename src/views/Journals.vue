@@ -2,24 +2,24 @@
   <div class="screen">
     <div class="row jurnal-head">
       <div class="grow">
-        <h1 class="title-lg">Jurnal</h1>
-        <p class="muted">Kumpulan jurnal terbuka dari kampus dan komunitas.</p>
+        <h1 class="title-lg">{{ $t('journal.title') }}</h1>
+        <p class="muted">{{ $t('journal.subtitle') }}</p>
       </div>
     </div>
 
-    <SearchBar v-model="kueri" placeholder="Cari nama jurnal, penerbit, atau bidang" />
+    <SearchBar v-model="kueri" :placeholder="$t('journal.searchPlaceholder')" />
 
     <CardSkeleton v-if="memuat" :jumlah="4" />
 
     <EmptyState
       v-else-if="hasil.length === 0"
       ikon="el-icon-notebook-2"
-      judul="Jurnal nggak ketemu"
-      pesan="Coba kata kunci lain."
+      :judul="$t('journal.emptyTitle')"
+      :pesan="$t('journal.emptyText')"
     />
 
     <template v-else>
-      <p class="muted hasil-info">{{ hasil.length }} jurnal</p>
+      <p class="muted hasil-info">{{ $t('journal.count', { n: hasil.length }) }}</p>
 
       <div class="card tabel-bungkus">
         <el-table
@@ -28,19 +28,19 @@
           :default-sort="{ prop: 'jumlahTulisan', order: 'descending' }"
           @row-click="buka"
         >
-          <el-table-column prop="nama" label="Nama jurnal" sortable min-width="180">
+          <el-table-column prop="nama" :label="$t('journal.table.name')" sortable min-width="180">
             <template slot-scope="baris">
               <span class="nama-jurnal">{{ baris.row.nama }}</span>
               <p class="muted sub">{{ baris.row.penerbit }}</p>
             </template>
           </el-table-column>
-          <el-table-column prop="bidang" label="Bidang" sortable width="130" />
-          <el-table-column prop="jumlahTulisan" label="Tulisan" sortable width="110" align="right" />
-          <el-table-column prop="terbit" label="Terbit" sortable width="150" />
+          <el-table-column prop="bidang" :label="$t('journal.table.field')" sortable width="130" />
+          <el-table-column prop="jumlahTulisan" :label="$t('journal.table.articles')" sortable width="110" align="right" />
+          <el-table-column prop="terbit" :label="$t('journal.table.published')" sortable width="150" />
         </el-table>
       </div>
 
-      <p class="muted petunjuk">Klik salah satu baris untuk melihat daftar tulisannya.</p>
+      <p class="muted petunjuk">{{ $t('journal.rowHint') }}</p>
     </template>
   </div>
 </template>

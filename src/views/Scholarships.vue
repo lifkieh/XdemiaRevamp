@@ -1,16 +1,16 @@
 <template>
   <div class="screen">
     <div class="row beasiswa-head">
-      <h1 class="title-lg grow">Beasiswa</h1>
-      <span class="pill">{{ jumlahTersimpan }} tersimpan</span>
+      <h1 class="title-lg grow">{{ $t('scholarship.title') }}</h1>
+      <span class="pill">{{ $t('scholarship.savedCount', { n: jumlahTersimpan }) }}</span>
     </div>
 
-    <SearchBar v-model="kueri" placeholder="Cari nama beasiswa atau negara" />
+    <SearchBar v-model="kueri" :placeholder="$t('scholarship.searchPlaceholder')" />
 
     <div class="filter-baris">
-      <FilterChips v-model="jenjang" :opsi="opsiJenjang" />
-      <FilterChips v-model="negara" :opsi="opsiNegara" />
-      <FilterChips v-model="urutan" :opsi="opsiUrutan" />
+      <FilterChips :value="labelJenjang" :opsi="opsiJenjang" @input="pilihJenjang" />
+      <FilterChips :value="labelNegara" :opsi="opsiNegara" @input="pilihNegara" />
+      <FilterChips :value="labelUrutan" :opsi="opsiUrutan" @input="pilihUrutan" />
     </div>
 
     <CardSkeleton v-if="memuat" :jumlah="5" />
@@ -18,14 +18,14 @@
     <EmptyState
       v-else-if="hasil.length === 0"
       ikon="el-icon-medal"
-      judul="Belum ada beasiswa yang cocok"
-      pesan="Coba longgarkan filternya, mungkin ada yang kelewat."
+      :judul="$t('scholarship.emptyTitle')"
+      :pesan="$t('scholarship.emptyText')"
     >
-      <el-button type="primary" @click="resetFilter">Reset filter</el-button>
+      <el-button type="primary" @click="resetFilter">{{ $t('scholarship.resetFilter') }}</el-button>
     </EmptyState>
 
     <template v-else>
-      <p class="muted hasil-info">{{ hasil.length }} beasiswa</p>
+      <p class="muted hasil-info">{{ $t('scholarship.count', { n: hasil.length }) }}</p>
 
       <BaseCard
         v-for="b in hasil"
@@ -39,7 +39,7 @@
         <template slot="meta">
           <span class="pill">{{ b.jenjang }}</span>
           <span class="pill">{{ b.negara }}</span>
-          <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">tutup {{ b.sisaHari }} hari lagi</span>
+          <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">{{ $t('common.daysLeft', { n: b.sisaHari }) }}</span>
         </template>
         <template slot="action">
           <button
@@ -48,7 +48,7 @@
             @click.stop="toggleSimpan(b)"
           >
             <i :class="tersimpan(b.id) ? 'el-icon-star-on' : 'el-icon-collection-tag'"></i>
-            <span>{{ tersimpan(b.id) ? 'Tersimpan' : 'Simpan' }}</span>
+            <span>{{ tersimpan(b.id) ? $t('common.saved') : $t('common.save') }}</span>
           </button>
         </template>
       </BaseCard>
@@ -72,28 +72,34 @@ export default {
       memuat: true,
       data: [],
       kueri: '',
-      jenjang: 'Semua jenjang',
-      negara: 'Semua negara',
-      urutan: 'Paling relevan',
-      opsiJenjang: ['Semua jenjang', 'S1', 'S2', 'S3'],
-      opsiNegara: ['Semua negara', 'Indonesia', 'Inggris', 'Australia', 'Jepang', 'Jerman', 'Amerika Serikat', 'Korea Selatan', 'Singapura'],
-      opsiUrutan: ['Paling relevan', 'Deadline terdekat']
+      jenjang: 'all',
+      negara: 'all',
+      urutan: 'relevan',
+      idJenjang: ['all', 'S1', 'S2', 'S3'],
+      idNegara: ['all', 'Indonesia', 'Inggris', 'Australia', 'Jepang', 'Jerman', 'Amerika Serikat', 'Korea Selatan', 'Singapura'],
+      idUrutan: ['relevan', 'deadline']
     }
   },
   computed: {
     jumlahTersimpan () { return this.$store.state.bookmarks.beasiswa.length },
+    opsiJenjang () { return this.idJenjang.map((id) => (id === 'all' ? this.$t('scholarship.levelAll') : id)) },
+    labelJenjang () { return this.jenjang === 'all' ? this.$t('scholarship.levelAll') : this.jenjang },
+    opsiNegara () { return this.idNegara.map((id) => (id === 'all' ? this.$t('scholarship.countryAll') : id)) },
+    labelNegara () { return this.negara === 'all' ? this.$t('scholarship.countryAll') : this.negara },
+    opsiUrutan () { return [this.$t('scholarship.sortRelevant'), this.$t('scholarship.sortDeadline')] },
+    labelUrutan () { return this.urutan === 'deadline' ? this.$t('scholarship.sortDeadline') : this.$t('scholarship.sortRelevant') },
     hasil () {
       const q = this.kueri.trim().toLowerCase()
       let list = this.data.filter((b) => {
-        const cocokJenjang = this.jenjang === 'Semua jenjang' || b.jenjang === this.jenjang
-        const cocokNegara = this.negara === 'Semua negara' || b.negara === this.negara
+        const cocokJenjang = this.jenjang === 'all' || b.jenjang === this.jenjang
+        const cocokNegara = this.negara === 'all' || b.negara === this.negara
         const cocokKueri = !q ||
           b.nama.toLowerCase().indexOf(q) !== -1 ||
           b.negara.toLowerCase().indexOf(q) !== -1 ||
           b.penyelenggara.toLowerCase().indexOf(q) !== -1
         return cocokJenjang && cocokNegara && cocokKueri
       })
-      if (this.urutan === 'Deadline terdekat') {
+      if (this.urutan === 'deadline') {
         list = list.slice().sort((a, b) => a.sisaHari - b.sisaHari)
       }
       return list
@@ -109,19 +115,31 @@ export default {
     clearTimeout(this.timer)
   },
   methods: {
+    pilihJenjang (label) {
+      const i = this.opsiJenjang.indexOf(label)
+      if (i !== -1) this.jenjang = this.idJenjang[i]
+    },
+    pilihNegara (label) {
+      const i = this.opsiNegara.indexOf(label)
+      if (i !== -1) this.negara = this.idNegara[i]
+    },
+    pilihUrutan (label) {
+      const i = this.opsiUrutan.indexOf(label)
+      if (i !== -1) this.urutan = this.idUrutan[i]
+    },
     tersimpan (id) { return this.$store.getters['bookmarks/isBeasiswaTersimpan'](id) },
     toggleSimpan (b) {
       this.$store.dispatch('bookmarks/toggleBeasiswa', b.id)
       this.$message({
-        message: this.tersimpan(b.id) ? 'Disimpan: ' + b.nama : 'Dihapus dari tersimpan',
+        message: this.tersimpan(b.id) ? this.$t('scholarship.savedToast', { name: b.nama }) : this.$t('scholarship.removedToast'),
         type: this.tersimpan(b.id) ? 'success' : 'info'
       })
     },
     resetFilter () {
       this.kueri = ''
-      this.jenjang = 'Semua jenjang'
-      this.negara = 'Semua negara'
-      this.urutan = 'Paling relevan'
+      this.jenjang = 'all'
+      this.negara = 'all'
+      this.urutan = 'relevan'
     }
   }
 }

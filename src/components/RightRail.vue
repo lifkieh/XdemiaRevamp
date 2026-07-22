@@ -1,13 +1,13 @@
 <template>
-  <aside class="rail" aria-label="Info tambahan">
+  <aside class="rail" :aria-label="$t('rail.aria')">
     <div class="rail-isi">
       <!-- Streak: selalu tampil -->
       <div class="card widget">
         <div class="row">
           <div class="thumb widget-ikon"><i class="el-icon-trophy"></i></div>
           <div class="grow">
-            <p class="title">Streak kamu {{ streak }} hari</p>
-            <p class="muted">Belajar 10 menit hari ini biar nggak putus.</p>
+            <p class="title">{{ $t('rail.streak', { n: streak }) }}</p>
+            <p class="muted">{{ $t('rail.streakText') }}</p>
           </div>
         </div>
         <el-progress :percentage="persenStreak" :stroke-width="6" :show-text="false" class="bar" />
@@ -15,7 +15,7 @@
 
       <!-- Materi: muncul di Belajar -->
       <div v-if="tampilkan.materi" class="card widget">
-        <p class="title widget-judul">Lanjutkan belajar</p>
+        <p class="title widget-judul">{{ $t('rail.continueLearning') }}</p>
         <router-link
           v-for="m in materiLanjut"
           :key="m.id"
@@ -25,14 +25,14 @@
           <div class="thumb thumb-mini">{{ m.judul.charAt(0) }}</div>
           <div class="grow">
             <p class="baris-judul">{{ m.judul }}</p>
-            <p class="muted">{{ m.progress }}% selesai</p>
+            <p class="muted">{{ $t('common.percentDone', { n: m.progress }) }}</p>
           </div>
         </router-link>
       </div>
 
       <!-- Deadline beasiswa -->
       <div v-if="tampilkan.beasiswa" class="card widget">
-        <p class="title widget-judul">Deadline terdekat</p>
+        <p class="title widget-judul">{{ $t('rail.deadlines') }}</p>
         <router-link
           v-for="b in beasiswaDekat"
           :key="b.id"
@@ -42,14 +42,14 @@
           <div class="thumb thumb-mini">{{ b.inisial }}</div>
           <div class="grow">
             <p class="baris-judul">{{ b.nama }}</p>
-            <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">tutup {{ b.sisaHari }} hari lagi</span>
+            <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">{{ $t('common.daysLeft', { n: b.sisaHari }) }}</span>
           </div>
         </router-link>
       </div>
 
       <!-- Acara terdekat -->
       <div v-if="tampilkan.acara" class="card widget">
-        <p class="title widget-judul">Acara terdekat</p>
+        <p class="title widget-judul">{{ $t('rail.events') }}</p>
         <router-link
           v-for="e in acaraDekat"
           :key="e.id"
@@ -66,18 +66,18 @@
 
       <!-- Saran koneksi: selalu tampil -->
       <div class="card widget">
-        <p class="title widget-judul">Kenalan yuk</p>
+        <p class="title widget-judul">{{ $t('rail.people') }}</p>
         <div v-for="o in saranOrang" :key="o.id" class="baris">
           <div class="thumb thumb-mini thumb-round">{{ o.inisial }}</div>
           <div class="grow">
             <p class="baris-judul">{{ o.nama }}</p>
             <p class="muted">{{ o.info }}</p>
           </div>
-          <el-button size="mini" type="primary" @click="ikuti(o)">Ikuti</el-button>
+          <el-button size="mini" type="primary" @click="ikuti(o)">{{ $t('common.follow') }}</el-button>
         </div>
       </div>
 
-      <p class="muted catatan">Prototipe Xdemia · data contoh</p>
+      <p class="muted catatan">{{ $t('common.prototypeNote') }}</p>
     </div>
   </aside>
 </template>
@@ -117,7 +117,7 @@ export default {
   },
   methods: {
     ikuti (o) {
-      this.$message({ message: 'Mengikuti ' + o.nama, type: 'success' })
+      this.$message({ message: this.$t('explore.nowFollowing', { name: o.nama }), type: 'success' })
     }
   }
 }

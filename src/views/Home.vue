@@ -5,7 +5,7 @@
       <div class="row">
         <div class="thumb thumb-round composer-avatar">{{ inisial }}</div>
         <button class="composer-input grow" @click="tulisPostingan">
-          Apa yang kamu pelajari hari ini?
+          {{ $t('home.composer') }}
         </button>
       </div>
     </div>
@@ -28,7 +28,7 @@
       </div>
 
       <div v-else class="pilih-baris">
-        <label for="filter-feed" class="pilih-label">Tampilkan</label>
+        <label for="filter-feed" class="pilih-label">{{ $t('home.show') }}</label>
         <el-select id="filter-feed" v-model="filterAktif" class="pilih">
           <el-option
             v-for="k in kategori"
@@ -45,19 +45,19 @@
     <EmptyState
       v-else-if="feedAman.length === 0"
       ikon="el-icon-chat-line-square"
-      judul="Feed kamu masih kosong"
-      pesan="Ikuti orang atau komunitas dulu biar ada yang muncul di sini."
+      :judul="$t('home.emptyTitle')"
+      :pesan="$t('home.emptyText')"
     >
-      <el-button type="primary" @click="$router.push('/explore')">Cari yang seru</el-button>
+      <el-button type="primary" @click="$router.push('/explore')">{{ $t('home.emptyAction') }}</el-button>
     </EmptyState>
 
     <EmptyState
       v-else-if="feedTampil.length === 0"
       ikon="el-icon-files"
-      judul="Kosong dulu di sini"
-      :pesan="'Belum ada ' + labelAktif.toLowerCase() + ' di berandamu.'"
+      :judul="$t('home.filterEmptyTitle')"
+      :pesan="$t('home.filterEmptyText', { kind: labelAktif.toLowerCase() })"
     >
-      <el-button type="primary" @click="filterAktif = 'semua'">Lihat semua</el-button>
+      <el-button type="primary" @click="filterAktif = 'semua'">{{ $t('home.filterEmptyAction') }}</el-button>
     </EmptyState>
 
     <template v-else>
@@ -69,10 +69,10 @@
             <div class="row row-top">
               <div class="thumb nudge-thumb"><i :class="infoLanjut.ikon"></i></div>
               <div class="grow">
-                <p class="title">{{ infoLanjut.judulKartu }}</p>
+                <p class="title">{{ $t('continueCard.' + infoLanjut.kunci + '.title') }}</p>
                 <p class="lanjut-judul">{{ lanjutkanTeratas.judul }}</p>
                 <div class="lanjut-meta">
-                  <span class="pill">{{ infoLanjut.label }}</span>
+                  <span class="pill">{{ $t('continueCard.' + infoLanjut.kunci + '.label') }}</span>
                   <span class="muted">{{ lanjutkanTeratas.sisa }}</span>
                 </div>
                 <el-progress
@@ -85,7 +85,7 @@
             </div>
             <div class="card-foot">
               <el-button type="primary" size="small" @click="bukaLanjutkan(lanjutkanTeratas)">
-                {{ infoLanjut.tombol }}
+                {{ $t('continueCard.' + infoLanjut.kunci + '.button') }}
               </el-button>
             </div>
           </template>
@@ -108,7 +108,7 @@
             </div>
             <div class="card-foot">
               <el-button type="primary" size="small" @click="$router.push('/learn/' + item.materiId)">
-                {{ item.progress > 0 ? 'Lanjutkan' : 'Mulai belajar' }}
+                {{ item.progress > 0 ? $t('common.continue') : $t('home.startLearning') }}
               </el-button>
             </div>
           </template>
@@ -124,7 +124,7 @@
             </div>
           </div>
           <div class="card-foot">
-            <el-button type="primary" size="small" @click="$router.push('/scholarships')">Lihat beasiswa</el-button>
+            <el-button type="primary" size="small" @click="$router.push('/scholarships')">{{ $t('home.viewScholarship') }}</el-button>
           </div>
         </div>
 
@@ -160,10 +160,10 @@
           <p class="article-ringkasan">{{ item.ringkasan }}</p>
           <div class="card-foot">
             <button class="tap" @click.stop="bukaArtikel(item)">
-              <i class="el-icon-reading"></i><span>Baca</span>
+              <i class="el-icon-reading"></i><span>{{ $t('common.read') }}</span>
             </button>
             <button class="tap" @click.stop="simpanArtikel(item)">
-              <i class="el-icon-collection-tag"></i><span>Simpan</span>
+              <i class="el-icon-collection-tag"></i><span>{{ $t('common.save') }}</span>
             </button>
           </div>
         </div>
@@ -192,13 +192,13 @@
           <div class="post-aksi">
             <button class="tap" :class="{ 'is-active': disukai[item.id] }" @click="toggleSuka(item)">
               <i :class="disukai[item.id] ? 'el-icon-star-on' : 'el-icon-star-off'"></i>
-              <span>Suka {{ jumlahSuka(item) }}</span>
+              <span>{{ $t('common.like') }} {{ jumlahSuka(item) }}</span>
             </button>
             <button class="tap" @click="belumTersedia">
-              <i class="el-icon-chat-line-round"></i><span>Komentar {{ item.komentar }}</span>
+              <i class="el-icon-chat-line-round"></i><span>{{ $t('common.comment') }} {{ item.komentar }}</span>
             </button>
             <button class="tap" @click="belumTersedia">
-              <i class="el-icon-share"></i><span>Bagikan</span>
+              <i class="el-icon-share"></i><span>{{ $t('common.share') }}</span>
             </button>
           </div>
         </article>
@@ -225,18 +225,17 @@ export default {
       disukai: {},
       riwayatLanjut,
       filterAktif: 'semua',
-      kategori: [
-        { id: 'semua', label: 'Semua' },
-        { id: 'post', label: 'Postingan' },
-        { id: 'article', label: 'Artikel' },
-        { id: 'scholarship_alert', label: 'Beasiswa' },
-        { id: 'learning_nudge', label: 'Belajar' },
-        { id: 'community_update', label: 'Komunitas' }
-      ]
+      idKategori: ['semua', 'post', 'article', 'scholarship_alert', 'learning_nudge', 'community_update']
     }
   },
   computed: {
     inisial () { return this.$store.getters['user/inisial'] },
+    kategori () {
+      return this.idKategori.map((id) => ({
+        id,
+        label: this.$t('home.filters.' + (id === 'semua' ? 'all' : id))
+      }))
+    },
     // layar lebar pakai baris chip, layar sempit pakai dropdown biar hemat ruang
     pakaiChip () { return this.$store.state.layout.lebar >= 768 },
     // Satu sumber bentuk-aman untuk feed. Semua .length dan .filter di template
@@ -318,13 +317,13 @@ export default {
     },
     simpanArtikel (item) {
       if (item.artikelId) this.$store.dispatch('bookmarks/toggleArtikel', item.artikelId)
-      this.$message({ message: 'Disimpan: ' + item.judul, type: 'success' })
+      this.$message({ message: this.$t('scholarship.savedToast', { name: item.judul }), type: 'success' })
     },
     tulisPostingan () {
       this.$store.dispatch('compose/buka')
     },
     belumTersedia () {
-      this.$message('Belum aktif di prototipe ini.')
+      this.$message(this.$t('common.notAvailable'))
     }
   }
 }

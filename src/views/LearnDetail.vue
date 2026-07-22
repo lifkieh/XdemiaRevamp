@@ -1,7 +1,7 @@
 <template>
   <div class="screen">
     <button class="tap kembali" @click="$router.back()">
-      <i class="el-icon-arrow-left"></i><span>Kembali</span>
+      <i class="el-icon-arrow-left"></i><span>{{ $t('common.back') }}</span>
     </button>
 
     <CardSkeleton v-if="memuat" :jumlah="3" />
@@ -9,10 +9,10 @@
     <EmptyState
       v-else-if="!materi"
       ikon="el-icon-warning-outline"
-      judul="Materi nggak ketemu"
-      pesan="Mungkin sudah dihapus atau tautannya salah."
+      :judul="$t('course.notFoundTitle')"
+      :pesan="$t('course.notFoundText')"
     >
-      <el-button type="primary" @click="$router.push('/learn')">Lihat semua materi</el-button>
+      <el-button type="primary" @click="$router.push('/learn')">{{ $t('course.notFoundAction') }}</el-button>
     </EmptyState>
 
     <template v-else>
@@ -22,7 +22,7 @@
         </div>
 
         <div class="hero-isi">
-          <span class="pill jenis">{{ isKursus ? 'Kursus berjadwal' : 'Materi mandiri' }}</span>
+          <span class="pill jenis">{{ isKursus ? $t('course.scheduled') : $t('course.selfPaced') }}</span>
           <h1 class="title-lg">{{ materi.judul }}</h1>
           <p class="muted">{{ materi.penyedia }} · {{ materi.durasi }}</p>
 
@@ -30,7 +30,7 @@
             <div class="thumb thumb-round">{{ materi.penulis.charAt(0) }}</div>
             <div class="grow">
               <p class="title nama-penulis">{{ materi.penulis }}</p>
-              <p class="muted">Penyusun materi</p>
+              <p class="muted">{{ $t('course.author') }}</p>
             </div>
           </div>
 
@@ -47,20 +47,20 @@
               <i class="el-icon-date"></i>
               <div>
                 <p class="jadwal-judul">{{ materi.tanggalMulai }} — {{ materi.tanggalSelesai }}</p>
-                <p class="muted">Periode kursus</p>
+                <p class="muted">{{ $t('course.period') }}</p>
               </div>
             </div>
             <div class="jadwal-baris">
               <i class="el-icon-alarm-clock"></i>
               <div>
                 <p class="jadwal-judul">{{ materi.jadwal }}</p>
-                <p class="muted">Pertemuan rutin</p>
+                <p class="muted">{{ $t('course.meetings') }}</p>
               </div>
             </div>
           </div>
 
           <el-progress :percentage="persen" :stroke-width="8" :show-text="false" class="bar" />
-          <p class="muted">{{ selesai }} dari {{ modul.length }} modul selesai</p>
+          <p class="muted">{{ $t('course.modulesDone', { done: selesai, total: modul.length }) }}</p>
 
           <div class="aksi">
             <el-button type="primary" class="tombol-utama" @click="mulai">
@@ -68,7 +68,7 @@
             </el-button>
             <el-button class="tombol-simpan" @click="toggleSimpan">
               <i :class="tersimpan ? 'el-icon-star-on' : 'el-icon-collection-tag'"></i>
-              {{ tersimpan ? 'Tersimpan' : 'Simpan' }}
+              {{ tersimpan ? $t('common.saved') : $t('common.save') }}
             </el-button>
           </div>
         </div>
@@ -76,8 +76,8 @@
 
       <section class="section">
         <div class="section-head">
-          <h2 class="title">{{ isKursus ? 'Silabus kursus' : 'Daftar modul' }}</h2>
-          <span class="muted">{{ modul.length }} modul</span>
+          <h2 class="title">{{ isKursus ? $t('course.syllabus') : $t('course.modules') }}</h2>
+          <span class="muted">{{ $t('course.moduleCount', { n: modul.length }) }}</span>
         </div>
 
         <div class="card daftar">
@@ -116,8 +116,8 @@ export default {
       return Math.round((this.selesai / this.modul.length) * 100)
     },
     labelTombol () {
-      if (this.persen > 0) return 'Lanjutkan belajar'
-      return this.isKursus ? 'Daftar kursus' : 'Mulai belajar'
+      if (this.persen > 0) return this.$t('course.continueLearning')
+      return this.isKursus ? this.$t('course.enrol') : this.$t('course.startLearning')
     },
     tersimpan () {
       return this.materi ? this.$store.getters['bookmarks/isMateriTersimpan'](this.materi.id) : false
@@ -148,11 +148,11 @@ export default {
     mulai () {
       const berikut = this.modul.filter((m) => !m.selesai)[0]
       if (!berikut) {
-        this.$message({ message: 'Semua modul sudah selesai. Mantap!', type: 'success' })
+        this.$message({ message: this.$t('course.allDone'), type: 'success' })
         return
       }
       berikut.selesai = true
-      this.$message({ message: 'Modul "' + berikut.judul + '" ditandai selesai.', type: 'success' })
+      this.$message({ message: this.$t('course.moduleDone', { name: berikut.judul }), type: 'success' })
     },
     toggleSimpan () {
       this.$store.dispatch('bookmarks/toggleMateri', this.materi.id)

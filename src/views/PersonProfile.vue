@@ -1,7 +1,7 @@
 <template>
   <div class="screen">
     <button class="tap kembali" @click="$router.back()">
-      <i class="el-icon-arrow-left"></i><span>Kembali</span>
+      <i class="el-icon-arrow-left"></i><span>{{ $t('common.back') }}</span>
     </button>
 
     <CardSkeleton v-if="memuat" :jumlah="3" />
@@ -9,10 +9,10 @@
     <EmptyState
       v-else-if="!orang"
       ikon="el-icon-warning-outline"
-      judul="Profil nggak ketemu"
-      pesan="Mungkin akunnya sudah tidak aktif."
+      :judul="$t('person.notFoundTitle')"
+      :pesan="$t('person.notFoundText')"
     >
-      <el-button type="primary" @click="$router.push('/explore')">Cari orang lain</el-button>
+      <el-button type="primary" @click="$router.push('/explore')">{{ $t('person.notFoundAction') }}</el-button>
     </EmptyState>
 
     <template v-else>
@@ -25,9 +25,9 @@
           <p class="bio">{{ orang.bio }}</p>
 
           <div class="statistik">
-            <div class="stat"><b>{{ orang.stats.postingan }}</b><span class="muted">Postingan</span></div>
-            <div class="stat"><b>{{ orang.stats.pengikut }}</b><span class="muted">Pengikut</span></div>
-            <div class="stat"><b>{{ orang.stats.mengikuti }}</b><span class="muted">Mengikuti</span></div>
+            <div class="stat"><b>{{ orang.stats.postingan }}</b><span class="muted">{{ $t('you.stats.posts') }}</span></div>
+            <div class="stat"><b>{{ orang.stats.pengikut }}</b><span class="muted">{{ $t('you.stats.followers') }}</span></div>
+            <div class="stat"><b>{{ orang.stats.mengikuti }}</b><span class="muted">{{ $t('you.stats.following') }}</span></div>
           </div>
 
           <div class="aksi">
@@ -36,33 +36,33 @@
               :type="mengikuti ? 'default' : 'primary'"
               @click="toggleIkuti"
             >
-              {{ mengikuti ? 'Mengikuti' : 'Ikuti' }}
+              {{ mengikuti ? $t('common.following') : $t('common.follow') }}
             </el-button>
             <el-button class="tombol-pesan" @click="pesan">
-              <i class="el-icon-chat-dot-round"></i> Pesan
+              <i class="el-icon-chat-dot-round"></i> {{ $t('person.message') }}
             </el-button>
           </div>
         </div>
       </div>
 
       <el-tabs v-model="tab" class="tab-orang">
-        <el-tab-pane label="Postingan" name="postingan">
+        <el-tab-pane :label="$t('person.tabs.posts')" name="postingan">
           <div v-for="p in orang.postingan" :key="p.id" class="card">
             <p class="muted">{{ p.waktu }}</p>
             <p class="post-konten">{{ p.konten }}</p>
             <div class="card-foot">
-              <span class="tap"><i class="el-icon-star-off"></i><span>Suka {{ p.suka }}</span></span>
-              <span class="tap"><i class="el-icon-chat-line-round"></i><span>Komentar {{ p.komentar }}</span></span>
+              <span class="tap"><i class="el-icon-star-off"></i><span>{{ $t('common.like') }} {{ p.suka }}</span></span>
+              <span class="tap"><i class="el-icon-chat-line-round"></i><span>{{ $t('common.comment') }} {{ p.komentar }}</span></span>
             </div>
           </div>
         </el-tab-pane>
 
-        <el-tab-pane label="Materi" name="materi">
+        <el-tab-pane :label="$t('person.tabs.courses')" name="materi">
           <EmptyState
             v-if="materi.length === 0"
             ikon="el-icon-reading"
-            judul="Belum ada materi"
-            pesan="Orang ini belum membagikan materi."
+            :judul="$t('person.emptyCoursesTitle')"
+            :pesan="$t('person.emptyCoursesText')"
           />
           <BaseCard
             v-for="m in materi"
@@ -75,24 +75,24 @@
             @click.native="$router.push('/materi/' + m.id)"
           >
             <template slot="meta">
-              <span class="pill">{{ m.jenis === 'kursus' ? 'Kursus' : 'Materi' }}</span>
+              <span class="pill">{{ m.jenis === 'kursus' ? $t('learn.filters.kursus') : $t('learn.filters.materi') }}</span>
             </template>
           </BaseCard>
         </el-tab-pane>
 
-        <el-tab-pane label="Komunitas" name="komunitas">
+        <el-tab-pane :label="$t('person.tabs.communities')" name="komunitas">
           <BaseCard
             v-for="k in komunitas"
             :key="k.id"
             :inisial="k.inisial"
             :judul="k.nama"
-            :subjudul="k.anggota.toLocaleString('id-ID') + ' anggota · ' + k.tipe"
+            :subjudul="$t('common.members', { n: k.anggota.toLocaleString('id-ID') }) + ' · ' + k.tipe"
             clickable
             @click.native="$router.push('/community/' + k.id)"
           />
         </el-tab-pane>
 
-        <el-tab-pane label="Acara" name="acara">
+        <el-tab-pane :label="$t('person.tabs.events')" name="acara">
           <BaseCard
             v-for="a in acara"
             :key="a.id"
@@ -108,7 +108,7 @@
           </BaseCard>
         </el-tab-pane>
 
-        <el-tab-pane label="Jaringan" name="jaringan">
+        <el-tab-pane :label="$t('person.tabs.network')" name="jaringan">
           <BaseCard
             v-for="n in orang.jaringan"
             :key="n.id"
@@ -120,7 +120,7 @@
             @click.native="bukaOrang(n.nama)"
           >
             <template slot="action">
-              <el-button size="small" @click.stop="belumTersedia">Ikuti</el-button>
+              <el-button size="small" @click.stop="belumTersedia">{{ $t('common.follow') }}</el-button>
             </template>
           </BaseCard>
         </el-tab-pane>
@@ -180,12 +180,12 @@ export default {
     toggleIkuti () {
       this.mengikuti = !this.mengikuti
       this.$message({
-        message: this.mengikuti ? 'Mengikuti ' + this.orang.nama : 'Berhenti mengikuti',
+        message: this.mengikuti ? this.$t('explore.nowFollowing', { name: this.orang.nama }) : this.$t('common.unfollow'),
         type: this.mengikuti ? 'success' : 'info'
       })
     },
-    pesan () { this.$message('Buka Chat dari tombol di atas untuk mulai mengobrol.') },
-    belumTersedia () { this.$message('Belum aktif di prototipe ini.') }
+    pesan () { this.$message(this.$t('person.messageHint')) },
+    belumTersedia () { this.$message(this.$t('common.notAvailable')) }
   }
 }
 </script>

@@ -2,13 +2,13 @@
   <div class="screen">
     <div class="row belajar-head">
       <div class="grow">
-        <h1 class="title-lg">Belajar</h1>
-        <p class="muted">Streak kamu {{ streak }} hari. Jangan putus ya.</p>
+        <h1 class="title-lg">{{ $t('learn.title') }}</h1>
+        <p class="muted">{{ $t('learn.streak', { n: streak }) }}</p>
       </div>
-      <span class="pill"><i class="el-icon-trophy"></i> {{ streak }} hari</span>
+      <span class="pill"><i class="el-icon-trophy"></i> {{ $t('learn.streakPill', { n: streak }) }}</span>
     </div>
 
-    <FilterChips v-model="jenis" :opsi="opsiJenis" />
+    <FilterChips :value="labelJenis" :opsi="opsiJenis" @input="pilihJenis" />
     <p class="muted penjelasan">{{ penjelasan }}</p>
 
     <CardSkeleton v-if="memuat" :jumlah="4" />
@@ -17,17 +17,17 @@
       <!-- Lanjutkan: lintas jenis, bukan cuma materi, urut dari yang terakhir dibuka.
            Disembunyikan saat chip dipersempit ke Materi/Kursus supaya isinya tidak
            bertabrakan dengan penyaringan katalog. -->
-      <section v-if="jenis === 'Semua'" class="section">
+      <section v-if="jenis === 'all'" class="section">
         <div class="section-head">
-          <h2 class="title">Lanjutkan</h2>
-          <span class="muted">dari yang terakhir dibuka</span>
+          <h2 class="title">{{ $t('learn.continueTitle') }}</h2>
+          <span class="muted">{{ $t('learn.continueSub') }}</span>
         </div>
 
         <EmptyState
           v-if="lanjutkan.length === 0"
           ikon="el-icon-reading"
-          judul="Belum ada yang dimulai"
-          pesan="Pilih satu materi di bawah, 10 menit aja cukup buat mulai."
+          :judul="$t('learn.emptyStartedTitle')"
+          :pesan="$t('learn.emptyStartedText')"
         />
 
         <BaseCard
@@ -41,28 +41,28 @@
         >
           <template slot="meta">
             <span class="pill">
-              <i :class="petaLanjut[isi.jenis].ikon"></i> {{ petaLanjut[isi.jenis].label }}
+              <i :class="petaLanjut[isi.jenis].ikon"></i> {{ $t('continueCard.' + petaLanjut[isi.jenis].kunci + '.label') }}
             </span>
             <span class="muted">{{ isi.sisa }}</span>
           </template>
           <div class="progress-baris">
             <el-progress :percentage="isi.progress" :stroke-width="6" :show-text="false" />
-            <span class="muted progress-teks">{{ isi.progress }}% selesai</span>
+            <span class="muted progress-teks">{{ $t('common.percentDone', { n: isi.progress }) }}</span>
           </div>
         </BaseCard>
       </section>
 
       <section class="section">
         <div class="section-head">
-          <h2 class="title">Untuk kamu</h2>
-          <span class="muted">{{ untukKamu.length }} materi</span>
+          <h2 class="title">{{ $t('learn.forYou') }}</h2>
+          <span class="muted">{{ $t('learn.count', { n: untukKamu.length }) }}</span>
         </div>
 
         <EmptyState
           v-if="untukKamu.length === 0"
           ikon="el-icon-reading"
-          judul="Belum ada rekomendasi"
-          pesan="Coba ganti jenisnya di atas."
+          :judul="$t('learn.emptyForYouTitle')"
+          :pesan="$t('learn.emptyForYouText')"
         />
 
         <BaseCard
@@ -75,15 +75,15 @@
           @click.native="buka(materi.id)"
         >
           <template slot="meta">
-            <span class="pill">{{ materi.jenis === 'kursus' ? 'Kursus' : 'Materi' }}</span>
+            <span class="pill">{{ materi.jenis === 'kursus' ? $t('learn.filters.kursus') : $t('learn.filters.materi') }}</span>
             <span v-if="materi.jenis === 'kursus'" class="pill">
-              <i class="el-icon-date"></i> Mulai {{ materi.tanggalMulai }}
+              <i class="el-icon-date"></i> {{ $t('common.start') }} {{ materi.tanggalMulai }}
             </span>
             <span v-else class="pill">{{ materi.jenjang }}</span>
           </template>
           <template slot="action">
             <el-button size="small" type="primary" @click.stop="buka(materi.id)">
-              {{ materi.jenis === 'kursus' ? 'Daftar' : 'Mulai' }}
+              {{ materi.jenis === 'kursus' ? $t('learn.enrol') : $t('common.start') }}
             </el-button>
           </template>
         </BaseCard>
@@ -110,21 +110,22 @@ export default {
       materi: [],
       riwayatLanjut,
       petaLanjut,
-      jenis: 'Semua',
-      opsiJenis: ['Semua', 'Materi', 'Kursus']
+      jenis: 'all',
+      idJenis: ['all', 'materi', 'kursus']
     }
   },
   computed: {
     streak () { return this.$store.getters['user/streak'] },
+    opsiJenis () { return this.idJenis.map((id) => this.$t('learn.filters.' + id)) },
+    labelJenis () { return this.$t('learn.filters.' + this.jenis) },
     penjelasan () {
-      if (this.jenis === 'Materi') return 'Materi bisa dibuka kapan saja, belajar sesuai kecepatan kamu.'
-      if (this.jenis === 'Kursus') return 'Kursus punya tanggal mulai dan selesai, jadwalnya diikuti bareng.'
-      return 'Materi bisa dibuka kapan saja; kursus punya jadwal mulai dan selesai.'
+      if (this.jenis === 'materi') return this.$t('learn.hintMateri')
+      if (this.jenis === 'kursus') return this.$t('learn.hintKursus')
+      return this.$t('learn.hintAll')
     },
     tersaring () {
-      if (this.jenis === 'Materi') return this.materi.filter((m) => m.jenis === 'materi')
-      if (this.jenis === 'Kursus') return this.materi.filter((m) => m.jenis === 'kursus')
-      return this.materi
+      if (this.jenis === 'all') return this.materi
+      return this.materi.filter((m) => m.jenis === this.jenis)
     },
     // Rail lanjutkan tidak ikut chip Materi/Kursus: isinya riwayat lintas jenis
     // (materi, artikel, jurnal), diurutkan dari yang terakhir dibuka.
@@ -147,6 +148,10 @@ export default {
     clearTimeout(this.timer)
   },
   methods: {
+    pilihJenis (label) {
+      const i = this.opsiJenis.indexOf(label)
+      if (i !== -1) this.jenis = this.idJenis[i]
+    },
     buka (id) { this.$router.push('/learn/' + id) },
     bukaLanjutkan (isi) {
       const info = this.petaLanjut[isi.jenis] || this.petaLanjut.materi

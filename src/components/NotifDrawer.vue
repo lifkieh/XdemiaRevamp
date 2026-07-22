@@ -3,24 +3,24 @@
     <div class="drawer-isi">
       <header class="drawer-head">
         <button class="tap" @click="$emit('tutup')">
-          <i class="el-icon-arrow-left"></i><span>Tutup</span>
+          <i class="el-icon-arrow-left"></i><span>{{ $t('common.close') }}</span>
         </button>
-        <p class="title grow drawer-judul">Notifikasi</p>
-        <el-button v-if="tab === 'notif'" size="mini" @click="tandaiSemua">Tandai semua dibaca</el-button>
+        <p class="title grow drawer-judul">{{ $t('notif.title') }}</p>
+        <el-button v-if="tab === 'notif'" size="mini" @click="tandaiSemua">{{ $t('notif.markAllRead') }}</el-button>
       </header>
 
       <el-tabs v-model="tab" class="tab-notif">
         <el-tab-pane name="notif">
           <span slot="label">
-            <i class="el-icon-bell"></i> Notifikasi
+            <i class="el-icon-bell"></i> {{ $t('notif.tabNotif') }}
           </span>
 
           <div class="daftar">
             <EmptyState
               v-if="notifikasi.length === 0"
               ikon="el-icon-bell"
-              judul="Belum ada notifikasi"
-              pesan="Nanti kalau ada kabar, muncul di sini."
+              :judul="$t('notif.emptyTitle')"
+              :pesan="$t('notif.emptyText')"
             />
 
             <div
@@ -42,15 +42,15 @@
 
         <el-tab-pane name="undangan">
           <span slot="label">
-            <i class="el-icon-message-solid"></i> Undangan
+            <i class="el-icon-message-solid"></i> {{ $t('notif.tabInvites') }}
           </span>
 
           <div class="daftar">
             <EmptyState
               v-if="undangan.length === 0"
               ikon="el-icon-message-solid"
-              judul="Belum ada undangan"
-              pesan="Undangan komunitas dan acara muncul di sini."
+              :judul="$t('notif.emptyInvitesTitle')"
+              :pesan="$t('notif.emptyInvitesText')"
             />
 
             <div v-for="u in undangan" v-else :key="u.id" class="undangan">
@@ -65,8 +65,8 @@
                 </div>
               </div>
               <div class="aksi-undangan">
-                <el-button size="small" type="primary" @click="jawab(u, true)">Terima</el-button>
-                <el-button size="small" @click="jawab(u, false)">Tolak</el-button>
+                <el-button size="small" type="primary" @click="jawab(u, true)">{{ $t('notif.accept') }}</el-button>
+                <el-button size="small" @click="jawab(u, false)">{{ $t('notif.decline') }}</el-button>
               </div>
             </div>
           </div>
@@ -110,11 +110,11 @@ export default {
     tandaiSemua () {
       this.notifikasi.forEach((n) => { n.baru = false })
       this.$store.dispatch('user/bacaSemuaNotif')
-      this.$message({ message: 'Semua notifikasi ditandai dibaca.', type: 'success' })
+      this.$message({ message: this.$t('notif.markedRead'), type: 'success' })
     },
     jawab (u, terima) {
       this.$message({
-        message: (terima ? 'Undangan diterima: ' : 'Undangan ditolak: ') + u.judul,
+        message: terima ? this.$t('notif.accepted', { name: u.judul }) : this.$t('notif.declined', { name: u.judul }),
         type: terima ? 'success' : 'info'
       })
     }

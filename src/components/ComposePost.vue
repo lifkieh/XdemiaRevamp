@@ -4,20 +4,21 @@
     <template v-if="isDesktop">
       <div class="latar" @click="tutup"></div>
 
-      <div class="modal" role="dialog" aria-label="Buat postingan">
+      <div class="modal" role="dialog" :aria-label="$t('compose.title')">
         <header class="modal-head">
           <div class="thumb thumb-round avatar">{{ inisial }}</div>
           <div class="grow">
             <p class="title">{{ nama }}</p>
             <div class="visibilitas">
-              <span class="muted">Postingan ·</span>
+              <span class="muted">{{ $t('compose.postType') }}</span>
               <el-select v-model="visibilitas" size="mini" class="pilih-visibilitas">
-                <el-option label="Publik" value="Publik" />
-                <el-option label="Koneksi" value="Koneksi" />
+                <el-option :label="$t('compose.visibility.public')" value="public" />
+                <el-option :label="$t('compose.visibility.followers')" value="followers" />
+                <el-option :label="$t('compose.visibility.private')" value="private" />
               </el-select>
             </div>
           </div>
-          <button class="tap tutup" aria-label="Tutup" @click="tutup">
+          <button class="tap tutup" :aria-label="$t('common.close')" @click="tutup">
             <i class="el-icon-close"></i>
           </button>
         </header>
@@ -27,61 +28,63 @@
             ref="teks"
             v-model="draf"
             class="teks"
-            placeholder="Mulai buat posting"
+            :placeholder="$t('compose.placeholder')"
           ></textarea>
 
           <!-- pratinjau lampiran: kosong, cuma contoh tampilan -->
           <div v-if="lampiran" class="pratinjau">
             <div class="pratinjau-kotak">
               <i :class="lampiran === 'Foto' ? 'el-icon-picture-outline' : 'el-icon-video-camera'"></i>
-              <span>{{ lampiran }} contoh</span>
+              <span>{{ $t('compose.samplePreview', { kind: lampiran }) }}</span>
             </div>
             <button class="tap hapus-lampiran" @click="lampiran = ''">
-              <i class="el-icon-delete"></i><span>Hapus</span>
+              <i class="el-icon-delete"></i><span>{{ $t('compose.removeAttachment') }}</span>
             </button>
           </div>
         </div>
 
         <div class="baris-lampiran">
-          <button class="tap opsi" @click="pilihLampiran('Foto')">
-            <i class="el-icon-picture-outline"></i><span>Foto</span>
+          <button class="tap opsi" @click="pilihLampiran($t('compose.photo'))">
+            <i class="el-icon-picture-outline"></i><span>{{ $t('compose.photo') }}</span>
           </button>
-          <button class="tap opsi" @click="pilihLampiran('Video')">
-            <i class="el-icon-video-camera"></i><span>Video</span>
+          <button class="tap opsi" @click="pilihLampiran($t('compose.video'))">
+            <i class="el-icon-video-camera"></i><span>{{ $t('compose.video') }}</span>
           </button>
           <button class="tap opsi" @click="belumTersedia">
-            <i class="el-icon-document"></i><span>Tulis artikel</span>
+            <i class="el-icon-document"></i><span>{{ $t('compose.writeArticle') }}</span>
           </button>
         </div>
 
         <footer class="modal-foot">
-          <el-button type="primary" class="tombol-posting" @click="posting">Posting</el-button>
+          <el-button class="tombol-draf" @click="simpanDraf">{{ $t('compose.saveDraft') }}</el-button>
+          <el-button type="primary" class="tombol-posting" @click="posting">{{ $t('compose.post') }}</el-button>
         </footer>
       </div>
     </template>
 
     <!-- ================= MOBILE: satu layar penuh ================= -->
-    <div v-else class="penuh" role="dialog" aria-label="Buat postingan">
+    <div v-else class="penuh" role="dialog" :aria-label="$t('compose.title')">
       <header class="penuh-head">
-        <button class="tap kembali" aria-label="Tutup" @click="tutup">
+        <button class="tap kembali" :aria-label="$t('common.close')" @click="tutup">
           <i class="el-icon-arrow-left"></i>
         </button>
-        <p class="penuh-judul grow">Buat postingan</p>
-        <button class="tap posting-teks" @click="posting">Posting</button>
+        <p class="penuh-judul grow">{{ $t('compose.title') }}</p>
+        <button class="tap draf-teks" @click="simpanDraf">{{ $t('compose.saveDraft') }}</button>
+        <button class="tap posting-teks" @click="posting">{{ $t('compose.post') }}</button>
       </header>
 
       <div class="penuh-isi">
-        <button class="media-kosong" @click="pilihLampiran('Foto')">
+        <button class="media-kosong" @click="pilihLampiran($t('compose.photo'))">
           <i class="el-icon-picture-outline"></i>
-          <span class="media-judul">Tambah foto atau video</span>
-          <span class="muted">Ketuk untuk memilih dari galeri</span>
+          <span class="media-judul">{{ $t('compose.addMedia') }}</span>
+          <span class="muted">{{ $t('compose.addMediaSub') }}</span>
         </button>
 
         <div class="row identitas">
           <div class="thumb thumb-round avatar">{{ inisial }}</div>
           <div class="grow">
             <p class="title">{{ nama }}</p>
-            <p class="muted">Postingan · {{ visibilitas }}</p>
+            <p class="muted">{{ $t('compose.postType') }} {{ $t('compose.visibility.' + visibilitas) }}</p>
           </div>
         </div>
 
@@ -89,7 +92,7 @@
           ref="teks"
           v-model="draf"
           class="teks teks-mobile"
-          placeholder="Tulis caption…"
+          :placeholder="$t('compose.captionPlaceholder')"
         ></textarea>
       </div>
     </div>
@@ -102,7 +105,7 @@ export default {
   data () {
     return {
       draf: '',
-      visibilitas: 'Publik',
+      visibilitas: 'public',
       lampiran: ''
     }
   },
@@ -143,17 +146,18 @@ export default {
     tutup () { this.$store.dispatch('compose/tutup') },
     pilihLampiran (jenis) {
       this.lampiran = jenis
-      this.$message('Pilih ' + jenis.toLowerCase() + ' belum aktif — ini contoh tampilan saja.')
+      this.$message(this.$t('compose.attachNote', { kind: jenis.toLowerCase() }))
     },
     belumTersedia () {
-      this.$message('Tulis artikel belum aktif di prototipe ini.')
+      this.$message(this.$t('compose.articleNote'))
+    },
+    simpanDraf () {
+      this.tutup()
+      this.$message({ message: this.$t('compose.draftSaved'), type: 'success' })
     },
     posting () {
       this.tutup()
-      this.$message({
-        message: 'Ini prototipe — postingan tidak benar-benar terkirim.',
-        type: 'success'
-      })
+      this.$message({ message: this.$t('compose.posted'), type: 'success' })
     }
   }
 }
@@ -197,7 +201,7 @@ export default {
 .avatar { width: 44px; height: 44px; background: var(--brand); color: #fff; }
 
 .visibilitas { display: flex; align-items: center; gap: 6px; margin-top: 2px; }
-.pilih-visibilitas { width: 110px; }
+.pilih-visibilitas { width: 132px; }
 
 .tutup { font-size: 20px; color: var(--muted); }
 
@@ -259,6 +263,8 @@ export default {
 }
 
 .tombol-posting { min-height: 44px; min-width: 104px; }
+.tombol-draf { min-height: 44px; }
+.draf-teks { color: var(--muted); font-weight: 600; font-size: 13.5px; padding: 0 8px; }
 
 /* ---------- mobile: satu layar penuh ---------- */
 .penuh {

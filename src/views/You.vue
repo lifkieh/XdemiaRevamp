@@ -9,9 +9,9 @@
         <p class="bio">{{ profil.bio }}</p>
 
         <div class="statistik">
-          <div class="stat"><b>{{ profil.stats.postingan }}</b><span class="muted">Postingan</span></div>
-          <div class="stat"><b>{{ profil.stats.pengikut }}</b><span class="muted">Pengikut</span></div>
-          <div class="stat"><b>{{ profil.stats.mengikuti }}</b><span class="muted">Mengikuti</span></div>
+          <div class="stat"><b>{{ profil.stats.postingan }}</b><span class="muted">{{ $t('you.stats.posts') }}</span></div>
+          <div class="stat"><b>{{ profil.stats.pengikut }}</b><span class="muted">{{ $t('you.stats.followers') }}</span></div>
+          <div class="stat"><b>{{ profil.stats.mengikuti }}</b><span class="muted">{{ $t('you.stats.following') }}</span></div>
         </div>
       </div>
     </div>
@@ -25,29 +25,29 @@
     </div>
 
     <el-tabs v-model="tab" class="tab-kamu">
-      <el-tab-pane label="Postingan" name="postingan">
+      <el-tab-pane :label="$t('you.tabs.posts')" name="postingan">
         <CardSkeleton v-if="memuat" :jumlah="2" />
         <template v-else>
           <div v-for="p in profil.posts" :key="p.id" class="card">
             <p class="muted">{{ p.waktu }}</p>
             <p class="post-konten">{{ p.konten }}</p>
             <div class="card-foot">
-              <span class="tap"><i class="el-icon-star-off"></i><span>Suka {{ p.suka }}</span></span>
-              <span class="tap"><i class="el-icon-chat-line-round"></i><span>Komentar {{ p.komentar }}</span></span>
+              <span class="tap"><i class="el-icon-star-off"></i><span>{{ $t('common.like') }} {{ p.suka }}</span></span>
+              <span class="tap"><i class="el-icon-chat-line-round"></i><span>{{ $t('common.comment') }} {{ p.komentar }}</span></span>
             </div>
           </div>
         </template>
       </el-tab-pane>
 
-      <el-tab-pane label="Materi Saya" name="materi">
+      <el-tab-pane :label="$t('you.tabs.courses')" name="materi">
         <CardSkeleton v-if="memuat" :jumlah="2" />
         <EmptyState
           v-else-if="materiSaya.length === 0"
           ikon="el-icon-reading"
-          judul="Belum ada materi dimulai"
-          pesan="Mulai satu materi di tab Belajar."
+          :judul="$t('you.emptyCoursesTitle')"
+          :pesan="$t('you.emptyCoursesText')"
         >
-          <el-button type="primary" @click="$router.push('/learn')">Lihat materi</el-button>
+          <el-button type="primary" @click="$router.push('/learn')">{{ $t('you.emptyCoursesAction') }}</el-button>
         </EmptyState>
         <BaseCard
           v-for="m in materiSaya"
@@ -63,12 +63,12 @@
         </BaseCard>
       </el-tab-pane>
 
-      <el-tab-pane label="Tersimpan" name="tersimpan">
+      <el-tab-pane :label="$t('you.tabs.saved')" name="tersimpan">
         <EmptyState
           v-if="tersimpan.length === 0"
           ikon="el-icon-collection-tag"
-          judul="Belum ada yang disimpan"
-          pesan="Tekan Simpan di beasiswa atau materi yang menarik."
+          :judul="$t('you.emptySavedTitle')"
+          :pesan="$t('you.emptySavedText')"
         />
         <BaseCard
           v-for="t in tersimpan"
@@ -86,15 +86,15 @@
         </BaseCard>
       </el-tab-pane>
 
-      <el-tab-pane label="File" name="file">
+      <el-tab-pane :label="$t('you.tabs.files')" name="file">
         <div class="card ringkasan-drive">
           <div class="row">
             <div class="thumb drive-ikon"><i class="el-icon-folder-opened"></i></div>
             <div class="grow">
-              <p class="title">Drive kamu</p>
-              <p class="muted">{{ profil.files.length }} berkas terbaru ditampilkan di sini.</p>
+              <p class="title">{{ $t('you.driveTitle') }}</p>
+              <p class="muted">{{ $t('you.driveText', { n: profil.files.length }) }}</p>
             </div>
-            <el-button size="small" type="primary" @click="$router.push('/drive')">Buka Drive</el-button>
+            <el-button size="small" type="primary" @click="$router.push('/drive')">{{ $t('you.openDrive') }}</el-button>
           </div>
         </div>
 
@@ -109,12 +109,12 @@
             <span class="pill"><i :class="ikonJenis(f.jenis)"></i> {{ namaJenis(f.jenis) }}</span>
           </template>
           <template slot="action">
-            <el-button size="small" @click="belumTersedia">Unduh</el-button>
+            <el-button size="small" @click="belumTersedia">{{ $t('common.download') }}</el-button>
           </template>
         </BaseCard>
       </el-tab-pane>
 
-      <el-tab-pane label="Pengaturan" name="pengaturan">
+      <el-tab-pane :label="$t('you.tabs.settings')" name="pengaturan">
         <div class="card">
           <button
             v-for="item in menuSetelan"
@@ -134,22 +134,22 @@
         <div class="card">
           <div class="setelan">
             <div class="grow">
-              <p class="title">Pengingat belajar harian</p>
-              <p class="muted">Biar streak kamu nggak putus.</p>
+              <p class="title">{{ $t('you.dailyReminder') }}</p>
+              <p class="muted">{{ $t('you.dailyReminderSub') }}</p>
             </div>
             <el-switch v-model="setelan.pengingat" active-color="#17a2a2" />
           </div>
           <div class="setelan">
             <div class="grow">
-              <p class="title">Info beasiswa baru</p>
-              <p class="muted">Kabar kalau ada beasiswa yang cocok.</p>
+              <p class="title">{{ $t('you.scholarshipAlerts') }}</p>
+              <p class="muted">{{ $t('you.scholarshipAlertsSub') }}</p>
             </div>
             <el-switch v-model="setelan.beasiswa" active-color="#17a2a2" />
           </div>
         </div>
 
         <el-button class="keluar" @click="belumTersedia">
-          <i class="el-icon-switch-button"></i> Keluar akun
+          <i class="el-icon-switch-button"></i> {{ $t('you.signOut') }}
         </el-button>
       </el-tab-pane>
     </el-tabs>
@@ -173,40 +173,47 @@ export default {
       memuat: true,
       tab: 'postingan',
       setelan: { pengingat: true, beasiswa: true },
-      pintasan: [
-        { rute: '/events', label: 'Acara', ikon: 'el-icon-date' },
-        { rute: '/keranjang', label: 'Keranjang', ikon: 'el-icon-shopping-cart-2' },
-        { rute: '/drive', label: 'Drive', ikon: 'el-icon-folder' },
-        { rute: '/jurnal', label: 'Jurnal', ikon: 'el-icon-notebook-2' },
-        { rute: '/pengaturan', label: 'Pengaturan', ikon: 'el-icon-setting' }
-      ],
-      menuSetelan: [
-        { id: 's-1', judul: 'Ubah profil', keterangan: 'Nama, bio, foto, dan kampus', ikon: 'el-icon-edit' },
-        { id: 's-2', judul: 'Privasi', keterangan: 'Siapa yang bisa lihat aktivitas kamu', ikon: 'el-icon-lock' },
-        { id: 's-3', judul: 'Notifikasi', keterangan: 'Atur kabar yang mau kamu terima', ikon: 'el-icon-bell' },
-        { id: 's-4', judul: 'Bahasa', keterangan: 'Bahasa Indonesia', ikon: 'el-icon-chat-line-square' },
-        { id: 's-5', judul: 'Bantuan', keterangan: 'Pertanyaan umum dan lapor masalah', ikon: 'el-icon-question' }
-      ]
+      kunciPintasan: ['events', 'cart', 'drive', 'journals', 'settings']
     }
   },
   computed: {
     profil () { return this.$store.state.user.profil },
+    pintasan () {
+      const rute = { events: '/events', cart: '/keranjang', drive: '/drive', journals: '/jurnal', settings: '/pengaturan' }
+      const ikon = {
+        events: 'el-icon-date',
+        cart: 'el-icon-shopping-cart-2',
+        drive: 'el-icon-folder',
+        journals: 'el-icon-notebook-2',
+        settings: 'el-icon-setting'
+      }
+      return this.kunciPintasan.map((k) => ({ rute: rute[k], ikon: ikon[k], label: this.$t('nav.' + k) }))
+    },
+    menuSetelan () {
+      return [
+        { id: 's-1', judul: this.$t('you.menu.editProfile'), keterangan: this.$t('you.menu.editProfileSub'), ikon: 'el-icon-edit' },
+        { id: 's-2', judul: this.$t('you.menu.privacy'), keterangan: this.$t('you.menu.privacySub'), ikon: 'el-icon-lock' },
+        { id: 's-3', judul: this.$t('you.menu.notifications'), keterangan: this.$t('you.menu.notificationsSub'), ikon: 'el-icon-bell' },
+        { id: 's-4', judul: this.$t('you.menu.language'), keterangan: this.$t('you.menu.languageSub'), ikon: 'el-icon-chat-line-square' },
+        { id: 's-5', judul: this.$t('you.menu.help'), keterangan: this.$t('you.menu.helpSub'), ikon: 'el-icon-question' }
+      ]
+    },
     materiSaya () { return courses.filter((c) => c.progress > 0) },
     // Tersimpan menampung empat jenis isi sekaligus
     tersimpan () {
       const b = this.$store.state.bookmarks
       const dariBeasiswa = scholarships
         .filter((s) => b.beasiswa.indexOf(s.id) !== -1)
-        .map((s) => ({ id: s.id, inisial: s.inisial, judul: s.nama, subjudul: s.penyelenggara, label: 'Beasiswa', rute: '/beasiswa/' + s.id }))
+        .map((s) => ({ id: s.id, inisial: s.inisial, judul: s.nama, subjudul: s.penyelenggara, label: this.$t('you.labels.scholarship'), rute: '/beasiswa/' + s.id }))
       const dariMateri = courses
         .filter((c) => b.materi.indexOf(c.id) !== -1)
-        .map((c) => ({ id: c.id, inisial: c.judul.charAt(0), judul: c.judul, subjudul: c.penyedia, label: c.jenis === 'kursus' ? 'Kursus' : 'Materi', rute: '/materi/' + c.id }))
+        .map((c) => ({ id: c.id, inisial: c.judul.charAt(0), judul: c.judul, subjudul: c.penyedia, label: c.jenis === 'kursus' ? this.$t('you.labels.class') : this.$t('you.labels.course'), rute: '/materi/' + c.id }))
       const dariArtikel = articles
         .filter((a) => b.artikel.indexOf(a.id) !== -1)
-        .map((a) => ({ id: a.id, inisial: a.inisial, judul: a.judul, subjudul: a.penulis + ' · ' + a.baca, label: 'Artikel', rute: '/artikel/' + a.id }))
+        .map((a) => ({ id: a.id, inisial: a.inisial, judul: a.judul, subjudul: a.penulis + ' · ' + a.baca, label: this.$t('you.labels.article'), rute: '/artikel/' + a.id }))
       const dariAcara = events
         .filter((e) => b.acara.indexOf(e.id) !== -1)
-        .map((e) => ({ id: e.id, inisial: e.inisial, judul: e.judul, subjudul: e.tanggal + ' · ' + e.waktu, label: 'Acara', rute: '/acara/' + e.id }))
+        .map((e) => ({ id: e.id, inisial: e.inisial, judul: e.judul, subjudul: e.tanggal + ' · ' + e.waktu, label: this.$t('you.labels.event'), rute: '/acara/' + e.id }))
       return dariBeasiswa.concat(dariMateri, dariArtikel, dariAcara)
     }
   },
@@ -229,7 +236,7 @@ export default {
     },
     bukaSetelan (item) {
       if (item.id === 's-5') {
-        this.$message('Pusat bantuan belum aktif di prototipe ini.')
+        this.$message(this.$t('you.helpNote'))
         return
       }
       this.$router.push('/pengaturan')
@@ -239,8 +246,8 @@ export default {
       return peta[jenis] || 'FILE'
     },
     namaJenis (jenis) {
-      const peta = { pdf: 'Dokumen', word: 'Dokumen', tabel: 'Tabel', gambar: 'Gambar', audio: 'Audio' }
-      return peta[jenis] || 'Berkas'
+      const peta = { pdf: 'document', word: 'document', tabel: 'sheet', gambar: 'image', audio: 'audio' }
+      return this.$t('you.fileTypes.' + (peta[jenis] || 'file'))
     },
     ikonJenis (jenis) {
       const peta = {
@@ -252,7 +259,7 @@ export default {
       }
       return peta[jenis] || 'el-icon-folder'
     },
-    belumTersedia () { this.$message('Belum aktif di prototipe ini.') }
+    belumTersedia () { this.$message(this.$t('common.notAvailable')) }
   }
 }
 </script>

@@ -1,65 +1,76 @@
 <template>
   <div class="screen">
     <button class="tap kembali" @click="$router.back()">
-      <i class="el-icon-arrow-left"></i><span>Kembali</span>
+      <i class="el-icon-arrow-left"></i><span>{{ $t('common.back') }}</span>
     </button>
 
-    <h1 class="title-lg judul">Pengaturan</h1>
+    <h1 class="title-lg judul">{{ $t('settings.title') }}</h1>
+
+    <!-- Bahasa: paling atas supaya gampang ketemu -->
+    <div class="card">
+      <p class="title bagian">{{ $t('settings.language') }}</p>
+      <p class="muted keterangan">{{ $t('settings.languageSub') }}</p>
+
+      <el-radio-group v-model="bahasa" class="pilih-bahasa" @change="gantiBahasa">
+        <el-radio label="en" border class="opsi-bahasa">{{ $t('settings.english') }}</el-radio>
+        <el-radio label="id" border class="opsi-bahasa">{{ $t('settings.indonesian') }}</el-radio>
+      </el-radio-group>
+    </div>
 
     <!-- Profil -->
     <div class="card">
-      <p class="title bagian">Profil</p>
+      <p class="title bagian">{{ $t('settings.profile') }}</p>
 
       <div class="row foto-baris">
         <div class="thumb thumb-round avatar">{{ inisial }}</div>
         <div class="grow">
-          <p class="title">Foto profil</p>
-          <p class="muted">Ukuran ideal 400 x 400 piksel.</p>
+          <p class="title">{{ $t('settings.photo') }}</p>
+          <p class="muted">{{ $t('settings.photoSub') }}</p>
         </div>
-        <el-button size="small" @click="belumTersedia">Ubah</el-button>
+        <el-button size="small" @click="belumTersedia">{{ $t('settings.change') }}</el-button>
       </div>
 
       <div class="isian">
-        <label class="label">Nama tampilan</label>
-        <el-input v-model="form.nama" placeholder="Nama kamu" />
+        <label class="label">{{ $t('settings.displayName') }}</label>
+        <el-input v-model="form.nama" :placeholder="$t('settings.displayNamePlaceholder')" />
       </div>
 
       <div class="isian">
-        <label class="label">Bio singkat</label>
-        <el-input v-model="form.bio" type="textarea" :rows="3" placeholder="Ceritakan sedikit tentang kamu" />
+        <label class="label">{{ $t('settings.bio') }}</label>
+        <el-input v-model="form.bio" type="textarea" :rows="3" :placeholder="$t('settings.bioPlaceholder')" />
       </div>
 
       <div class="isian">
-        <label class="label">Kampus</label>
-        <el-input v-model="form.kampus" placeholder="Nama kampus" />
+        <label class="label">{{ $t('settings.campus') }}</label>
+        <el-input v-model="form.kampus" :placeholder="$t('settings.campusPlaceholder')" />
       </div>
     </div>
 
     <!-- Privasi -->
     <div class="card">
-      <p class="title bagian">Privasi &amp; izin</p>
+      <p class="title bagian">{{ $t('settings.privacy') }}</p>
 
       <div class="isian">
-        <label class="label">Siapa yang bisa lihat profil kamu</label>
-        <el-select v-model="form.siapaLihat" placeholder="Pilih" class="pilihan">
-          <el-option label="Semua orang" value="semua" />
-          <el-option label="Hanya pengikut" value="pengikut" />
-          <el-option label="Hanya kamu" value="sendiri" />
+        <label class="label">{{ $t('settings.whoCanSee') }}</label>
+        <el-select v-model="form.siapaLihat" class="pilihan">
+          <el-option :label="$t('settings.everyone')" value="semua" />
+          <el-option :label="$t('settings.followersOnly')" value="pengikut" />
+          <el-option :label="$t('settings.onlyMe')" value="sendiri" />
         </el-select>
       </div>
 
       <div class="setelan">
         <div class="grow">
-          <p class="title">Profil bisa dicari</p>
-          <p class="muted">Orang lain bisa menemukan kamu di Jelajah.</p>
+          <p class="title">{{ $t('settings.searchable') }}</p>
+          <p class="muted">{{ $t('settings.searchableSub') }}</p>
         </div>
         <el-switch v-model="form.bisaDicari" active-color="#17a2a2" />
       </div>
 
       <div class="setelan">
         <div class="grow">
-          <p class="title">Izinkan pesan dari siapa saja</p>
-          <p class="muted">Kalau dimatikan, hanya pengikut yang bisa mengirim pesan.</p>
+          <p class="title">{{ $t('settings.openMessages') }}</p>
+          <p class="muted">{{ $t('settings.openMessagesSub') }}</p>
         </div>
         <el-switch v-model="form.pesanBebas" active-color="#17a2a2" />
       </div>
@@ -67,21 +78,21 @@
 
     <!-- Tanda tangan email -->
     <div class="card">
-      <p class="title bagian">Tanda tangan email</p>
-      <p class="muted keterangan">Dipakai saat kamu mengirim undangan atau berkas lewat email.</p>
-      <el-input v-model="form.tandaTangan" type="textarea" :rows="4" placeholder="Salam, nama, kampus" />
+      <p class="title bagian">{{ $t('settings.signature') }}</p>
+      <p class="muted keterangan">{{ $t('settings.signatureSub') }}</p>
+      <el-input v-model="form.tandaTangan" type="textarea" :rows="4" :placeholder="$t('settings.signaturePlaceholder')" />
     </div>
 
     <!-- Status -->
     <div class="card">
-      <p class="title bagian">Status</p>
+      <p class="title bagian">{{ $t('settings.status') }}</p>
       <div class="setelan">
         <div class="grow">
           <p class="title">
             <span class="titik" :class="form.online ? 'hijau' : 'abu'"></span>
-            {{ form.online ? 'Online' : 'Offline' }}
+            {{ form.online ? $t('settings.online') : $t('settings.offline') }}
           </p>
-          <p class="muted">Tampilkan ke orang lain kalau kamu sedang aktif.</p>
+          <p class="muted">{{ $t('settings.statusSub') }}</p>
         </div>
         <el-switch v-model="form.online" active-color="#17a2a2" />
       </div>
@@ -89,31 +100,34 @@
 
     <!-- Notifikasi -->
     <div class="card">
-      <p class="title bagian">Notifikasi</p>
+      <p class="title bagian">{{ $t('settings.notifications') }}</p>
       <div v-for="n in notifikasi" :key="n.id" class="setelan">
         <div class="grow">
-          <p class="title">{{ n.judul }}</p>
-          <p class="muted">{{ n.keterangan }}</p>
+          <p class="title">{{ $t('settings.notif.' + n.id) }}</p>
+          <p class="muted">{{ $t('settings.notif.' + n.id + 'Sub') }}</p>
         </div>
         <el-switch v-model="n.aktif" active-color="#17a2a2" />
       </div>
     </div>
 
     <div class="aksi-bawah">
-      <el-button type="primary" class="tombol-simpan" @click="simpan">Simpan perubahan</el-button>
+      <el-button type="primary" class="tombol-simpan" @click="simpan">{{ $t('settings.saveChanges') }}</el-button>
       <el-button class="tombol-keluar" @click="belumTersedia">
-        <i class="el-icon-switch-button"></i> Keluar akun
+        <i class="el-icon-switch-button"></i> {{ $t('settings.signOut') }}
       </el-button>
     </div>
   </div>
 </template>
 
 <script>
+import { setBahasa } from '@/i18n'
+
 export default {
   name: 'SettingsView',
   data () {
     const profil = this.$store.state.user.profil
     return {
+      bahasa: this.$i18n.locale,
       form: {
         nama: profil.name,
         bio: profil.bio,
@@ -122,25 +136,33 @@ export default {
         bisaDicari: true,
         pesanBebas: false,
         online: true,
-        tandaTangan: 'Salam,\nRaka Mahendra\nMahasiswa Informatika, Universitas Brawijaya'
+        tandaTangan: 'Raka Mahendra\nUniversitas Brawijaya'
       },
       notifikasi: [
-        { id: 'n-1', judul: 'Pengingat belajar harian', keterangan: 'Biar streak kamu nggak putus.', aktif: true },
-        { id: 'n-2', judul: 'Info beasiswa baru', keterangan: 'Kabar kalau ada beasiswa yang cocok.', aktif: true },
-        { id: 'n-3', judul: 'Balasan dan komentar', keterangan: 'Kalau ada yang membalas postingan kamu.', aktif: true },
-        { id: 'n-4', judul: 'Undangan komunitas dan acara', keterangan: 'Ajakan gabung dari orang lain.', aktif: false },
-        { id: 'n-5', judul: 'Ringkasan mingguan lewat email', keterangan: 'Rangkuman aktivitas tiap Senin pagi.', aktif: false }
+        { id: 'daily', aktif: true },
+        { id: 'scholarship', aktif: true },
+        { id: 'replies', aktif: true },
+        { id: 'invites', aktif: false },
+        { id: 'weekly', aktif: false }
       ]
     }
   },
   computed: {
     inisial () { return this.$store.getters['user/inisial'] }
   },
+  watch: {
+    // ikut kalau bahasa diubah dari tempat lain
+    '$i18n.locale' (nilai) { this.bahasa = nilai }
+  },
   methods: {
-    simpan () {
-      this.$message({ message: 'Perubahan disimpan (contoh prototipe).', type: 'success' })
+    gantiBahasa (nilai) {
+      setBahasa(nilai)
+      this.$message({ message: this.$t('settings.languageChanged'), type: 'success' })
     },
-    belumTersedia () { this.$message('Belum aktif di prototipe ini.') }
+    simpan () {
+      this.$message({ message: this.$t('settings.saved'), type: 'success' })
+    },
+    belumTersedia () { this.$message(this.$t('common.notAvailable')) }
   }
 }
 </script>
@@ -151,7 +173,22 @@ export default {
 
 .bagian { margin-bottom: 10px; font-size: 16px; }
 
-.keterangan { margin-bottom: 8px; }
+.keterangan { margin-bottom: 10px; }
+
+.pilih-bahasa { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.pilih-bahasa .opsi-bahasa {
+  margin: 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+}
+
+.pilih-bahasa >>> .el-radio__label { font-size: 14px; }
+.pilih-bahasa >>> .el-radio.is-bordered.is-checked { border-color: var(--brand); }
+.pilih-bahasa >>> .el-radio__input.is-checked .el-radio__inner { background: var(--brand); border-color: var(--brand); }
+.pilih-bahasa >>> .el-radio__input.is-checked + .el-radio__label { color: var(--brand); }
 
 .foto-baris {
   padding-bottom: 12px;

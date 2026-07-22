@@ -1,5 +1,5 @@
 <template>
-  <nav class="bottomnav" aria-label="Navigasi utama">
+  <nav class="bottomnav" :aria-label="$t('nav.mainNav')">
     <div class="bottomnav-inner">
       <router-link
         v-for="tab in tabs"
@@ -19,14 +19,14 @@
 <script>
 export default {
   name: 'BottomNav',
-  data () {
-    return {
-      tabs: [
-        { path: '/', label: 'Beranda', ikon: 'el-icon-house', exact: true },
-        { path: '/explore', label: 'Jelajah', ikon: 'el-icon-search', exact: false },
-        { path: '/learn', label: 'Belajar', ikon: 'el-icon-reading', exact: false },
-        { path: '/scholarships', label: 'Beasiswa', ikon: 'el-icon-medal', exact: false },
-        { path: '/you', label: 'Kamu', ikon: 'el-icon-user', exact: false }
+  computed: {
+    tabs () {
+      return [
+        { path: '/', label: this.$t('nav.home'), ikon: 'el-icon-house', exact: true },
+        { path: '/explore', label: this.$t('nav.explore'), ikon: 'el-icon-search', exact: false },
+        { path: '/learn', label: this.$t('nav.learn'), ikon: 'el-icon-reading', exact: false },
+        { path: '/scholarships', label: this.$t('nav.scholarships'), ikon: 'el-icon-medal', exact: false },
+        { path: '/you', label: this.$t('nav.you'), ikon: 'el-icon-user', exact: false }
       ]
     }
   }

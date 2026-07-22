@@ -1,48 +1,48 @@
 <template>
   <div class="screen">
     <div class="row jelajah-head">
-      <h1 class="title-lg grow">Jelajah</h1>
+      <h1 class="title-lg grow">{{ $t('explore.title') }}</h1>
     </div>
 
     <!-- Di desktop kotak pencarian ada di top bar, jadi di sini cukup untuk mobile -->
     <SearchBar
       v-if="!isDesktop"
       v-model="kueri"
-      placeholder="Cari orang, komunitas, kampus, jurnal, artikel"
+      :placeholder="$t('explore.searchPlaceholder')"
     />
-    <FilterChips v-model="filter" :opsi="opsiFilter" bungkus />
+    <FilterChips :value="labelFilter" :opsi="opsiFilter" bungkus @input="pilihFilter" />
 
     <CardSkeleton v-if="memuat" :jumlah="5" />
 
     <EmptyState
       v-else-if="hasil.length === 0"
       ikon="el-icon-search"
-      judul="Nggak ketemu"
-      pesan="Coba kata kunci lain atau ganti filternya."
+      :judul="$t('explore.emptyTitle')"
+      :pesan="$t('explore.emptyText')"
     />
 
     <template v-else>
       <div class="row info-baris">
-        <p class="muted grow">{{ hasil.length }} hasil</p>
-        <router-link v-if="filter === 'Jurnal'" to="/jurnal" class="tap tautan-semua">
-          <i class="el-icon-notebook-2"></i><span>Semua jurnal</span>
+        <p class="muted grow">{{ $t('common.results', { n: hasil.length }) }}</p>
+        <router-link v-if="filter === 'jurnal'" to="/jurnal" class="tap tautan-semua">
+          <i class="el-icon-notebook-2"></i><span>{{ $t('explore.allJournals') }}</span>
         </router-link>
-        <router-link v-else-if="filter === 'Acara'" to="/events" class="tap tautan-semua">
-          <i class="el-icon-date"></i><span>Semua acara</span>
+        <router-link v-else-if="filter === 'acara'" to="/events" class="tap tautan-semua">
+          <i class="el-icon-date"></i><span>{{ $t('explore.allEvents') }}</span>
         </router-link>
       </div>
 
       <!-- Jurnal tampil sebagai tabel supaya mudah dibandingkan -->
-      <div v-if="filter === 'Jurnal'" class="card tabel-bungkus">
+      <div v-if="filter === 'jurnal'" class="card tabel-bungkus">
         <el-table :data="barisJurnal" style="width: 100%" @row-click="bukaJurnal">
-          <el-table-column prop="nama" label="Nama jurnal" sortable min-width="170">
+          <el-table-column prop="nama" :label="$t('explore.table.name')" sortable min-width="170">
             <template slot-scope="baris">
               <span class="nama-jurnal">{{ baris.row.nama }}</span>
               <p class="muted sub">{{ baris.row.penerbit }}</p>
             </template>
           </el-table-column>
-          <el-table-column prop="jumlahTulisan" label="Tulisan" sortable width="100" align="right" />
-          <el-table-column prop="terbit" label="Terbit" sortable width="140" />
+          <el-table-column prop="jumlahTulisan" :label="$t('explore.table.articles')" sortable width="100" align="right" />
+          <el-table-column prop="terbit" :label="$t('explore.table.published')" sortable width="140" />
         </el-table>
       </div>
 
@@ -58,7 +58,7 @@
         @click.native="buka(item)"
       >
         <template slot="meta">
-          <span class="pill">{{ labelTipe[item.tipe] }}</span>
+          <span class="pill">{{ $t('explore.types.' + item.tipe) }}</span>
         </template>
         <template slot="action">
           <!-- artikel dan acara langsung dibuka, tidak diikuti -->
@@ -68,7 +68,7 @@
             type="primary"
             @click.stop="buka(item)"
           >
-            {{ item.aksi }}
+            {{ aksiLabel(item) }}
           </el-button>
           <el-button
             v-else
@@ -76,7 +76,7 @@
             :type="diikuti[item.id] ? 'default' : 'primary'"
             @click.stop="toggleIkuti(item)"
           >
-            {{ diikuti[item.id] ? 'Batal' : item.aksi }}
+            {{ diikuti[item.id] ? $t('common.cancel') : aksiLabel(item) }}
           </el-button>
         </template>
       </BaseCard>
@@ -100,27 +100,19 @@ export default {
     return {
       memuat: true,
       kueri: '',
-      filter: 'Semua',
-      opsiFilter: ['Semua', 'Orang', 'Komunitas', 'Kampus', 'Organisasi', 'Jurnal', 'Artikel', 'Acara'],
-      labelTipe: {
-        orang: 'Orang',
-        komunitas: 'Komunitas',
-        kampus: 'Kampus',
-        organisasi: 'Organisasi',
-        jurnal: 'Jurnal',
-        artikel: 'Artikel',
-        acara: 'Acara'
-      },
+      filter: 'all',
+      idFilter: ['all', 'orang', 'komunitas', 'kampus', 'organisasi', 'jurnal', 'artikel', 'acara'],
       data: [],
       diikuti: {}
     }
   },
   computed: {
+    opsiFilter () { return this.idFilter.map((id) => this.$t('explore.filters.' + id)) },
+    labelFilter () { return this.$t('explore.filters.' + this.filter) },
     hasil () {
       const q = this.kueri.trim().toLowerCase()
-      const f = this.filter.toLowerCase()
       return this.data.filter((item) => {
-        const cocokFilter = this.filter === 'Semua' || item.tipe === f
+        const cocokFilter = this.filter === 'all' || item.tipe === this.filter
         const cocokKueri = !q ||
           item.nama.toLowerCase().indexOf(q) !== -1 ||
           item.info.toLowerCase().indexOf(q) !== -1
@@ -166,6 +158,17 @@ export default {
     }
   },
   methods: {
+    pilihFilter (label) {
+      const i = this.opsiFilter.indexOf(label)
+      if (i !== -1) this.filter = this.idFilter[i]
+    },
+    // aksi kartu mengikuti jenisnya, bukan teks dari data
+    aksiLabel (item) {
+      if (item.tipe === 'artikel') return this.$t('common.read')
+      if (item.tipe === 'acara') return this.$t('common.view')
+      if (item.tipe === 'komunitas') return this.$t('common.join')
+      return this.$t('common.follow')
+    },
     // tiap kartu menuju halaman detail sesuai jenisnya
     buka (item) {
       if (item.komunitasId) this.$router.push('/community/' + item.komunitasId)
@@ -181,7 +184,11 @@ export default {
       const baru = !this.diikuti[item.id]
       this.$set(this.diikuti, item.id, baru)
       this.$message({
-        message: baru ? (item.aksi === 'Gabung' ? 'Gabung ke ' : 'Mengikuti ') + item.nama : 'Batal, ' + item.nama,
+        message: baru
+          ? (item.tipe === 'komunitas'
+            ? this.$t('explore.joined', { name: item.nama })
+            : this.$t('explore.nowFollowing', { name: item.nama }))
+          : this.$t('explore.cancelled', { name: item.nama }),
         type: baru ? 'success' : 'info'
       })
     }

@@ -1,7 +1,7 @@
 <template>
   <div class="screen">
     <button class="tap kembali" @click="$router.back()">
-      <i class="el-icon-arrow-left"></i><span>Kembali</span>
+      <i class="el-icon-arrow-left"></i><span>{{ $t('common.back') }}</span>
     </button>
 
     <CardSkeleton v-if="memuat" :jumlah="3" />
@@ -9,10 +9,10 @@
     <EmptyState
       v-else-if="!artikel"
       ikon="el-icon-warning-outline"
-      judul="Artikel nggak ketemu"
-      pesan="Mungkin sudah dihapus atau tautannya salah."
+      :judul="$t('article.notFoundTitle')"
+      :pesan="$t('article.notFoundText')"
     >
-      <el-button type="primary" @click="$router.push('/')">Kembali ke beranda</el-button>
+      <el-button type="primary" @click="$router.push('/')">{{ $t('article.notFoundAction') }}</el-button>
     </EmptyState>
 
     <template v-else>
@@ -29,14 +29,14 @@
             <div class="grow">
               <p class="title nama-penulis">
                 {{ artikel.penulis }}
-                <i v-if="artikel.terverifikasi" class="el-icon-success verified" title="Penulis terverifikasi"></i>
+                <i v-if="artikel.terverifikasi" class="el-icon-success verified" ></i>
               </p>
               <p class="muted">{{ artikel.sumber }} · {{ artikel.tanggal }}</p>
             </div>
           </div>
 
           <div class="pil-baris">
-            <span class="pill"><i class="el-icon-view"></i> {{ views }} kali dibaca</span>
+            <span class="pill"><i class="el-icon-view"></i> {{ $t('common.views', { n: views }) }}</span>
             <span class="pill">{{ artikel.baca }}</span>
           </div>
 
@@ -45,10 +45,10 @@
           <div class="kaki">
             <button class="tap" :class="{ 'is-active': tersimpan }" @click="toggleSimpan">
               <i :class="tersimpan ? 'el-icon-star-on' : 'el-icon-collection-tag'"></i>
-              <span>{{ tersimpan ? 'Tersimpan' : 'Simpan' }}</span>
+              <span>{{ tersimpan ? $t('common.saved') : $t('common.save') }}</span>
             </button>
             <button class="tap" @click="bagikan">
-              <i class="el-icon-share"></i><span>Bagikan</span>
+              <i class="el-icon-share"></i><span>{{ $t('common.share') }}</span>
             </button>
           </div>
         </div>
@@ -56,7 +56,7 @@
 
       <section class="section">
         <div class="section-head">
-          <h2 class="title">Tulisan lain</h2>
+          <h2 class="title">{{ $t('article.readerOther') }}</h2>
         </div>
         <BaseCard
           v-for="a in lainnya"
@@ -114,7 +114,7 @@ export default {
       this.$store.dispatch('bookmarks/toggleArtikel', this.artikel.id)
     },
     bagikan () {
-      this.$message('Tautan artikel disalin (contoh prototipe).')
+      this.$message(this.$t('article.shared'))
     }
   }
 }

@@ -1,23 +1,5 @@
 {
-  "materi": {
-    "label": "Belajar",
-    "ikon": "el-icon-reading",
-    "judulKartu": "Lanjutin belajar",
-    "tombol": "Lanjutin belajar",
-    "rute": "/learn/"
-  },
-  "artikel": {
-    "label": "Artikel",
-    "ikon": "el-icon-document",
-    "judulKartu": "Lanjutin baca",
-    "tombol": "Lanjut baca",
-    "rute": "/artikel/"
-  },
-  "jurnal": {
-    "label": "Jurnal",
-    "ikon": "el-icon-notebook-2",
-    "judulKartu": "Lanjutin baca",
-    "tombol": "Lanjut baca",
-    "rute": "/jurnal/"
-  }
+  "materi": { "kunci": "learn", "ikon": "el-icon-reading", "rute": "/learn/" },
+  "artikel": { "kunci": "article", "ikon": "el-icon-document", "rute": "/artikel/" },
+  "jurnal": { "kunci": "journal", "ikon": "el-icon-notebook-2", "rute": "/jurnal/" }
 }

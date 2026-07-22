@@ -1,5 +1,5 @@
 <template>
-  <aside class="sidenav" aria-label="Navigasi utama">
+  <aside class="sidenav" :aria-label="$t('nav.mainNav')">
     <div class="sidenav-isi">
       <router-link to="/" class="logo">
         <span class="logo-mark">xδ</span>
@@ -22,12 +22,12 @@
 
       <button class="tulis" @click="tulis">
         <i class="el-icon-edit"></i>
-        <span>Tulis</span>
+        <span>{{ $t('nav.write') }}</span>
       </button>
 
       <!-- Sekunder: tujuan yang tidak masuk lima nav utama -->
-      <nav class="pintasan-samping" aria-label="Pintasan">
-        <p class="pintasan-samping-judul">Pintasan</p>
+      <nav class="pintasan-samping" :aria-label="$t('nav.shortcuts')">
+        <p class="pintasan-samping-judul">{{ $t('nav.shortcuts') }}</p>
         <router-link
           v-for="p in pintasan"
           :key="p.path"
@@ -39,7 +39,7 @@
         </router-link>
       </nav>
 
-      <p class="catatan-kaki">Prototipe Xdemia · data contoh</p>
+      <p class="catatan-kaki">{{ $t('common.prototypeNote') }}</p>
 
       <div class="kartu-user">
         <div class="thumb thumb-round avatar-kecil">{{ inisial }}</div>
@@ -55,24 +55,24 @@
 <script>
 export default {
   name: 'SideNav',
-  data () {
-    return {
-      menu: [
-        { path: '/', label: 'Beranda', ikon: 'el-icon-house', exact: true },
-        { path: '/explore', label: 'Jelajah', ikon: 'el-icon-search', exact: false },
-        { path: '/learn', label: 'Belajar', ikon: 'el-icon-reading', exact: false },
-        { path: '/scholarships', label: 'Beasiswa', ikon: 'el-icon-medal', exact: false },
-        { path: '/you', label: 'Kamu', ikon: 'el-icon-user', exact: false }
-      ],
-      pintasan: [
-        { path: '/events', label: 'Acara', ikon: 'el-icon-date' },
-        { path: '/jurnal', label: 'Jurnal', ikon: 'el-icon-notebook-2' },
-        { path: '/drive', label: 'Drive', ikon: 'el-icon-folder' },
-        { path: '/you?tab=tersimpan', label: 'Tersimpan', ikon: 'el-icon-collection-tag' }
-      ]
-    }
-  },
   computed: {
+    menu () {
+      return [
+        { path: '/', label: this.$t('nav.home'), ikon: 'el-icon-house', exact: true },
+        { path: '/explore', label: this.$t('nav.explore'), ikon: 'el-icon-search', exact: false },
+        { path: '/learn', label: this.$t('nav.learn'), ikon: 'el-icon-reading', exact: false },
+        { path: '/scholarships', label: this.$t('nav.scholarships'), ikon: 'el-icon-medal', exact: false },
+        { path: '/you', label: this.$t('nav.you'), ikon: 'el-icon-user', exact: false }
+      ]
+    },
+    pintasan () {
+      return [
+        { path: '/events', label: this.$t('nav.events'), ikon: 'el-icon-date' },
+        { path: '/jurnal', label: this.$t('nav.journals'), ikon: 'el-icon-notebook-2' },
+        { path: '/drive', label: this.$t('nav.drive'), ikon: 'el-icon-folder' },
+        { path: '/you?tab=tersimpan', label: this.$t('nav.saved'), ikon: 'el-icon-collection-tag' }
+      ]
+    },
     inisial () { return this.$store.getters['user/inisial'] },
     nama () { return this.$store.getters['user/nama'] },
     handle () { return this.$store.state.user.profil.handle }

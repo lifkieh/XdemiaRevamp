@@ -2,22 +2,22 @@
   <div class="screen">
     <div class="row keranjang-head">
       <div class="grow">
-        <h1 class="title-lg">Keranjang</h1>
-        <p class="muted">Kursus, materi, dan tiket acara yang mau kamu ambil.</p>
+        <h1 class="title-lg">{{ $t('cart.title') }}</h1>
+        <p class="muted">{{ $t('cart.subtitle') }}</p>
       </div>
     </div>
 
     <el-tabs v-model="tab" class="tab-keranjang">
       <el-tab-pane name="item">
-        <span slot="label"><i class="el-icon-shopping-cart-2"></i> Item ({{ jumlahItem }})</span>
+        <span slot="label"><i class="el-icon-shopping-cart-2"></i> {{ $t('cart.items', { n: jumlahItem }) }}</span>
 
         <EmptyState
           v-if="item.length === 0"
           ikon="el-icon-shopping-cart-2"
-          judul="Keranjang kamu kosong"
-          pesan="Cari kursus atau tiket acara dulu, nanti muncul di sini."
+          :judul="$t('cart.emptyTitle')"
+          :pesan="$t('cart.emptyText')"
         >
-          <el-button type="primary" @click="$router.push('/learn')">Lihat materi</el-button>
+          <el-button type="primary" @click="$router.push('/learn')">{{ $t('cart.emptyAction') }}</el-button>
         </EmptyState>
 
         <template v-else>
@@ -30,42 +30,42 @@
           >
             <template slot="meta">
               <span class="pill">{{ i.jenis }}</span>
-              <span class="pill">{{ i.jumlah }} item</span>
+              <span class="pill">{{ $t('cart.itemCount', { n: i.jumlah }) }}</span>
             </template>
             <div class="kaki">
               <span class="harga">{{ rupiah(i.harga * i.jumlah) }}</span>
               <button class="tap hapus" @click="hapus(i)">
-                <i class="el-icon-delete"></i><span>Hapus</span>
+                <i class="el-icon-delete"></i><span>{{ $t('cart.remove') }}</span>
               </button>
             </div>
           </BaseCard>
 
           <div class="card ringkasan">
             <div class="baris">
-              <span class="muted">Jumlah item</span>
+              <span class="muted">{{ $t('cart.summaryItems') }}</span>
               <span>{{ jumlahItem }}</span>
             </div>
             <div class="baris">
-              <span class="muted">Subtotal</span>
+              <span class="muted">{{ $t('cart.subtotal') }}</span>
               <span>{{ rupiah(total) }}</span>
             </div>
             <div class="baris">
-              <span class="muted">Biaya layanan</span>
+              <span class="muted">{{ $t('cart.serviceFee') }}</span>
               <span>{{ rupiah(biayaLayanan) }}</span>
             </div>
             <div class="baris total">
-              <span>Total bayar</span>
+              <span>{{ $t('cart.total') }}</span>
               <span>{{ rupiah(total + biayaLayanan) }}</span>
             </div>
             <el-button type="primary" class="tombol-bayar" @click="checkout">
-              <i class="el-icon-wallet"></i> Lanjut ke pembayaran
+              <i class="el-icon-wallet"></i> {{ $t('cart.checkout') }}
             </el-button>
           </div>
         </template>
       </el-tab-pane>
 
       <el-tab-pane name="riwayat">
-        <span slot="label"><i class="el-icon-time"></i> Riwayat</span>
+        <span slot="label"><i class="el-icon-time"></i> {{ $t('cart.history') }}</span>
 
         <BaseCard
           v-for="r in riwayat"
@@ -80,7 +80,7 @@
           </template>
           <div class="kaki">
             <span class="harga">{{ rupiah(r.harga) }}</span>
-            <el-button size="small" @click="belumTersedia">Lihat struk</el-button>
+            <el-button size="small" @click="belumTersedia">{{ $t('cart.receipt') }}</el-button>
           </div>
         </BaseCard>
       </el-tab-pane>
@@ -108,12 +108,12 @@ export default {
     rupiah (n) { return 'Rp' + n.toLocaleString('id-ID') },
     hapus (i) {
       this.$store.dispatch('cart/hapus', i.id)
-      this.$message({ message: 'Dihapus dari keranjang: ' + i.nama, type: 'info' })
+      this.$message({ message: this.$t('cart.removed', { name: i.nama }), type: 'info' })
     },
     checkout () {
-      this.$message({ message: 'Pembayaran belum aktif di prototipe ini.', type: 'success' })
+      this.$message({ message: this.$t('cart.checkoutNote'), type: 'success' })
     },
-    belumTersedia () { this.$message('Belum aktif di prototipe ini.') }
+    belumTersedia () { this.$message(this.$t('common.notAvailable')) }
   }
 }
 </script>

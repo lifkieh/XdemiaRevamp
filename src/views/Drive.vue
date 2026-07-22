@@ -2,22 +2,22 @@
   <div class="screen">
     <div class="row drive-head">
       <div class="grow">
-        <h1 class="title-lg">Drive</h1>
-        <p class="muted">{{ data.length }} berkas · {{ totalUkuran }} terpakai</p>
+        <h1 class="title-lg">{{ $t('drive.title') }}</h1>
+        <p class="muted">{{ $t('drive.subtitle', { count: data.length, size: totalUkuran }) }}</p>
       </div>
       <el-button type="primary" size="small" class="tombol-unggah" @click="unggah">
-        <i class="el-icon-upload2"></i> Unggah
+        <i class="el-icon-upload2"></i> {{ $t('common.upload') }}
       </el-button>
     </div>
 
-    <SearchBar v-model="kueri" placeholder="Cari nama berkas" />
+    <SearchBar v-model="kueri" :placeholder="$t('drive.searchPlaceholder')" />
 
     <el-tabs v-model="tab" class="tab-drive">
       <el-tab-pane name="semua">
-        <span slot="label"><i class="el-icon-folder"></i> Semua file</span>
+        <span slot="label"><i class="el-icon-folder"></i> {{ $t('drive.tabAll') }}</span>
       </el-tab-pane>
       <el-tab-pane name="dibagikan">
-        <span slot="label"><i class="el-icon-share"></i> Dibagikan</span>
+        <span slot="label"><i class="el-icon-share"></i> {{ $t('drive.tabShared') }}</span>
       </el-tab-pane>
     </el-tabs>
 
@@ -26,16 +26,16 @@
     <EmptyState
       v-else-if="hasil.length === 0"
       ikon="el-icon-folder-opened"
-      judul="Nggak ada berkas"
-      pesan="Coba kata kunci lain atau ganti tabnya."
+      :judul="$t('drive.emptyTitle')"
+      :pesan="$t('drive.emptyText')"
     />
 
     <template v-else>
-      <p class="muted hasil-info">{{ hasil.length }} berkas</p>
+      <p class="muted hasil-info">{{ $t('drive.count', { n: hasil.length }) }}</p>
 
       <div class="card tabel-bungkus">
         <el-table :data="hasil" style="width: 100%" :default-sort="{ prop: 'tanggal', order: 'descending' }">
-          <el-table-column prop="nama" label="Nama" sortable min-width="200">
+          <el-table-column prop="nama" :label="$t('drive.table.name')" sortable min-width="200">
             <template slot-scope="baris">
               <div class="sel-nama">
                 <span class="tanda">{{ labelJenis(baris.row.jenis) }}</span>
@@ -43,17 +43,17 @@
               </div>
             </template>
           </el-table-column>
-          <el-table-column prop="ukuranByte" label="Ukuran" sortable width="110" align="right">
+          <el-table-column prop="ukuranByte" :label="$t('drive.table.size')" sortable width="110" align="right">
             <template slot-scope="baris">{{ baris.row.ukuran }}</template>
           </el-table-column>
-          <el-table-column prop="tanggal" label="Tanggal" sortable width="140" />
-          <el-table-column prop="jenis" label="Tipe" sortable width="110">
+          <el-table-column prop="tanggal" :label="$t('drive.table.date')" sortable width="140" />
+          <el-table-column prop="jenis" :label="$t('drive.table.type')" sortable width="110">
             <template slot-scope="baris">{{ namaJenis(baris.row.jenis) }}</template>
           </el-table-column>
-          <el-table-column prop="pemilik" label="Pemilik" sortable width="150" />
-          <el-table-column label="Aksi" width="110" align="right">
+          <el-table-column prop="pemilik" :label="$t('drive.table.owner')" sortable width="150" />
+          <el-table-column :label="$t('drive.table.action')" width="110" align="right">
             <template slot-scope="baris">
-              <el-button size="mini" @click="unduh(baris.row)">Unduh</el-button>
+              <el-button size="mini" @click="unduh(baris.row)">{{ $t('common.download') }}</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -101,11 +101,11 @@ export default {
       return peta[jenis] || 'FILE'
     },
     namaJenis (jenis) {
-      const peta = { pdf: 'Dokumen', word: 'Dokumen', tabel: 'Tabel', gambar: 'Gambar', audio: 'Audio', video: 'Video', arsip: 'Arsip' }
-      return peta[jenis] || 'Berkas'
+      const peta = { pdf: 'document', word: 'document', tabel: 'sheet', gambar: 'image', audio: 'audio', video: 'video', arsip: 'archive' }
+      return this.$t('you.fileTypes.' + (peta[jenis] || 'file'))
     },
-    unggah () { this.$message('Unggah berkas belum aktif di prototipe ini.') },
-    unduh (f) { this.$message({ message: 'Mengunduh ' + f.nama + ' (contoh)', type: 'success' }) }
+    unggah () { this.$message(this.$t('drive.uploadNote')) },
+    unduh (f) { this.$message({ message: this.$t('drive.downloading', { name: f.nama }), type: 'success' }) }
   }
 }
 </script>
