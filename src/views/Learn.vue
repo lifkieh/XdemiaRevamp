@@ -41,7 +41,7 @@
         >
           <template slot="meta">
             <span class="pill">
-              <i :class="petaLanjut[isi.jenis].ikon"></i> {{ $t('continueCard.' + petaLanjut[isi.jenis].kunci + '.label') }}
+              <i :class="petaLanjut[isi.jenis].ikon"></i> {{ labelLanjut(isi) }}
             </span>
             <span class="muted">{{ $sisa(isi.sisa) }}</span>
           </template>
@@ -75,7 +75,7 @@
           @click.native="buka(materi.id)"
         >
           <template slot="meta">
-            <span class="pill">{{ materi.jenis === 'kursus' ? $t('learn.filters.kursus') : $t('learn.filters.materi') }}</span>
+            <span class="pill">{{ $t('learn.badge.' + materi.jenis) }}</span>
             <span v-if="materi.jenis === 'kursus'" class="pill">
               <i class="el-icon-date"></i> {{ $t('course.startsOn', { date: $tanggal(materi.mulaiIso) }) }}
             </span>
@@ -111,7 +111,7 @@ export default {
       riwayatLanjut,
       petaLanjut,
       jenis: 'all',
-      idJenis: ['all', 'materi', 'kursus']
+      idJenis: ['all', 'kursus', 'materi']
     }
   },
   computed: {
@@ -135,7 +135,12 @@ export default {
         .sort((a, b) => new Date(b.terakhir) - new Date(a.terakhir))
         .slice(0, 3)
     },
-    untukKamu () { return this.tersaring.filter((m) => m.progress === 0) }
+    // Di tab "Semua" katalog hanya menampilkan yang belum dimulai (rail Lanjutkan
+    // sudah memegang yang sedang berjalan). Di tab jenis tertentu, tampilkan semuanya.
+    untukKamu () {
+      if (this.jenis === 'all') return this.tersaring.filter((m) => m.progress === 0)
+      return this.tersaring
+    }
   },
   created () {
     this.timer = setTimeout(() => {
@@ -148,6 +153,14 @@ export default {
   },
   methods: {
     buka (id) { this.$router.push('/learn/' + id) },
+    // materi di rail bisa berupa Kursus atau Materi; ikuti jenis aslinya
+    labelLanjut (isi) {
+      if (isi.jenis === 'materi') {
+        const sumber = courses.filter((c) => c.id === isi.refId)[0]
+        if (sumber) return this.$t('learn.badge.' + sumber.jenis)
+      }
+      return this.$t('continueCard.' + this.petaLanjut[isi.jenis].kunci + '.label')
+    },
     bukaLanjutkan (isi) {
       const info = this.petaLanjut[isi.jenis] || this.petaLanjut.materi
       this.$router.push(info.rute + isi.refId)

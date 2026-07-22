@@ -26,37 +26,9 @@
           <h1 class="title-lg" data-content="true">{{ materi.judul }}</h1>
           <p class="muted"><span data-content="true">{{ materi.penyedia }}</span> · {{ $durasi(materi.jamDurasi) }}</p>
 
-          <div class="row penulis">
-            <div class="thumb thumb-round">{{ materi.penulis.charAt(0) }}</div>
-            <div class="grow">
-              <p class="title nama-penulis" data-content="true">{{ materi.penulis }}</p>
-              <p class="muted">{{ $t('course.author') }}</p>
-            </div>
-          </div>
-
           <div class="pil-baris">
             <span class="pill">{{ $t('course.level.' + materi.level) }}</span>
-            <span v-for="t in materi.tag" :key="t" class="pill">{{ t }}</span>
-          </div>
-
-          <p class="deskripsi" data-content="true">{{ materi.deskripsi }}</p>
-
-          <!-- Kursus punya jadwal, materi mandiri tidak -->
-          <div v-if="isKursus" class="jadwal">
-            <div class="jadwal-baris">
-              <i class="el-icon-date"></i>
-              <div>
-                <p class="jadwal-judul">{{ $tanggal(materi.mulaiIso) }} — {{ $tanggal(materi.selesaiIso) }}</p>
-                <p class="muted">{{ $t('course.period') }}</p>
-              </div>
-            </div>
-            <div class="jadwal-baris">
-              <i class="el-icon-alarm-clock"></i>
-              <div>
-                <p class="jadwal-judul">{{ jadwalTeks }}</p>
-                <p class="muted">{{ $t('course.meetings') }}</p>
-              </div>
-            </div>
+            <span v-for="t in materi.tag" :key="t" class="pill" data-content="true">{{ t }}</span>
           </div>
 
           <el-progress :percentage="persen" :stroke-width="8" :show-text="false" class="bar" />
@@ -74,25 +46,72 @@
         </div>
       </div>
 
-      <section class="section">
-        <div class="section-head">
-          <h2 class="title">{{ isKursus ? $t('course.syllabus') : $t('course.modules') }}</h2>
-          <span class="muted">{{ $t('course.moduleCount', { n: modul.length }) }}</span>
+      <!-- Panel penyedia & penulis: selalu terlihat, di desktop jadi kolom samping -->
+      <div class="card panel">
+        <div class="panel-baris">
+          <div class="thumb panel-ikon"><i class="el-icon-office-building"></i></div>
+          <div class="grow">
+            <p class="panel-label">{{ $t('course.provider') }}</p>
+            <p class="panel-nilai" data-content="true">{{ materi.penyedia }}</p>
+          </div>
         </div>
 
-        <div class="card daftar">
-          <label
-            v-for="(m, i) in modul"
-            :key="m.id"
-            class="modul"
-          >
-            <el-checkbox v-model="m.selesai">
-              <span class="modul-nomor">{{ i + 1 }}.</span>
-              <span :class="{ 'is-done': m.selesai }">{{ m.judul }}</span>
-            </el-checkbox>
-          </label>
+        <div class="panel-baris">
+          <div class="thumb thumb-round panel-ikon">{{ materi.penulis.charAt(0) }}</div>
+          <div class="grow">
+            <p class="panel-label">{{ $t('course.author') }}</p>
+            <p class="panel-nilai" data-content="true">{{ materi.penulis }}</p>
+          </div>
         </div>
-      </section>
+
+        <template v-if="isKursus">
+          <div class="panel-baris">
+            <div class="thumb panel-ikon"><i class="el-icon-date"></i></div>
+            <div class="grow">
+              <p class="panel-label">{{ $t('course.startEnd') }}</p>
+              <p class="panel-nilai">{{ $tanggal(materi.mulaiIso) }} — {{ $tanggal(materi.selesaiIso) }}</p>
+              <p class="muted">{{ jadwalTeks }} · {{ $t('course.meetings') }}</p>
+            </div>
+          </div>
+
+          <div class="panel-baris">
+            <div class="thumb panel-ikon"><i class="el-icon-user"></i></div>
+            <div class="grow">
+              <p class="panel-label">{{ $t('course.enrollments') }}</p>
+              <p class="panel-nilai">{{ $t('course.enrollmentsCount', { n: $angka(materi.pendaftar) }) }}</p>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <el-tabs v-model="tab" class="tab-materi">
+        <el-tab-pane :label="$t('course.tabAbout')" name="tentang">
+          <div class="card">
+            <p class="title">{{ $t('common.about') }}</p>
+            <p class="deskripsi" data-content="true">{{ materi.deskripsi }}</p>
+          </div>
+        </el-tab-pane>
+
+        <el-tab-pane :label="$t('course.tabModules')" name="modul">
+          <div class="section-head">
+            <h2 class="title">{{ isKursus ? $t('course.syllabus') : $t('course.modules') }}</h2>
+            <span class="muted">{{ $t('course.moduleCount', { n: modul.length }) }}</span>
+          </div>
+
+          <div class="card daftar">
+            <label
+              v-for="(m, i) in modul"
+              :key="m.id"
+              class="modul"
+            >
+              <el-checkbox v-model="m.selesai">
+                <span class="modul-nomor">{{ i + 1 }}.</span>
+                <span :class="{ 'is-done': m.selesai }" data-content="true">{{ m.judul }}</span>
+              </el-checkbox>
+            </label>
+          </div>
+        </el-tab-pane>
+      </el-tabs>
     </template>
   </div>
 </template>
@@ -106,7 +125,7 @@ export default {
   name: 'LearnDetailView',
   components: { CardSkeleton, EmptyState },
   data () {
-    return { memuat: true, materi: null, modul: [] }
+    return { memuat: true, materi: null, modul: [], tab: 'tentang' }
   },
   computed: {
     isKursus () { return !!this.materi && this.materi.jenis === 'kursus' },
@@ -155,14 +174,9 @@ export default {
         this.memuat = false
       }, 500)
     },
+    // Enroll / Start hanya tampilan: tidak mengubah progres apa pun
     mulai () {
-      const berikut = this.modul.filter((m) => !m.selesai)[0]
-      if (!berikut) {
-        this.$message({ message: this.$t('course.allDone'), type: 'success' })
-        return
-      }
-      berikut.selesai = true
-      this.$message({ message: this.$t('course.moduleDone', { name: berikut.judul }), type: 'success' })
+      this.$message(this.isKursus ? this.$t('course.enrolNote') : this.$t('course.startNote'))
     },
     toggleSimpan () {
       this.$store.dispatch('bookmarks/toggleMateri', this.materi.id)
@@ -228,6 +242,35 @@ export default {
 .aksi { display: flex; gap: 8px; margin-top: 14px; }
 .tombol-utama { flex: 1; min-height: 44px; }
 .tombol-simpan { min-height: 44px; }
+
+.panel { padding: 4px 14px; }
+
+.panel-baris {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.panel-baris:last-child { border-bottom: 0; }
+
+.panel-ikon { width: 38px; height: 38px; font-size: 17px; }
+
+.panel-label {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.panel-nilai { margin: 2px 0 0; font-size: 14px; font-weight: 600; }
+
+.tab-materi { margin-top: 14px; }
+.tab-materi >>> .el-tabs__nav-wrap::after { height: 1px; background: var(--line); }
+.tab-materi >>> .el-tabs__item { padding: 0 14px; }
 
 .daftar { padding: 4px 12px; }
 

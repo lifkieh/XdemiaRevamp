@@ -170,12 +170,12 @@
     "streakPill": "{n} days",
     "filters": {
       "all": "All",
-      "materi": "Courses",
-      "kursus": "Classes"
+      "kursus": "Courses",
+      "materi": "Building Blocks"
     },
-    "hintAll": "Courses are self-paced; classes run on a schedule.",
-    "hintMateri": "Courses are open any time — go at your own pace.",
-    "hintKursus": "Classes have start and end dates and run together.",
+    "hintAll": "Courses run on a schedule and hold learning modules; building blocks are standalone material you take any time.",
+    "hintMateri": "Building blocks are standalone material — start whenever you like.",
+    "hintKursus": "Courses have start and end dates and hold learning modules.",
     "continueTitle": "Continue",
     "continueSub": "from where you left off",
     "forYou": "For you",
@@ -184,21 +184,25 @@
     "emptyStartedText": "Pick one below — ten minutes is enough to begin.",
     "emptyForYouTitle": "No recommendations",
     "emptyForYouText": "Try switching the filter above.",
-    "enrol": "Enrol",
-    "seeAll": "See all courses"
+    "enrol": "Enroll",
+    "seeAll": "See all courses",
+    "badge": {
+      "kursus": "Course",
+      "materi": "Building Block"
+    }
   },
   "course": {
-    "selfPaced": "Self-paced course",
-    "scheduled": "Scheduled class",
-    "author": "Course author",
-    "syllabus": "Class syllabus",
-    "modules": "Module list",
+    "selfPaced": "Building Block",
+    "scheduled": "Course",
+    "author": "Author",
+    "syllabus": "Learning modules",
+    "modules": "Learning modules",
     "moduleCount": "{n} modules",
     "modulesDone": "{done} of {total} modules done",
     "startLearning": "Start learning",
     "continueLearning": "Continue learning",
-    "enrol": "Enrol in class",
-    "period": "Class period",
+    "enrol": "Enroll",
+    "period": "Course period",
     "meetings": "Regular meetings",
     "allDone": "Every module is done. Nice work!",
     "moduleDone": "Module \"{name}\" marked as done.",
@@ -213,7 +217,15 @@
     },
     "startsOn": "Starts {date}",
     "jadwalPola": "Every {hari}, {jam}",
-    "durasiJamSatu": "{n} hr"
+    "durasiJamSatu": "{n} hr",
+    "tabAbout": "About",
+    "tabModules": "Learning Modules",
+    "provider": "Institute & Organisation",
+    "enrollments": "Enrollments",
+    "enrollmentsCount": "{n} enrolled",
+    "startEnd": "Start — End",
+    "enrolNote": "Enrolling is not active in this prototype.",
+    "startNote": "Starting is not active in this prototype."
   },
   "scholarship": {
     "title": "Scholarships",
@@ -243,7 +255,7 @@
   },
   "event": {
     "title": "Events",
-    "subtitle": "Classes, discussions, and live sessions from communities.",
+    "subtitle": "Sessions, discussions, and live meet-ups from communities.",
     "create": "Create event",
     "upcoming": "Upcoming",
     "past": "Past",
@@ -423,7 +435,7 @@
   },
   "cart": {
     "title": "Cart",
-    "subtitle": "Classes, courses, and event tickets you want to take.",
+    "subtitle": "Courses, building blocks, and event tickets you want to take.",
     "items": "Items ({n})",
     "history": "History",
     "emptyTitle": "Your cart is empty",

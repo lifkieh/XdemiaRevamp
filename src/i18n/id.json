@@ -170,12 +170,12 @@
     "streakPill": "{n} hari",
     "filters": {
       "all": "Semua",
-      "materi": "Materi",
-      "kursus": "Kursus"
+      "kursus": "Kursus",
+      "materi": "Materi"
     },
-    "hintAll": "Materi bisa dibuka kapan saja; kursus punya jadwal mulai dan selesai.",
-    "hintMateri": "Materi bisa dibuka kapan saja, belajar sesuai kecepatan kamu.",
-    "hintKursus": "Kursus punya tanggal mulai dan selesai, jadwalnya diikuti bareng.",
+    "hintAll": "Kursus punya jadwal dan berisi modul pembelajaran; materi berdiri sendiri dan bisa dibuka kapan saja.",
+    "hintMateri": "Materi berdiri sendiri — mulai kapan pun kamu mau.",
+    "hintKursus": "Kursus punya tanggal mulai dan selesai serta berisi modul pembelajaran.",
     "continueTitle": "Lanjutkan",
     "continueSub": "dari yang terakhir dibuka",
     "forYou": "Untuk kamu",
@@ -185,14 +185,18 @@
     "emptyForYouTitle": "Belum ada rekomendasi",
     "emptyForYouText": "Coba ganti jenisnya di atas.",
     "enrol": "Daftar",
-    "seeAll": "Lihat semua materi"
+    "seeAll": "Lihat semua materi",
+    "badge": {
+      "kursus": "Kursus",
+      "materi": "Materi"
+    }
   },
   "course": {
-    "selfPaced": "Materi mandiri",
-    "scheduled": "Kursus berjadwal",
-    "author": "Penyusun materi",
-    "syllabus": "Silabus kursus",
-    "modules": "Daftar modul",
+    "selfPaced": "Materi",
+    "scheduled": "Kursus",
+    "author": "Penulis",
+    "syllabus": "Modul pembelajaran",
+    "modules": "Modul pembelajaran",
     "moduleCount": "{n} modul",
     "modulesDone": "{done} dari {total} modul selesai",
     "startLearning": "Mulai belajar",
@@ -213,7 +217,15 @@
     },
     "startsOn": "Mulai {date}",
     "jadwalPola": "Tiap {hari}, {jam}",
-    "durasiJamSatu": "{n} jam"
+    "durasiJamSatu": "{n} jam",
+    "tabAbout": "Tentang",
+    "tabModules": "Modul Pembelajaran",
+    "provider": "Institusi & Organisasi",
+    "enrollments": "Pendaftar",
+    "enrollmentsCount": "{n} terdaftar",
+    "startEnd": "Mulai — Selesai",
+    "enrolNote": "Pendaftaran belum aktif di prototipe ini.",
+    "startNote": "Mulai belajar belum aktif di prototipe ini."
   },
   "scholarship": {
     "title": "Beasiswa",
@@ -243,7 +255,7 @@
   },
   "event": {
     "title": "Acara",
-    "subtitle": "Kelas, diskusi, dan sesi live dari komunitas.",
+    "subtitle": "Sesi, diskusi, dan pertemuan live dari komunitas.",
     "create": "Buat acara",
     "upcoming": "Akan datang",
     "past": "Sudah lewat",
@@ -271,7 +283,7 @@
     "form": {
       "title": "Buat acara baru",
       "name": "Nama acara",
-      "namePlaceholder": "Contoh: Kelas Menulis Esai",
+      "namePlaceholder": "Contoh: Sesi Menulis Esai",
       "when": "Tanggal & jam",
       "datePlaceholder": "Sabtu, 30 Agustus 2026",
       "timePlaceholder": "19.30 WIB",
