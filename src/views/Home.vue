@@ -10,6 +10,36 @@
       </div>
     </div>
 
+    <!-- Filter kategori: chip di layar lebar, dropdown di layar sempit -->
+    <div v-if="!memuat && feed.length > 0" class="filter-bar">
+      <div v-if="pakaiChip" class="chips" role="tablist">
+        <button
+          v-for="k in kategori"
+          :key="k.id"
+          class="chip"
+          :class="{ 'is-active': k.id === filterAktif }"
+          role="tab"
+          :aria-selected="k.id === filterAktif ? 'true' : 'false'"
+          @click="filterAktif = k.id"
+        >
+          {{ k.label }}
+          <span class="hitung">{{ jumlahPer[k.id] }}</span>
+        </button>
+      </div>
+
+      <div v-else class="pilih-baris">
+        <label for="filter-feed" class="pilih-label">Tampilkan</label>
+        <el-select id="filter-feed" v-model="filterAktif" class="pilih">
+          <el-option
+            v-for="k in kategori"
+            :key="k.id"
+            :value="k.id"
+            :label="k.label + ' (' + jumlahPer[k.id] + ')'"
+          />
+        </el-select>
+      </div>
+    </div>
+
     <CardSkeleton v-if="memuat" :jumlah="4" />
 
     <EmptyState
@@ -21,8 +51,17 @@
       <el-button type="primary" @click="$router.push('/explore')">Cari yang seru</el-button>
     </EmptyState>
 
+    <EmptyState
+      v-else-if="feedTampil.length === 0"
+      ikon="el-icon-files"
+      judul="Kosong dulu di sini"
+      :pesan="'Belum ada ' + labelAktif.toLowerCase() + ' di berandamu.'"
+    >
+      <el-button type="primary" @click="filterAktif = 'semua'">Lihat semua</el-button>
+    </EmptyState>
+
     <template v-else>
-      <div v-for="item in feed" :key="item.id">
+      <div v-for="item in feedTampil" :key="item.id">
         <!-- Dorongan belajar -->
         <div v-if="item.tipe === 'learning_nudge'" class="card nudge">
           <div class="row row-top">
@@ -140,11 +179,39 @@ export default {
     return {
       memuat: true,
       feed: [],
-      disukai: {}
+      disukai: {},
+      filterAktif: 'semua',
+      kategori: [
+        { id: 'semua', label: 'Semua' },
+        { id: 'post', label: 'Postingan' },
+        { id: 'article', label: 'Artikel' },
+        { id: 'scholarship_alert', label: 'Beasiswa' },
+        { id: 'learning_nudge', label: 'Belajar' },
+        { id: 'community_update', label: 'Komunitas' }
+      ]
     }
   },
   computed: {
-    inisial () { return this.$store.getters['user/inisial'] }
+    inisial () { return this.$store.getters['user/inisial'] },
+    // layar lebar pakai baris chip, layar sempit pakai dropdown biar hemat ruang
+    pakaiChip () { return this.$store.state.layout.lebar >= 768 },
+    // menyaring salinan, array feed asli tidak disentuh
+    feedTampil () {
+      if (this.filterAktif === 'semua') return this.feed
+      return this.feed.filter((item) => item.tipe === this.filterAktif)
+    },
+    jumlahPer () {
+      const hasil = { semua: this.feed.length }
+      this.kategori.forEach((k) => {
+        if (k.id === 'semua') return
+        hasil[k.id] = this.feed.filter((item) => item.tipe === k.id).length
+      })
+      return hasil
+    },
+    labelAktif () {
+      const k = this.kategori.filter((x) => x.id === this.filterAktif)[0]
+      return k ? k.label : 'isi'
+    }
   },
   created () {
     // Simulasi ambil data dari server
@@ -184,6 +251,82 @@ export default {
 </script>
 
 <style scoped>
+/* ---------- filter kategori ---------- */
+.filter-bar {
+  position: sticky;
+  top: 56px;
+  z-index: 10;
+  background: var(--bg);
+  padding: 8px 0 4px;
+  margin: 0 -2px 4px;
+}
+
+/* top bar desktop lebih tinggi, jadi titik lengketnya ikut turun */
+.app-desktop .filter-bar { top: 64px; }
+
+.chips {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 2px 6px;
+  scrollbar-width: none;
+}
+
+.chips::-webkit-scrollbar { display: none; }
+
+.chip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.chip:hover { border-color: var(--brand); color: var(--brand); }
+
+.chip.is-active {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+.hitung {
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--bg);
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+
+.chip.is-active .hitung { background: rgba(255, 255, 255, .22); color: #fff; }
+
+.pilih-baris {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 2px 4px;
+}
+
+.pilih-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  flex: none;
+}
+
+.pilih { flex: 1; }
+.pilih >>> .el-input__inner { min-height: var(--tap); }
+
 .composer { padding: 10px 12px; }
 
 .composer-avatar { background: var(--brand); color: #fff; width: 40px; height: 40px; }
