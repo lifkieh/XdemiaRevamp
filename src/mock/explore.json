@@ -13,5 +13,13 @@
   { "id": "e-12", "tipe": "organisasi", "organisasiId": "i-6", "nama": "English Circle ID", "inisial": "EC", "info": "Komunitas Belajar · Yogyakarta", "aksi": "Ikuti" },
   { "id": "e-13", "tipe": "jurnal", "jurnalId": "j-1", "nama": "Jurnal Pendidikan Digital", "inisial": "JP", "info": "214 tulisan · terbit tiap bulan", "aksi": "Ikuti" },
   { "id": "e-14", "tipe": "jurnal", "jurnalId": "j-2", "nama": "Jurnal Riset Kesehatan Masyarakat", "inisial": "JR", "info": "97 tulisan · terbit tiap kuartal", "aksi": "Ikuti" },
-  { "id": "e-15", "tipe": "jurnal", "jurnalId": "j-3", "nama": "Catatan Riset Data Indonesia", "inisial": "CR", "info": "58 tulisan · terbit tiap bulan", "aksi": "Ikuti" }
+  { "id": "e-15", "tipe": "jurnal", "jurnalId": "j-3", "nama": "Catatan Riset Data Indonesia", "inisial": "CR", "info": "58 tulisan · terbit tiap bulan", "aksi": "Ikuti" },
+  { "id": "e-16", "tipe": "artikel", "artikelId": "ar-1", "nama": "Cara Baca Jurnal Ilmiah Tanpa Pusing", "inisial": "CB", "info": "Jurnal Belajar Xdemia · 4 menit baca", "aksi": "Baca" },
+  { "id": "e-17", "tipe": "artikel", "artikelId": "ar-2", "nama": "5 Kesalahan Umum Waktu Nulis Esai Beasiswa", "inisial": "5K", "info": "Ruang Beasiswa · 6 menit baca", "aksi": "Baca" },
+  { "id": "e-18", "tipe": "artikel", "artikelId": "ar-3", "nama": "Belajar Python 30 Menit Sehari, Realistis Nggak?", "inisial": "BP", "info": "Jurnal Belajar Xdemia · 5 menit baca", "aksi": "Baca" },
+  { "id": "e-19", "tipe": "artikel", "artikelId": "ar-4", "nama": "Portofolio atau IPK, Perekrut Lihat yang Mana?", "inisial": "PI", "info": "Jurnal Belajar Xdemia · 7 menit baca", "aksi": "Baca" },
+  { "id": "e-20", "tipe": "artikel", "artikelId": "ar-5", "nama": "Kuliah di Luar Negeri Tanpa Beasiswa Penuh, Mungkin?", "inisial": "KL", "info": "Ruang Beasiswa · 6 menit baca", "aksi": "Baca" },
+  { "id": "e-21", "tipe": "artikel", "artikelId": "ar-6", "nama": "Cara Bikin Catatan Kuliah yang Beneran Dibaca Lagi", "inisial": "CB", "info": "Jurnal Belajar Xdemia · 4 menit baca", "aksi": "Baca" },
+  { "id": "e-22", "tipe": "artikel", "artikelId": "ar-7", "nama": "Burnout Belajar Itu Nyata, Ini Tandanya", "inisial": "BB", "info": "Jurnal Belajar Xdemia · 5 menit baca", "aksi": "Baca" },
+  { "id": "e-23", "tipe": "artikel", "artikelId": "ar-8", "nama": "Skripsi Macet di Bab 2? Coba Ubah Urutannya", "inisial": "SM", "info": "Jurnal Riset Kesehatan Masyarakat · 6 menit baca", "aksi": "Baca" }
 ]

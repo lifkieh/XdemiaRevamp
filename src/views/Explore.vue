@@ -56,7 +56,17 @@
           <span class="pill">{{ labelTipe[item.tipe] }}</span>
         </template>
         <template slot="action">
+          <!-- artikel langsung dibaca, tidak diikuti -->
           <el-button
+            v-if="item.tipe === 'artikel'"
+            size="small"
+            type="primary"
+            @click.stop="buka(item)"
+          >
+            {{ item.aksi }}
+          </el-button>
+          <el-button
+            v-else
             size="small"
             :type="diikuti[item.id] ? 'default' : 'primary'"
             @click.stop="toggleIkuti(item)"
@@ -86,13 +96,14 @@ export default {
       memuat: true,
       kueri: '',
       filter: 'Semua',
-      opsiFilter: ['Semua', 'Orang', 'Komunitas', 'Kampus', 'Organisasi', 'Jurnal'],
+      opsiFilter: ['Semua', 'Orang', 'Komunitas', 'Kampus', 'Organisasi', 'Jurnal', 'Artikel'],
       labelTipe: {
         orang: 'Orang',
         komunitas: 'Komunitas',
         kampus: 'Kampus',
         organisasi: 'Organisasi',
-        jurnal: 'Jurnal'
+        jurnal: 'Jurnal',
+        artikel: 'Artikel'
       },
       data: [],
       diikuti: {}
@@ -138,6 +149,7 @@ export default {
       else if (item.kampusId) this.$router.push('/kampus/' + item.kampusId)
       else if (item.organisasiId) this.$router.push('/organisasi/' + item.organisasiId)
       else if (item.jurnalId) this.$router.push('/jurnal/' + item.jurnalId)
+      else if (item.artikelId) this.$router.push('/artikel/' + item.artikelId)
     },
     bukaJurnal (baris) { this.$router.push('/jurnal/' + baris.id) },
     toggleIkuti (item) {
