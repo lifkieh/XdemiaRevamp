@@ -46,7 +46,6 @@ export default {
         { path: '/explore', label: 'Jelajah', ikon: 'el-icon-search', exact: false },
         { path: '/learn', label: 'Belajar', ikon: 'el-icon-reading', exact: false },
         { path: '/scholarships', label: 'Beasiswa', ikon: 'el-icon-medal', exact: false },
-        { path: '/events', label: 'Acara', ikon: 'el-icon-date', exact: false },
         { path: '/you', label: 'Kamu', ikon: 'el-icon-user', exact: false }
       ]
     }

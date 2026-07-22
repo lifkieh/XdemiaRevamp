@@ -7,10 +7,11 @@
       <div v-if="isDesktop" class="cari grow">
         <el-input
           v-model="kueri"
-          placeholder="Cari orang, komunitas, kampus, jurnal"
+          placeholder="Cari orang, komunitas, kampus, jurnal, artikel"
           prefix-icon="el-icon-search"
           clearable
           @keyup.enter.native="cari"
+          @clear="cari"
         />
       </div>
       <span v-else class="grow"></span>
@@ -45,7 +46,7 @@
 export default {
   name: 'TopBar',
   data () {
-    return { kueri: '' }
+    return { kueri: this.$route.query.q ? String(this.$route.query.q) : '' }
   },
   computed: {
     inisial () { return this.$store.getters['user/inisial'] },
@@ -53,11 +54,18 @@ export default {
     jumlahKeranjang () { return this.$store.getters['cart/jumlahItem'] },
     isDesktop () { return this.$store.getters['layout/isDesktop'] }
   },
+  watch: {
+    // ikut isi ?q= supaya kotak search selalu mencerminkan hasil yang tampil
+    '$route.query.q' (q) {
+      const nilai = q ? String(q) : ''
+      if (nilai !== this.kueri) this.kueri = nilai
+    }
+  },
   methods: {
     cari () {
       const q = this.kueri.trim()
-      if (!q) return
-      this.$router.push({ path: '/explore', query: { q } }).catch(() => {})
+      const query = q ? { q } : {}
+      this.$router.push({ path: '/explore', query }).catch(() => {})
     }
   }
 }

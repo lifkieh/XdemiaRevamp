@@ -21,5 +21,11 @@
   { "id": "e-20", "tipe": "artikel", "artikelId": "ar-5", "nama": "Kuliah di Luar Negeri Tanpa Beasiswa Penuh, Mungkin?", "inisial": "KL", "info": "Ruang Beasiswa · 6 menit baca", "aksi": "Baca" },
   { "id": "e-21", "tipe": "artikel", "artikelId": "ar-6", "nama": "Cara Bikin Catatan Kuliah yang Beneran Dibaca Lagi", "inisial": "CB", "info": "Jurnal Belajar Xdemia · 4 menit baca", "aksi": "Baca" },
   { "id": "e-22", "tipe": "artikel", "artikelId": "ar-7", "nama": "Burnout Belajar Itu Nyata, Ini Tandanya", "inisial": "BB", "info": "Jurnal Belajar Xdemia · 5 menit baca", "aksi": "Baca" },
-  { "id": "e-23", "tipe": "artikel", "artikelId": "ar-8", "nama": "Skripsi Macet di Bab 2? Coba Ubah Urutannya", "inisial": "SM", "info": "Jurnal Riset Kesehatan Masyarakat · 6 menit baca", "aksi": "Baca" }
+  { "id": "e-23", "tipe": "artikel", "artikelId": "ar-8", "nama": "Skripsi Macet di Bab 2? Coba Ubah Urutannya", "inisial": "SM", "info": "Jurnal Riset Kesehatan Masyarakat · 6 menit baca", "aksi": "Baca" },
+  { "id": "e-24", "tipe": "acara", "acaraId": "ev-1", "nama": "Bedah Portofolio Data Bareng Praktisi", "inisial": "BP", "info": "Sabtu, 26 Juli 2026 · Online · Zoom", "aksi": "Lihat" },
+  { "id": "e-25", "tipe": "acara", "acaraId": "ev-2", "nama": "Kelas Menulis Esai Beasiswa", "inisial": "KM", "info": "Minggu, 27 Juli 2026 · Online · Google Meet", "aksi": "Lihat" },
+  { "id": "e-26", "tipe": "acara", "acaraId": "ev-3", "nama": "Info Session LPDP Batch 2", "inisial": "IS", "info": "Rabu, 30 Juli 2026 · Online · YouTube Live", "aksi": "Lihat" },
+  { "id": "e-27", "tipe": "acara", "acaraId": "ev-4", "nama": "Workshop Dasar Desain Antarmuka", "inisial": "WD", "info": "Sabtu, 2 Agustus 2026 · Malang · Gedung Widyaloka UB", "aksi": "Lihat" },
+  { "id": "e-28", "tipe": "acara", "acaraId": "ev-5", "nama": "Ngobrol Karier: Dari Kampus ke Industri Data", "inisial": "NK", "info": "Jumat, 8 Agustus 2026 · Online · Discord", "aksi": "Lihat" },
+  { "id": "e-29", "tipe": "acara", "acaraId": "ev-6", "nama": "Lomba Visualisasi Data Mahasiswa", "inisial": "LV", "info": "Sabtu, 16 Agustus 2026 · Online · Zoom", "aksi": "Lihat" }
 ]

@@ -2,12 +2,14 @@
   <div class="screen">
     <div class="row jelajah-head">
       <h1 class="title-lg grow">Jelajah</h1>
-      <router-link to="/events" class="tap tautan-atas">
-        <i class="el-icon-date"></i><span>Acara</span>
-      </router-link>
     </div>
 
-    <SearchBar v-model="kueri" placeholder="Cari orang, komunitas, kampus, jurnal" />
+    <!-- Di desktop kotak pencarian ada di top bar, jadi di sini cukup untuk mobile -->
+    <SearchBar
+      v-if="!isDesktop"
+      v-model="kueri"
+      placeholder="Cari orang, komunitas, kampus, jurnal, artikel"
+    />
     <FilterChips v-model="filter" :opsi="opsiFilter" />
 
     <CardSkeleton v-if="memuat" :jumlah="5" />
@@ -22,8 +24,11 @@
     <template v-else>
       <div class="row info-baris">
         <p class="muted grow">{{ hasil.length }} hasil</p>
-        <router-link v-if="filter === 'Jurnal'" to="/jurnal" class="tap tautan-atas">
+        <router-link v-if="filter === 'Jurnal'" to="/jurnal" class="tap tautan-semua">
           <i class="el-icon-notebook-2"></i><span>Semua jurnal</span>
+        </router-link>
+        <router-link v-else-if="filter === 'Acara'" to="/events" class="tap tautan-semua">
+          <i class="el-icon-date"></i><span>Semua acara</span>
         </router-link>
       </div>
 
@@ -56,9 +61,9 @@
           <span class="pill">{{ labelTipe[item.tipe] }}</span>
         </template>
         <template slot="action">
-          <!-- artikel langsung dibaca, tidak diikuti -->
+          <!-- artikel dan acara langsung dibuka, tidak diikuti -->
           <el-button
-            v-if="item.tipe === 'artikel'"
+            v-if="item.tipe === 'artikel' || item.tipe === 'acara'"
             size="small"
             type="primary"
             @click.stop="buka(item)"
@@ -96,14 +101,15 @@ export default {
       memuat: true,
       kueri: '',
       filter: 'Semua',
-      opsiFilter: ['Semua', 'Orang', 'Komunitas', 'Kampus', 'Organisasi', 'Jurnal', 'Artikel'],
+      opsiFilter: ['Semua', 'Orang', 'Komunitas', 'Kampus', 'Organisasi', 'Jurnal', 'Artikel', 'Acara'],
       labelTipe: {
         orang: 'Orang',
         komunitas: 'Komunitas',
         kampus: 'Kampus',
         organisasi: 'Organisasi',
         jurnal: 'Jurnal',
-        artikel: 'Artikel'
+        artikel: 'Artikel',
+        acara: 'Acara'
       },
       data: [],
       diikuti: {}
@@ -121,6 +127,7 @@ export default {
         return cocokFilter && cocokKueri
       })
     },
+    isDesktop () { return this.$store.getters['layout/isDesktop'] },
     // tabel jurnal memakai data lengkap, disaring mengikuti hasil chip + kueri
     barisJurnal () {
       const idTampil = this.hasil.map((h) => h.jurnalId)
@@ -137,9 +144,26 @@ export default {
   },
   beforeDestroy () {
     clearTimeout(this.timer)
+    clearTimeout(this.timerKueri)
   },
   watch: {
-    '$route.query.q' (q) { this.kueri = q ? String(q) : '' }
+    // ?q= adalah sumber kebenaran: diisi search top bar (desktop)
+    // maupun kotak search di halaman ini (mobile)
+    '$route.query.q' (q) {
+      const nilai = q ? String(q) : ''
+      if (nilai !== this.kueri) this.kueri = nilai
+    },
+    kueri (nilai) {
+      clearTimeout(this.timerKueri)
+      this.timerKueri = setTimeout(() => {
+        const sekarang = this.$route.query.q ? String(this.$route.query.q) : ''
+        if (sekarang === nilai) return
+        const query = { ...this.$route.query }
+        if (nilai) query.q = nilai
+        else delete query.q
+        this.$router.replace({ path: '/explore', query }).catch(() => {})
+      }, 250)
+    }
   },
   methods: {
     // tiap kartu menuju halaman detail sesuai jenisnya
@@ -150,6 +174,7 @@ export default {
       else if (item.organisasiId) this.$router.push('/organisasi/' + item.organisasiId)
       else if (item.jurnalId) this.$router.push('/jurnal/' + item.jurnalId)
       else if (item.artikelId) this.$router.push('/artikel/' + item.artikelId)
+      else if (item.acaraId) this.$router.push('/acara/' + item.acaraId)
     },
     bukaJurnal (baris) { this.$router.push('/jurnal/' + baris.id) },
     toggleIkuti (item) {
@@ -167,7 +192,7 @@ export default {
 <style scoped>
 .jelajah-head { margin: 4px 2px 10px; }
 
-.tautan-atas {
+.tautan-semua {
   color: var(--brand);
   font-weight: 600;
   font-size: 13.5px;
