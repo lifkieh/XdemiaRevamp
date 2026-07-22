@@ -1,0 +1,23 @@
+{
+  "materi": {
+    "label": "Belajar",
+    "ikon": "el-icon-reading",
+    "judulKartu": "Lanjutin belajar",
+    "tombol": "Lanjutin belajar",
+    "rute": "/learn/"
+  },
+  "artikel": {
+    "label": "Artikel",
+    "ikon": "el-icon-document",
+    "judulKartu": "Lanjutin baca",
+    "tombol": "Lanjut baca",
+    "rute": "/artikel/"
+  },
+  "jurnal": {
+    "label": "Jurnal",
+    "ikon": "el-icon-notebook-2",
+    "judulKartu": "Lanjutin baca",
+    "tombol": "Lanjut baca",
+    "rute": "/jurnal/"
+  }
+}

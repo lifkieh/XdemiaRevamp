@@ -64,25 +64,54 @@
       <div v-for="item in feedTampil" :key="item.id">
         <!-- Dorongan belajar -->
         <div v-if="item.tipe === 'learning_nudge'" class="card nudge">
-          <div class="row row-top">
-            <div class="thumb nudge-thumb"><i class="el-icon-reading"></i></div>
-            <div class="grow">
-              <p class="title">{{ item.judul }}</p>
-              <p class="muted">{{ item.deskripsi }}</p>
-              <el-progress
-                v-if="item.progress > 0"
-                :percentage="item.progress"
-                :stroke-width="6"
-                :show-text="false"
-                class="nudge-progress"
-              />
+          <!-- Kartu lanjutkan: isinya dari riwayat lintas jenis, bukan cuma materi -->
+          <template v-if="item.sumber === 'lanjutkan' && lanjutkanTeratas">
+            <div class="row row-top">
+              <div class="thumb nudge-thumb"><i :class="infoLanjut.ikon"></i></div>
+              <div class="grow">
+                <p class="title">{{ infoLanjut.judulKartu }}</p>
+                <p class="lanjut-judul">{{ lanjutkanTeratas.judul }}</p>
+                <div class="lanjut-meta">
+                  <span class="pill">{{ infoLanjut.label }}</span>
+                  <span class="muted">{{ lanjutkanTeratas.sisa }}</span>
+                </div>
+                <el-progress
+                  :percentage="lanjutkanTeratas.progress"
+                  :stroke-width="6"
+                  :show-text="false"
+                  class="nudge-progress"
+                />
+              </div>
             </div>
-          </div>
-          <div class="card-foot">
-            <el-button type="primary" size="small" @click="$router.push('/learn/' + item.materiId)">
-              {{ item.progress > 0 ? 'Lanjutkan' : 'Mulai belajar' }}
-            </el-button>
-          </div>
+            <div class="card-foot">
+              <el-button type="primary" size="small" @click="bukaLanjutkan(lanjutkanTeratas)">
+                {{ infoLanjut.tombol }}
+              </el-button>
+            </div>
+          </template>
+
+          <!-- Dorongan lain (mis. pengingat streak) tetap seperti semula -->
+          <template v-else>
+            <div class="row row-top">
+              <div class="thumb nudge-thumb"><i class="el-icon-reading"></i></div>
+              <div class="grow">
+                <p class="title">{{ item.judul }}</p>
+                <p class="muted">{{ item.deskripsi }}</p>
+                <el-progress
+                  v-if="item.progress > 0"
+                  :percentage="item.progress"
+                  :stroke-width="6"
+                  :show-text="false"
+                  class="nudge-progress"
+                />
+              </div>
+            </div>
+            <div class="card-foot">
+              <el-button type="primary" size="small" @click="$router.push('/learn/' + item.materiId)">
+                {{ item.progress > 0 ? 'Lanjutkan' : 'Mulai belajar' }}
+              </el-button>
+            </div>
+          </template>
         </div>
 
         <!-- Info beasiswa -->
@@ -182,6 +211,9 @@
 import CardSkeleton from '@/components/CardSkeleton.vue'
 import EmptyState from '@/components/EmptyState.vue'
 import feedData from '@/mock/feed.json'
+import riwayatLanjut from '@/mock/lanjutkan.json'
+// label, ikon, tombol, dan rute per jenis isi yang bisa dilanjutkan
+import petaLanjut from '@/mock/peta-lanjut.json'
 
 export default {
   name: 'HomeView',
@@ -191,6 +223,7 @@ export default {
       memuat: true,
       feed: [],
       disukai: {},
+      riwayatLanjut,
       filterAktif: 'semua',
       kategori: [
         { id: 'semua', label: 'Semua' },
@@ -228,6 +261,16 @@ export default {
     labelAktif () {
       const k = this.kategori.filter((x) => x.id === this.filterAktif)[0]
       return k ? k.label : 'isi'
+    },
+    // satu item saja: yang paling baru disentuh
+    lanjutkanTeratas () {
+      const daftar = Array.isArray(this.riwayatLanjut) ? this.riwayatLanjut : []
+      if (!daftar.length) return null
+      return daftar.slice().sort((a, b) => new Date(b.terakhir) - new Date(a.terakhir))[0]
+    },
+    infoLanjut () {
+      const jenis = this.lanjutkanTeratas ? this.lanjutkanTeratas.jenis : 'materi'
+      return petaLanjut[jenis] || petaLanjut.materi
     }
   },
   created () {
@@ -262,6 +305,10 @@ export default {
         '--rasio': w + ' / ' + t,
         '--rasio-angka': (w / t).toFixed(4)
       }
+    },
+    bukaLanjutkan (item) {
+      const info = petaLanjut[item.jenis] || petaLanjut.materi
+      this.$router.push(info.rute + item.refId)
     },
     bukaArtikel (item) {
       if (item.artikelId) this.$router.push('/artikel/' + item.artikelId)
@@ -455,6 +502,20 @@ export default {
   margin: 10px 0 0;
   font-size: 14px;
   color: var(--muted);
+}
+
+.lanjut-judul {
+  margin: 2px 0 0;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.lanjut-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
 }
 
 .nudge { border-color: var(--brand); background: linear-gradient(180deg, var(--brand-soft), var(--card) 60%); }

@@ -14,10 +14,13 @@
     <CardSkeleton v-if="memuat" :jumlah="4" />
 
     <template v-else>
-      <section class="section">
+      <!-- Lanjutkan: lintas jenis, bukan cuma materi, urut dari yang terakhir dibuka.
+           Disembunyikan saat chip dipersempit ke Materi/Kursus supaya isinya tidak
+           bertabrakan dengan penyaringan katalog. -->
+      <section v-if="jenis === 'Semua'" class="section">
         <div class="section-head">
-          <h2 class="title">Lanjutkan belajar</h2>
-          <span class="muted">{{ lanjutkan.length }} materi</span>
+          <h2 class="title">Lanjutkan</h2>
+          <span class="muted">dari yang terakhir dibuka</span>
         </div>
 
         <EmptyState
@@ -28,21 +31,23 @@
         />
 
         <BaseCard
-          v-for="materi in lanjutkan"
-          :key="materi.id"
-          :inisial="materi.judul.charAt(0)"
-          :judul="materi.judul"
-          :subjudul="materi.penyedia + ' · ' + materi.durasi"
+          v-for="isi in lanjutkan"
+          :key="isi.id"
+          :inisial="isi.judul.charAt(0)"
+          :judul="isi.judul"
+          :subjudul="isi.penyedia"
           clickable
-          @click.native="buka(materi.id)"
+          @click.native="bukaLanjutkan(isi)"
         >
           <template slot="meta">
-            <span class="pill">{{ materi.jenis === 'kursus' ? 'Kursus' : 'Materi' }}</span>
-            <span class="pill">{{ materi.jenjang }}</span>
+            <span class="pill">
+              <i :class="petaLanjut[isi.jenis].ikon"></i> {{ petaLanjut[isi.jenis].label }}
+            </span>
+            <span class="muted">{{ isi.sisa }}</span>
           </template>
           <div class="progress-baris">
-            <el-progress :percentage="materi.progress" :stroke-width="6" :show-text="false" />
-            <span class="muted progress-teks">{{ materi.progress }}% selesai</span>
+            <el-progress :percentage="isi.progress" :stroke-width="6" :show-text="false" />
+            <span class="muted progress-teks">{{ isi.progress }}% selesai</span>
           </div>
         </BaseCard>
       </section>
@@ -93,6 +98,8 @@ import CardSkeleton from '@/components/CardSkeleton.vue'
 import EmptyState from '@/components/EmptyState.vue'
 import FilterChips from '@/components/FilterChips.vue'
 import courses from '@/mock/courses.json'
+import riwayatLanjut from '@/mock/lanjutkan.json'
+import petaLanjut from '@/mock/peta-lanjut.json'
 
 export default {
   name: 'LearnView',
@@ -101,6 +108,8 @@ export default {
     return {
       memuat: true,
       materi: [],
+      riwayatLanjut,
+      petaLanjut,
       jenis: 'Semua',
       opsiJenis: ['Semua', 'Materi', 'Kursus']
     }
@@ -117,7 +126,15 @@ export default {
       if (this.jenis === 'Kursus') return this.materi.filter((m) => m.jenis === 'kursus')
       return this.materi
     },
-    lanjutkan () { return this.tersaring.filter((m) => m.progress > 0) },
+    // Rail lanjutkan tidak ikut chip Materi/Kursus: isinya riwayat lintas jenis
+    // (materi, artikel, jurnal), diurutkan dari yang terakhir dibuka.
+    lanjutkan () {
+      const daftar = Array.isArray(this.riwayatLanjut) ? this.riwayatLanjut : []
+      return daftar
+        .slice()
+        .sort((a, b) => new Date(b.terakhir) - new Date(a.terakhir))
+        .slice(0, 3)
+    },
     untukKamu () { return this.tersaring.filter((m) => m.progress === 0) }
   },
   created () {
@@ -130,7 +147,11 @@ export default {
     clearTimeout(this.timer)
   },
   methods: {
-    buka (id) { this.$router.push('/learn/' + id) }
+    buka (id) { this.$router.push('/learn/' + id) },
+    bukaLanjutkan (isi) {
+      const info = this.petaLanjut[isi.jenis] || this.petaLanjut.materi
+      this.$router.push(info.rute + isi.refId)
+    }
   }
 }
 </script>

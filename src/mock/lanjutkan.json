@@ -1,0 +1,52 @@
+[
+  {
+    "id": "lj-1",
+    "jenis": "materi",
+    "refId": "c-1",
+    "judul": "Statistika Dasar untuk Data",
+    "penyedia": "Xdemia Belajar",
+    "progress": 65,
+    "sisa": "2 modul lagi · sekitar 25 menit",
+    "terakhir": "2026-07-22T08:10:00"
+  },
+  {
+    "id": "lj-2",
+    "jenis": "artikel",
+    "refId": "ar-1",
+    "judul": "Cara Baca Jurnal Ilmiah Tanpa Pusing",
+    "penyedia": "Jurnal Belajar Xdemia",
+    "progress": 40,
+    "sisa": "tinggal sekitar 2 menit baca",
+    "terakhir": "2026-07-22T09:30:00"
+  },
+  {
+    "id": "lj-3",
+    "jenis": "jurnal",
+    "refId": "j-1",
+    "judul": "Jurnal Pendidikan Digital",
+    "penyedia": "Universitas Brawijaya",
+    "progress": 20,
+    "sisa": "lanjut dari bagian Metode",
+    "terakhir": "2026-07-21T20:00:00"
+  },
+  {
+    "id": "lj-4",
+    "jenis": "materi",
+    "refId": "c-3",
+    "judul": "Nulis Esai Beasiswa yang Nyantol",
+    "penyedia": "Ruang Beasiswa",
+    "progress": 15,
+    "sisa": "baru mulai bab kerangka cerita",
+    "terakhir": "2026-07-21T21:15:00"
+  },
+  {
+    "id": "lj-5",
+    "jenis": "artikel",
+    "refId": "ar-4",
+    "judul": "Portofolio atau IPK, Perekrut Lihat yang Mana?",
+    "penyedia": "Jurnal Belajar Xdemia",
+    "progress": 70,
+    "sisa": "tinggal 2 bagian terakhir",
+    "terakhir": "2026-07-20T19:40:00"
+  }
+]
