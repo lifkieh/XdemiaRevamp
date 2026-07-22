@@ -58,7 +58,8 @@
     },
     "ringkasan": "Baca abstrak, lompat ke kesimpulan, baru balik ke metode. Urutannya bukan dari atas ke bawah.",
     "artikelId": "ar-1",
-    "menitBaca": 4
+    "menitBaca": 4,
+    "gambarId": "comenius"
   },
   {
     "id": "fd-5",
@@ -66,6 +67,7 @@
     "penulis": "Bagas Wirawan",
     "inisial": "B",
     "peran": "Alumni · Teknik Elektro ITB",
+    "verified": true,
     "waktu": {
       "jam": 2
     },
@@ -179,7 +181,8 @@
     },
     "ringkasan": "Realistis, asal 30 menitnya buat ngoding, bukan nonton video orang ngoding.",
     "artikelId": "ar-3",
-    "menitBaca": 5
+    "menitBaca": 5,
+    "gambarId": "plato"
   },
   {
     "id": "fd-12",

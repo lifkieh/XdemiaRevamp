@@ -137,14 +137,14 @@
               <p class="title">{{ $t('you.dailyReminder') }}</p>
               <p class="muted">{{ $t('you.dailyReminderSub') }}</p>
             </div>
-            <el-switch v-model="setelan.pengingat" active-color="#17a2a2" />
+            <el-switch v-model="setelan.pengingat" active-color="#088898" />
           </div>
           <div class="setelan">
             <div class="grow">
               <p class="title">{{ $t('you.scholarshipAlerts') }}</p>
               <p class="muted">{{ $t('you.scholarshipAlertsSub') }}</p>
             </div>
-            <el-switch v-model="setelan.beasiswa" active-color="#17a2a2" />
+            <el-switch v-model="setelan.beasiswa" active-color="#088898" />
           </div>
         </div>
 
@@ -271,7 +271,7 @@ export default {
 
 .cover {
   height: 88px;
-  background: linear-gradient(120deg, var(--brand), #3fc9c0);
+  background: linear-gradient(120deg, var(--brand), var(--accent));
 }
 
 .profil-isi { padding: 0 14px 14px; }

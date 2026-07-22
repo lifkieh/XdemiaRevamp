@@ -44,6 +44,17 @@
         <label class="label">{{ $t('settings.Institute') }}</label>
         <el-input v-model="form.kampus" :placeholder="$t('settings.InstitutePlaceholder')" />
       </div>
+
+      <div class="isian">
+        <label class="label">{{ $t('settings.role') }}</label>
+        <p class="muted keterangan-role">{{ $t('settings.roleSub') }}</p>
+        <el-select v-model="peran" class="pilihan" @change="gantiPeran">
+          <el-option :label="$t('settings.roles.mahasiswa')" value="mahasiswa" />
+          <el-option :label="$t('settings.roles.dosen')" value="dosen" />
+          <el-option :label="$t('settings.roles.peneliti')" value="peneliti" />
+          <el-option :label="$t('settings.roles.organisasi')" value="organisasi" />
+        </el-select>
+      </div>
     </div>
 
     <!-- Privasi -->
@@ -64,7 +75,7 @@
           <p class="title">{{ $t('settings.searchable') }}</p>
           <p class="muted">{{ $t('settings.searchableSub') }}</p>
         </div>
-        <el-switch v-model="form.bisaDicari" active-color="#17a2a2" />
+        <el-switch v-model="form.bisaDicari" active-color="#088898" />
       </div>
 
       <div class="setelan">
@@ -72,7 +83,7 @@
           <p class="title">{{ $t('settings.openMessages') }}</p>
           <p class="muted">{{ $t('settings.openMessagesSub') }}</p>
         </div>
-        <el-switch v-model="form.pesanBebas" active-color="#17a2a2" />
+        <el-switch v-model="form.pesanBebas" active-color="#088898" />
       </div>
     </div>
 
@@ -94,7 +105,7 @@
           </p>
           <p class="muted">{{ $t('settings.statusSub') }}</p>
         </div>
-        <el-switch v-model="form.online" active-color="#17a2a2" />
+        <el-switch v-model="form.online" active-color="#088898" />
       </div>
     </div>
 
@@ -106,13 +117,13 @@
           <p class="title">{{ $t('settings.notif.' + n.id) }}</p>
           <p class="muted">{{ $t('settings.notif.' + n.id + 'Sub') }}</p>
         </div>
-        <el-switch v-model="n.aktif" active-color="#17a2a2" />
+        <el-switch v-model="n.aktif" active-color="#088898" />
       </div>
     </div>
 
     <div class="aksi-bawah">
       <el-button type="primary" class="tombol-simpan" @click="simpan">{{ $t('settings.saveChanges') }}</el-button>
-      <el-button class="tombol-keluar" @click="belumTersedia">
+      <el-button class="tombol-keluar" @click="keluar">
         <i class="el-icon-switch-button"></i> {{ $t('settings.signOut') }}
       </el-button>
     </div>
@@ -148,7 +159,11 @@ export default {
     }
   },
   computed: {
-    inisial () { return this.$store.getters['user/inisial'] }
+    inisial () { return this.$store.getters['user/inisial'] },
+    peran: {
+      get () { return this.$store.getters['user/peran'] },
+      set (nilai) { this.$store.dispatch('user/gantiPeran', nilai) }
+    }
   },
   watch: {
     // ikut kalau bahasa diubah dari tempat lain
@@ -159,10 +174,17 @@ export default {
       setBahasa(nilai)
       this.$message({ message: this.$t('settings.languageChanged'), type: 'success' })
     },
+    gantiPeran () {
+      this.$message({ message: this.$t('settings.roleChanged'), type: 'success' })
+    },
     simpan () {
       this.$message({ message: this.$t('settings.saved'), type: 'success' })
     },
-    belumTersedia () { this.$message(this.$t('common.notAvailable')) }
+    belumTersedia () { this.$message(this.$t('common.notAvailable')) },
+    keluar () {
+      this.$store.dispatch('auth/logout')
+      this.$router.push('/')
+    }
   }
 }
 </script>
@@ -174,6 +196,7 @@ export default {
 .bagian { margin-bottom: 10px; font-size: 16px; }
 
 .keterangan { margin-bottom: 10px; }
+.keterangan-role { margin: 2px 0 8px; font-size: 12.5px; }
 
 .pilih-bahasa { display: flex; flex-wrap: wrap; gap: 8px; }
 

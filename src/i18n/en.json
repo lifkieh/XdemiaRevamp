@@ -3,6 +3,10 @@
     "all": "All",
     "results": "{n} results",
     "follow": "Follow",
+    "verified": "Verified",
+    "new": "New",
+    "live": "Live",
+    "registrationOpen": "Registration open",
     "following": "Following",
     "unfollow": "Unfollow",
     "join": "Join",
@@ -73,6 +77,9 @@
   },
   "home": {
     "composer": "What are you learning today?",
+    "composerDosen": "Share an update or publish a Building Block",
+    "composerPeneliti": "Share a finding or new publication",
+    "composerOrganisasi": "Post an update or an opportunity",
     "emptyTitle": "Your feed is still empty",
     "emptyText": "Follow a few people or communities and things will show up here.",
     "emptyAction": "Find something good",
@@ -127,6 +134,14 @@
     "deadlines": "Upcoming deadlines",
     "events": "Upcoming events",
     "people": "People to follow",
+    "trending": "Trending now",
+    "trendingCount": "{n} learners discussing",
+    "dosenJudul": "12 Building Blocks published",
+    "dosenTeks": "3 awaiting review from your institution.",
+    "penelitiJudul": "4 publications shared",
+    "penelitiTeks": "128 reads across the network this month.",
+    "organisasiJudul": "3 open opportunities",
+    "organisasiTeks": "2 scholarships closing within 7 days.",
     "aria": "Extra info"
   },
   "explore": {
@@ -282,11 +297,38 @@
     "shown": "{n} shown",
     "form": {
       "title": "Create a new event",
+      "about": "About",
+      "eventType": "Event type",
+      "typePersonal": "Personal event",
+      "typeCommunity": "Community event",
       "name": "Event name",
-      "namePlaceholder": "Example: Scholarship essay class",
-      "when": "Date & time",
-      "datePlaceholder": "Saturday, 30 August 2026",
-      "timePlaceholder": "19.30",
+      "namePlaceholder": "Event name",
+      "bannerAvatar": "Banner & avatar",
+      "uploadBanner": "Upload banner picture",
+      "uploadAvatar": "Upload profile picture",
+      "change": "Change",
+      "remove": "Remove",
+      "noFileChosen": "No file chosen",
+      "aboutPlaceholder": "Tell people what this event is about",
+      "location": "Location",
+      "buildingPlaceholder": "Name / number building",
+      "addressPlaceholder": "Search for an address",
+      "online": "Online",
+      "onlineLinkPlaceholder": "Online event link",
+      "when": "When",
+      "start": "Start",
+      "end": "End",
+      "repeat": "Repeat this event",
+      "repeatOptions": {
+        "never": "Never",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly"
+      },
+      "privacyType": "Privacy type",
+      "privacyPublic": "Anyone can see and join the event.",
+      "privacyMembers": "Only members can see and access the event. Members are invited to join by the event admin.",
+      "privacyHidden": "Only members can see and access the event. The event is hidden.",
       "where": "Location",
       "wherePlaceholder": "Online · Zoom, or a venue name",
       "who": "Who can join",
@@ -296,6 +338,7 @@
       "descriptionPlaceholder": "Tell people about it",
       "submit": "Create event",
       "needName": "The event name is empty.",
+      "needAbout": "The About section is empty.",
       "created": "Event \"{name}\" created (prototype)."
     },
     "notFoundTitle": "Event not found",
@@ -484,6 +527,15 @@
     "bioPlaceholder": "Tell people a little about you",
     "Institute": "Institute",
     "InstitutePlaceholder": "Institute name",
+    "role": "Account type",
+    "roleSub": "Preview how Xdemia adapts for different kinds of members.",
+    "roleChanged": "Account type updated",
+    "roles": {
+      "mahasiswa": "Student",
+      "dosen": "Lecturer / Teacher",
+      "peneliti": "Researcher",
+      "organisasi": "Institution / Organisation"
+    },
     "privacy": "Privacy & permissions",
     "whoCanSee": "Who can see your profile",
     "everyone": "Everyone",
@@ -537,7 +589,17 @@
     "emptyText": "Start one with the button in the top right.",
     "messagePlaceholder": "Write a message...",
     "newConversation": "New conversation",
-    "justNow": "Just now"
+    "justNow": "Just now",
+    "online": "Online",
+    "shareTitle": "Share from Xdemia",
+    "shareType": {
+      "beasiswa": "Scholarship",
+      "materi": "Course",
+      "acara": "Event"
+    },
+    "attachPhoto": "Photo",
+    "attachVideo": "Video",
+    "attachFile": "File"
   },
   "notif": {
     "title": "Notifications",
@@ -617,5 +679,99 @@
   "chapter": {
     "kerangkaCerita": "story outline",
     "metode": "Method"
+  },
+  "landing": {
+    "nav": {
+      "suite": "Learners Suite",
+      "blocks": "Building Blocks",
+      "bridge": "LMS Bridge",
+      "trust": "Trust",
+      "login": "Log in",
+      "join": "Join free"
+    },
+    "banner": {
+      "eyebrow": "Built for learners",
+      "h1": "Learn.",
+      "h2": "Research.",
+      "h3": "Grow.",
+      "lead": "A platform built exclusively around learners — trusted content, real collaboration, and a network that moves you forward."
+    },
+    "login": {
+      "title": "Sign in",
+      "email": "Your email",
+      "emailPh": "yourname@youremail.xyz",
+      "password": "Password",
+      "show": "Show",
+      "hide": "Hide",
+      "keep": "Keep me logged in",
+      "signin": "Sign in",
+      "error": "Enter an email and password to continue."
+    },
+    "stats": {
+      "scholarships": "active scholarships",
+      "storage": "free secure storage",
+      "hosted": "hosted & developed"
+    },
+    "suite": {
+      "eyebrow": "The Learners Suite",
+      "title": "Everything a learner needs, in one place",
+      "lead": "From events and communities to scholarships, news and secure storage — every part of the suite is built around one purpose: helping learners move forward, together.",
+      "feed": { "tag": "Network", "judul": "A feed built for learning", "deskripsi": "Share progress, ask questions, and stay close to people learning what you're learning." },
+      "events": { "tag": "Events", "judul": "Challenge your skills", "deskripsi": "Turn knowledge into challenges, meet others with shared interests, and earn recognition from experts." },
+      "comm": { "tag": "Communities", "judul": "Where learning happens together", "deskripsi": "Trusted spaces to collaborate on projects, exchange ideas, and reflect on learning with peers." },
+      "news": { "tag": "Newsroom", "judul": "Bite-sized, curated news", "deskripsi": "Stay connected to research and public education developments — no ads, no algorithmic noise." },
+      "schol": { "tag": "Scholarships", "judul": "Opening access to opportunity", "deskripsi": "2,000+ active scholarships in one place, matched to your ambitions and background." },
+      "drive": { "tag": "Drive", "judul": "Secure storage, built in", "deskripsi": "3 GB free to keep study materials, research, and personal learning artefacts connected to your profile." }
+    },
+    "blocks": {
+      "eyebrow": "True modular education",
+      "title": "Building Blocks: modular learning at its smallest meaningful level",
+      "p1": "A carefully curated collection of related learning elements — files, resources, assignments, lab setups, data — that together cover a specific topic.",
+      "pull": "Teachers can update and personalise their materials without rebuilding a course from scratch.",
+      "mod1": "Reading",
+      "mod2": "Dataset",
+      "mod3": "Assignment",
+      "mod4": "Lab setup",
+      "mod5": "Rubric",
+      "mod6": "Discussion",
+      "mod7": "Quiz"
+    },
+    "bridge": {
+      "eyebrow": "Exchange between LMS systems",
+      "title": "The LMS Bridge",
+      "p1": "Share courses and learning content across different LMS systems — no separate registration needed to join exchange programmes.",
+      "p2": "Open education across borders, institutions, and communities.",
+      "instA": "Your institution",
+      "instB": "Partner institution"
+    },
+    "trust": {
+      "eyebrow": "Trusted by design",
+      "title": "Built in the EU, private by default",
+      "lead": "Members are verified, messaging is encrypted, and you remain in control of your data.",
+      "point1": { "judul": "No third-party data sharing", "teks": "Your data is never sold or shared for advertising." },
+      "point2": { "judul": "No behavioural profiling", "teks": "Built for learning, not for distraction or attention extraction." },
+      "point3": { "judul": "Hosted in the EU", "teks": "Privacy, security, and data sovereignty by design." }
+    },
+    "cta": {
+      "eyebrow": "Ready when you are",
+      "title": "Start learning with Xdemia",
+      "p": "Join a network of learners, institutions, and experts building the future of education together.",
+      "primary": "Sign in",
+      "secondary": "Explore the suite"
+    },
+    "footer": {
+      "tagline": "A learning ecosystem where quality comes first.",
+      "product": "Product",
+      "company": "Company"
+    },
+    "figures": {
+      "comenius": "Pioneer of modern education",
+      "einstein": "Physicist & lifelong learner",
+      "malala": "Education activist, Nobel laureate",
+      "mandela": "Advocate for education as liberation",
+      "plato": "Founder of the Academy",
+      "satyarthi": "Child education advocate, Nobel laureate",
+      "velaz": "Founder of Fe y Alegría"
+    }
   }
 }

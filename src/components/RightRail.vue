@@ -1,8 +1,8 @@
 <template>
   <aside class="rail" :aria-label="$t('rail.aria')">
     <div class="rail-isi">
-      <!-- Streak: selalu tampil -->
-      <div class="card widget">
+      <!-- Streak: pembelajar. Untuk peran lain, tampilkan ringkasan kontribusi -->
+      <div v-if="peran === 'mahasiswa'" class="card widget">
         <div class="row">
           <div class="thumb widget-ikon"><i class="el-icon-trophy"></i></div>
           <div class="grow">
@@ -11,6 +11,28 @@
           </div>
         </div>
         <el-progress :percentage="persenStreak" :stroke-width="6" :show-text="false" class="bar" />
+      </div>
+
+      <div v-else class="card widget">
+        <div class="row">
+          <div class="thumb widget-ikon"><i :class="ringkasanPeran.ikon"></i></div>
+          <div class="grow">
+            <p class="title">{{ ringkasanPeran.judul }}</p>
+            <p class="muted">{{ ringkasanPeran.teks }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trending: muncul di Jelajah -->
+      <div v-if="tampilkan.trending" class="card widget">
+        <p class="title widget-judul">{{ $t('rail.trending') }}</p>
+        <div v-for="(t, i) in trending" :key="t.label" class="baris baris-trending">
+          <span class="trending-no">{{ i + 1 }}</span>
+          <div class="grow">
+            <p class="baris-judul" data-content="true">{{ t.label }}</p>
+            <p class="muted">{{ $t('rail.trendingCount', { n: t.jumlah }) }}</p>
+          </div>
+        </div>
       </div>
 
       <!-- Materi: muncul di Belajar -->
@@ -58,7 +80,10 @@
         >
           <div class="thumb thumb-mini">{{ e.inisial }}</div>
           <div class="grow">
-            <p class="baris-judul" data-content="true">{{ e.judul }}</p>
+            <p class="baris-judul" data-content="true">
+              {{ e.judul }}
+              <span v-if="e.registrasiDibuka" class="pill pill-live pill-mini">{{ $t('common.registrationOpen') }}</span>
+            </p>
             <p class="muted">{{ $tanggal(e.tanggalIso, true) }} · {{ $jam(e.jamMulai) }}</p>
           </div>
         </router-link>
@@ -93,14 +118,33 @@ export default {
   computed: {
     streak () { return this.$store.getters['user/streak'] },
     persenStreak () { return Math.min(100, this.streak * 100 / 7) },
+    peran () { return this.$store.getters['user/peran'] },
+    ringkasanPeran () {
+      const peta = {
+        dosen: { ikon: 'el-icon-collection', judul: this.$t('rail.dosenJudul'), teks: this.$t('rail.dosenTeks') },
+        peneliti: { ikon: 'el-icon-document-checked', judul: this.$t('rail.penelitiJudul'), teks: this.$t('rail.penelitiTeks') },
+        organisasi: { ikon: 'el-icon-office-building', judul: this.$t('rail.organisasiJudul'), teks: this.$t('rail.organisasiTeks') }
+      }
+      return peta[this.peran] || peta.dosen
+    },
     // isi kolom kanan menyesuaikan halaman yang sedang dibuka
     tampilkan () {
       const n = this.$route.name
       return {
         materi: n === 'learn' || n === 'learn-detail',
-        beasiswa: n !== 'events',
-        acara: n === 'events' || n === 'home'
+        beasiswa: n !== 'events' && n !== 'explore',
+        acara: n === 'events' || n === 'home',
+        trending: n === 'explore'
       }
+    },
+    trending () {
+      return [
+        { label: 'LPDP 2026', jumlah: 812 },
+        { label: 'Machine Learning', jumlah: 604 },
+        { label: 'Building Blocks', jumlah: 411 },
+        { label: 'Riset Skripsi', jumlah: 298 },
+        { label: 'IELTS', jumlah: 233 }
+      ]
     },
     materiLanjut () {
       return courses.filter((c) => c.progress > 0).slice(0, 3)
@@ -179,4 +223,22 @@ export default {
 }
 
 .catatan { text-align: center; font-size: 12px; padding: 4px 0; }
+
+.baris-trending { gap: 12px; }
+
+.pill-mini {
+  font-size: 9.5px;
+  padding: 1px 6px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.trending-no {
+  width: 22px;
+  flex: none;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--brand);
+}
 </style>

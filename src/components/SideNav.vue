@@ -1,9 +1,8 @@
 <template>
   <aside class="sidenav" :aria-label="$t('nav.mainNav')">
     <div class="sidenav-isi">
-      <router-link to="/" class="logo">
-        <span class="logo-mark">xδ</span>
-        <span class="logo-teks">Xdemia</span>
+      <router-link to="/home" class="logo">
+        <img class="logo-img" :src="logoSolid" alt="Xdemia">
       </router-link>
 
       <nav class="menu">
@@ -55,10 +54,15 @@
 <script>
 export default {
   name: 'SideNav',
+  data () {
+    return {
+      logoSolid: require('@/assets/assets/brand/logo-solid.png')
+    }
+  },
   computed: {
     menu () {
       return [
-        { path: '/', label: this.$t('nav.home'), ikon: 'el-icon-house', exact: true },
+        { path: '/home', label: this.$t('nav.home'), ikon: 'el-icon-house', exact: true },
         { path: '/explore', label: this.$t('nav.explore'), ikon: 'el-icon-search', exact: false },
         { path: '/learn', label: this.$t('nav.learn'), ikon: 'el-icon-reading', exact: false },
         { path: '/scholarships', label: this.$t('nav.scholarships'), ikon: 'el-icon-medal', exact: false },
@@ -91,26 +95,18 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  min-height: 100vh;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px 12px 14px;
+  padding: 8px 12px 16px;
 }
 
-.logo-mark {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--brand);
-  letter-spacing: -1px;
-}
-
-.logo-teks {
-  font-size: 17px;
-  font-weight: 700;
+.logo-img {
+  height: 30px;
+  width: auto;
+  display: block;
 }
 
 .menu { display: flex; flex-direction: column; gap: 2px; }
@@ -143,15 +139,21 @@ export default {
   color: #fff;
   font-size: 15px;
   font-weight: 700;
-  font-family: inherit;
+  font-family: var(--font-head);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  box-shadow: 0 10px 26px -12px rgba(8, 136, 152, .65);
+  transition: background .2s, box-shadow .2s, transform .2s;
 }
 
-.tulis:hover { background: var(--brand-dark); }
+.tulis:hover {
+  background: var(--brand-dark);
+  box-shadow: 0 14px 32px -12px rgba(8, 136, 152, .7);
+  transform: translateY(-1px);
+}
 
 /* sengaja lebih tenang dari nav utama: teks lebih kecil, tanpa warna brand */
 .pintasan-samping {
@@ -186,9 +188,8 @@ export default {
 .pintas-samping:hover { background: var(--bg); }
 .pintas-samping:hover i { color: var(--text); }
 
-/* menutup kolom sebelum kartu profil, sekaligus mengurangi rongga di tengah */
 .catatan-kaki {
-  margin: auto 14px 10px;
+  margin: 20px 14px 10px;
   font-size: 11.5px;
   color: var(--muted);
 }

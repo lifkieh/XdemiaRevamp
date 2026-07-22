@@ -5,26 +5,50 @@
       <div class="row">
         <div class="thumb thumb-round composer-avatar">{{ inisial }}</div>
         <button class="composer-input grow" @click="tulisPostingan">
-          {{ $t('home.composer') }}
+          {{ composerPrompt }}
         </button>
       </div>
     </div>
 
     <!-- Filter kategori: chip di layar lebar, dropdown di layar sempit -->
     <div v-if="!memuat && feedAman.length > 0" class="filter-bar">
-      <div v-if="pakaiChip" class="chips" role="tablist">
+      <div v-if="pakaiChip" class="chips-wrap">
         <button
-          v-for="k in kategori"
-          :key="k.id"
-          class="chip"
-          :class="{ 'is-active': k.id === filterAktif }"
-          role="tab"
-          :aria-selected="k.id === filterAktif ? 'true' : 'false'"
-          @click="filterAktif = k.id"
+          v-if="chipBisaKiri"
+          type="button"
+          class="chip-nav chip-nav-kiri"
+          aria-label="Previous"
+          @click="geserChip(-1)"
+        ><i class="el-icon-arrow-left"></i></button>
+
+        <div
+          ref="chipsEl"
+          class="chips"
+          :class="{ 'fade-kiri': chipBisaKiri, 'fade-kanan': chipBisaKanan }"
+          role="tablist"
+          @scroll="cekChipScroll"
         >
-          {{ k.label }}
-          <span class="hitung">{{ jumlahPer[k.id] }}</span>
-        </button>
+          <button
+            v-for="k in kategori"
+            :key="k.id"
+            class="chip"
+            :class="{ 'is-active': k.id === filterAktif }"
+            role="tab"
+            :aria-selected="k.id === filterAktif ? 'true' : 'false'"
+            @click="filterAktif = k.id"
+          >
+            {{ k.label }}
+            <span class="hitung">{{ jumlahPer[k.id] }}</span>
+          </button>
+        </div>
+
+        <button
+          v-if="chipBisaKanan"
+          type="button"
+          class="chip-nav chip-nav-kanan"
+          aria-label="Next"
+          @click="geserChip(1)"
+        ><i class="el-icon-arrow-right"></i></button>
       </div>
 
       <div v-else class="pilih-baris">
@@ -63,7 +87,7 @@
     <template v-else>
       <div v-for="item in feedTampil" :key="item.id">
         <!-- Dorongan belajar -->
-        <div v-if="item.tipe === 'learning_nudge'" class="card nudge">
+        <div v-if="item.tipe === 'learning_nudge'" class="card nudge type-nudge">
           <!-- Kartu lanjutkan: isinya dari riwayat lintas jenis, bukan cuma materi -->
           <template v-if="item.sumber === 'lanjutkan' && lanjutkanTeratas">
             <div class="row row-top">
@@ -115,7 +139,7 @@
         </div>
 
         <!-- Info beasiswa -->
-        <div v-else-if="item.tipe === 'scholarship_alert'" class="card alert">
+        <div v-else-if="item.tipe === 'scholarship_alert'" class="card alert type-scholarship">
           <div class="row row-top">
             <div class="thumb alert-thumb"><i class="el-icon-medal"></i></div>
             <div class="grow">
@@ -134,7 +158,7 @@
         <!-- Update komunitas -->
         <div
           v-else-if="item.tipe === 'community_update'"
-          class="card is-clickable"
+          class="card is-clickable type-community"
           @click="$router.push('/community/' + item.komunitasId)"
         >
           <div class="row row-top">
@@ -150,9 +174,12 @@
         <!-- Artikel / jurnal -->
         <div
           v-else-if="item.tipe === 'article'"
-          class="card is-clickable"
+          class="card is-clickable type-article"
           @click="bukaArtikel(item)"
         >
+          <figure v-if="item.gambarId" class="article-banner">
+            <img :src="gambarSrc(item.gambarId)" alt="">
+          </figure>
           <div class="row row-top">
             <div class="thumb"><i class="el-icon-document"></i></div>
             <div class="grow">
@@ -176,7 +203,10 @@
           <header class="row row-top penulis" @click="bukaProfil(item)">
             <div class="thumb thumb-round">{{ item.inisial }}</div>
             <div class="grow">
-              <p class="title" data-content="true">{{ item.penulis }}</p>
+              <p class="title" data-content="true">
+                {{ item.penulis }}
+                <i v-if="item.verified" class="el-icon-success verif-badge" :title="$t('common.verified')"></i>
+              </p>
               <p class="muted"><span data-content="true">{{ item.peran }}</span> · {{ $waktuRelatif(item.waktu) }}</p>
             </div>
           </header>
@@ -229,11 +259,22 @@ export default {
       disukai: {},
       riwayatLanjut,
       filterAktif: 'semua',
-      idKategori: ['semua', 'post', 'article', 'scholarship_alert', 'learning_nudge', 'community_update']
+      idKategori: ['semua', 'post', 'article', 'scholarship_alert', 'learning_nudge', 'community_update'],
+      chipBisaKiri: false,
+      chipBisaKanan: false
     }
   },
   computed: {
     inisial () { return this.$store.getters['user/inisial'] },
+    peran () { return this.$store.getters['user/peran'] },
+    composerPrompt () {
+      const peta = {
+        dosen: 'home.composerDosen',
+        peneliti: 'home.composerPeneliti',
+        organisasi: 'home.composerOrganisasi'
+      }
+      return this.$t(peta[this.peran] || 'home.composer')
+    },
     streak () { return this.$store.getters['user/streak'] },
     kategori () {
       return this.idKategori.map((id) => ({
@@ -282,12 +323,28 @@ export default {
     this.timer = setTimeout(() => {
       this.feed = feedData
       this.memuat = false
+      this.$nextTick(this.cekChipScroll)
     }, 600)
   },
   beforeDestroy () {
     clearTimeout(this.timer)
+    window.removeEventListener('resize', this.cekChipScroll)
+  },
+  mounted () {
+    window.addEventListener('resize', this.cekChipScroll)
   },
   methods: {
+    cekChipScroll () {
+      const el = this.$refs.chipsEl
+      if (!el) { this.chipBisaKiri = false; this.chipBisaKanan = false; return }
+      this.chipBisaKiri = el.scrollLeft > 4
+      this.chipBisaKanan = el.scrollLeft + el.clientWidth < el.scrollWidth - 4
+    },
+    geserChip (arah) {
+      const el = this.$refs.chipsEl
+      if (!el) return
+      el.scrollBy({ left: arah * Math.round(el.clientWidth * 0.7), behavior: 'smooth' })
+    },
     // disukai adalah map id -> boolean, bukan daftar. Jangan pernah dipanggil
     // .length di sini; kalau perlu jumlahnya pakai Object.keys(disukai).length.
     jumlahSuka (item) {
@@ -300,6 +357,9 @@ export default {
     },
     // Tinggi thumbnail dikunci lewat CSS; rasio hanya menentukan lebarnya.
     // --rasio dipakai aspect-ratio, --rasio-angka dipakai cadangan calc().
+    gambarSrc (id) {
+      return require(`@/assets/assets/portraits/${id}.png`)
+    },
     gayaMedia (media) {
       const rasio = String(media.rasio || '16/9')
       const bagian = rasio.split('/')
@@ -355,28 +415,58 @@ export default {
 /* top bar desktop lebih tinggi, jadi titik lengketnya ikut turun */
 .app-desktop .filter-bar { top: 64px; }
 
+.chips-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
 .chips {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   overflow-x: auto;
   padding: 2px 2px 6px;
   scrollbar-width: none;
+  scroll-behavior: smooth;
 }
 
 .chips::-webkit-scrollbar { display: none; }
+
+.chips.fade-kanan { mask-image: linear-gradient(90deg, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent); }
+.chips.fade-kiri { mask-image: linear-gradient(270deg, #000 88%, transparent); -webkit-mask-image: linear-gradient(270deg, #000 88%, transparent); }
+.chips.fade-kiri.fade-kanan { mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+
+.chip-nav {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  box-shadow: var(--shadow);
+}
+
+.chip-nav:hover { border-color: var(--brand); color: var(--brand); }
 
 .chip {
   flex: none;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  min-height: var(--tap);
-  padding: 0 16px;
+  gap: 5px;
+  min-height: 32px;
+  padding: 0 12px;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: var(--card);
   color: var(--muted);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
@@ -391,7 +481,7 @@ export default {
 }
 
 .hitung {
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   background: var(--bg);
   color: var(--muted);
@@ -515,6 +605,22 @@ export default {
   color: var(--muted);
 }
 
+.article-banner {
+  margin: -12px -12px 10px;
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: #0c2329;
+}
+
+.article-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  filter: grayscale(60%) contrast(1.05);
+}
+
 .lanjut-judul {
   margin: 2px 0 0;
   font-size: 14.5px;
@@ -534,4 +640,14 @@ export default {
 .nudge-progress { margin-top: 8px; }
 
 .alert-thumb { background: #fff2e6; color: #c76a10; font-size: 22px; }
+
+.verif-badge { color: var(--accent, #4dba87); font-size: 13px; vertical-align: middle; }
+
+/* ---------- aksen warna per jenis konten: cepat dipindai sekilas ---------- */
+.type-nudge { border-left: 3px solid var(--brand); }
+.type-scholarship { border-left: 3px solid #e08a3c; }
+.type-community { border-left: 3px solid #8b5cf6; }
+.type-community .thumb { background: #8b5cf6; color: #fff; }
+.type-article { border-left: 3px solid #4c6ef5; }
+.type-article .thumb { background: #4c6ef5; color: #fff; }
 </style>

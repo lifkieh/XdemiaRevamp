@@ -94,47 +94,131 @@
       :width="lebarDialog"
       custom-class="dialog-acara"
     >
+      <!-- Detail: jenis acara + nama -->
+      <p class="bagian-judul">{{ $t('event.form.about') }}</p>
+
       <div class="isian">
-        <label class="label">{{ $t('event.form.name') }}</label>
+        <label class="label">{{ $t('event.form.eventType') }}</label>
+        <el-select v-model="form.tipe" class="pilihan">
+          <el-option :label="$t('event.form.typePersonal')" value="personal" />
+          <el-option :label="$t('event.form.typeCommunity')" value="community" />
+        </el-select>
+      </div>
+
+      <div class="isian">
+        <label class="label">{{ $t('event.form.name') }} <span class="wajib">*</span></label>
         <el-input v-model="form.judul" :placeholder="$t('event.form.namePlaceholder')" />
       </div>
 
+      <!-- Banner & avatar -->
+      <p class="bagian-judul">{{ $t('event.form.bannerAvatar') }}</p>
+
+      <div class="unggah-baris">
+        <div class="unggah-thumb unggah-banner"><i class="el-icon-picture-outline"></i></div>
+        <div class="grow unggah-info">
+          <p class="title">{{ $t('event.form.uploadBanner') }}</p>
+          <p class="muted clamp-1">{{ form.banner || $t('event.form.noFileChosen') }}</p>
+        </div>
+        <div class="unggah-aksi">
+          <button type="button" class="tap" @click="form.banner = 'banner.jpg'">{{ $t('event.form.change') }}</button>
+          <button v-if="form.banner" type="button" class="tap hapus" @click="form.banner = ''">{{ $t('event.form.remove') }}</button>
+        </div>
+      </div>
+
+      <div class="unggah-baris">
+        <div class="unggah-thumb unggah-avatar thumb-round"><i class="el-icon-user"></i></div>
+        <div class="grow unggah-info">
+          <p class="title">{{ $t('event.form.uploadAvatar') }}</p>
+          <p class="muted clamp-1">{{ form.avatar || $t('event.form.noFileChosen') }}</p>
+        </div>
+        <div class="unggah-aksi">
+          <button type="button" class="tap" @click="form.avatar = 'avatar.jpg'">{{ $t('event.form.change') }}</button>
+          <button v-if="form.avatar" type="button" class="tap hapus" @click="form.avatar = ''">{{ $t('event.form.remove') }}</button>
+        </div>
+      </div>
+
+      <!-- About -->
+      <p class="bagian-judul">{{ $t('event.form.description') }} <span class="wajib">*</span></p>
+
       <div class="isian">
-        <label class="label">{{ $t('event.form.when') }}</label>
+        <el-input v-model="form.deskripsi" type="textarea" :rows="4" :placeholder="$t('event.form.aboutPlaceholder')" />
+      </div>
+
+      <!-- Lokasi -->
+      <p class="bagian-judul">{{ $t('event.form.location') }}</p>
+
+      <div class="isian">
+        <el-input v-model="form.gedung" :placeholder="$t('event.form.buildingPlaceholder')" />
+      </div>
+
+      <div class="isian">
+        <el-input v-model="form.alamat" :placeholder="$t('event.form.addressPlaceholder')" prefix-icon="el-icon-location-outline" />
+      </div>
+
+      <div class="setelan-online">
+        <div class="grow">
+          <p class="title">{{ $t('event.form.online') }}</p>
+        </div>
+        <el-switch v-model="form.online" active-color="#088898" />
+      </div>
+
+      <div v-if="form.online" class="isian">
+        <el-input v-model="form.tautan" :placeholder="$t('event.form.onlineLinkPlaceholder')" prefix-icon="el-icon-link" />
+      </div>
+
+      <!-- Tanggal -->
+      <p class="bagian-judul">{{ $t('event.form.when') }} <span class="wajib">*</span></p>
+
+      <div class="isian">
+        <label class="label">{{ $t('event.form.start') }}</label>
         <div class="dua-kolom">
-          <el-input v-model="form.tanggal" :placeholder="$t('event.form.datePlaceholder')" />
-          <el-input v-model="form.waktu" :placeholder="$t('event.form.timePlaceholder')" />
+          <el-time-select
+            v-model="form.jamMulai"
+            class="pilihan"
+            :picker-options="{ start: '00:00', step: '00:30', end: '23:30' }"
+            :placeholder="$t('event.form.timePlaceholder')"
+          />
+          <el-date-picker v-model="form.tanggalMulai" type="date" class="pilihan" />
         </div>
       </div>
 
       <div class="isian">
-        <label class="label">{{ $t('event.form.where') }}</label>
-        <el-input v-model="form.lokasi" :placeholder="$t('event.form.wherePlaceholder')" />
-      </div>
-
-      <div class="isian">
-        <label class="label">{{ $t('event.form.who') }}</label>
+        <label class="label">{{ $t('event.form.end') }}</label>
         <div class="dua-kolom">
-          <el-select v-model="form.akses" class="pilihan">
-            <el-option :label="$t('eventAccess.Terbuka')" value="Terbuka" />
-            <el-option :label="$t('eventAccess.Tertutup')" value="Tertutup" />
-          </el-select>
-          <el-select v-model="form.privasi" class="pilihan">
-            <el-option :label="$t('eventPrivacy.Publik')" value="Publik" />
-            <el-option :label="$t('eventPrivacy.Privat')" value="Privat" />
-          </el-select>
+          <el-time-select
+            v-model="form.jamSelesai"
+            class="pilihan"
+            :picker-options="{ start: '00:00', step: '00:30', end: '23:30' }"
+            :placeholder="$t('event.form.timePlaceholder')"
+          />
+          <el-date-picker v-model="form.tanggalSelesai" type="date" class="pilihan" />
         </div>
       </div>
 
       <div class="isian">
-        <label class="label">{{ $t('event.form.prize') }}</label>
-        <el-input v-model="form.hadiah" :placeholder="$t('event.form.prizePlaceholder')" />
+        <label class="label">{{ $t('event.form.repeat') }}</label>
+        <el-select v-model="form.ulang" class="pilihan">
+          <el-option :label="$t('event.form.repeatOptions.never')" value="never" />
+          <el-option :label="$t('event.form.repeatOptions.daily')" value="daily" />
+          <el-option :label="$t('event.form.repeatOptions.weekly')" value="weekly" />
+          <el-option :label="$t('event.form.repeatOptions.monthly')" value="monthly" />
+        </el-select>
       </div>
 
-      <div class="isian">
-        <label class="label">{{ $t('event.form.description') }}</label>
-        <el-input v-model="form.deskripsi" type="textarea" :rows="3" :placeholder="$t('event.form.descriptionPlaceholder')" />
-      </div>
+      <!-- Privasi -->
+      <p class="bagian-judul">{{ $t('event.form.privacyType') }}</p>
+
+      <el-radio-group v-model="form.privasiTipe" class="privasi-grup">
+        <label class="privasi-opsi" :class="{ 'is-aktif': form.privasiTipe === 'publik' }">
+          <el-radio label="publik">{{ $t('event.form.privacyPublic') }}</el-radio>
+        </label>
+        <label class="privasi-opsi" :class="{ 'is-aktif': form.privasiTipe === 'anggota' }">
+          <el-radio label="anggota">{{ $t('event.form.privacyMembers') }}</el-radio>
+        </label>
+        <label class="privasi-opsi" :class="{ 'is-aktif': form.privasiTipe === 'tersembunyi' }">
+          <el-radio label="tersembunyi">{{ $t('event.form.privacyHidden') }}</el-radio>
+        </label>
+      </el-radio-group>
 
       <span slot="footer">
         <el-button @click="formTerbuka = false">{{ $t('common.cancel') }}</el-button>
@@ -160,14 +244,21 @@ export default {
       ikut: {},
       formTerbuka: false,
       form: {
+        tipe: 'personal',
         judul: '',
-        tanggal: '',
-        waktu: '',
-        lokasi: '',
-        akses: 'Terbuka',
-        privasi: 'Publik',
-        hadiah: '',
-        deskripsi: ''
+        banner: '',
+        avatar: '',
+        deskripsi: '',
+        gedung: '',
+        alamat: '',
+        online: false,
+        tautan: '',
+        jamMulai: '',
+        tanggalMulai: '',
+        jamSelesai: '',
+        tanggalSelesai: '',
+        ulang: 'never',
+        privasiTipe: 'publik'
       }
     }
   },
@@ -200,6 +291,10 @@ export default {
     buatAcara () {
       if (!this.form.judul.trim()) {
         this.$message({ message: this.$t('event.form.needName'), type: 'warning' })
+        return
+      }
+      if (!this.form.deskripsi.trim()) {
+        this.$message({ message: this.$t('event.form.needAbout'), type: 'warning' })
         return
       }
       this.formTerbuka = false
@@ -240,4 +335,90 @@ export default {
 .dua-kolom { display: flex; gap: 8px; }
 .dua-kolom > * { flex: 1; }
 .pilihan { width: 100%; }
+
+.bagian-judul {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--brand-dark);
+  margin: 18px 0 10px;
+}
+
+.bagian-judul:first-child { margin-top: 0; }
+
+.wajib { color: #c0392b; }
+
+.unggah-baris {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.unggah-thumb {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: var(--radius-sm);
+  background: var(--brand-soft);
+  color: var(--brand-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+}
+
+.unggah-info { min-width: 0; }
+.unggah-info .title { font-size: 13.5px; }
+.unggah-info .muted { font-size: 12px; }
+
+.unggah-aksi {
+  display: flex;
+  flex: none;
+  gap: 4px;
+}
+
+.unggah-aksi .tap {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--brand);
+  min-height: 32px;
+  padding: 0 8px;
+}
+
+.unggah-aksi .hapus { color: #c0392b; }
+
+.setelan-online {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.privasi-grup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.privasi-opsi {
+  display: block;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.privasi-opsi.is-aktif { border-color: var(--brand); background: var(--brand-soft); }
+
+.privasi-opsi >>> .el-radio__label {
+  white-space: normal;
+  font-size: 13.5px;
+  line-height: 1.4;
+  color: var(--text);
+}
 </style>

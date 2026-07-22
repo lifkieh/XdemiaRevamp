@@ -1,19 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 :root {
-  --brand: #17a2a2;
-  --brand-soft: #e6f6f6;
-  --brand-dark: #128686;
-  --bg: #f4f6f7;
+  --brand: #088898;
+  --brand-soft: #e6f4f3;
+  --brand-dark: #066a76;
+  --brand-ink: #05525c;
+  --accent: #4dba87;
+  --accent-dark: #3a9c6e;
+  --bg: #f2f8f8;
   --card: #ffffff;
-  --text: #16202a;
-  --muted: #6b7a86;
-  --line: #e6eaed;
+  --text: #14282d;
+  --muted: #566c71;
+  --line: #e0eaea;
   /* garis yang harus tetap kebaca di atas latar halaman (--bg), bukan di atas kartu putih */
-  --line-kuat: #d5dde2;
+  --line-kuat: #c9dbdb;
   --radius: 14px;
   --radius-sm: 10px;
-  --shadow: 0 1px 2px rgba(16, 32, 42, .06);
+  --shadow: 0 8px 22px -14px rgba(8, 40, 45, .18);
   --tap: 44px;
   --maxw: 480px;
+  --font-head: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Poppins', system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -26,7 +33,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.45;
   -webkit-font-smoothing: antialiased;
@@ -50,15 +57,23 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- layout: desktop (>= 900px) ---------- */
 .app-desktop {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
   min-height: 100%;
   display: grid;
-  grid-template-columns: 240px minmax(0, 600px) 300px;
-  gap: 24px;
+  grid-template-columns: 268px minmax(0, 760px) 336px;
+  gap: 28px;
   align-items: start;
-  padding: 0 16px;
+  padding: 0 20px;
   box-shadow: none;
+}
+
+/* layar sangat lebar: biar kartu tidak melar berlebihan, beri sedikit ruang tepi lagi */
+@media (min-width: 1600px) {
+  .app-desktop {
+    max-width: 1560px;
+    grid-template-columns: 280px minmax(0, 820px) 360px;
+  }
 }
 
 .app-desktop .screen {
@@ -93,6 +108,71 @@ a { color: inherit; text-decoration: none; }
   box-shadow: var(--shadow);
   padding: 12px;
   margin-bottom: 10px;
+  transition: box-shadow .25s, border-color .25s, transform .25s;
+}
+
+.card:hover {
+  box-shadow: 0 18px 44px -22px rgba(8, 40, 45, .22);
+  border-color: #cfe3e3;
+}
+
+.eyebrow {
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .02em;
+  color: var(--brand-dark);
+  background: var(--brand-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  padding: .5em 1em;
+  border-radius: 999px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 14px;
+  padding: .8em 1.5em;
+  border-radius: 999px;
+  transition: all .25s ease;
+  white-space: nowrap;
+}
+
+.btn-pill-primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 10px 26px -12px rgba(8, 136, 152, .65);
+}
+
+.btn-pill-primary:hover {
+  background: var(--brand-dark);
+  box-shadow: 0 14px 32px -12px rgba(8, 136, 152, .7);
+  transform: translateY(-1px);
+}
+
+.btn-pill-ghost {
+  border: 1.5px solid var(--line);
+  color: var(--text);
+  background: #fff;
+}
+
+.btn-pill-ghost:hover {
+  border-color: var(--brand);
+  color: var(--brand-dark);
+  background: var(--brand-soft);
 }
 
 .row {
@@ -106,6 +186,7 @@ a { color: inherit; text-decoration: none; }
 .grow { flex: 1; min-width: 0; }
 
 .title {
+  font-family: var(--font-head);
   font-weight: 650;
   font-size: 15px;
   color: var(--text);
@@ -113,6 +194,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .title-lg {
+  font-family: var(--font-head);
   font-weight: 700;
   font-size: 18px;
   margin: 0;
@@ -145,6 +227,34 @@ a { color: inherit; text-decoration: none; }
 .pill-warn {
   background: #fff2e6;
   color: #c76a10;
+}
+
+.pill-new {
+  background: rgba(77, 186, 135, .16);
+  color: var(--accent-dark);
+}
+
+.pill-live {
+  background: rgba(77, 186, 135, .16);
+  color: var(--accent-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pill-live::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(77, 186, 135, .6);
+  animation: pill-live-pulse 1.8s infinite;
+}
+
+@keyframes pill-live-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(77, 186, 135, .5); }
+  70% { box-shadow: 0 0 0 6px rgba(77, 186, 135, 0); }
 }
 
 .thumb {

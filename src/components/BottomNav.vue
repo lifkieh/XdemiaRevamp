@@ -22,7 +22,7 @@ export default {
   computed: {
     tabs () {
       return [
-        { path: '/', label: this.$t('nav.home'), ikon: 'el-icon-house', exact: true },
+        { path: '/home', label: this.$t('nav.home'), ikon: 'el-icon-house', exact: true },
         { path: '/explore', label: this.$t('nav.explore'), ikon: 'el-icon-search', exact: false },
         { path: '/learn', label: this.$t('nav.learn'), ikon: 'el-icon-reading', exact: false },
         { path: '/scholarships', label: this.$t('nav.scholarships'), ikon: 'el-icon-medal', exact: false },

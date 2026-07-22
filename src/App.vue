@@ -1,5 +1,8 @@
 <template>
-  <div id="app" :class="isDesktop ? 'app-desktop' : 'app-container'">
+  <div v-if="!tampilkanShell" id="app" class="app-polos">
+    <router-view />
+  </div>
+  <div v-else id="app" :class="isDesktop ? 'app-desktop' : 'app-container'">
     <SideNav v-if="isDesktop" />
 
     <div class="kolom-tengah">
@@ -41,7 +44,9 @@ export default {
     }
   },
   computed: {
-    isDesktop () { return this.$store.getters['layout/isDesktop'] }
+    isDesktop () { return this.$store.getters['layout/isDesktop'] },
+    // landing & login tampil polos, tanpa nav/topbar/rail aplikasi
+    tampilkanShell () { return !!this.$route.meta.requiresAuth }
   },
   created () {
     this.onResize = () => {
@@ -75,6 +80,8 @@ export default {
 </script>
 
 <style scoped>
+.app-polos { min-height: 100%; }
+
 .kolom-tengah { min-width: 0; }
 
 .app-desktop .kolom-tengah {

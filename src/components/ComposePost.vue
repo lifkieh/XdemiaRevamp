@@ -28,7 +28,7 @@
             ref="teks"
             v-model="draf"
             class="teks"
-            :placeholder="$t('compose.placeholder')"
+            :placeholder="placeholderTeks"
           ></textarea>
 
           <!-- pratinjau lampiran: kosong, cuma contoh tampilan -->
@@ -92,7 +92,7 @@
           ref="teks"
           v-model="draf"
           class="teks teks-mobile"
-          :placeholder="$t('compose.captionPlaceholder')"
+          :placeholder="placeholderTeks"
         ></textarea>
       </div>
     </div>
@@ -113,7 +113,16 @@ export default {
     terbuka () { return this.$store.state.compose.terbuka },
     isDesktop () { return this.$store.getters['layout/isDesktop'] },
     inisial () { return this.$store.getters['user/inisial'] },
-    nama () { return this.$store.getters['user/nama'] }
+    nama () { return this.$store.getters['user/nama'] },
+    peran () { return this.$store.getters['user/peran'] },
+    placeholderTeks () {
+      const peta = {
+        dosen: 'home.composerDosen',
+        peneliti: 'home.composerPeneliti',
+        organisasi: 'home.composerOrganisasi'
+      }
+      return this.$t(peta[this.peran] || 'compose.placeholder')
+    }
   },
   watch: {
     terbuka (nilai) {

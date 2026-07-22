@@ -183,6 +183,7 @@
     "id": "s-7",
     "nama": "Beasiswa Bank Indonesia",
     "inisial": "BI",
+    "isNew": true,
     "penyelenggara": "Bank Indonesia",
     "jenjang": "S1",
     "sisaHari": 5,

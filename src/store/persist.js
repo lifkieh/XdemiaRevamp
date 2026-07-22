@@ -3,6 +3,8 @@
 import { JENIS } from './modules/bookmarks'
 
 const KEY = 'xdemia:bookmarks'
+const KEY_AUTH = 'xdemia:auth'
+const KEY_PERAN = 'xdemia:peran'
 
 const daftarString = (nilai) =>
   Array.isArray(nilai) ? nilai.filter((v) => typeof v === 'string') : []
@@ -36,12 +38,62 @@ function tulisBookmarks (bookmarks) {
   }
 }
 
+function bacaAuth () {
+  try {
+    if (typeof window === 'undefined' || !window.localStorage) return false
+    return window.localStorage.getItem(KEY_AUTH) === '1'
+  } catch (e) {
+    return false
+  }
+}
+
+function tulisAuth (masuk) {
+  try {
+    if (typeof window === 'undefined' || !window.localStorage) return
+    window.localStorage.setItem(KEY_AUTH, masuk ? '1' : '0')
+  } catch (e) {
+    // abaikan
+  }
+}
+
+function bacaPeran () {
+  try {
+    if (typeof window === 'undefined' || !window.localStorage) return null
+    return window.localStorage.getItem(KEY_PERAN)
+  } catch (e) {
+    return null
+  }
+}
+
+function tulisPeran (peran) {
+  try {
+    if (typeof window === 'undefined' || !window.localStorage) return
+    window.localStorage.setItem(KEY_PERAN, peran)
+  } catch (e) {
+    // abaikan
+  }
+}
+
 export default function persist (store) {
   const tersimpan = bacaBookmarks()
   if (tersimpan) store.commit('bookmarks/HYDRATE', tersimpan)
 
+  if (bacaAuth()) store.commit('auth/SET_MASUK', true)
+
+  const peranTersimpan = bacaPeran()
+  if (peranTersimpan) store.commit('user/SET_PERAN', peranTersimpan)
+
   store.subscribe((mutation, state) => {
-    if (mutation.type.indexOf('bookmarks/') !== 0) return
-    tulisBookmarks(state.bookmarks)
+    if (mutation.type.indexOf('bookmarks/') === 0) {
+      tulisBookmarks(state.bookmarks)
+      return
+    }
+    if (mutation.type.indexOf('auth/') === 0) {
+      tulisAuth(state.auth.masuk)
+      return
+    }
+    if (mutation.type === 'user/SET_PERAN') {
+      tulisPeran(state.user.profil.peran)
+    }
   })
 }

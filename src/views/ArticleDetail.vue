@@ -12,7 +12,7 @@
       :judul="$t('article.notFoundTitle')"
       :pesan="$t('article.notFoundText')"
     >
-      <el-button type="primary" @click="$router.push('/')">{{ $t('article.notFoundAction') }}</el-button>
+      <el-button type="primary" @click="$router.push('/home')">{{ $t('article.notFoundAction') }}</el-button>
     </EmptyState>
 
     <template v-else>

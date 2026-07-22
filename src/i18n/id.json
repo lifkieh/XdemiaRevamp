@@ -3,6 +3,10 @@
     "all": "Semua",
     "results": "{n} hasil",
     "follow": "Ikuti",
+    "verified": "Terverifikasi",
+    "new": "Baru",
+    "live": "Live",
+    "registrationOpen": "Pendaftaran dibuka",
     "following": "Mengikuti",
     "unfollow": "Berhenti mengikuti",
     "join": "Gabung",
@@ -73,6 +77,9 @@
   },
   "home": {
     "composer": "Apa yang kamu pelajari hari ini?",
+    "composerDosen": "Bagikan update atau terbitkan Building Block",
+    "composerPeneliti": "Bagikan temuan atau publikasi baru",
+    "composerOrganisasi": "Posting update atau peluang baru",
     "emptyTitle": "Feed kamu masih kosong",
     "emptyText": "Ikuti orang atau komunitas dulu biar ada yang muncul di sini.",
     "emptyAction": "Cari yang seru",
@@ -127,6 +134,14 @@
     "deadlines": "Deadline terdekat",
     "events": "Acara terdekat",
     "people": "Kenalan yuk",
+    "trending": "Lagi ramai dibahas",
+    "trendingCount": "{n} pembelajar membahas ini",
+    "dosenJudul": "12 Building Block diterbitkan",
+    "dosenTeks": "3 menunggu review dari institusimu.",
+    "penelitiJudul": "4 publikasi dibagikan",
+    "penelitiTeks": "128 kali dibaca di jejaring bulan ini.",
+    "organisasiJudul": "3 peluang terbuka",
+    "organisasiTeks": "2 beasiswa akan tutup dalam 7 hari.",
     "aria": "Info tambahan"
   },
   "explore": {
@@ -282,11 +297,38 @@
     "shown": "{n} ditampilkan",
     "form": {
       "title": "Buat acara baru",
+      "about": "Tentang",
+      "eventType": "Jenis acara",
+      "typePersonal": "Acara pribadi",
+      "typeCommunity": "Acara komunitas",
       "name": "Nama acara",
-      "namePlaceholder": "Contoh: Sesi Menulis Esai",
-      "when": "Tanggal & jam",
-      "datePlaceholder": "Sabtu, 30 Agustus 2026",
-      "timePlaceholder": "19.30 WIB",
+      "namePlaceholder": "Nama acara",
+      "bannerAvatar": "Banner & avatar",
+      "uploadBanner": "Unggah gambar banner",
+      "uploadAvatar": "Unggah foto profil",
+      "change": "Ganti",
+      "remove": "Hapus",
+      "noFileChosen": "Belum ada berkas dipilih",
+      "aboutPlaceholder": "Ceritakan acara ini tentang apa",
+      "location": "Lokasi",
+      "buildingPlaceholder": "Nama / nomor gedung",
+      "addressPlaceholder": "Cari alamat",
+      "online": "Online",
+      "onlineLinkPlaceholder": "Tautan acara online",
+      "when": "Kapan",
+      "start": "Mulai",
+      "end": "Selesai",
+      "repeat": "Ulangi acara ini",
+      "repeatOptions": {
+        "never": "Tidak pernah",
+        "daily": "Setiap hari",
+        "weekly": "Setiap minggu",
+        "monthly": "Setiap bulan"
+      },
+      "privacyType": "Jenis privasi",
+      "privacyPublic": "Siapa saja bisa melihat dan bergabung ke acara ini.",
+      "privacyMembers": "Hanya anggota yang bisa melihat dan mengakses acara ini. Anggota diundang bergabung oleh admin acara.",
+      "privacyHidden": "Hanya anggota yang bisa melihat dan mengakses acara ini. Acara ini disembunyikan.",
       "where": "Lokasi",
       "wherePlaceholder": "Online · Zoom, atau nama tempat",
       "who": "Siapa yang boleh ikut",
@@ -296,6 +338,7 @@
       "descriptionPlaceholder": "Ceritakan acaranya",
       "submit": "Buat acara",
       "needName": "Nama acara belum diisi.",
+      "needAbout": "Bagian About belum diisi.",
       "created": "Acara \"{name}\" dibuat (contoh prototipe)."
     },
     "notFoundTitle": "Acara nggak ketemu",
@@ -484,6 +527,15 @@
     "bioPlaceholder": "Ceritakan sedikit tentang kamu",
     "Institute": "Kampus",
     "InstitutePlaceholder": "Nama kampus",
+    "role": "Jenis akun",
+    "roleSub": "Lihat pratinjau bagaimana Xdemia menyesuaikan untuk jenis anggota yang berbeda.",
+    "roleChanged": "Jenis akun diperbarui",
+    "roles": {
+      "mahasiswa": "Mahasiswa",
+      "dosen": "Dosen / Pengajar",
+      "peneliti": "Peneliti",
+      "organisasi": "Institusi / Organisasi"
+    },
     "privacy": "Privasi & izin",
     "whoCanSee": "Siapa yang bisa lihat profil kamu",
     "everyone": "Semua orang",
@@ -537,7 +589,17 @@
     "emptyText": "Mulai chat baru lewat tombol di kanan atas.",
     "messagePlaceholder": "Tulis pesan...",
     "newConversation": "Percakapan baru",
-    "justNow": "Baru saja"
+    "justNow": "Baru saja",
+    "online": "Online",
+    "shareTitle": "Bagikan dari Xdemia",
+    "shareType": {
+      "beasiswa": "Beasiswa",
+      "materi": "Materi",
+      "acara": "Acara"
+    },
+    "attachPhoto": "Foto",
+    "attachVideo": "Video",
+    "attachFile": "Berkas"
   },
   "notif": {
     "title": "Notifikasi",
@@ -617,5 +679,99 @@
   "chapter": {
     "kerangkaCerita": "kerangka cerita",
     "metode": "Metode"
+  },
+  "landing": {
+    "nav": {
+      "suite": "Rangkaian Fitur",
+      "blocks": "Building Blocks",
+      "bridge": "LMS Bridge",
+      "trust": "Kepercayaan",
+      "login": "Masuk",
+      "join": "Gabung gratis"
+    },
+    "banner": {
+      "eyebrow": "Dibangun untuk pembelajar",
+      "h1": "Belajar.",
+      "h2": "Riset.",
+      "h3": "Berkembang.",
+      "lead": "Platform yang dibangun khusus untuk pembelajar — konten terpercaya, kolaborasi nyata, dan jejaring yang membawamu maju."
+    },
+    "login": {
+      "title": "Masuk",
+      "email": "Email kamu",
+      "emailPh": "namamu@email.xyz",
+      "password": "Kata sandi",
+      "show": "Lihat",
+      "hide": "Sembunyikan",
+      "keep": "Ingat saya",
+      "signin": "Masuk",
+      "error": "Isi email dan kata sandi untuk lanjut."
+    },
+    "stats": {
+      "scholarships": "beasiswa aktif",
+      "storage": "penyimpanan gratis",
+      "hosted": "dihosting & dikembangkan"
+    },
+    "suite": {
+      "eyebrow": "Rangkaian Fitur Pembelajar",
+      "title": "Semua yang dibutuhkan pembelajar, dalam satu tempat",
+      "lead": "Dari acara dan komunitas hingga beasiswa, berita, dan penyimpanan aman — setiap bagian dibangun untuk satu tujuan: membantu pembelajar maju, bersama-sama.",
+      "feed": { "tag": "Jejaring", "judul": "Feed yang dibangun untuk belajar", "deskripsi": "Bagikan progres, tanya, dan tetap dekat dengan orang yang belajar hal yang sama." },
+      "events": { "tag": "Acara", "judul": "Uji kemampuanmu", "deskripsi": "Ubah pengetahuan jadi tantangan, temui orang dengan minat sama, dan dapatkan pengakuan dari para ahli." },
+      "comm": { "tag": "Komunitas", "judul": "Tempat belajar bersama", "deskripsi": "Ruang terpercaya untuk berkolaborasi, bertukar ide, dan berefleksi bersama sesama pembelajar." },
+      "news": { "tag": "Newsroom", "judul": "Berita singkat, terkurasi", "deskripsi": "Tetap terhubung dengan riset dan perkembangan pendidikan publik — tanpa iklan, tanpa kebisingan algoritma." },
+      "schol": { "tag": "Beasiswa", "judul": "Membuka akses ke peluang", "deskripsi": "2.000+ beasiswa aktif dalam satu tempat, sesuai ambisi dan latar belakangmu." },
+      "drive": { "tag": "Drive", "judul": "Penyimpanan aman, sudah termasuk", "deskripsi": "3 GB gratis untuk menyimpan materi belajar, riset, dan karya belajar pribadi, terhubung ke profilmu." }
+    },
+    "blocks": {
+      "eyebrow": "Pendidikan modular sesungguhnya",
+      "title": "Building Blocks: modul belajar di unit terkecil yang bermakna",
+      "p1": "Kumpulan elemen belajar yang saling terkait — berkas, sumber daya, tugas, setup lab, data — yang bersama-sama mencakup satu topik.",
+      "pull": "Pengajar bisa memperbarui dan mempersonalisasi materi tanpa membangun ulang seluruh kelas.",
+      "mod1": "Bacaan",
+      "mod2": "Dataset",
+      "mod3": "Tugas",
+      "mod4": "Setup lab",
+      "mod5": "Rubrik",
+      "mod6": "Diskusi",
+      "mod7": "Kuis"
+    },
+    "bridge": {
+      "eyebrow": "Pertukaran antar sistem LMS",
+      "title": "LMS Bridge",
+      "p1": "Bagikan kelas dan materi belajar lintas sistem LMS — tanpa perlu daftar terpisah untuk ikut program pertukaran.",
+      "p2": "Membuka pendidikan lintas batas, institusi, dan komunitas.",
+      "instA": "Institusimu",
+      "instB": "Institusi mitra"
+    },
+    "trust": {
+      "eyebrow": "Terpercaya sejak desain",
+      "title": "Dibangun di Uni Eropa, privat secara bawaan",
+      "lead": "Anggota terverifikasi, pesan terenkripsi, dan kamu tetap memegang kendali atas datamu.",
+      "point1": { "judul": "Tanpa berbagi data ke pihak ketiga", "teks": "Datamu tidak pernah dijual atau dibagikan untuk iklan." },
+      "point2": { "judul": "Tanpa profil perilaku", "teks": "Dibangun untuk belajar, bukan untuk distraksi atau menyita perhatian." },
+      "point3": { "judul": "Dihosting di Uni Eropa", "teks": "Privasi, keamanan, dan kedaulatan data sejak desain." }
+    },
+    "cta": {
+      "eyebrow": "Siap kapan saja",
+      "title": "Mulai belajar dengan Xdemia",
+      "p": "Bergabung dengan jejaring pembelajar, institusi, dan pakar yang membangun masa depan pendidikan bersama.",
+      "primary": "Masuk",
+      "secondary": "Jelajahi fitur"
+    },
+    "footer": {
+      "tagline": "Ekosistem belajar yang mengutamakan kualitas.",
+      "product": "Produk",
+      "company": "Perusahaan"
+    },
+    "figures": {
+      "comenius": "Pelopor pendidikan modern",
+      "einstein": "Fisikawan & pembelajar seumur hidup",
+      "malala": "Aktivis pendidikan, peraih Nobel",
+      "mandela": "Pejuang pendidikan sebagai pembebasan",
+      "plato": "Pendiri Akademi",
+      "satyarthi": "Aktivis pendidikan anak, peraih Nobel",
+      "velaz": "Pendiri Fe y Alegría"
+    }
   }
 }

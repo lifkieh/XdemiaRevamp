@@ -37,6 +37,7 @@
         @click.native="$router.push('/beasiswa/' + b.id)"
       >
         <template slot="meta">
+          <span v-if="b.isNew" class="pill pill-new">{{ $t('common.new') }}</span>
           <span class="pill">{{ b.jenjang }}</span>
           <span class="pill">{{ $t('country.' + b.negaraKode) }}</span>
           <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">{{ $t('common.daysLeft', { n: b.sisaHari }) }}</span>

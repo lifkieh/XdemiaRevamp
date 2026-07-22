@@ -1,7 +1,7 @@
 <template>
   <header class="topbar" :class="{ 'topbar-desktop': isDesktop }">
     <div class="topbar-inner">
-      <router-link v-if="!isDesktop" to="/" class="logo" :aria-label="$t('nav.home')">xδ</router-link>
+      <router-link v-if="!isDesktop" to="/home" class="logo" :aria-label="$t('nav.home')">xδ</router-link>
 
       <!-- desktop: search jadi pintu utama, langsung di top bar -->
       <div v-if="isDesktop" class="cari grow">
@@ -76,7 +76,8 @@ export default {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: var(--card);
+  background: rgba(255, 255, 255, .86);
+  backdrop-filter: blur(14px) saturate(140%);
   border-bottom: 1px solid var(--line);
 }
 
@@ -97,6 +98,7 @@ export default {
 .cari { max-width: 340px; }
 
 .logo {
+  font-family: var(--font-head);
   font-size: 22px;
   font-weight: 800;
   color: var(--brand);
