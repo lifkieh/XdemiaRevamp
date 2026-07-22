@@ -211,12 +211,22 @@ export default {
     }
   },
   created () {
+    // pintasan bisa membuka tab tertentu, mis. /you?tab=tersimpan
+    this.pilihTabDariRute()
     this.timer = setTimeout(() => { this.memuat = false }, 500)
+  },
+  watch: {
+    '$route.query.tab' () { this.pilihTabDariRute() }
   },
   beforeDestroy () {
     clearTimeout(this.timer)
   },
   methods: {
+    pilihTabDariRute () {
+      const sah = ['postingan', 'materi', 'tersimpan', 'file', 'pengaturan']
+      const t = this.$route.query.tab
+      if (t && sah.indexOf(String(t)) !== -1) this.tab = String(t)
+    },
     bukaSetelan (item) {
       if (item.id === 's-5') {
         this.$message('Pusat bantuan belum aktif di prototipe ini.')

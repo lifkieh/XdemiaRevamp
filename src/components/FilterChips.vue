@@ -1,5 +1,5 @@
 <template>
-  <div class="chips" role="tablist">
+  <div class="chips" :class="{ 'is-bungkus': bungkus }" role="tablist">
     <button
       v-for="chip in opsi"
       :key="chip"
@@ -19,7 +19,9 @@ export default {
   name: 'FilterChips',
   props: {
     opsi: { type: Array, required: true },
-    value: { type: String, default: '' }
+    value: { type: String, default: '' },
+    // true = chip turun ke baris berikutnya, tidak ada yang terpotong
+    bungkus: { type: Boolean, default: false }
   }
 }
 </script>
@@ -34,6 +36,14 @@ export default {
 }
 
 .chips::-webkit-scrollbar { display: none; }
+
+/* mode bungkus: semua chip selalu kelihatan, yang tidak muat turun baris */
+.chips.is-bungkus {
+  flex-wrap: wrap;
+  overflow-x: visible;
+  gap: 8px;
+  row-gap: 8px;
+}
 
 .chip {
   flex: none;

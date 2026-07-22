@@ -10,7 +10,7 @@
       v-model="kueri"
       placeholder="Cari orang, komunitas, kampus, jurnal, artikel"
     />
-    <FilterChips v-model="filter" :opsi="opsiFilter" />
+    <FilterChips v-model="filter" :opsi="opsiFilter" bungkus />
 
     <CardSkeleton v-if="memuat" :jumlah="5" />
 

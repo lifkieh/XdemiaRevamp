@@ -25,6 +25,22 @@
         <span>Tulis</span>
       </button>
 
+      <!-- Sekunder: tujuan yang tidak masuk lima nav utama -->
+      <nav class="pintasan-samping" aria-label="Pintasan">
+        <p class="pintasan-samping-judul">Pintasan</p>
+        <router-link
+          v-for="p in pintasan"
+          :key="p.path"
+          :to="p.path"
+          class="pintas-samping"
+        >
+          <i :class="p.ikon"></i>
+          <span>{{ p.label }}</span>
+        </router-link>
+      </nav>
+
+      <p class="catatan-kaki">Prototipe Xdemia · data contoh</p>
+
       <div class="kartu-user">
         <div class="thumb thumb-round avatar-kecil">{{ inisial }}</div>
         <div class="grow">
@@ -47,6 +63,12 @@ export default {
         { path: '/learn', label: 'Belajar', ikon: 'el-icon-reading', exact: false },
         { path: '/scholarships', label: 'Beasiswa', ikon: 'el-icon-medal', exact: false },
         { path: '/you', label: 'Kamu', ikon: 'el-icon-user', exact: false }
+      ],
+      pintasan: [
+        { path: '/events', label: 'Acara', ikon: 'el-icon-date' },
+        { path: '/jurnal', label: 'Jurnal', ikon: 'el-icon-notebook-2' },
+        { path: '/drive', label: 'Drive', ikon: 'el-icon-folder' },
+        { path: '/you?tab=tersimpan', label: 'Tersimpan', ikon: 'el-icon-collection-tag' }
       ]
     }
   },
@@ -131,8 +153,47 @@ export default {
 
 .tulis:hover { background: var(--brand-dark); }
 
+/* sengaja lebih tenang dari nav utama: teks lebih kecil, tanpa warna brand */
+.pintasan-samping {
+  margin: 18px 6px 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.pintasan-samping-judul {
+  margin: 0 8px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pintas-samping {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+  padding: 0 8px;
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.pintas-samping i { font-size: 16px; color: var(--muted); }
+
+.pintas-samping:hover { background: var(--bg); }
+.pintas-samping:hover i { color: var(--text); }
+
+/* menutup kolom sebelum kartu profil, sekaligus mengurangi rongga di tengah */
+.catatan-kaki {
+  margin: auto 14px 10px;
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
 .kartu-user {
-  margin-top: auto;
   display: flex;
   align-items: center;
   gap: 10px;
