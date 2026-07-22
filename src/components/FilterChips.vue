@@ -1,13 +1,13 @@
 <template>
   <div class="chips" :class="{ 'is-bungkus': bungkus }" role="tablist">
     <button
-      v-for="chip in opsi"
-      :key="chip"
+      v-for="(chip, i) in opsi"
+      :key="chip + '-' + i"
       class="chip"
-      :class="{ 'is-active': chip === value }"
+      :class="{ 'is-active': aktif(i) }"
       role="tab"
-      :aria-selected="chip === value ? 'true' : 'false'"
-      @click="$emit('input', chip)"
+      :aria-selected="aktif(i) ? 'true' : 'false'"
+      @click="pilih(i)"
     >
       {{ chip }}
     </button>
@@ -20,8 +20,15 @@ export default {
   props: {
     opsi: { type: Array, required: true },
     value: { type: String, default: '' },
+    // nilai kanonik sejajar dengan opsi; kalau diisi, yang dikirim id-nya, bukan labelnya
+    nilai: { type: Array, default: null },
     // true = chip turun ke baris berikutnya, tidak ada yang terpotong
     bungkus: { type: Boolean, default: false }
+  },
+  methods: {
+    kunci (i) { return this.nilai ? this.nilai[i] : this.opsi[i] },
+    aktif (i) { return this.kunci(i) === this.value },
+    pilih (i) { this.$emit('input', this.kunci(i)) }
   }
 }
 </script>

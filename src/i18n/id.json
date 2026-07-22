@@ -212,7 +212,8 @@
       "advanced": "Lanjutan"
     },
     "startsOn": "Mulai {date}",
-    "jadwalPola": "Tiap {hari}, {jam}"
+    "jadwalPola": "Tiap {hari}, {jam}",
+    "durasiJamSatu": "{n} jam"
   },
   "scholarship": {
     "title": "Beasiswa",

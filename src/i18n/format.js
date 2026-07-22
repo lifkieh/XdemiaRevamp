@@ -52,8 +52,11 @@ export function angka (n) {
 
 // 1.5 -> "1.5 hrs" / "1,5 jam"
 export function durasiJam (jam) {
-  const teks = Number(jam).toLocaleString(tagLocale(), { maximumFractionDigits: 1 })
-  return i18n.t('course.durasiJam', { n: teks })
+  const n = Number(jam)
+  const teks = n.toLocaleString(tagLocale(), { maximumFractionDigits: 1 })
+  // tepat satu jam memakai bentuk tunggal (EN: "1 hr")
+  const kunci = n === 1 ? 'course.durasiJamSatu' : 'course.durasiJam'
+  return i18n.t(kunci, { n: teks })
 }
 
 // { pola: 'modulTersisa', modul: 2, menit: 25 } -> kalimat sesuai bahasa

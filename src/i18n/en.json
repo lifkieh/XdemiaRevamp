@@ -212,7 +212,8 @@
       "advanced": "Advanced"
     },
     "startsOn": "Starts {date}",
-    "jadwalPola": "Every {hari}, {jam}"
+    "jadwalPola": "Every {hari}, {jam}",
+    "durasiJamSatu": "{n} hr"
   },
   "scholarship": {
     "title": "Scholarships",

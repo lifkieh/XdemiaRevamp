@@ -10,7 +10,7 @@
       v-model="kueri"
       :placeholder="$t('explore.searchPlaceholder')"
     />
-    <FilterChips :value="labelFilter" :opsi="opsiFilter" bungkus @input="pilihFilter" />
+    <FilterChips v-model="filter" :opsi="opsiFilter" :nilai="idFilter" bungkus />
 
     <CardSkeleton v-if="memuat" :jumlah="5" />
 
@@ -110,7 +110,6 @@ export default {
   },
   computed: {
     opsiFilter () { return this.idFilter.map((id) => this.$t('explore.filters.' + id)) },
-    labelFilter () { return this.$t('explore.filters.' + this.filter) },
     hasil () {
       const q = this.kueri.trim().toLowerCase()
       return this.data.filter((item) => {
@@ -172,10 +171,6 @@ export default {
       if (item.tipe === 'artikel') return item.sumber + ' · ' + this.$t('common.readTime', { n: item.menitBaca })
       if (item.tipe === 'acara') return this.$tanggal(item.tanggalIso, true) + ' · ' + item.lokasi
       return ''
-    },
-    pilihFilter (label) {
-      const i = this.opsiFilter.indexOf(label)
-      if (i !== -1) this.filter = this.idFilter[i]
     },
     // aksi kartu mengikuti jenisnya, bukan teks dari data
     aksiLabel (item) {

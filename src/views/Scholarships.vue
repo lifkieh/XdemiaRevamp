@@ -8,9 +8,9 @@
     <SearchBar v-model="kueri" :placeholder="$t('scholarship.searchPlaceholder')" />
 
     <div class="filter-baris">
-      <FilterChips :value="labelJenjang" :opsi="opsiJenjang" @input="pilihJenjang" />
-      <FilterChips :value="labelNegara" :opsi="opsiNegara" @input="pilihNegara" />
-      <FilterChips :value="labelUrutan" :opsi="opsiUrutan" @input="pilihUrutan" />
+      <FilterChips v-model="jenjang" :opsi="opsiJenjang" :nilai="idJenjang" />
+      <FilterChips v-model="negara" :opsi="opsiNegara" :nilai="idNegara" />
+      <FilterChips v-model="urutan" :opsi="opsiUrutan" :nilai="idUrutan" />
     </div>
 
     <CardSkeleton v-if="memuat" :jumlah="5" />
@@ -83,11 +83,8 @@ export default {
   computed: {
     jumlahTersimpan () { return this.$store.state.bookmarks.beasiswa.length },
     opsiJenjang () { return this.idJenjang.map((id) => (id === 'all' ? this.$t('scholarship.levelAll') : id)) },
-    labelJenjang () { return this.jenjang === 'all' ? this.$t('scholarship.levelAll') : this.jenjang },
     opsiNegara () { return this.idNegara.map((id) => (id === 'all' ? this.$t('scholarship.countryAll') : this.$t('country.' + id))) },
-    labelNegara () { return this.negara === 'all' ? this.$t('scholarship.countryAll') : this.$t('country.' + this.negara) },
     opsiUrutan () { return [this.$t('scholarship.sortRelevant'), this.$t('scholarship.sortDeadline')] },
-    labelUrutan () { return this.urutan === 'deadline' ? this.$t('scholarship.sortDeadline') : this.$t('scholarship.sortRelevant') },
     hasil () {
       const q = this.kueri.trim().toLowerCase()
       let list = this.data.filter((b) => {
@@ -115,18 +112,6 @@ export default {
     clearTimeout(this.timer)
   },
   methods: {
-    pilihJenjang (label) {
-      const i = this.opsiJenjang.indexOf(label)
-      if (i !== -1) this.jenjang = this.idJenjang[i]
-    },
-    pilihNegara (label) {
-      const i = this.opsiNegara.indexOf(label)
-      if (i !== -1) this.negara = this.idNegara[i]
-    },
-    pilihUrutan (label) {
-      const i = this.opsiUrutan.indexOf(label)
-      if (i !== -1) this.urutan = this.idUrutan[i]
-    },
     tersimpan (id) { return this.$store.getters['bookmarks/isBeasiswaTersimpan'](id) },
     toggleSimpan (b) {
       this.$store.dispatch('bookmarks/toggleBeasiswa', b.id)

@@ -8,7 +8,7 @@
       <span class="pill"><i class="el-icon-trophy"></i> {{ $t('learn.streakPill', { n: streak }) }}</span>
     </div>
 
-    <FilterChips :value="labelJenis" :opsi="opsiJenis" @input="pilihJenis" />
+    <FilterChips v-model="jenis" :opsi="opsiJenis" :nilai="idJenis" />
     <p class="muted penjelasan">{{ penjelasan }}</p>
 
     <CardSkeleton v-if="memuat" :jumlah="4" />
@@ -117,7 +117,6 @@ export default {
   computed: {
     streak () { return this.$store.getters['user/streak'] },
     opsiJenis () { return this.idJenis.map((id) => this.$t('learn.filters.' + id)) },
-    labelJenis () { return this.$t('learn.filters.' + this.jenis) },
     penjelasan () {
       if (this.jenis === 'materi') return this.$t('learn.hintMateri')
       if (this.jenis === 'kursus') return this.$t('learn.hintKursus')
@@ -148,10 +147,6 @@ export default {
     clearTimeout(this.timer)
   },
   methods: {
-    pilihJenis (label) {
-      const i = this.opsiJenis.indexOf(label)
-      if (i !== -1) this.jenis = this.idJenis[i]
-    },
     buka (id) { this.$router.push('/learn/' + id) },
     bukaLanjutkan (isi) {
       const info = this.petaLanjut[isi.jenis] || this.petaLanjut.materi

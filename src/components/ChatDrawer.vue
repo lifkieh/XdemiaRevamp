@@ -14,7 +14,7 @@
 
       <!-- Daftar percakapan -->
       <template v-if="!aktif">
-        <FilterChips :value="labelTab" :opsi="opsiTab" class="tab-chat" @input="pilihTab" />
+        <FilterChips v-model="tab" :opsi="opsiTab" :nilai="idTab" class="tab-chat" />
 
         <div class="daftar">
           <EmptyState
@@ -125,9 +125,6 @@ export default {
     opsiTab () {
       return this.idTab.map((id) => this.$t('chat.filters.' + id))
     },
-    labelTab () {
-      return this.$t('chat.filters.' + this.tab)
-    },
     daftar () {
       if (this.tab === 'direct') return this.chats.filter((c) => c.tipe === 'pribadi')
       if (this.tab === 'group') return this.chats.filter((c) => c.tipe === 'grup')
@@ -143,10 +140,6 @@ export default {
     waktuChat (w) {
       if (w && w.jamDinding) return this.$jam(w)
       return this.$waktuRelatif(w)
-    },
-    pilihTab (label) {
-      const i = this.opsiTab.indexOf(label)
-      if (i !== -1) this.tab = this.idTab[i]
     },
     kembali () {
       if (this.aktif) this.aktif = null
