@@ -11,7 +11,7 @@
     </div>
 
     <!-- Filter kategori: chip di layar lebar, dropdown di layar sempit -->
-    <div v-if="!memuat && feed.length > 0" class="filter-bar">
+    <div v-if="!memuat && feedAman.length > 0" class="filter-bar">
       <div v-if="pakaiChip" class="chips" role="tablist">
         <button
           v-for="k in kategori"
@@ -43,7 +43,7 @@
     <CardSkeleton v-if="memuat" :jumlah="4" />
 
     <EmptyState
-      v-else-if="feed.length === 0"
+      v-else-if="feedAman.length === 0"
       ikon="el-icon-chat-line-square"
       judul="Feed kamu masih kosong"
       pesan="Ikuti orang atau komunitas dulu biar ada yang muncul di sini."
@@ -195,16 +195,22 @@ export default {
     inisial () { return this.$store.getters['user/inisial'] },
     // layar lebar pakai baris chip, layar sempit pakai dropdown biar hemat ruang
     pakaiChip () { return this.$store.state.layout.lebar >= 768 },
+    // Satu sumber bentuk-aman untuk feed. Semua .length dan .filter di template
+    // maupun computed lain lewat sini, jadi render pertama tidak pernah
+    // menyentuh nilai undefined walau data belum datang.
+    feedAman () { return Array.isArray(this.feed) ? this.feed : [] },
     // menyaring salinan, array feed asli tidak disentuh
     feedTampil () {
-      if (this.filterAktif === 'semua') return this.feed
-      return this.feed.filter((item) => item.tipe === this.filterAktif)
+      const daftar = this.feedAman
+      if (this.filterAktif === 'semua') return daftar
+      return daftar.filter((item) => item.tipe === this.filterAktif)
     },
     jumlahPer () {
-      const hasil = { semua: this.feed.length }
+      const daftar = this.feedAman
+      const hasil = { semua: daftar.length }
       this.kategori.forEach((k) => {
         if (k.id === 'semua') return
-        hasil[k.id] = this.feed.filter((item) => item.tipe === k.id).length
+        hasil[k.id] = daftar.filter((item) => item.tipe === k.id).length
       })
       return hasil
     },
@@ -224,11 +230,15 @@ export default {
     clearTimeout(this.timer)
   },
   methods: {
+    // disukai adalah map id -> boolean, bukan daftar. Jangan pernah dipanggil
+    // .length di sini; kalau perlu jumlahnya pakai Object.keys(disukai).length.
     jumlahSuka (item) {
-      return item.suka + (this.disukai[item.id] ? 1 : 0)
+      const peta = this.disukai || {}
+      return item.suka + (peta[item.id] ? 1 : 0)
     },
     toggleSuka (item) {
-      this.$set(this.disukai, item.id, !this.disukai[item.id])
+      const peta = this.disukai || {}
+      this.$set(this.disukai, item.id, !peta[item.id])
     },
     bukaArtikel (item) {
       if (item.artikelId) this.$router.push('/artikel/' + item.artikelId)
