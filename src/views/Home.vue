@@ -251,15 +251,16 @@ export default {
       const peta = this.disukai || {}
       this.$set(this.disukai, item.id, !peta[item.id])
     },
-    // aspect-ratio untuk browser modern, padding-top sebagai cadangan
+    // Tinggi thumbnail dikunci lewat CSS; rasio hanya menentukan lebarnya.
+    // --rasio dipakai aspect-ratio, --rasio-angka dipakai cadangan calc().
     gayaMedia (media) {
       const rasio = String(media.rasio || '16/9')
       const bagian = rasio.split('/')
       const w = parseFloat(bagian[0]) || 16
       const t = parseFloat(bagian[1]) || 9
       return {
-        aspectRatio: w + ' / ' + t,
-        '--rasio-cadangan': (t / w * 100).toFixed(4) + '%'
+        '--rasio': w + ' / ' + t,
+        '--rasio-angka': (w / t).toFixed(4)
       }
     },
     bukaArtikel (item) {
@@ -388,27 +389,33 @@ export default {
 
 /* ---------- postingan gaya Threads: dipisah garis, bukan kartu ---------- */
 .post {
-  padding: 16px 2px;
-  border-bottom: 1px solid var(--line);
+  padding: 14px 2px;
+  border-bottom: 1px solid var(--line-kuat);
   background: transparent;
 }
 
 .post + .post { margin-top: 0; }
 
+/* header dirapatkan ke teks supaya satu blok terasa menyatu */
 .post-konten {
-  margin: 10px 0 0;
+  margin: 6px 0 0;
   font-size: 14.5px;
   line-height: 1.55;
   white-space: pre-line;
 }
 
+/* Thumbnail: tinggi dikunci, lebar ikut rasio. Rata kiri, nempel ke teks. */
 .post-media {
-  margin: 12px 0 0;
-  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px 0 0;
+  height: 180px;
+  width: auto;
   max-width: 100%;
+  aspect-ratio: var(--rasio, 16 / 9);
   border-radius: 12px;
   overflow: hidden;
-  background: var(--brand-soft);
+  background: var(--bg);
 }
 
 .post-media img {
@@ -416,26 +423,26 @@ export default {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 12px;
 }
 
-/* cadangan untuk browser tanpa aspect-ratio */
+@media (max-width: 600px) {
+  .post-media { height: 160px; }
+}
+
+/* cadangan untuk browser tanpa aspect-ratio: lebar dihitung dari tinggi tetap */
 @supports not (aspect-ratio: 16 / 9) {
-  .post-media {
-    position: relative;
-    height: 0;
-    padding-top: var(--rasio-cadangan, 56.25%);
-  }
-  .post-media img {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .post-media { width: calc(180px * var(--rasio-angka, 1.7778)); }
+
+  @media (max-width: 600px) {
+    .post-media { width: calc(160px * var(--rasio-angka, 1.7778)); }
   }
 }
 
 .post-aksi {
   display: flex;
   gap: 4px;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .is-clickable { cursor: pointer; }
