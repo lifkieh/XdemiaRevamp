@@ -321,7 +321,7 @@ export default {
       this.$message({ message: 'Disimpan: ' + item.judul, type: 'success' })
     },
     tulisPostingan () {
-      this.$message('Tulis postingan belum aktif di prototipe ini.')
+      this.$store.dispatch('compose/buka')
     },
     belumTersedia () {
       this.$message('Belum aktif di prototipe ini.')

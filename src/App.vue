@@ -18,6 +18,7 @@
 
     <ChatDrawer :terbuka="chatTerbuka" @tutup="chatTerbuka = false" />
     <NotifDrawer :terbuka="notifTerbuka" @tutup="notifTerbuka = false" />
+    <ComposePost />
   </div>
 </template>
 
@@ -28,10 +29,11 @@ import SideNav from '@/components/SideNav.vue'
 import RightRail from '@/components/RightRail.vue'
 import ChatDrawer from '@/components/ChatDrawer.vue'
 import NotifDrawer from '@/components/NotifDrawer.vue'
+import ComposePost from '@/components/ComposePost.vue'
 
 export default {
   name: 'App',
-  components: { TopBar, BottomNav, SideNav, RightRail, ChatDrawer, NotifDrawer },
+  components: { TopBar, BottomNav, SideNav, RightRail, ChatDrawer, NotifDrawer, ComposePost },
   data () {
     return {
       chatTerbuka: false,

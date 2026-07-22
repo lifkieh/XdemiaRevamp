@@ -78,7 +78,7 @@ export default {
     handle () { return this.$store.state.user.profil.handle }
   },
   methods: {
-    tulis () { this.$message('Tulis postingan belum aktif di prototipe ini.') }
+    tulis () { this.$store.dispatch('compose/buka') }
   }
 }
 </script>
