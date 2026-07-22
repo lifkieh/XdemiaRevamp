@@ -139,17 +139,28 @@
           </div>
         </div>
 
-        <!-- Postingan orang -->
-        <div v-else class="card">
-          <div class="row row-top penulis" @click="bukaProfil(item)">
+        <!-- Postingan orang: teks dulu, media opsional, dipisah garis (bukan kartu) -->
+        <article v-else class="post">
+          <header class="row row-top penulis" @click="bukaProfil(item)">
             <div class="thumb thumb-round">{{ item.inisial }}</div>
             <div class="grow">
               <p class="title">{{ item.penulis }}</p>
               <p class="muted">{{ item.peran }} · {{ item.waktu }}</p>
             </div>
-          </div>
+          </header>
+
           <p class="post-konten">{{ item.konten }}</p>
-          <div class="card-foot">
+
+          <!-- media hanya dirender kalau ada, jadi post teks tidak menyisakan ruang kosong -->
+          <figure
+            v-if="item.media && item.media.tipe === 'gambar'"
+            class="post-media"
+            :style="gayaMedia(item.media)"
+          >
+            <img :src="item.media.url" :alt="item.media.alt" loading="lazy">
+          </figure>
+
+          <div class="post-aksi">
             <button class="tap" :class="{ 'is-active': disukai[item.id] }" @click="toggleSuka(item)">
               <i :class="disukai[item.id] ? 'el-icon-star-on' : 'el-icon-star-off'"></i>
               <span>Suka {{ jumlahSuka(item) }}</span>
@@ -161,7 +172,7 @@
               <i class="el-icon-share"></i><span>Bagikan</span>
             </button>
           </div>
-        </div>
+        </article>
       </div>
     </template>
   </div>
@@ -239,6 +250,17 @@ export default {
     toggleSuka (item) {
       const peta = this.disukai || {}
       this.$set(this.disukai, item.id, !peta[item.id])
+    },
+    // aspect-ratio untuk browser modern, padding-top sebagai cadangan
+    gayaMedia (media) {
+      const rasio = String(media.rasio || '16/9')
+      const bagian = rasio.split('/')
+      const w = parseFloat(bagian[0]) || 16
+      const t = parseFloat(bagian[1]) || 9
+      return {
+        aspectRatio: w + ' / ' + t,
+        '--rasio-cadangan': (t / w * 100).toFixed(4) + '%'
+      }
     },
     bukaArtikel (item) {
       if (item.artikelId) this.$router.push('/artikel/' + item.artikelId)
@@ -364,17 +386,63 @@ export default {
   border-top: 1px solid var(--line);
 }
 
+/* ---------- postingan gaya Threads: dipisah garis, bukan kartu ---------- */
+.post {
+  padding: 16px 2px;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+}
+
+.post + .post { margin-top: 0; }
+
+.post-konten {
+  margin: 10px 0 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+.post-media {
+  margin: 12px 0 0;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--brand-soft);
+}
+
+.post-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* cadangan untuk browser tanpa aspect-ratio */
+@supports not (aspect-ratio: 16 / 9) {
+  .post-media {
+    position: relative;
+    height: 0;
+    padding-top: var(--rasio-cadangan, 56.25%);
+  }
+  .post-media img {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.post-aksi {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
 .is-clickable { cursor: pointer; }
 .is-clickable:hover { border-color: var(--brand); }
 
 .penulis { cursor: pointer; }
 .penulis:hover .title { color: var(--brand); }
-
-.post-konten {
-  margin: 10px 0 0;
-  font-size: 14.5px;
-  white-space: pre-line;
-}
 
 .article-ringkasan {
   margin: 10px 0 0;

@@ -20,6 +20,24 @@
     "komentar": 19
   },
   {
+    "id": "fd-13",
+    "tipe": "post",
+    "orangId": "o-2",
+    "penulis": "Yoga Pratama",
+    "inisial": "Y",
+    "peran": "Data Analyst · Jakarta",
+    "waktu": "25 menit lalu",
+    "konten": "Update belajar minggu ini: modul Python akhirnya tembus 60%. Yang bikin nyangkut ternyata bukan sintaksnya, tapi kebiasaan buka editor tiap hari.",
+    "suka": 96,
+    "komentar": 14,
+    "media": {
+      "tipe": "gambar",
+      "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%2317a2a2'/%3E%3Cstop offset='1' stop-color='%233fc9c0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='640' height='360' fill='url(%23g)'/%3E%3Crect x='120' y='250' width='400' height='16' rx='8' fill='%23ffffff' opacity='0.35'/%3E%3Crect x='120' y='250' width='240' height='16' rx='8' fill='%23ffffff'/%3E%3Ctext x='320' y='170' fill='%23ffffff' font-family='Arial' font-size='34' font-weight='bold' text-anchor='middle'%3EProgres Python%3C/text%3E%3Ctext x='320' y='225' fill='%23ffffff' font-family='Arial' font-size='56' font-weight='bold' text-anchor='middle'%3E60%25%3C/text%3E%3C/svg%3E",
+      "alt": "Tangkapan layar progres belajar Python di angka 60 persen",
+      "rasio": "16/9"
+    }
+  },
+  {
     "id": "fd-3",
     "tipe": "scholarship_alert",
     "judul": "Beasiswa Unggulan Kemendikbud tutup 3 hari lagi",
@@ -69,6 +87,24 @@
     "orangId": "o-4"
   },
   {
+    "id": "fd-14",
+    "tipe": "post",
+    "orangId": "o-4",
+    "penulis": "Sinta Larasati",
+    "inisial": "S",
+    "peran": "Mahasiswa Kedokteran · Unair",
+    "waktu": "3 jam lalu",
+    "konten": "Nyoba nulis ulang catatan statistika pakai format tanya-jawab. Lebih lama bikinnya, tapi pas ngulang jadi kerasa gunanya.",
+    "suka": 143,
+    "komentar": 26,
+    "media": {
+      "tipe": "gambar",
+      "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 480'%3E%3Crect width='480' height='480' fill='%23f3ede0'/%3E%3Cg stroke='%23d9cdb4' stroke-width='2'%3E%3Cline x1='48' y1='150' x2='432' y2='150'/%3E%3Cline x1='48' y1='210' x2='432' y2='210'/%3E%3Cline x1='48' y1='270' x2='432' y2='270'/%3E%3Cline x1='48' y1='330' x2='432' y2='330'/%3E%3Cline x1='48' y1='390' x2='432' y2='390'/%3E%3C/g%3E%3Crect x='48' y='60' width='150' height='34' rx='10' fill='%2317a2a2'/%3E%3Ctext x='123' y='84' fill='%23ffffff' font-family='Arial' font-size='19' font-weight='bold' text-anchor='middle'%3EBab 3%3C/text%3E%3Ctext x='240' y='130' fill='%23128686' font-family='Arial' font-size='30' font-weight='bold' text-anchor='middle'%3ECatatan Statistika%3C/text%3E%3C/svg%3E",
+      "alt": "Foto catatan tulis tangan materi statistika bab 3",
+      "rasio": "1/1"
+    }
+  },
+  {
     "id": "fd-8",
     "tipe": "article",
     "judul": "5 Kesalahan Umum Waktu Nulis Esai Beasiswa",
@@ -97,6 +133,24 @@
     "suka": 512,
     "komentar": 64,
     "orangId": "o-2"
+  },
+  {
+    "id": "fd-15",
+    "tipe": "post",
+    "orangId": "o-5",
+    "penulis": "Dewi Anggraini",
+    "inisial": "D",
+    "peran": "Mahasiswa Sastra Inggris · UI",
+    "waktu": "9 jam lalu",
+    "konten": "Bikin infografik alur daftar beasiswa buat diri sendiri, siapa tahu kepakai juga sama kalian yang lagi nyiapin berkas.",
+    "suka": 268,
+    "komentar": 37,
+    "media": {
+      "tipe": "gambar",
+      "url": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 480'%3E%3Crect width='640' height='480' fill='%23e6f6f6'/%3E%3Ctext x='320' y='70' fill='%23128686' font-family='Arial' font-size='30' font-weight='bold' text-anchor='middle'%3EAlur Daftar Beasiswa%3C/text%3E%3Crect x='70' y='120' width='500' height='58' rx='14' fill='%2317a2a2'/%3E%3Ctext x='100' y='157' fill='%23ffffff' font-family='Arial' font-size='22'%3E1. Siapkan berkas%3C/text%3E%3Crect x='70' y='210' width='420' height='58' rx='14' fill='%233fc9c0'/%3E%3Ctext x='100' y='247' fill='%23ffffff' font-family='Arial' font-size='22'%3E2. Tulis esai%3C/text%3E%3Crect x='70' y='300' width='340' height='58' rx='14' fill='%2384d6d2'/%3E%3Ctext x='100' y='337' fill='%23ffffff' font-family='Arial' font-size='22'%3E3. Wawancara%3C/text%3E%3Crect x='70' y='390' width='240' height='58' rx='14' fill='%23b7e5e3'/%3E%3Ctext x='100' y='427' fill='%23128686' font-family='Arial' font-size='22'%3E4. Pengumuman%3C/text%3E%3C/svg%3E",
+      "alt": "Infografik empat langkah alur pendaftaran beasiswa",
+      "rasio": "4/3"
+    }
   },
   {
     "id": "fd-11",
