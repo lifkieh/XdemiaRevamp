@@ -1,6 +1,6 @@
-// Plugin Vuex kecil: menyimpan bookmark (beasiswa & materi) ke localStorage
-// supaya pilihan user tidak hilang saat halaman di-refresh.
-// Hanya modul "bookmarks" yang dipersist, bukan seluruh store.
+// Plugin Vuex kecil: menyimpan bookmark ke localStorage supaya pilihan user
+// tidak hilang saat halaman di-refresh. Hanya modul "bookmarks" yang dipersist.
+import { JENIS } from './modules/bookmarks'
 
 const KEY = 'xdemia:bookmarks'
 
@@ -16,10 +16,9 @@ export function bacaBookmarks () {
     if (!mentah) return null
     const data = JSON.parse(mentah)
     if (!data || typeof data !== 'object' || Array.isArray(data)) return null
-    return {
-      beasiswa: daftarString(data.beasiswa),
-      materi: daftarString(data.materi)
-    }
+    const hasil = {}
+    JENIS.forEach((j) => { hasil[j] = daftarString(data[j]) })
+    return hasil
   } catch (e) {
     // JSON rusak, localStorage diblokir, atau mode privat penuh
     return null
@@ -29,10 +28,9 @@ export function bacaBookmarks () {
 function tulisBookmarks (bookmarks) {
   try {
     if (typeof window === 'undefined' || !window.localStorage) return
-    window.localStorage.setItem(KEY, JSON.stringify({
-      beasiswa: bookmarks.beasiswa,
-      materi: bookmarks.materi
-    }))
+    const isi = {}
+    JENIS.forEach((j) => { isi[j] = bookmarks[j] })
+    window.localStorage.setItem(KEY, JSON.stringify(isi))
   } catch (e) {
     // kuota penuh atau storage ditolak — abaikan, app tetap jalan
   }

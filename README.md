@@ -54,6 +54,35 @@ Mode ditentukan satu getter Vuex (`layout/isDesktop`), jadi bottom nav dan sideb
 8. **Tiga state per layar**: loading (skeleton), kosong (empty state), normal.
 9. Palet teal `#17a2a2`, radius `14px`, semua lewat CSS variable di `src/assets/base.css`.
 
+## Daftar rute
+
+| Rute | Halaman |
+|---|---|
+| `/` | Beranda — feed campuran |
+| `/explore` | Jelajah — search + chip Orang/Komunitas/Kampus/Organisasi/Jurnal |
+| `/learn` | Belajar — sub-filter Materi (mandiri) vs Kursus (berjadwal) |
+| `/scholarships` | Beasiswa — filter jenjang/negara/deadline |
+| `/you` | Kamu — profil + tab + pintasan fitur |
+| `/events` | Acara — akan datang & sudah lewat, tombol buat acara |
+| `/jurnal` | Daftar jurnal gaya tabel, bisa diurutkan |
+| `/keranjang` | Keranjang — tab Item & Riwayat |
+| `/drive` | Drive — tabel berkas, tab Semua/Dibagikan |
+| `/pengaturan` | Pengaturan — profil, privasi, tanda tangan, status, notifikasi |
+| `/beasiswa/:id` | Detail beasiswa — syarat, benefit, cara daftar |
+| `/acara/:id` | Detail acara — jadwal, lokasi, hadiah, peserta |
+| `/learn/:id`, `/materi/:id` | Detail materi/kursus — silabus + progress |
+| `/artikel/:id` | Pembaca artikel |
+| `/community/:id` | Detail komunitas — Tentang/Diskusi/Anggota/File |
+| `/kampus/:id`, `/organisasi/:id` | Detail institusi — Tentang/Anggota |
+| `/jurnal/:id` | Detail jurnal — ISSN + daftar tulisan |
+| `/profil/:id` | Profil orang lain — 5 tab |
+
+Navigasi bawah tetap lima tab. Fitur di luar itu (Acara, Keranjang, Drive, Jurnal, Pengaturan) diakses lewat top bar dan kartu pintasan di halaman Kamu; di desktop, Acara juga ada di sidebar.
+
+### Istilah
+
+Xdemia lama memakai "Building Block" untuk blok materi. Di sini dipisah dengan istilah manusia: **Materi** (belajar sendiri, kapan saja) dan **Kursus** (punya tanggal mulai–selesai dan jadwal pertemuan).
+
 ## Struktur folder
 
 ```

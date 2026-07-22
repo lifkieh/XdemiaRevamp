@@ -33,6 +33,8 @@
         :inisial="b.inisial"
         :judul="b.nama"
         :subjudul="b.penyelenggara + ' · ' + b.cakupan"
+        clickable
+        @click.native="$router.push('/beasiswa/' + b.id)"
       >
         <template slot="meta">
           <span class="pill">{{ b.jenjang }}</span>
@@ -43,7 +45,7 @@
           <button
             class="tap simpan"
             :class="{ 'is-active': tersimpan(b.id) }"
-            @click="toggleSimpan(b)"
+            @click.stop="toggleSimpan(b)"
           >
             <i :class="tersimpan(b.id) ? 'el-icon-star-on' : 'el-icon-collection-tag'"></i>
             <span>{{ tersimpan(b.id) ? 'Tersimpan' : 'Simpan' }}</span>

@@ -1,0 +1,69 @@
+[
+  {
+    "id": "j-1", "nama": "Jurnal Pendidikan Digital", "inisial": "JP", "issn": "2721-4839",
+    "penerbit": "Universitas Brawijaya", "terbit": "Tiap bulan", "jumlahTulisan": 214, "bidang": "Pendidikan",
+    "deskripsi": "Jurnal terbuka yang membahas pemanfaatan teknologi dalam pembelajaran di sekolah dan perguruan tinggi.",
+    "tulisan": [
+      { "id": "t-1", "judul": "Pengaruh Pembelajaran Campuran terhadap Motivasi Belajar", "deskripsi": "Studi pada 240 siswa SMA di Malang", "terbit": "Juli 2026" },
+      { "id": "t-2", "judul": "Literasi Digital Guru Sekolah Dasar di Daerah 3T", "deskripsi": "Survei di 12 kabupaten", "terbit": "Juni 2026" },
+      { "id": "t-3", "judul": "Efektivitas Kuis Interaktif dalam Kelas Besar", "deskripsi": "Eksperimen di kelas 300 mahasiswa", "terbit": "Juni 2026" },
+      { "id": "t-4", "judul": "Perancangan Antarmuka Belajar untuk Gen Z", "deskripsi": "Pendekatan desain partisipatif", "terbit": "Mei 2026" },
+      { "id": "t-5", "judul": "Beban Kognitif pada Materi Video Pembelajaran", "deskripsi": "Tinjauan sistematis 48 penelitian", "terbit": "April 2026" },
+      { "id": "t-6", "judul": "Kesiapan Sekolah Menghadapi Ujian Berbasis Komputer", "deskripsi": "Studi kasus di Jawa Timur", "terbit": "Maret 2026" }
+    ]
+  },
+  {
+    "id": "j-2", "nama": "Jurnal Riset Kesehatan Masyarakat", "inisial": "JR", "issn": "2088-7612",
+    "penerbit": "Universitas Gadjah Mada", "terbit": "Tiap kuartal", "jumlahTulisan": 97, "bidang": "Kesehatan",
+    "deskripsi": "Publikasi hasil penelitian kesehatan masyarakat, epidemiologi, dan kebijakan kesehatan di Indonesia.",
+    "tulisan": [
+      { "id": "t-1", "judul": "Pola Konsumsi Gula pada Remaja Perkotaan", "deskripsi": "Survei 1.100 responden di 5 kota", "terbit": "Juli 2026" },
+      { "id": "t-2", "judul": "Akses Layanan Kesehatan Jiwa Mahasiswa", "deskripsi": "Analisis hambatan struktural", "terbit": "April 2026" },
+      { "id": "t-3", "judul": "Cakupan Imunisasi Dasar Pasca Pandemi", "deskripsi": "Data 34 provinsi", "terbit": "Januari 2026" },
+      { "id": "t-4", "judul": "Kualitas Udara dan Angka Kunjungan ISPA", "deskripsi": "Studi ekologis di Jakarta", "terbit": "Oktober 2025" },
+      { "id": "t-5", "judul": "Peran Kader Posyandu dalam Deteksi Stunting", "deskripsi": "Penelitian kualitatif di NTT", "terbit": "Juli 2025" }
+    ]
+  },
+  {
+    "id": "j-3", "nama": "Catatan Riset Data Indonesia", "inisial": "CR", "issn": "2810-5533",
+    "penerbit": "Data Enthusiast Indonesia", "terbit": "Tiap bulan", "jumlahTulisan": 58, "bidang": "Data & Statistika",
+    "deskripsi": "Jurnal komunitas berisi laporan analisis data terbuka Indonesia, ditulis dengan bahasa yang mudah diikuti.",
+    "tulisan": [
+      { "id": "t-1", "judul": "Peta Ketimpangan Akses Internet Antar-Provinsi", "deskripsi": "Analisis data BPS 2025", "terbit": "Juli 2026" },
+      { "id": "t-2", "judul": "Tren Lowongan Kerja Bidang Data 2020-2026", "deskripsi": "Penambangan 40.000 iklan lowongan", "terbit": "Juni 2026" },
+      { "id": "t-3", "judul": "Prediksi Harga Beras dengan Model Sederhana", "deskripsi": "Perbandingan tiga pendekatan", "terbit": "Mei 2026" },
+      { "id": "t-4", "judul": "Kualitas Data Terbuka Pemerintah Daerah", "deskripsi": "Penilaian 50 portal data", "terbit": "Maret 2026" }
+    ]
+  },
+  {
+    "id": "j-4", "nama": "Jurnal Teknik dan Rekayasa Terapan", "inisial": "JT", "issn": "2503-1918",
+    "penerbit": "Institut Teknologi Bandung", "terbit": "Dua kali setahun", "jumlahTulisan": 132, "bidang": "Teknik",
+    "deskripsi": "Memuat penelitian terapan bidang rekayasa: energi, material, dan sistem kendali.",
+    "tulisan": [
+      { "id": "t-1", "judul": "Optimasi Panel Surya pada Atap Rumah Tapak", "deskripsi": "Simulasi iklim tropis", "terbit": "Juni 2026" },
+      { "id": "t-2", "judul": "Material Komposit dari Limbah Serat Kelapa", "deskripsi": "Uji kekuatan tarik", "terbit": "Desember 2025" },
+      { "id": "t-3", "judul": "Sistem Kendali Irigasi Otomatis Berbiaya Rendah", "deskripsi": "Purwarupa untuk lahan kecil", "terbit": "Juni 2025" }
+    ]
+  },
+  {
+    "id": "j-5", "nama": "Jurnal Ekonomi dan Kebijakan Publik", "inisial": "JE", "issn": "2477-0302",
+    "penerbit": "Universitas Indonesia", "terbit": "Tiap kuartal", "jumlahTulisan": 176, "bidang": "Ekonomi",
+    "deskripsi": "Kajian ekonomi pembangunan, kebijakan fiskal, dan ketenagakerjaan di Indonesia.",
+    "tulisan": [
+      { "id": "t-1", "judul": "Dampak Bantuan Pendidikan terhadap Lama Sekolah", "deskripsi": "Evaluasi program 2018-2024", "terbit": "Juli 2026" },
+      { "id": "t-2", "judul": "Ketenagakerjaan Lulusan Vokasi", "deskripsi": "Analisis data Sakernas", "terbit": "April 2026" },
+      { "id": "t-3", "judul": "Inklusi Keuangan Digital di Pedesaan", "deskripsi": "Survei 800 rumah tangga", "terbit": "Januari 2026" },
+      { "id": "t-4", "judul": "Belanja Daerah dan Kualitas Layanan Dasar", "deskripsi": "Data panel 2015-2024", "terbit": "Oktober 2025" }
+    ]
+  },
+  {
+    "id": "j-6", "nama": "Jurnal Psikologi Belajar Nusantara", "inisial": "JB", "issn": "2685-7444",
+    "penerbit": "Universitas Airlangga", "terbit": "Dua kali setahun", "jumlahTulisan": 64, "bidang": "Psikologi",
+    "deskripsi": "Meneliti motivasi belajar, kesehatan mental pelajar, dan dinamika kelompok belajar.",
+    "tulisan": [
+      { "id": "t-1", "judul": "Prokrastinasi Akademik pada Mahasiswa Tingkat Akhir", "deskripsi": "Studi pada 520 responden", "terbit": "Juni 2026" },
+      { "id": "t-2", "judul": "Dukungan Teman Sebaya dan Ketahanan Belajar", "deskripsi": "Penelitian longitudinal 1 tahun", "terbit": "Desember 2025" },
+      { "id": "t-3", "judul": "Kecemasan Berbicara di Depan Kelas", "deskripsi": "Intervensi berbasis latihan bertahap", "terbit": "Juni 2025" }
+    ]
+  }
+]

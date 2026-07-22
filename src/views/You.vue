@@ -16,6 +16,14 @@
       </div>
     </div>
 
+    <!-- Pintasan ke fitur yang tidak muat di navigasi bawah -->
+    <div class="pintasan">
+      <router-link v-for="p in pintasan" :key="p.rute" :to="p.rute" class="pintas">
+        <i :class="p.ikon"></i>
+        <span>{{ p.label }}</span>
+      </router-link>
+    </div>
+
     <el-tabs v-model="tab" class="tab-kamu">
       <el-tab-pane label="Postingan" name="postingan">
         <CardSkeleton v-if="memuat" :jumlah="2" />
@@ -65,10 +73,12 @@
         <BaseCard
           v-for="t in tersimpan"
           v-else
-          :key="t.id"
+          :key="t.label + t.id"
           :inisial="t.inisial"
           :judul="t.judul"
           :subjudul="t.subjudul"
+          clickable
+          @click.native="$router.push(t.rute)"
         >
           <template slot="meta">
             <span class="pill">{{ t.label }}</span>
@@ -77,6 +87,17 @@
       </el-tab-pane>
 
       <el-tab-pane label="File" name="file">
+        <div class="card ringkasan-drive">
+          <div class="row">
+            <div class="thumb drive-ikon"><i class="el-icon-folder-opened"></i></div>
+            <div class="grow">
+              <p class="title">Drive kamu</p>
+              <p class="muted">{{ profil.files.length }} berkas terbaru ditampilkan di sini.</p>
+            </div>
+            <el-button size="small" type="primary" @click="$router.push('/drive')">Buka Drive</el-button>
+          </div>
+        </div>
+
         <BaseCard
           v-for="f in profil.files"
           :key="f.id"
@@ -99,7 +120,7 @@
             v-for="item in menuSetelan"
             :key="item.id"
             class="baris-setelan"
-            @click="belumTersedia"
+            @click="bukaSetelan(item)"
           >
             <div class="thumb setelan-ikon"><i :class="item.ikon"></i></div>
             <div class="grow kiri">
@@ -141,6 +162,8 @@ import CardSkeleton from '@/components/CardSkeleton.vue'
 import EmptyState from '@/components/EmptyState.vue'
 import courses from '@/mock/courses.json'
 import scholarships from '@/mock/scholarships.json'
+import articles from '@/mock/articles.json'
+import events from '@/mock/events.json'
 
 export default {
   name: 'YouView',
@@ -150,6 +173,13 @@ export default {
       memuat: true,
       tab: 'postingan',
       setelan: { pengingat: true, beasiswa: true },
+      pintasan: [
+        { rute: '/events', label: 'Acara', ikon: 'el-icon-date' },
+        { rute: '/keranjang', label: 'Keranjang', ikon: 'el-icon-shopping-cart-2' },
+        { rute: '/drive', label: 'Drive', ikon: 'el-icon-folder' },
+        { rute: '/jurnal', label: 'Jurnal', ikon: 'el-icon-notebook-2' },
+        { rute: '/pengaturan', label: 'Pengaturan', ikon: 'el-icon-setting' }
+      ],
       menuSetelan: [
         { id: 's-1', judul: 'Ubah profil', keterangan: 'Nama, bio, foto, dan kampus', ikon: 'el-icon-edit' },
         { id: 's-2', judul: 'Privasi', keterangan: 'Siapa yang bisa lihat aktivitas kamu', ikon: 'el-icon-lock' },
@@ -162,16 +192,22 @@ export default {
   computed: {
     profil () { return this.$store.state.user.profil },
     materiSaya () { return courses.filter((c) => c.progress > 0) },
+    // Tersimpan menampung empat jenis isi sekaligus
     tersimpan () {
-      const idBeasiswa = this.$store.state.bookmarks.beasiswa
-      const idMateri = this.$store.state.bookmarks.materi
+      const b = this.$store.state.bookmarks
       const dariBeasiswa = scholarships
-        .filter((s) => idBeasiswa.indexOf(s.id) !== -1)
-        .map((s) => ({ id: s.id, inisial: s.inisial, judul: s.nama, subjudul: s.penyelenggara, label: 'Beasiswa' }))
+        .filter((s) => b.beasiswa.indexOf(s.id) !== -1)
+        .map((s) => ({ id: s.id, inisial: s.inisial, judul: s.nama, subjudul: s.penyelenggara, label: 'Beasiswa', rute: '/beasiswa/' + s.id }))
       const dariMateri = courses
-        .filter((c) => idMateri.indexOf(c.id) !== -1)
-        .map((c) => ({ id: c.id, inisial: c.judul.charAt(0), judul: c.judul, subjudul: c.penyedia, label: 'Materi' }))
-      return dariBeasiswa.concat(dariMateri)
+        .filter((c) => b.materi.indexOf(c.id) !== -1)
+        .map((c) => ({ id: c.id, inisial: c.judul.charAt(0), judul: c.judul, subjudul: c.penyedia, label: c.jenis === 'kursus' ? 'Kursus' : 'Materi', rute: '/materi/' + c.id }))
+      const dariArtikel = articles
+        .filter((a) => b.artikel.indexOf(a.id) !== -1)
+        .map((a) => ({ id: a.id, inisial: a.inisial, judul: a.judul, subjudul: a.penulis + ' · ' + a.baca, label: 'Artikel', rute: '/artikel/' + a.id }))
+      const dariAcara = events
+        .filter((e) => b.acara.indexOf(e.id) !== -1)
+        .map((e) => ({ id: e.id, inisial: e.inisial, judul: e.judul, subjudul: e.tanggal + ' · ' + e.waktu, label: 'Acara', rute: '/acara/' + e.id }))
+      return dariBeasiswa.concat(dariMateri, dariArtikel, dariAcara)
     }
   },
   created () {
@@ -181,6 +217,13 @@ export default {
     clearTimeout(this.timer)
   },
   methods: {
+    bukaSetelan (item) {
+      if (item.id === 's-5') {
+        this.$message('Pusat bantuan belum aktif di prototipe ini.')
+        return
+      }
+      this.$router.push('/pengaturan')
+    },
     labelJenis (jenis) {
       const peta = { pdf: 'PDF', word: 'DOC', tabel: 'CSV', gambar: 'IMG', audio: 'MP3' }
       return peta[jenis] || 'FILE'
@@ -246,6 +289,38 @@ export default {
 .stat b { font-size: 16px; }
 .stat span { font-size: 12px; }
 
+.pintasan {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+
+.pintasan::-webkit-scrollbar { display: none; }
+
+.pintas {
+  flex: none;
+  min-width: 76px;
+  min-height: 64px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.pintas i { font-size: 19px; color: var(--brand); }
+.pintas:hover { border-color: var(--brand); color: var(--brand); }
+
 .tab-kamu { margin-top: 14px; }
 .tab-kamu >>> .el-tabs__nav-wrap::after { height: 1px; background: var(--line); }
 .tab-kamu >>> .el-tabs__item { padding: 0 9px; font-size: 13.5px; }
@@ -295,6 +370,9 @@ export default {
 .baris-setelan:hover .title { color: var(--brand); }
 
 .setelan-ikon { width: 38px; height: 38px; font-size: 17px; }
+
+.ringkasan-drive { border-color: var(--brand); background: var(--brand-soft); }
+.drive-ikon { width: 42px; height: 42px; background: var(--brand); color: #fff; font-size: 19px; }
 
 .panah { color: var(--muted); flex: none; }
 

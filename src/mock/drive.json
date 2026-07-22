@@ -1,0 +1,14 @@
+[
+  { "id": "dr-1", "nama": "Catatan Statistika Dasar.pdf", "jenis": "pdf", "ukuran": "2,4 MB", "ukuranByte": 2516582, "tanggal": "19 Juli 2026", "pemilik": "Raka Mahendra", "dibagikan": false },
+  { "id": "dr-2", "nama": "Draft Esai LPDP.docx", "jenis": "word", "ukuran": "68 KB", "ukuranByte": 69632, "tanggal": "15 Juli 2026", "pemilik": "Raka Mahendra", "dibagikan": true },
+  { "id": "dr-3", "nama": "Dataset Latihan Pandas.csv", "jenis": "tabel", "ukuran": "1,1 MB", "ukuranByte": 1153434, "tanggal": "8 Juli 2026", "pemilik": "Raka Mahendra", "dibagikan": false },
+  { "id": "dr-4", "nama": "Sertifikat Webinar Data.png", "jenis": "gambar", "ukuran": "420 KB", "ukuranByte": 430080, "tanggal": "1 Juli 2026", "pemilik": "Raka Mahendra", "dibagikan": false },
+  { "id": "dr-5", "nama": "Rangkuman Modul Python.pdf", "jenis": "pdf", "ukuran": "1,7 MB", "ukuranByte": 1782579, "tanggal": "22 Juni 2026", "pemilik": "Raka Mahendra", "dibagikan": true },
+  { "id": "dr-6", "nama": "Rekaman Latihan Speaking.mp3", "jenis": "audio", "ukuran": "12,3 MB", "ukuranByte": 12897485, "tanggal": "18 Juni 2026", "pemilik": "Raka Mahendra", "dibagikan": false },
+  { "id": "dr-7", "nama": "Template Portofolio Data.docx", "jenis": "word", "ukuran": "240 KB", "ukuranByte": 245760, "tanggal": "12 Juni 2026", "pemilik": "Yoga Pratama", "dibagikan": true },
+  { "id": "dr-8", "nama": "Kalender Deadline Beasiswa 2026.xlsx", "jenis": "tabel", "ukuran": "120 KB", "ukuranByte": 122880, "tanggal": "5 Juni 2026", "pemilik": "Dewi Anggraini", "dibagikan": true },
+  { "id": "dr-9", "nama": "Panduan Hierarki Visual.pdf", "jenis": "pdf", "ukuran": "2,6 MB", "ukuranByte": 2726297, "tanggal": "28 Mei 2026", "pemilik": "Ayu Lestari", "dibagikan": true },
+  { "id": "dr-10", "nama": "Proposal Skripsi Bab 1-3.docx", "jenis": "word", "ukuran": "310 KB", "ukuranByte": 317440, "tanggal": "20 Mei 2026", "pemilik": "Raka Mahendra", "dibagikan": false },
+  { "id": "dr-11", "nama": "Foto Kegiatan Workshop.zip", "jenis": "arsip", "ukuran": "48,2 MB", "ukuranByte": 50541363, "tanggal": "14 Mei 2026", "pemilik": "Fajar Nugroho", "dibagikan": true },
+  { "id": "dr-12", "nama": "Rekaman Sesi Bedah Portofolio.mp4", "jenis": "video", "ukuran": "184 MB", "ukuranByte": 192937984, "tanggal": "3 Mei 2026", "pemilik": "Bagas Wirawan", "dibagikan": true }
+]

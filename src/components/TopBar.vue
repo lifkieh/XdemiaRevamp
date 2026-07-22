@@ -15,12 +15,19 @@
       </div>
       <span v-else class="grow"></span>
 
-      <button class="tap topbar-btn" @click="$emit('buka-chat')">
+      <router-link to="/keranjang" class="tap topbar-btn btn-keranjang">
+        <el-badge :value="jumlahKeranjang" :hidden="jumlahKeranjang === 0">
+          <i class="el-icon-shopping-cart-2"></i>
+        </el-badge>
+        <span>Keranjang</span>
+      </router-link>
+
+      <button class="tap topbar-btn btn-chat" @click="$emit('buka-chat')">
         <i class="el-icon-chat-dot-round"></i>
         <span>Chat</span>
       </button>
 
-      <button class="tap topbar-btn" @click="$emit('buka-notif')">
+      <button class="tap topbar-btn btn-notif" @click="$emit('buka-notif')">
         <el-badge :value="notifBelumDibaca" :hidden="notifBelumDibaca === 0">
           <i class="el-icon-bell"></i>
         </el-badge>
@@ -43,6 +50,7 @@ export default {
   computed: {
     inisial () { return this.$store.getters['user/inisial'] },
     notifBelumDibaca () { return this.$store.state.user.notifBelumDibaca },
+    jumlahKeranjang () { return this.$store.getters['cart/jumlahItem'] },
     isDesktop () { return this.$store.getters['layout/isDesktop'] }
   },
   methods: {
@@ -100,6 +108,7 @@ export default {
 }
 
 .topbar-btn i { font-size: 19px; }
+.topbar-btn span { white-space: nowrap; }
 
 /* area tap 44px, lingkaran visual tetap 36px */
 .avatar-tap {

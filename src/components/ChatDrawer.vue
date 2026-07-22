@@ -7,27 +7,42 @@
           <span>{{ aktif ? 'Daftar' : 'Tutup' }}</span>
         </button>
         <p class="title grow drawer-judul">{{ aktif ? aktif.nama : 'Chat' }}</p>
+        <button v-if="!aktif" class="tap tombol-baru" @click="komposerTerbuka = true">
+          <i class="el-icon-edit"></i><span>Baru</span>
+        </button>
       </header>
 
       <!-- Daftar percakapan -->
-      <div v-if="!aktif" class="daftar">
-        <button
-          v-for="c in chats"
-          :key="c.id"
-          class="percakapan"
-          @click="aktif = c"
-        >
-          <div class="thumb thumb-round">{{ c.inisial }}</div>
-          <div class="grow teks">
-            <p class="title">{{ c.nama }}</p>
-            <p class="muted clamp-1">{{ c.cuplikan }}</p>
-          </div>
-          <div class="kanan">
-            <span class="muted">{{ c.waktu }}</span>
-            <span v-if="c.belumDibaca" class="badge">{{ c.belumDibaca }}</span>
-          </div>
-        </button>
-      </div>
+      <template v-if="!aktif">
+        <FilterChips v-model="tab" :opsi="opsiTab" class="tab-chat" />
+
+        <div class="daftar">
+          <EmptyState
+            v-if="daftar.length === 0"
+            ikon="el-icon-chat-dot-round"
+            judul="Belum ada percakapan"
+            pesan="Mulai chat baru lewat tombol di kanan atas."
+          />
+
+          <button
+            v-for="c in daftar"
+            v-else
+            :key="c.id"
+            class="percakapan"
+            @click="aktif = c"
+          >
+            <div class="thumb" :class="c.tipe === 'grup' ? '' : 'thumb-round'">{{ c.inisial }}</div>
+            <div class="grow teks">
+              <p class="title">{{ c.nama }}</p>
+              <p class="muted clamp-1">{{ c.cuplikan }}</p>
+            </div>
+            <div class="kanan">
+              <span class="muted">{{ c.waktu }}</span>
+              <span v-if="c.belumDibaca" class="badge">{{ c.belumDibaca }}</span>
+            </div>
+          </button>
+        </div>
+      </template>
 
       <!-- Jendela chat -->
       <div v-else class="jendela">
@@ -52,17 +67,47 @@
           </el-button>
         </form>
       </div>
+
+      <!-- Chat baru: pilih penerima -->
+      <div v-if="komposerTerbuka" class="komposer">
+        <header class="drawer-head">
+          <button class="tap" @click="komposerTerbuka = false">
+            <i class="el-icon-arrow-left"></i><span>Batal</span>
+          </button>
+          <p class="title grow drawer-judul">Chat baru</p>
+        </header>
+
+        <div class="daftar">
+          <p class="muted petunjuk">Pilih orang yang mau kamu ajak ngobrol.</p>
+          <button
+            v-for="o in penerima"
+            :key="o.id"
+            class="percakapan"
+            @click="mulaiChat(o)"
+          >
+            <div class="thumb thumb-round">{{ o.inisial }}</div>
+            <div class="grow teks">
+              <p class="title">{{ o.nama }}</p>
+              <p class="muted clamp-1">{{ o.peran }}</p>
+            </div>
+            <i class="el-icon-arrow-right muted"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </OverlayPanel>
 </template>
 
 <script>
 import OverlayPanel from '@/components/OverlayPanel.vue'
+import FilterChips from '@/components/FilterChips.vue'
+import EmptyState from '@/components/EmptyState.vue'
 import chatsData from '@/mock/chats.json'
+import people from '@/mock/people.json'
 
 export default {
   name: 'ChatDrawer',
-  components: { OverlayPanel },
+  components: { OverlayPanel, FilterChips, EmptyState },
   props: {
     terbuka: { type: Boolean, default: false }
   },
@@ -70,13 +115,42 @@ export default {
     return {
       chats: chatsData.map((c) => ({ ...c, pesan: c.pesan.slice() })),
       aktif: null,
-      draf: ''
+      draf: '',
+      tab: 'Semua',
+      opsiTab: ['Semua', 'Pribadi', 'Grup'],
+      komposerTerbuka: false
+    }
+  },
+  computed: {
+    daftar () {
+      if (this.tab === 'Pribadi') return this.chats.filter((c) => c.tipe === 'pribadi')
+      if (this.tab === 'Grup') return this.chats.filter((c) => c.tipe === 'grup')
+      return this.chats
+    },
+    penerima () {
+      const sudahAda = this.chats.map((c) => c.nama)
+      return people.filter((o) => sudahAda.indexOf(o.nama) === -1)
     }
   },
   methods: {
     kembali () {
       if (this.aktif) this.aktif = null
       else this.$emit('tutup')
+    },
+    mulaiChat (o) {
+      const baru = {
+        id: 'ch-baru-' + o.id,
+        nama: o.nama,
+        inisial: o.inisial,
+        tipe: 'pribadi',
+        cuplikan: 'Percakapan baru',
+        waktu: 'Baru saja',
+        belumDibaca: 0,
+        pesan: []
+      }
+      this.chats.unshift(baru)
+      this.komposerTerbuka = false
+      this.aktif = baru
     },
     kirim () {
       const teks = this.draf.trim()
@@ -104,6 +178,7 @@ export default {
   flex-direction: column;
   height: 100%;
   background: var(--bg);
+  position: relative;
 }
 
 .drawer-head {
@@ -117,7 +192,13 @@ export default {
 
 .drawer-judul { margin: 0; }
 
+.tombol-baru { color: var(--brand); font-weight: 600; }
+
+.tab-chat { padding: 8px 10px 0; background: var(--card); }
+
 .daftar { overflow-y: auto; padding: 8px; }
+
+.petunjuk { padding: 4px 4px 10px; }
 
 .percakapan {
   display: flex;
@@ -199,4 +280,13 @@ export default {
 
 .kirim >>> .el-input { flex: 1; }
 .tombol-kirim { min-width: 44px; min-height: 44px; }
+
+.komposer {
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+}
 </style>

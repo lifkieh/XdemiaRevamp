@@ -1,0 +1,14 @@
+{
+  "item": [
+    { "id": "ke-1", "nama": "Kursus Nulis Esai Beasiswa yang Nyantol", "inisial": "NE", "penjual": "Ruang Beasiswa", "jenis": "Kursus", "harga": 149000, "jumlah": 1 },
+    { "id": "ke-2", "nama": "Kursus Pengantar Machine Learning", "inisial": "ML", "penjual": "Data Enthusiast Indonesia", "jenis": "Kursus", "harga": 299000, "jumlah": 1 },
+    { "id": "ke-3", "nama": "Tiket Workshop Dasar Desain Antarmuka", "inisial": "WD", "penjual": "Belajar UI/UX Bareng", "jenis": "Tiket acara", "harga": 75000, "jumlah": 2 },
+    { "id": "ke-4", "nama": "Paket Latihan Soal IELTS", "inisial": "IE", "penjual": "English Circle ID", "jenis": "Materi", "harga": 59000, "jumlah": 1 }
+  ],
+  "riwayat": [
+    { "id": "rw-1", "nama": "Kursus Statistika Dasar untuk Data", "inisial": "SD", "penjual": "Xdemia Belajar", "jenis": "Kursus", "harga": 199000, "tanggal": "12 Juni 2026", "status": "Selesai" },
+    { "id": "rw-2", "nama": "Tiket Seminar Riset Mahasiswa", "inisial": "SR", "penjual": "Universitas Brawijaya", "jenis": "Tiket acara", "harga": 50000, "tanggal": "28 Mei 2026", "status": "Selesai" },
+    { "id": "rw-3", "nama": "Paket Template Portofolio", "inisial": "TP", "penjual": "Data Enthusiast Indonesia", "jenis": "Materi", "harga": 89000, "tanggal": "14 Mei 2026", "status": "Selesai" },
+    { "id": "rw-4", "nama": "Kursus Python untuk Pemula", "inisial": "PP", "penjual": "Komunitas Data Indonesia", "jenis": "Kursus", "harga": 179000, "tanggal": "2 Mei 2026", "status": "Dibatalkan" }
+  ]
+}

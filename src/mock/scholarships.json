@@ -1,14 +1,110 @@
 [
-  { "id": "s-1", "nama": "Beasiswa Unggulan Kemendikbud", "inisial": "BU", "penyelenggara": "Kemendikbudristek", "jenjang": "S1", "negara": "Indonesia", "sisaHari": 3, "cakupan": "Biaya kuliah penuh + uang saku" },
-  { "id": "s-2", "nama": "LPDP Reguler", "inisial": "LP", "penyelenggara": "Kementerian Keuangan", "jenjang": "S2", "negara": "Indonesia", "sisaHari": 12, "cakupan": "Kuliah, hidup, tiket, asuransi" },
-  { "id": "s-3", "nama": "Chevening Scholarship", "inisial": "CH", "penyelenggara": "Pemerintah Inggris", "jenjang": "S2", "negara": "Inggris", "sisaHari": 21, "cakupan": "Kuliah penuh + tunjangan hidup" },
-  { "id": "s-4", "nama": "Australia Awards", "inisial": "AA", "penyelenggara": "Pemerintah Australia", "jenjang": "S2", "negara": "Australia", "sisaHari": 45, "cakupan": "Kuliah, hidup, pelatihan bahasa" },
-  { "id": "s-5", "nama": "MEXT Research Student", "inisial": "MX", "penyelenggara": "Pemerintah Jepang", "jenjang": "S3", "negara": "Jepang", "sisaHari": 8, "cakupan": "Kuliah + tunjangan bulanan" },
-  { "id": "s-6", "nama": "DAAD EPOS", "inisial": "DA", "penyelenggara": "Pemerintah Jerman", "jenjang": "S2", "negara": "Jerman", "sisaHari": 33, "cakupan": "Tunjangan bulanan + tiket" },
-  { "id": "s-7", "nama": "Beasiswa Bank Indonesia", "inisial": "BI", "penyelenggara": "Bank Indonesia", "jenjang": "S1", "negara": "Indonesia", "sisaHari": 5, "cakupan": "Uang saku + pembinaan" },
-  { "id": "s-8", "nama": "Fulbright Master Degree", "inisial": "FB", "penyelenggara": "AMINEF", "jenjang": "S2", "negara": "Amerika Serikat", "sisaHari": 60, "cakupan": "Kuliah, hidup, tiket" },
-  { "id": "s-9", "nama": "KAIST Undergraduate", "inisial": "KA", "penyelenggara": "KAIST", "jenjang": "S1", "negara": "Korea Selatan", "sisaHari": 27, "cakupan": "Kuliah penuh + asrama" },
-  { "id": "s-10", "nama": "Beasiswa Djarum Plus", "inisial": "DJ", "penyelenggara": "Djarum Foundation", "jenjang": "S1", "negara": "Indonesia", "sisaHari": 17, "cakupan": "Uang saku + pelatihan soft skill" },
-  { "id": "s-11", "nama": "NTU Research Scholarship", "inisial": "NT", "penyelenggara": "Nanyang Technological University", "jenjang": "S3", "negara": "Singapura", "sisaHari": 39, "cakupan": "Kuliah + stipend riset" },
-  { "id": "s-12", "nama": "Erasmus Mundus Joint Master", "inisial": "EM", "penyelenggara": "Uni Eropa", "jenjang": "S2", "negara": "Jerman", "sisaHari": 2, "cakupan": "Kuliah, hidup, mobilitas antar-kampus" }
+  {
+    "id": "s-1", "nama": "Beasiswa Unggulan Kemendikbud", "inisial": "BU", "penyelenggara": "Kemendikbudristek",
+    "jenjang": "S1", "negara": "Indonesia", "sisaHari": 3, "cakupan": "Biaya kuliah penuh + uang saku",
+    "situs": "kemdikbud.go.id/beasiswa-unggulan",
+    "tentang": "Beasiswa untuk mahasiswa berprestasi di perguruan tinggi dalam negeri. Fokusnya bukan cuma nilai, tapi juga kontribusi kamu ke masyarakat.",
+    "syarat": ["Mahasiswa aktif S1 semester 2 ke atas", "IPK minimal 3,25", "Surat rekomendasi dari kampus", "Punya bukti prestasi 3 tahun terakhir"],
+    "benefit": ["Biaya kuliah dibayar penuh", "Uang saku bulanan", "Bantuan buku dan penelitian"],
+    "caraDaftar": ["Buat akun di portal Beasiswa Unggulan", "Lengkapi data diri dan unggah berkas", "Tulis esai rencana kontribusi", "Ikuti seleksi wawancara"]
+  },
+  {
+    "id": "s-2", "nama": "LPDP Reguler", "inisial": "LP", "penyelenggara": "Kementerian Keuangan",
+    "jenjang": "S2", "negara": "Indonesia", "sisaHari": 12, "cakupan": "Kuliah, hidup, tiket, asuransi",
+    "situs": "lpdp.kemenkeu.go.id",
+    "tentang": "Beasiswa paling dicari untuk lanjut S2 dan S3, dalam maupun luar negeri. Penerimanya wajib balik dan berkontribusi di Indonesia.",
+    "syarat": ["Lulusan S1 dari kampus terakreditasi", "IPK minimal 3,00", "Skor bahasa sesuai tujuan kampus", "Surat komitmen kembali ke Indonesia"],
+    "benefit": ["Biaya kuliah penuh", "Tunjangan hidup bulanan", "Tiket pesawat pergi-pulang", "Asuransi kesehatan"],
+    "caraDaftar": ["Daftar di portal LPDP", "Unggah berkas dan esai", "Seleksi administrasi", "Tes bakat skolastik", "Wawancara substantif"]
+  },
+  {
+    "id": "s-3", "nama": "Chevening Scholarship", "inisial": "CH", "penyelenggara": "Pemerintah Inggris",
+    "jenjang": "S2", "negara": "Inggris", "sisaHari": 21, "cakupan": "Kuliah penuh + tunjangan hidup",
+    "situs": "chevening.org/indonesia",
+    "tentang": "Beasiswa penuh satu tahun untuk S2 di kampus mana pun di Inggris. Penilainya mencari calon pemimpin, bukan sekadar nilai bagus.",
+    "syarat": ["Pengalaman kerja minimal 2 tahun", "Sudah lulus S1", "Melamar ke 3 program di kampus Inggris", "Bersedia kembali ke Indonesia 2 tahun"],
+    "benefit": ["Biaya kuliah penuh", "Tunjangan hidup bulanan", "Tiket pesawat", "Biaya visa"],
+    "caraDaftar": ["Daftar online di situs Chevening", "Tulis 4 esai wajib", "Seleksi berkas", "Wawancara di kedutaan"]
+  },
+  {
+    "id": "s-4", "nama": "Australia Awards", "inisial": "AA", "penyelenggara": "Pemerintah Australia",
+    "jenjang": "S2", "negara": "Australia", "sisaHari": 45, "cakupan": "Kuliah, hidup, pelatihan bahasa",
+    "situs": "australiaawardsindonesia.org",
+    "tentang": "Beasiswa penuh untuk S2 di Australia dengan pelatihan bahasa Inggris sebelum berangkat. Ada kuota khusus daerah Indonesia timur.",
+    "syarat": ["Lulusan S1", "IPK minimal 2,90", "IELTS minimal 5,5", "Bukan pegawai lembaga tertentu"],
+    "benefit": ["Biaya kuliah penuh", "Tunjangan hidup", "Pelatihan bahasa sebelum berangkat", "Tunjangan penelitian lapangan"],
+    "caraDaftar": ["Daftar di OASIS", "Unggah berkas dan ijazah", "Seleksi berkas", "Wawancara dan tes IELTS"]
+  },
+  {
+    "id": "s-5", "nama": "MEXT Research Student", "inisial": "MX", "penyelenggara": "Pemerintah Jepang",
+    "jenjang": "S3", "negara": "Jepang", "sisaHari": 8, "cakupan": "Kuliah + tunjangan bulanan",
+    "situs": "id.emb-japan.go.jp",
+    "tentang": "Beasiswa pemerintah Jepang lewat jalur kedutaan. Kamu masuk dulu sebagai mahasiswa peneliti sebelum lanjut ke program gelar.",
+    "syarat": ["Usia di bawah 35 tahun", "Nilai rata-rata minimal 3,20", "Surat penerimaan dari profesor pembimbing", "Sehat jasmani"],
+    "benefit": ["Bebas biaya kuliah", "Tunjangan bulanan 143.000 yen", "Tiket pesawat", "Bebas biaya ujian masuk"],
+    "caraDaftar": ["Kirim berkas ke Kedutaan Jepang", "Ujian tulis bahasa dan bidang studi", "Wawancara", "Cari profesor pembimbing"]
+  },
+  {
+    "id": "s-6", "nama": "DAAD EPOS", "inisial": "DA", "penyelenggara": "Pemerintah Jerman",
+    "jenjang": "S2", "negara": "Jerman", "sisaHari": 33, "cakupan": "Tunjangan bulanan + tiket",
+    "situs": "daad.id",
+    "tentang": "Beasiswa untuk program pascasarjana bidang pembangunan di Jerman. Ditujukan buat yang sudah punya pengalaman kerja relevan.",
+    "syarat": ["Pengalaman kerja minimal 2 tahun", "Lulusan S1 bidang terkait", "Kemampuan bahasa Inggris atau Jerman", "Surat rekomendasi atasan"],
+    "benefit": ["Tunjangan bulanan 934 euro", "Tiket pesawat", "Asuransi kesehatan", "Kursus bahasa Jerman"],
+    "caraDaftar": ["Pilih program dari daftar EPOS", "Lamar langsung ke kampus tujuan", "Kirim berkas beasiswa ke DAAD", "Seleksi oleh komite DAAD"]
+  },
+  {
+    "id": "s-7", "nama": "Beasiswa Bank Indonesia", "inisial": "BI", "penyelenggara": "Bank Indonesia",
+    "jenjang": "S1", "negara": "Indonesia", "sisaHari": 5, "cakupan": "Uang saku + pembinaan",
+    "situs": "bi.go.id/beasiswa",
+    "tentang": "Selain bantuan biaya, penerimanya masuk komunitas GenBI dan dapat pembinaan rutin dari Bank Indonesia.",
+    "syarat": ["Mahasiswa S1 semester 3-6", "IPK minimal 3,00", "Tidak sedang menerima beasiswa lain", "Aktif berorganisasi"],
+    "benefit": ["Uang saku Rp1.000.000 per bulan", "Pembinaan dan pelatihan GenBI", "Jaringan alumni nasional"],
+    "caraDaftar": ["Daftar lewat kampus masing-masing", "Kumpulkan berkas ke bagian kemahasiswaan", "Seleksi berkas oleh kampus", "Wawancara dengan perwakilan BI"]
+  },
+  {
+    "id": "s-8", "nama": "Fulbright Master Degree", "inisial": "FB", "penyelenggara": "AMINEF",
+    "jenjang": "S2", "negara": "Amerika Serikat", "sisaHari": 60, "cakupan": "Kuliah, hidup, tiket",
+    "situs": "aminef.or.id",
+    "tentang": "Beasiswa penuh untuk S2 di Amerika Serikat. Prosesnya panjang tapi pendampingannya jelas dari AMINEF.",
+    "syarat": ["IPK minimal 3,00", "TOEFL ITP minimal 550", "Punya jiwa kepemimpinan", "Kembali ke Indonesia setelah lulus"],
+    "benefit": ["Biaya kuliah penuh", "Tunjangan hidup bulanan", "Tiket pesawat pergi-pulang", "Asuransi kesehatan"],
+    "caraDaftar": ["Isi formulir AMINEF", "Kirim esai dan rekomendasi", "Seleksi berkas", "Wawancara panel"]
+  },
+  {
+    "id": "s-9", "nama": "KAIST Undergraduate", "inisial": "KA", "penyelenggara": "KAIST",
+    "jenjang": "S1", "negara": "Korea Selatan", "sisaHari": 27, "cakupan": "Kuliah penuh + asrama",
+    "situs": "admission.kaist.ac.kr",
+    "tentang": "Beasiswa S1 di kampus teknologi terbaik Korea. Kuliahnya pakai bahasa Inggris, jadi tidak wajib bisa bahasa Korea dulu.",
+    "syarat": ["Lulusan SMA jurusan IPA", "Nilai rapor kuat di matematika dan sains", "Sertifikat bahasa Inggris", "Surat rekomendasi guru"],
+    "benefit": ["Bebas biaya kuliah 8 semester", "Asrama gratis", "Tunjangan hidup bulanan"],
+    "caraDaftar": ["Daftar online di portal KAIST", "Unggah rapor dan sertifikat", "Seleksi berkas", "Wawancara daring"]
+  },
+  {
+    "id": "s-10", "nama": "Beasiswa Djarum Plus", "inisial": "DJ", "penyelenggara": "Djarum Foundation",
+    "jenjang": "S1", "negara": "Indonesia", "sisaHari": 17, "cakupan": "Uang saku + pelatihan soft skill",
+    "situs": "djarumbeasiswaplus.org",
+    "tentang": "Bukan cuma dana, tapi juga pelatihan soft skill selama setahun: kepemimpinan, menulis, sampai kunjungan perusahaan.",
+    "syarat": ["Mahasiswa semester 4", "IPK minimal 3,00", "Aktif berorganisasi", "Tidak menerima beasiswa lain"],
+    "benefit": ["Uang saku Rp1.000.000 per bulan selama setahun", "Pelatihan kepemimpinan", "Jaringan Beswan Djarum"],
+    "caraDaftar": ["Daftar online", "Tes tulis dan psikotes", "Wawancara", "Pengumuman penerima"]
+  },
+  {
+    "id": "s-11", "nama": "NTU Research Scholarship", "inisial": "NT", "penyelenggara": "Nanyang Technological University",
+    "jenjang": "S3", "negara": "Singapura", "sisaHari": 39, "cakupan": "Kuliah + stipend riset",
+    "situs": "ntu.edu.sg/graduate",
+    "tentang": "Beasiswa riset S3 dengan gaji bulanan. Kamu perlu menemukan calon pembimbing sebelum melamar.",
+    "syarat": ["Lulusan S2 dengan nilai baik", "Proposal riset", "Dukungan calon pembimbing", "Skor IELTS 6,5"],
+    "benefit": ["Bebas biaya kuliah", "Stipend bulanan SGD 2.000", "Dana konferensi"],
+    "caraDaftar": ["Hubungi calon pembimbing", "Kirim proposal riset", "Daftar lewat portal NTU", "Wawancara dengan komite"]
+  },
+  {
+    "id": "s-12", "nama": "Erasmus Mundus Joint Master", "inisial": "EM", "penyelenggara": "Uni Eropa",
+    "jenjang": "S2", "negara": "Jerman", "sisaHari": 2, "cakupan": "Kuliah, hidup, mobilitas antar-kampus",
+    "situs": "erasmus-plus.ec.europa.eu",
+    "tentang": "Satu program S2, dua sampai tiga kampus di negara Eropa berbeda. Cocok kalau kamu ingin pengalaman lintas negara.",
+    "syarat": ["Lulusan S1 bidang relevan", "Bahasa Inggris aktif", "Dua surat rekomendasi", "Motivation letter"],
+    "benefit": ["Biaya kuliah penuh", "Tunjangan hidup 1.400 euro per bulan", "Tunjangan pindah antar-negara"],
+    "caraDaftar": ["Pilih program dari katalog Erasmus", "Daftar langsung ke konsorsium program", "Seleksi berkas", "Pengumuman lewat email"]
+  }
 ]

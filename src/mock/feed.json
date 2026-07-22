@@ -10,6 +10,7 @@
   {
     "id": "fd-2",
     "tipe": "post",
+    "orangId": "o-1",
     "penulis": "Nadia Putri",
     "inisial": "N",
     "peran": "Mahasiswa Psikologi · UGM",
@@ -32,7 +33,8 @@
     "sumber": "Jurnal Belajar Xdemia",
     "waktu": "1 jam lalu",
     "ringkasan": "Baca abstrak, lompat ke kesimpulan, baru balik ke metode. Urutannya bukan dari atas ke bawah.",
-    "baca": "4 menit baca"
+    "baca": "4 menit baca",
+    "artikelId": "ar-1"
   },
   {
     "id": "fd-5",
@@ -43,14 +45,16 @@
     "waktu": "2 jam lalu",
     "konten": "Baru selesai wawancara beasiswa Chevening. Pertanyaannya nggak seseram rumor, tapi mereka bener-bener ngulik rencana balik ke Indonesia. Siapin itu serius.",
     "suka": 342,
-    "komentar": 47
+    "komentar": 47,
+    "orangId": "o-3"
   },
   {
     "id": "fd-6",
     "tipe": "community_update",
     "judul": "Komunitas Data Enthusiast Indonesia",
     "deskripsi": "Sesi live \"Bedah Portofolio Data\" mulai Sabtu 19.30 WIB.",
-    "anggota": "12.480 anggota"
+    "anggota": "12.480 anggota",
+    "komunitasId": "k-1"
   },
   {
     "id": "fd-7",
@@ -61,7 +65,8 @@
     "waktu": "4 jam lalu",
     "konten": "Nanya dong, ada yang punya rekomendasi materi anatomi yang visual? Baca teks doang bikin ngantuk 😭",
     "suka": 76,
-    "komentar": 33
+    "komentar": 33,
+    "orangId": "o-4"
   },
   {
     "id": "fd-8",
@@ -70,7 +75,8 @@
     "sumber": "Ruang Beasiswa",
     "waktu": "6 jam lalu",
     "ringkasan": "Paling sering: cerita panjang soal masa kecil, tapi lupa jawab kenapa kamu yang harus dipilih.",
-    "baca": "6 menit baca"
+    "baca": "6 menit baca",
+    "artikelId": "ar-2"
   },
   {
     "id": "fd-9",
@@ -89,7 +95,8 @@
     "waktu": "8 jam lalu",
     "konten": "Portofolio > IPK, tapi cuma kalau portofolionya beneran nyelesain masalah. Tiga proyek yang jelas ceritanya lebih ngefek dari sepuluh proyek tutorial.",
     "suka": 512,
-    "komentar": 64
+    "komentar": 64,
+    "orangId": "o-2"
   },
   {
     "id": "fd-11",
@@ -98,7 +105,8 @@
     "sumber": "Jurnal Belajar Xdemia",
     "waktu": "12 jam lalu",
     "ringkasan": "Realistis, asal 30 menitnya buat ngoding, bukan nonton video orang ngoding.",
-    "baca": "5 menit baca"
+    "baca": "5 menit baca",
+    "artikelId": "ar-3"
   },
   {
     "id": "fd-12",
@@ -109,6 +117,7 @@
     "waktu": "1 hari lalu",
     "konten": "IELTS 7.0 dari 5.5 dalam 4 bulan, modal latihan speaking sama temen tiap malam. Gratis, cuma butuh malu-maluin diri sendiri dikit.",
     "suka": 289,
-    "komentar": 41
+    "komentar": 41,
+    "orangId": "o-5"
   }
 ]

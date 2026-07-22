@@ -1,10 +1,107 @@
 [
-  { "id": "ev-1", "judul": "Bedah Portofolio Data Bareng Praktisi", "inisial": "BP", "tanggal": "Sabtu, 26 Juli 2026", "waktu": "19.30 WIB", "lokasi": "Online · Zoom", "penyelenggara": "Data Enthusiast Indonesia", "peserta": 412, "lewat": false },
-  { "id": "ev-2", "judul": "Kelas Menulis Esai Beasiswa", "inisial": "KM", "tanggal": "Minggu, 27 Juli 2026", "waktu": "09.00 WIB", "lokasi": "Online · Google Meet", "penyelenggara": "Ruang Beasiswa", "peserta": 288, "lewat": false },
-  { "id": "ev-3", "judul": "Info Session LPDP Batch 2", "inisial": "IS", "tanggal": "Rabu, 30 Juli 2026", "waktu": "15.00 WIB", "lokasi": "Online · YouTube Live", "penyelenggara": "Pejuang Beasiswa Luar Negeri", "peserta": 1240, "lewat": false },
-  { "id": "ev-4", "judul": "Workshop Dasar Desain Antarmuka", "inisial": "WD", "tanggal": "Sabtu, 2 Agustus 2026", "waktu": "13.00 WIB", "lokasi": "Malang · Gedung Widyaloka UB", "penyelenggara": "Belajar UI/UX Bareng", "peserta": 96, "lewat": false },
-  { "id": "ev-5", "judul": "Ngobrol Karier: Dari Kampus ke Industri Data", "inisial": "NK", "tanggal": "Jumat, 8 Agustus 2026", "waktu": "19.00 WIB", "lokasi": "Online · Discord", "penyelenggara": "Data Enthusiast Indonesia", "peserta": 530, "lewat": false },
-  { "id": "ev-6", "judul": "Latihan IELTS Speaking Bareng", "inisial": "LI", "tanggal": "Selasa, 15 Juli 2026", "waktu": "20.00 WIB", "lokasi": "Online · Zoom", "penyelenggara": "English Circle ID", "peserta": 174, "lewat": true },
-  { "id": "ev-7", "judul": "Seminar Riset untuk Mahasiswa Tingkat Akhir", "inisial": "SR", "tanggal": "Kamis, 10 Juli 2026", "waktu": "10.00 WIB", "lokasi": "Malang · Auditorium FILKOM", "penyelenggara": "Universitas Brawijaya", "peserta": 320, "lewat": true },
-  { "id": "ev-8", "judul": "Sharing Session Alumni Chevening", "inisial": "SC", "tanggal": "Sabtu, 5 Juli 2026", "waktu": "16.00 WIB", "lokasi": "Online · Zoom", "penyelenggara": "Pejuang Beasiswa Luar Negeri", "peserta": 640, "lewat": true }
+  {
+    "id": "ev-1", "judul": "Bedah Portofolio Data Bareng Praktisi", "inisial": "BP",
+    "tanggal": "Sabtu, 26 Juli 2026", "waktu": "19.30 WIB", "lokasi": "Online · Zoom", "daring": true,
+    "penyelenggara": "Data Enthusiast Indonesia", "peserta": 412, "lewat": false,
+    "akses": "Terbuka", "privasi": "Publik", "hadiah": 2500000,
+    "deskripsi": "Tiga portofolio anggota dibedah langsung oleh praktisi data yang sudah 8 tahun di industri. Kamu boleh ikut menyimak atau mengajukan portofolio sendiri.",
+    "daftarPeserta": [
+      { "id": "p-1", "nama": "Nadia Putri", "inisial": "N", "peran": "Peserta" },
+      { "id": "p-2", "nama": "Yoga Pratama", "inisial": "Y", "peran": "Pembicara" },
+      { "id": "p-3", "nama": "Sinta Larasati", "inisial": "S", "peran": "Peserta" },
+      { "id": "p-4", "nama": "Bagas Wirawan", "inisial": "B", "peran": "Moderator" }
+    ]
+  },
+  {
+    "id": "ev-2", "judul": "Kelas Menulis Esai Beasiswa", "inisial": "KM",
+    "tanggal": "Minggu, 27 Juli 2026", "waktu": "09.00 WIB", "lokasi": "Online · Google Meet", "daring": true,
+    "penyelenggara": "Ruang Beasiswa", "peserta": 288, "lewat": false,
+    "akses": "Terbuka", "privasi": "Publik", "hadiah": 0,
+    "deskripsi": "Latihan menulis esai motivasi dan kontribusi dari nol. Bawa draf kamu, nanti dibedah bareng.",
+    "daftarPeserta": [
+      { "id": "p-1", "nama": "Dewi Anggraini", "inisial": "D", "peran": "Pembicara" },
+      { "id": "p-2", "nama": "Raka Mahendra", "inisial": "R", "peran": "Peserta" },
+      { "id": "p-3", "nama": "Putri Handayani", "inisial": "P", "peran": "Peserta" }
+    ]
+  },
+  {
+    "id": "ev-3", "judul": "Info Session LPDP Batch 2", "inisial": "IS",
+    "tanggal": "Rabu, 30 Juli 2026", "waktu": "15.00 WIB", "lokasi": "Online · YouTube Live", "daring": true,
+    "penyelenggara": "Pejuang Beasiswa Luar Negeri", "peserta": 1240, "lewat": false,
+    "akses": "Terbuka", "privasi": "Publik", "hadiah": 0,
+    "deskripsi": "Penjelasan alur pendaftaran batch 2, berkas yang sering bikin gugur, dan sesi tanya jawab dengan awardee.",
+    "daftarPeserta": [
+      { "id": "p-1", "nama": "Bagas Wirawan", "inisial": "B", "peran": "Pembicara" },
+      { "id": "p-2", "nama": "Sinta Larasati", "inisial": "S", "peran": "Pembicara" },
+      { "id": "p-3", "nama": "Fajar Nugroho", "inisial": "F", "peran": "Peserta" }
+    ]
+  },
+  {
+    "id": "ev-4", "judul": "Workshop Dasar Desain Antarmuka", "inisial": "WD",
+    "tanggal": "Sabtu, 2 Agustus 2026", "waktu": "13.00 WIB", "lokasi": "Malang · Gedung Widyaloka UB", "daring": false,
+    "penyelenggara": "Belajar UI/UX Bareng", "peserta": 96, "lewat": false,
+    "akses": "Tertutup", "privasi": "Privat", "hadiah": 1000000,
+    "deskripsi": "Workshop tatap muka dengan kuota terbatas. Peserta wajib bawa laptop dan sudah pasang Figma.",
+    "daftarPeserta": [
+      { "id": "p-1", "nama": "Ayu Lestari", "inisial": "A", "peran": "Pembicara" },
+      { "id": "p-2", "nama": "Raka Mahendra", "inisial": "R", "peran": "Peserta" },
+      { "id": "p-3", "nama": "Rizky Ramadhan", "inisial": "R", "peran": "Peserta" }
+    ]
+  },
+  {
+    "id": "ev-5", "judul": "Ngobrol Karier: Dari Kampus ke Industri Data", "inisial": "NK",
+    "tanggal": "Jumat, 8 Agustus 2026", "waktu": "19.00 WIB", "lokasi": "Online · Discord", "daring": true,
+    "penyelenggara": "Data Enthusiast Indonesia", "peserta": 530, "lewat": false,
+    "akses": "Terbuka", "privasi": "Publik", "hadiah": 0,
+    "deskripsi": "Obrolan santai soal transisi dari kuliah ke kerja: cara baca lowongan, negosiasi gaji pertama, dan bertahan di 6 bulan awal.",
+    "daftarPeserta": [
+      { "id": "p-1", "nama": "Yoga Pratama", "inisial": "Y", "peran": "Pembicara" },
+      { "id": "p-2", "nama": "Nadia Putri", "inisial": "N", "peran": "Peserta" }
+    ]
+  },
+  {
+    "id": "ev-6", "judul": "Lomba Visualisasi Data Mahasiswa", "inisial": "LV",
+    "tanggal": "Sabtu, 16 Agustus 2026", "waktu": "10.00 WIB", "lokasi": "Online · Zoom", "daring": true,
+    "penyelenggara": "Data Enthusiast Indonesia", "peserta": 780, "lewat": false,
+    "akses": "Terbuka", "privasi": "Publik", "hadiah": 15000000,
+    "deskripsi": "Kompetisi visualisasi data terbuka untuk mahasiswa se-Indonesia. Dataset dibagikan saat hari H, pengerjaan 6 jam.",
+    "daftarPeserta": [
+      { "id": "p-1", "nama": "Rizky Ramadhan", "inisial": "R", "peran": "Juri" },
+      { "id": "p-2", "nama": "Putri Handayani", "inisial": "P", "peran": "Peserta" },
+      { "id": "p-3", "nama": "Fajar Nugroho", "inisial": "F", "peran": "Peserta" }
+    ]
+  },
+  {
+    "id": "ev-7", "judul": "Latihan IELTS Speaking Bareng", "inisial": "LI",
+    "tanggal": "Selasa, 15 Juli 2026", "waktu": "20.00 WIB", "lokasi": "Online · Zoom", "daring": true,
+    "penyelenggara": "English Circle ID", "peserta": 174, "lewat": true,
+    "akses": "Terbuka", "privasi": "Publik", "hadiah": 0,
+    "deskripsi": "Sesi latihan berpasangan dengan topik acak, lalu koreksi bareng tutor.",
+    "daftarPeserta": [
+      { "id": "p-1", "nama": "Dewi Anggraini", "inisial": "D", "peran": "Pembicara" },
+      { "id": "p-2", "nama": "Raka Mahendra", "inisial": "R", "peran": "Peserta" }
+    ]
+  },
+  {
+    "id": "ev-8", "judul": "Seminar Riset untuk Mahasiswa Tingkat Akhir", "inisial": "SR",
+    "tanggal": "Kamis, 10 Juli 2026", "waktu": "10.00 WIB", "lokasi": "Malang · Auditorium FILKOM", "daring": false,
+    "penyelenggara": "Universitas Brawijaya", "peserta": 320, "lewat": true,
+    "akses": "Tertutup", "privasi": "Publik", "hadiah": 0,
+    "deskripsi": "Pembekalan metode penelitian dan penulisan skripsi untuk mahasiswa semester akhir.",
+    "daftarPeserta": [
+      { "id": "p-1", "nama": "Rizky Ramadhan", "inisial": "R", "peran": "Pembicara" },
+      { "id": "p-2", "nama": "Ayu Lestari", "inisial": "A", "peran": "Peserta" }
+    ]
+  },
+  {
+    "id": "ev-9", "judul": "Sharing Session Alumni Chevening", "inisial": "SC",
+    "tanggal": "Sabtu, 5 Juli 2026", "waktu": "16.00 WIB", "lokasi": "Online · Zoom", "daring": true,
+    "penyelenggara": "Pejuang Beasiswa Luar Negeri", "peserta": 640, "lewat": true,
+    "akses": "Terbuka", "privasi": "Publik", "hadiah": 0,
+    "deskripsi": "Cerita jujur dari tiga alumni: proses seleksi, kejutan waktu tinggal di Inggris, dan rencana setelah pulang.",
+    "daftarPeserta": [
+      { "id": "p-1", "nama": "Bagas Wirawan", "inisial": "B", "peran": "Pembicara" },
+      { "id": "p-2", "nama": "Nadia Putri", "inisial": "N", "peran": "Peserta" }
+    ]
+  }
 ]

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "i-1", "kategori": "kampus", "nama": "Universitas Brawijaya", "inisial": "UB",
+    "tipe": "Perguruan Tinggi Negeri", "negara": "Indonesia", "kota": "Malang", "pengikut": 48210, "prodi": 62,
+    "deskripsi": "Kampus negeri di Malang dengan 62 program studi. Aktif membuka materi belajar terbuka dan menyimpan arsip riset mahasiswa di Xdemia.",
+    "anggota": [
+      { "id": "an-1", "nama": "Rizky Ramadhan", "inisial": "R", "peran": "Dosen Statistika" },
+      { "id": "an-2", "nama": "Raka Mahendra", "inisial": "R", "peran": "Mahasiswa Informatika" },
+      { "id": "an-3", "nama": "Ayu Lestari", "inisial": "A", "peran": "Mahasiswa Ilmu Komputer" },
+      { "id": "an-4", "nama": "Fajar Nugroho", "inisial": "F", "peran": "Mahasiswa Teknik Industri" },
+      { "id": "an-5", "nama": "Putri Handayani", "inisial": "P", "peran": "Asisten Peneliti" },
+      { "id": "an-6", "nama": "Sinta Larasati", "inisial": "S", "peran": "Alumni" }
+    ]
+  },
+  {
+    "id": "i-2", "kategori": "kampus", "nama": "Institut Teknologi Bandung", "inisial": "IT",
+    "tipe": "Perguruan Tinggi Negeri", "negara": "Indonesia", "kota": "Bandung", "pengikut": 71350, "prodi": 49,
+    "deskripsi": "Kampus teknik tertua di Indonesia. Banyak arsip tugas akhir dan materi terbuka bidang rekayasa.",
+    "anggota": [
+      { "id": "an-1", "nama": "Bagas Wirawan", "inisial": "B", "peran": "Alumni Teknik Elektro" },
+      { "id": "an-2", "nama": "Yoga Pratama", "inisial": "Y", "peran": "Alumni Informatika" },
+      { "id": "an-3", "nama": "Dewi Anggraini", "inisial": "D", "peran": "Mahasiswa Pascasarjana" },
+      { "id": "an-4", "nama": "Nadia Putri", "inisial": "N", "peran": "Peserta Kelas Terbuka" }
+    ]
+  },
+  {
+    "id": "i-3", "kategori": "kampus", "nama": "Universitas Gadjah Mada", "inisial": "UG",
+    "tipe": "Perguruan Tinggi Negeri", "negara": "Indonesia", "kota": "Yogyakarta", "pengikut": 82940, "prodi": 78,
+    "deskripsi": "Kampus dengan program studi terbanyak di Indonesia. Punya repositori jurnal terbuka yang aktif diperbarui.",
+    "anggota": [
+      { "id": "an-1", "nama": "Nadia Putri", "inisial": "N", "peran": "Mahasiswa Psikologi" },
+      { "id": "an-2", "nama": "Putri Handayani", "inisial": "P", "peran": "Mahasiswa Kedokteran" },
+      { "id": "an-3", "nama": "Rizky Ramadhan", "inisial": "R", "peran": "Dosen Tamu" },
+      { "id": "an-4", "nama": "Ayu Lestari", "inisial": "A", "peran": "Peserta Kelas Terbuka" }
+    ]
+  },
+  {
+    "id": "i-4", "kategori": "organisasi", "nama": "Ruang Beasiswa", "inisial": "RB",
+    "tipe": "Organisasi Nirlaba", "negara": "Indonesia", "kota": "Jakarta", "pengikut": 24680, "prodi": 0,
+    "deskripsi": "Organisasi nirlaba yang mendampingi pelamar beasiswa dari daerah. Menyediakan kelas menulis esai dan simulasi wawancara gratis.",
+    "anggota": [
+      { "id": "an-1", "nama": "Dewi Anggraini", "inisial": "D", "peran": "Ketua" },
+      { "id": "an-2", "nama": "Bagas Wirawan", "inisial": "B", "peran": "Mentor" },
+      { "id": "an-3", "nama": "Sinta Larasati", "inisial": "S", "peran": "Relawan" },
+      { "id": "an-4", "nama": "Raka Mahendra", "inisial": "R", "peran": "Peserta" }
+    ]
+  },
+  {
+    "id": "i-5", "kategori": "organisasi", "nama": "Yayasan Literasi Digital", "inisial": "YL",
+    "tipe": "Yayasan", "negara": "Indonesia", "kota": "Surabaya", "pengikut": 15420, "prodi": 0,
+    "deskripsi": "Menjalankan program literasi digital untuk sekolah dan pesantren di Jawa Timur. Materi pelatihannya dibuka bebas di Xdemia.",
+    "anggota": [
+      { "id": "an-1", "nama": "Fajar Nugroho", "inisial": "F", "peran": "Koordinator Program" },
+      { "id": "an-2", "nama": "Ayu Lestari", "inisial": "A", "peran": "Fasilitator" },
+      { "id": "an-3", "nama": "Yoga Pratama", "inisial": "Y", "peran": "Pengajar Tamu" }
+    ]
+  },
+  {
+    "id": "i-6", "kategori": "organisasi", "nama": "English Circle ID", "inisial": "EC",
+    "tipe": "Komunitas Belajar", "negara": "Indonesia", "kota": "Yogyakarta", "pengikut": 31280, "prodi": 0,
+    "deskripsi": "Kelompok latihan bahasa Inggris berbasis pasangan belajar. Fokus pada kemampuan bicara untuk persiapan tes bahasa.",
+    "anggota": [
+      { "id": "an-1", "nama": "Dewi Anggraini", "inisial": "D", "peran": "Pengurus" },
+      { "id": "an-2", "nama": "Nadia Putri", "inisial": "N", "peran": "Anggota" },
+      { "id": "an-3", "nama": "Raka Mahendra", "inisial": "R", "peran": "Anggota" }
+    ]
+  }
+]

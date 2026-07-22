@@ -1,10 +1,8 @@
 [
   {
-    "id": "c-1",
-    "judul": "Statistika Dasar untuk Data",
-    "penyedia": "Xdemia Belajar",
-    "durasi": "3 jam",
-    "progress": 65,
+    "id": "c-1", "jenis": "materi", "judul": "Statistika Dasar untuk Data", "penyedia": "Xdemia Belajar",
+    "penulis": "Yoga Pratama", "jenjang": "Pemula", "durasi": "3 jam", "progress": 65,
+    "tag": ["Statistika", "Data", "Dasar"],
     "deskripsi": "Ngerti angka sebelum ngerti kode. Materi ini bahas rata-rata, sebaran, sampai uji hipotesis pakai contoh sehari-hari, tanpa rumus yang bikin kabur.",
     "modul": [
       { "id": "m-1", "judul": "Kenapa statistika penting", "selesai": true },
@@ -15,11 +13,9 @@
     ]
   },
   {
-    "id": "c-2",
-    "judul": "Python untuk Pemula",
-    "penyedia": "Komunitas Data Indonesia",
-    "durasi": "5 jam",
-    "progress": 30,
+    "id": "c-2", "jenis": "materi", "judul": "Python untuk Pemula", "penyedia": "Komunitas Data Indonesia",
+    "penulis": "Rizky Ramadhan", "jenjang": "Pemula", "durasi": "5 jam", "progress": 30,
+    "tag": ["Python", "Pemrograman"],
     "deskripsi": "Mulai dari nol sampai bisa bikin skrip yang beneran kepakai. Fokus latihan, bukan teori panjang.",
     "modul": [
       { "id": "m-1", "judul": "Pasang Python & editor", "selesai": true },
@@ -31,11 +27,10 @@
     ]
   },
   {
-    "id": "c-3",
-    "judul": "Nulis Esai Beasiswa yang Nyantol",
-    "penyedia": "Ruang Beasiswa",
-    "durasi": "2 jam",
-    "progress": 0,
+    "id": "c-3", "jenis": "kursus", "judul": "Nulis Esai Beasiswa yang Nyantol", "penyedia": "Ruang Beasiswa",
+    "penulis": "Dewi Anggraini", "jenjang": "Menengah", "durasi": "2 jam", "progress": 0,
+    "tanggalMulai": "1 Agustus 2026", "tanggalSelesai": "22 Agustus 2026", "jadwal": "Tiap Sabtu, 09.00 WIB",
+    "tag": ["Beasiswa", "Menulis"],
     "deskripsi": "Kerangka esai motivasi dan kontribusi yang dipakai penerima LPDP, Chevening, dan Australia Awards. Ada contoh esai lengkap plus bedahnya.",
     "modul": [
       { "id": "m-1", "judul": "Apa yang dicari penilai", "selesai": false },
@@ -45,11 +40,9 @@
     ]
   },
   {
-    "id": "c-4",
-    "judul": "Dasar Desain Antarmuka",
-    "penyedia": "Belajar UI/UX Bareng",
-    "durasi": "4 jam",
-    "progress": 12,
+    "id": "c-4", "jenis": "materi", "judul": "Dasar Desain Antarmuka", "penyedia": "Belajar UI/UX Bareng",
+    "penulis": "Ayu Lestari", "jenjang": "Pemula", "durasi": "4 jam", "progress": 12,
+    "tag": ["Desain", "UI/UX"],
     "deskripsi": "Prinsip hierarki, spasi, dan warna yang bikin tampilan enak dilihat tanpa perlu bakat seni.",
     "modul": [
       { "id": "m-1", "judul": "Hierarki visual", "selesai": true },
@@ -60,11 +53,10 @@
     ]
   },
   {
-    "id": "c-5",
-    "judul": "IELTS Speaking Tanpa Panik",
-    "penyedia": "English Circle ID",
-    "durasi": "3 jam",
-    "progress": 0,
+    "id": "c-5", "jenis": "kursus", "judul": "IELTS Speaking Tanpa Panik", "penyedia": "English Circle ID",
+    "penulis": "Dewi Anggraini", "jenjang": "Menengah", "durasi": "3 jam", "progress": 0,
+    "tanggalMulai": "10 Agustus 2026", "tanggalSelesai": "7 September 2026", "jadwal": "Tiap Senin & Kamis, 19.30 WIB",
+    "tag": ["Bahasa Inggris", "IELTS"],
     "deskripsi": "Pola jawaban part 1 sampai 3, plus latihan bicara 2 menit yang bisa dilakukan sendiri di kamar.",
     "modul": [
       { "id": "m-1", "judul": "Format tes speaking", "selesai": false },
@@ -75,11 +67,9 @@
     ]
   },
   {
-    "id": "c-6",
-    "judul": "Baca Jurnal Ilmiah dengan Cepat",
-    "penyedia": "Xdemia Belajar",
-    "durasi": "1,5 jam",
-    "progress": 0,
+    "id": "c-6", "jenis": "materi", "judul": "Baca Jurnal Ilmiah dengan Cepat", "penyedia": "Xdemia Belajar",
+    "penulis": "Rizky Ramadhan", "jenjang": "Pemula", "durasi": "1,5 jam", "progress": 0,
+    "tag": ["Riset", "Membaca"],
     "deskripsi": "Teknik baca lompat-lompat yang dipakai peneliti biar nggak tenggelam di satu paper seharian.",
     "modul": [
       { "id": "m-1", "judul": "Anatomi paper", "selesai": false },
@@ -88,11 +78,9 @@
     ]
   },
   {
-    "id": "c-7",
-    "judul": "Kelola Waktu Ala Mahasiswa Sibuk",
-    "penyedia": "Xdemia Belajar",
-    "durasi": "1 jam",
-    "progress": 0,
+    "id": "c-7", "jenis": "materi", "judul": "Kelola Waktu Ala Mahasiswa Sibuk", "penyedia": "Xdemia Belajar",
+    "penulis": "Nadia Putri", "jenjang": "Pemula", "durasi": "1 jam", "progress": 0,
+    "tag": ["Produktivitas", "Kebiasaan"],
     "deskripsi": "Sistem sederhana buat ngatur kuliah, organisasi, dan belajar mandiri tanpa aplikasi ribet.",
     "modul": [
       { "id": "m-1", "judul": "Petakan beban seminggu", "selesai": false },
@@ -101,11 +89,10 @@
     ]
   },
   {
-    "id": "c-8",
-    "judul": "Pengantar Machine Learning",
-    "penyedia": "Data Enthusiast Indonesia",
-    "durasi": "6 jam",
-    "progress": 0,
+    "id": "c-8", "jenis": "kursus", "judul": "Pengantar Machine Learning", "penyedia": "Data Enthusiast Indonesia",
+    "penulis": "Yoga Pratama", "jenjang": "Menengah", "durasi": "6 jam", "progress": 0,
+    "tanggalMulai": "5 Agustus 2026", "tanggalSelesai": "30 September 2026", "jadwal": "Tiap Rabu, 20.00 WIB",
+    "tag": ["Machine Learning", "Data", "Python"],
     "deskripsi": "Konsep model, data latih, dan evaluasi dijelaskan pakai analogi sehari-hari sebelum masuk kode.",
     "modul": [
       { "id": "m-1", "judul": "Apa itu model", "selesai": false },
@@ -117,11 +104,10 @@
     ]
   },
   {
-    "id": "c-9",
-    "judul": "Riset Literatur untuk Skripsi",
-    "penyedia": "Universitas Brawijaya",
-    "durasi": "2,5 jam",
-    "progress": 0,
+    "id": "c-9", "jenis": "kursus", "judul": "Riset Literatur untuk Skripsi", "penyedia": "Universitas Brawijaya",
+    "penulis": "Rizky Ramadhan", "jenjang": "Menengah", "durasi": "2,5 jam", "progress": 0,
+    "tanggalMulai": "12 Agustus 2026", "tanggalSelesai": "2 September 2026", "jadwal": "Tiap Selasa, 16.00 WIB",
+    "tag": ["Riset", "Skripsi"],
     "deskripsi": "Cara nyari, nyaring, dan nyusun referensi biar bab 2 nggak jadi tempelan.",
     "modul": [
       { "id": "m-1", "judul": "Nyari sumber yang layak", "selesai": false },
@@ -131,11 +117,9 @@
     ]
   },
   {
-    "id": "c-10",
-    "judul": "Bikin Portofolio Data Pertama",
-    "penyedia": "Data Enthusiast Indonesia",
-    "durasi": "4 jam",
-    "progress": 0,
+    "id": "c-10", "jenis": "materi", "judul": "Bikin Portofolio Data Pertama", "penyedia": "Data Enthusiast Indonesia",
+    "penulis": "Yoga Pratama", "jenjang": "Menengah", "durasi": "4 jam", "progress": 0,
+    "tag": ["Portofolio", "Data", "Karier"],
     "deskripsi": "Dari milih dataset sampai nulis cerita hasil analisis yang dibaca perekrut.",
     "modul": [
       { "id": "m-1", "judul": "Pilih masalah, bukan dataset", "selesai": false },

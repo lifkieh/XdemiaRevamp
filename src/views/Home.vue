@@ -61,7 +61,11 @@
         </div>
 
         <!-- Update komunitas -->
-        <div v-else-if="item.tipe === 'community_update'" class="card">
+        <div
+          v-else-if="item.tipe === 'community_update'"
+          class="card is-clickable"
+          @click="$router.push('/community/' + item.komunitasId)"
+        >
           <div class="row row-top">
             <div class="thumb">{{ item.judul.charAt(0) }}</div>
             <div class="grow">
@@ -73,7 +77,11 @@
         </div>
 
         <!-- Artikel / jurnal -->
-        <div v-else-if="item.tipe === 'article'" class="card">
+        <div
+          v-else-if="item.tipe === 'article'"
+          class="card is-clickable"
+          @click="bukaArtikel(item)"
+        >
           <div class="row row-top">
             <div class="thumb"><i class="el-icon-document"></i></div>
             <div class="grow">
@@ -83,10 +91,10 @@
           </div>
           <p class="article-ringkasan">{{ item.ringkasan }}</p>
           <div class="card-foot">
-            <button class="tap" @click="belumTersedia">
+            <button class="tap" @click.stop="bukaArtikel(item)">
               <i class="el-icon-reading"></i><span>Baca</span>
             </button>
-            <button class="tap" @click="simpanArtikel(item)">
+            <button class="tap" @click.stop="simpanArtikel(item)">
               <i class="el-icon-collection-tag"></i><span>Simpan</span>
             </button>
           </div>
@@ -94,7 +102,7 @@
 
         <!-- Postingan orang -->
         <div v-else class="card">
-          <div class="row row-top">
+          <div class="row row-top penulis" @click="bukaProfil(item)">
             <div class="thumb thumb-round">{{ item.inisial }}</div>
             <div class="grow">
               <p class="title">{{ item.penulis }}</p>
@@ -155,7 +163,14 @@ export default {
     toggleSuka (item) {
       this.$set(this.disukai, item.id, !this.disukai[item.id])
     },
+    bukaArtikel (item) {
+      if (item.artikelId) this.$router.push('/artikel/' + item.artikelId)
+    },
+    bukaProfil (item) {
+      if (item.orangId) this.$router.push('/profil/' + item.orangId)
+    },
     simpanArtikel (item) {
+      if (item.artikelId) this.$store.dispatch('bookmarks/toggleArtikel', item.artikelId)
       this.$message({ message: 'Disimpan: ' + item.judul, type: 'success' })
     },
     tulisPostingan () {
@@ -195,6 +210,12 @@ export default {
   padding-top: 6px;
   border-top: 1px solid var(--line);
 }
+
+.is-clickable { cursor: pointer; }
+.is-clickable:hover { border-color: var(--brand); }
+
+.penulis { cursor: pointer; }
+.penulis:hover .title { color: var(--brand); }
 
 .post-konten {
   margin: 10px 0 0;

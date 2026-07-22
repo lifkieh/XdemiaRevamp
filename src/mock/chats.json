@@ -7,10 +7,26 @@
     "waktu": "09.42",
     "belumDibaca": 2,
     "pesan": [
-      { "id": "p-1", "dari": "mereka", "teks": "Ka, kamu udah kelar modul statistika?", "waktu": "09.30" },
-      { "id": "p-2", "dari": "saya", "teks": "Tinggal 2 modul, mentok di p-value hehe", "waktu": "09.35" },
-      { "id": "p-3", "dari": "mereka", "teks": "Sama banget. Nanti aku kirim catatannya ya", "waktu": "09.42" }
-    ]
+      {
+        "id": "p-1",
+        "dari": "mereka",
+        "teks": "Ka, kamu udah kelar modul statistika?",
+        "waktu": "09.30"
+      },
+      {
+        "id": "p-2",
+        "dari": "saya",
+        "teks": "Tinggal 2 modul, mentok di p-value hehe",
+        "waktu": "09.35"
+      },
+      {
+        "id": "p-3",
+        "dari": "mereka",
+        "teks": "Sama banget. Nanti aku kirim catatannya ya",
+        "waktu": "09.42"
+      }
+    ],
+    "tipe": "pribadi"
   },
   {
     "id": "ch-2",
@@ -20,10 +36,26 @@
     "waktu": "08.15",
     "belumDibaca": 5,
     "pesan": [
-      { "id": "p-1", "dari": "mereka", "teks": "Bab 2 punyaku udah 70%", "waktu": "08.02" },
-      { "id": "p-2", "dari": "saya", "teks": "Mantap, aku masih nyari referensi", "waktu": "08.10" },
-      { "id": "p-3", "dari": "mereka", "teks": "Besok kumpul jam 4 ya", "waktu": "08.15" }
-    ]
+      {
+        "id": "p-1",
+        "dari": "mereka",
+        "teks": "Bab 2 punyaku udah 70%",
+        "waktu": "08.02"
+      },
+      {
+        "id": "p-2",
+        "dari": "saya",
+        "teks": "Mantap, aku masih nyari referensi",
+        "waktu": "08.10"
+      },
+      {
+        "id": "p-3",
+        "dari": "mereka",
+        "teks": "Besok kumpul jam 4 ya",
+        "waktu": "08.15"
+      }
+    ],
+    "tipe": "grup"
   },
   {
     "id": "ch-3",
@@ -33,9 +65,20 @@
     "waktu": "Kemarin",
     "belumDibaca": 0,
     "pesan": [
-      { "id": "p-1", "dari": "saya", "teks": "Kak, boleh minta review esai LPDP?", "waktu": "20.11" },
-      { "id": "p-2", "dari": "mereka", "teks": "Boleh. Esainya kirim aja, nanti aku baca", "waktu": "20.30" }
-    ]
+      {
+        "id": "p-1",
+        "dari": "saya",
+        "teks": "Kak, boleh minta review esai LPDP?",
+        "waktu": "20.11"
+      },
+      {
+        "id": "p-2",
+        "dari": "mereka",
+        "teks": "Boleh. Esainya kirim aja, nanti aku baca",
+        "waktu": "20.30"
+      }
+    ],
+    "tipe": "pribadi"
   },
   {
     "id": "ch-4",
@@ -45,9 +88,20 @@
     "waktu": "Kemarin",
     "belumDibaca": 0,
     "pesan": [
-      { "id": "p-1", "dari": "mereka", "teks": "Link sesi live udah dishare di pengumuman", "waktu": "17.20" },
-      { "id": "p-2", "dari": "saya", "teks": "Siap, ikut hadir", "waktu": "17.45" }
-    ]
+      {
+        "id": "p-1",
+        "dari": "mereka",
+        "teks": "Link sesi live udah dishare di pengumuman",
+        "waktu": "17.20"
+      },
+      {
+        "id": "p-2",
+        "dari": "saya",
+        "teks": "Siap, ikut hadir",
+        "waktu": "17.45"
+      }
+    ],
+    "tipe": "grup"
   },
   {
     "id": "ch-5",
@@ -57,9 +111,20 @@
     "waktu": "2 hari lalu",
     "belumDibaca": 0,
     "pesan": [
-      { "id": "p-1", "dari": "saya", "teks": "Coba materi anatomi yang di Xdemia, visualnya bagus", "waktu": "11.05" },
-      { "id": "p-2", "dari": "mereka", "teks": "Makasih rekomendasinya!", "waktu": "11.20" }
-    ]
+      {
+        "id": "p-1",
+        "dari": "saya",
+        "teks": "Coba materi anatomi yang di Xdemia, visualnya bagus",
+        "waktu": "11.05"
+      },
+      {
+        "id": "p-2",
+        "dari": "mereka",
+        "teks": "Makasih rekomendasinya!",
+        "waktu": "11.20"
+      }
+    ],
+    "tipe": "pribadi"
   },
   {
     "id": "ch-6",
@@ -69,9 +134,20 @@
     "waktu": "3 hari lalu",
     "belumDibaca": 0,
     "pesan": [
-      { "id": "p-1", "dari": "saya", "teks": "Bang, portofolio aku kurang apa ya?", "waktu": "14.02" },
-      { "id": "p-2", "dari": "mereka", "teks": "Portofolio kamu udah rapi kok, tinggal tambahin cerita masalahnya", "waktu": "14.30" }
-    ]
+      {
+        "id": "p-1",
+        "dari": "saya",
+        "teks": "Bang, portofolio aku kurang apa ya?",
+        "waktu": "14.02"
+      },
+      {
+        "id": "p-2",
+        "dari": "mereka",
+        "teks": "Portofolio kamu udah rapi kok, tinggal tambahin cerita masalahnya",
+        "waktu": "14.30"
+      }
+    ],
+    "tipe": "pribadi"
   },
   {
     "id": "ch-7",
@@ -81,8 +157,14 @@
     "waktu": "4 hari lalu",
     "belumDibaca": 0,
     "pesan": [
-      { "id": "p-1", "dari": "mereka", "teks": "Pendaftaran batch 2 dibuka minggu depan", "waktu": "10.00" }
-    ]
+      {
+        "id": "p-1",
+        "dari": "mereka",
+        "teks": "Pendaftaran batch 2 dibuka minggu depan",
+        "waktu": "10.00"
+      }
+    ],
+    "tipe": "grup"
   },
   {
     "id": "ch-8",
@@ -92,8 +174,19 @@
     "waktu": "1 minggu lalu",
     "belumDibaca": 0,
     "pesan": [
-      { "id": "p-1", "dari": "mereka", "teks": "Latihan speaking bareng lagi yuk, jam 8 malam", "waktu": "19.10" },
-      { "id": "p-2", "dari": "saya", "teks": "Ayo, aku siapin topiknya", "waktu": "19.25" }
-    ]
+      {
+        "id": "p-1",
+        "dari": "mereka",
+        "teks": "Latihan speaking bareng lagi yuk, jam 8 malam",
+        "waktu": "19.10"
+      },
+      {
+        "id": "p-2",
+        "dari": "saya",
+        "teks": "Ayo, aku siapin topiknya",
+        "waktu": "19.25"
+      }
+    ],
+    "tipe": "pribadi"
   }
 ]
