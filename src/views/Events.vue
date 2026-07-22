@@ -36,9 +36,9 @@
           @click.native="$router.push('/acara/' + e.id)"
         >
           <template slot="meta">
-            <span class="pill"><i class="el-icon-date"></i> {{ e.tanggal }}</span>
-            <span class="pill">{{ e.waktu }}</span>
-            <span class="pill">{{ e.lokasi }}</span>
+            <span class="pill"><i class="el-icon-date"></i> {{ $tanggal(e.tanggalIso, true) }}</span>
+            <span class="pill">{{ $jam(e.jamMulai) }}</span>
+            <span class="pill" data-content="true">{{ e.lokasi }}</span>
             <span class="pill">{{ labelAkses(e.akses) }}</span>
             <span class="pill">{{ labelPrivasi(e.privasi) }}</span>
             <span v-if="e.hadiah > 0" class="pill pill-warn">
@@ -75,8 +75,8 @@
           @click.native="$router.push('/acara/' + e.id)"
         >
           <template slot="meta">
-            <span class="pill">{{ e.tanggal }}</span>
-            <span class="pill">{{ e.lokasi }}</span>
+            <span class="pill">{{ $tanggal(e.tanggalIso, true) }}</span>
+            <span class="pill" data-content="true">{{ e.lokasi }}</span>
             <span class="pill">{{ labelAkses(e.akses) }}</span>
           </template>
           <div class="kaki">

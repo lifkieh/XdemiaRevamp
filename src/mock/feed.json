@@ -15,7 +15,9 @@
     "penulis": "Nadia Putri",
     "inisial": "N",
     "peran": "Mahasiswa Psikologi · UGM",
-    "waktu": "10 menit lalu",
+    "waktu": {
+      "menit": 10
+    },
     "konten": "Tips kecil buat yang gampang burnout belajar: pasang timer 25 menit, kerjain satu hal aja. Selesai timer, berdiri. Udah, gitu doang. Konsisten 3 minggu dan bedanya kerasa banget.",
     "suka": 128,
     "komentar": 19
@@ -27,7 +29,9 @@
     "penulis": "Yoga Pratama",
     "inisial": "Y",
     "peran": "Data Analyst · Jakarta",
-    "waktu": "25 menit lalu",
+    "waktu": {
+      "menit": 25
+    },
     "konten": "Update belajar minggu ini: modul Python akhirnya tembus 60%. Yang bikin nyangkut ternyata bukan sintaksnya, tapi kebiasaan buka editor tiap hari.",
     "suka": 96,
     "komentar": 14,
@@ -41,19 +45,20 @@
   {
     "id": "fd-3",
     "tipe": "scholarship_alert",
-    "judul": "Beasiswa Unggulan Kemendikbud tutup 3 hari lagi",
-    "deskripsi": "S1 & S2 · Indonesia · berkas bisa nyusul sampai tahap 2.",
-    "beasiswaId": "s-1"
+    "beasiswaId": "s-1",
+    "catatan": "berkas bisa nyusul sampai tahap 2"
   },
   {
     "id": "fd-4",
     "tipe": "article",
     "judul": "Cara Baca Jurnal Ilmiah Tanpa Pusing",
     "sumber": "Jurnal Belajar Xdemia",
-    "waktu": "1 jam lalu",
+    "waktu": {
+      "jam": 1
+    },
     "ringkasan": "Baca abstrak, lompat ke kesimpulan, baru balik ke metode. Urutannya bukan dari atas ke bawah.",
-    "baca": "4 menit baca",
-    "artikelId": "ar-1"
+    "artikelId": "ar-1",
+    "menitBaca": 4
   },
   {
     "id": "fd-5",
@@ -61,7 +66,9 @@
     "penulis": "Bagas Wirawan",
     "inisial": "B",
     "peran": "Alumni · Teknik Elektro ITB",
-    "waktu": "2 jam lalu",
+    "waktu": {
+      "jam": 2
+    },
     "konten": "Baru selesai wawancara beasiswa Chevening. Pertanyaannya nggak seseram rumor, tapi mereka bener-bener ngulik rencana balik ke Indonesia. Siapin itu serius.",
     "suka": 342,
     "komentar": 47,
@@ -72,8 +79,8 @@
     "tipe": "community_update",
     "judul": "Komunitas Data Enthusiast Indonesia",
     "deskripsi": "Sesi live \"Bedah Portofolio Data\" mulai Sabtu 19.30 WIB.",
-    "anggota": "12.480 anggota",
-    "komunitasId": "k-1"
+    "komunitasId": "k-1",
+    "jumlahAnggota": 12480
   },
   {
     "id": "fd-7",
@@ -81,7 +88,9 @@
     "penulis": "Sinta Larasati",
     "inisial": "S",
     "peran": "Mahasiswa Kedokteran · Unair",
-    "waktu": "4 jam lalu",
+    "waktu": {
+      "jam": 4
+    },
     "konten": "Nanya dong, ada yang punya rekomendasi materi anatomi yang visual? Baca teks doang bikin ngantuk 😭",
     "suka": 76,
     "komentar": 33,
@@ -94,7 +103,9 @@
     "penulis": "Sinta Larasati",
     "inisial": "S",
     "peran": "Mahasiswa Kedokteran · Unair",
-    "waktu": "3 jam lalu",
+    "waktu": {
+      "jam": 3
+    },
     "konten": "Nyoba nulis ulang catatan statistika pakai format tanya-jawab. Lebih lama bikinnya, tapi pas ngulang jadi kerasa gunanya.",
     "suka": 143,
     "komentar": 26,
@@ -110,18 +121,19 @@
     "tipe": "article",
     "judul": "5 Kesalahan Umum Waktu Nulis Esai Beasiswa",
     "sumber": "Ruang Beasiswa",
-    "waktu": "6 jam lalu",
+    "waktu": {
+      "jam": 6
+    },
     "ringkasan": "Paling sering: cerita panjang soal masa kecil, tapi lupa jawab kenapa kamu yang harus dipilih.",
-    "baca": "6 menit baca",
-    "artikelId": "ar-2"
+    "artikelId": "ar-2",
+    "menitBaca": 6
   },
   {
     "id": "fd-9",
     "tipe": "learning_nudge",
-    "judul": "Streak kamu 6 hari",
-    "deskripsi": "Belajar 10 menit hari ini biar streak-nya nggak putus.",
     "progress": 0,
-    "materiId": "c-3"
+    "materiId": "c-3",
+    "kunci": "streak"
   },
   {
     "id": "fd-10",
@@ -129,7 +141,9 @@
     "penulis": "Yoga Pratama",
     "inisial": "Y",
     "peran": "Data Analyst · Jakarta",
-    "waktu": "8 jam lalu",
+    "waktu": {
+      "jam": 8
+    },
     "konten": "Portofolio > IPK, tapi cuma kalau portofolionya beneran nyelesain masalah. Tiga proyek yang jelas ceritanya lebih ngefek dari sepuluh proyek tutorial.",
     "suka": 512,
     "komentar": 64,
@@ -142,7 +156,9 @@
     "penulis": "Dewi Anggraini",
     "inisial": "D",
     "peran": "Mahasiswa Sastra Inggris · UI",
-    "waktu": "9 jam lalu",
+    "waktu": {
+      "jam": 9
+    },
     "konten": "Bikin infografik alur daftar beasiswa buat diri sendiri, siapa tahu kepakai juga sama kalian yang lagi nyiapin berkas.",
     "suka": 268,
     "komentar": 37,
@@ -158,10 +174,12 @@
     "tipe": "article",
     "judul": "Belajar Python 30 Menit Sehari, Realistis Nggak?",
     "sumber": "Jurnal Belajar Xdemia",
-    "waktu": "12 jam lalu",
+    "waktu": {
+      "jam": 12
+    },
     "ringkasan": "Realistis, asal 30 menitnya buat ngoding, bukan nonton video orang ngoding.",
-    "baca": "5 menit baca",
-    "artikelId": "ar-3"
+    "artikelId": "ar-3",
+    "menitBaca": 5
   },
   {
     "id": "fd-12",
@@ -169,7 +187,9 @@
     "penulis": "Dewi Anggraini",
     "inisial": "D",
     "peran": "Mahasiswa Sastra Inggris · UI",
-    "waktu": "1 hari lalu",
+    "waktu": {
+      "hari": 1
+    },
     "konten": "IELTS 7.0 dari 5.5 dalam 4 bulan, modal latihan speaking sama temen tiap malam. Gratis, cuma butuh malu-maluin diri sendiri dikit.",
     "suka": 289,
     "komentar": 41,

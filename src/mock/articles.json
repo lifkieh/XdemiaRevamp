@@ -1,8 +1,13 @@
 [
   {
-    "id": "ar-1", "judul": "Cara Baca Jurnal Ilmiah Tanpa Pusing", "inisial": "CB",
-    "penulis": "Rizky Ramadhan", "inisialPenulis": "R", "terverifikasi": true, "sumber": "Jurnal Belajar Xdemia",
-    "tanggal": "22 Juli 2026", "views": 4820, "baca": "4 menit baca",
+    "id": "ar-1",
+    "judul": "Cara Baca Jurnal Ilmiah Tanpa Pusing",
+    "inisial": "CB",
+    "penulis": "Rizky Ramadhan",
+    "inisialPenulis": "R",
+    "terverifikasi": true,
+    "sumber": "Jurnal Belajar Xdemia",
+    "views": 4820,
     "ringkasan": "Baca abstrak, lompat ke kesimpulan, baru balik ke metode. Urutannya bukan dari atas ke bawah.",
     "isi": [
       "Kebanyakan orang membaca jurnal seperti membaca novel: mulai dari kalimat pertama, terus ke bawah sampai habis. Masalahnya, jurnal ilmiah tidak ditulis untuk dibaca berurutan.",
@@ -10,12 +15,19 @@
       "Kalau lolos abstrak, lompat ke bagian kesimpulan. Penulis biasanya jujur di sini soal keterbatasan penelitiannya. Bagian ini yang paling sering dilewati mahasiswa, padahal paling berguna untuk menilai apakah temuannya bisa dipakai.",
       "Baru setelah itu kembali ke metode. Sekarang kamu membacanya dengan pertanyaan yang jelas: apakah caranya masuk akal untuk menghasilkan kesimpulan tadi? Membaca metode tanpa tahu kesimpulannya sama saja menghafal resep tanpa tahu masakannya apa.",
       "Terakhir, catat satu kalimat: apa yang paper ini ubah dari pemahaman kamu sebelumnya. Kalau tidak ada, paper itu boleh dilupakan."
-    ]
+    ],
+    "menitBaca": 4,
+    "tanggalIso": "2026-07-22"
   },
   {
-    "id": "ar-2", "judul": "5 Kesalahan Umum Waktu Nulis Esai Beasiswa", "inisial": "5K",
-    "penulis": "Dewi Anggraini", "inisialPenulis": "D", "terverifikasi": true, "sumber": "Ruang Beasiswa",
-    "tanggal": "21 Juli 2026", "views": 9310, "baca": "6 menit baca",
+    "id": "ar-2",
+    "judul": "5 Kesalahan Umum Waktu Nulis Esai Beasiswa",
+    "inisial": "5K",
+    "penulis": "Dewi Anggraini",
+    "inisialPenulis": "D",
+    "terverifikasi": true,
+    "sumber": "Ruang Beasiswa",
+    "views": 9310,
     "ringkasan": "Paling sering: cerita panjang soal masa kecil, tapi lupa jawab kenapa kamu yang harus dipilih.",
     "isi": [
       "Setiap musim beasiswa, esai yang masuk punya pola kesalahan yang mirip. Ini lima yang paling sering muncul.",
@@ -24,12 +36,19 @@
       "Ketiga, rencana kontribusi yang terlalu umum. \"Ingin memajukan pendidikan Indonesia\" bisa ditulis siapa saja. Sebutkan di mana, untuk siapa, dan langkah pertamanya apa.",
       "Keempat, menyalin gaya orang lain. Esai yang lolos tahun lalu cocok untuk orangnya, bukan untuk kamu.",
       "Kelima, tidak menjawab pertanyaan yang diberikan. Baca ulang soalnya setelah selesai menulis. Sering kali esainya bagus tapi menjawab pertanyaan lain."
-    ]
+    ],
+    "menitBaca": 6,
+    "tanggalIso": "2026-07-21"
   },
   {
-    "id": "ar-3", "judul": "Belajar Python 30 Menit Sehari, Realistis Nggak?", "inisial": "BP",
-    "penulis": "Yoga Pratama", "inisialPenulis": "Y", "terverifikasi": true, "sumber": "Jurnal Belajar Xdemia",
-    "tanggal": "20 Juli 2026", "views": 6140, "baca": "5 menit baca",
+    "id": "ar-3",
+    "judul": "Belajar Python 30 Menit Sehari, Realistis Nggak?",
+    "inisial": "BP",
+    "penulis": "Yoga Pratama",
+    "inisialPenulis": "Y",
+    "terverifikasi": true,
+    "sumber": "Jurnal Belajar Xdemia",
+    "views": 6140,
     "ringkasan": "Realistis, asal 30 menitnya buat ngoding, bukan nonton video orang ngoding.",
     "isi": [
       "Pertanyaan ini muncul hampir tiap minggu di komunitas. Jawabannya: bisa, tapi dengan satu syarat yang sering dilanggar.",
@@ -37,12 +56,19 @@
       "Pola yang berhasil untuk kebanyakan orang: 5 menit membaca konsep, 20 menit mengerjakan latihan, 5 menit mencatat apa yang macet. Catatan macet ini yang jadi bahan belajar besok.",
       "Dalam tiga bulan dengan pola ini, kamu bisa sampai di titik mampu membaca kode orang lain dan menulis skrip sederhana yang benar-benar dipakai. Itu sudah cukup untuk banyak pekerjaan awal.",
       "Yang tidak realistis adalah berharap jadi mahir dalam sebulan. Konsistensi kecil mengalahkan maraton akhir pekan."
-    ]
+    ],
+    "menitBaca": 5,
+    "tanggalIso": "2026-07-20"
   },
   {
-    "id": "ar-4", "judul": "Portofolio atau IPK, Perekrut Lihat yang Mana?", "inisial": "PI",
-    "penulis": "Yoga Pratama", "inisialPenulis": "Y", "terverifikasi": true, "sumber": "Jurnal Belajar Xdemia",
-    "tanggal": "18 Juli 2026", "views": 12430, "baca": "7 menit baca",
+    "id": "ar-4",
+    "judul": "Portofolio atau IPK, Perekrut Lihat yang Mana?",
+    "inisial": "PI",
+    "penulis": "Yoga Pratama",
+    "inisialPenulis": "Y",
+    "terverifikasi": true,
+    "sumber": "Jurnal Belajar Xdemia",
+    "views": 12430,
     "ringkasan": "Portofolio menang, tapi cuma kalau isinya menyelesaikan masalah nyata, bukan hasil tutorial.",
     "isi": [
       "Jawaban singkatnya: portofolio. Jawaban panjangnya lebih menarik.",
@@ -50,12 +76,19 @@
       "Masalahnya, banyak portofolio berisi sepuluh proyek yang semuanya hasil mengikuti tutorial. Perekrut mengenali pola itu dalam sepuluh detik. Tiga proyek yang jelas masalahnya lebih berbobot dari sepuluh proyek tiruan.",
       "Setiap proyek sebaiknya menjawab tiga hal: masalahnya apa, apa yang kamu lakukan, dan apa yang berubah setelahnya. Angka membantu, tapi cerita yang jujur lebih penting.",
       "Kalau belum punya proyek nyata, cari masalah kecil di sekitarmu. Data absensi organisasi, jadwal kegiatan himpunan, apa saja. Skalanya kecil tidak apa-apa, asal masalahnya nyata."
-    ]
+    ],
+    "menitBaca": 7,
+    "tanggalIso": "2026-07-18"
   },
   {
-    "id": "ar-5", "judul": "Kuliah di Luar Negeri Tanpa Beasiswa Penuh, Mungkin?", "inisial": "KL",
-    "penulis": "Bagas Wirawan", "inisialPenulis": "B", "terverifikasi": true, "sumber": "Ruang Beasiswa",
-    "tanggal": "16 Juli 2026", "views": 7820, "baca": "6 menit baca",
+    "id": "ar-5",
+    "judul": "Kuliah di Luar Negeri Tanpa Beasiswa Penuh, Mungkin?",
+    "inisial": "KL",
+    "penulis": "Bagas Wirawan",
+    "inisialPenulis": "B",
+    "terverifikasi": true,
+    "sumber": "Ruang Beasiswa",
+    "views": 7820,
     "ringkasan": "Mungkin, lewat kombinasi beasiswa parsial, kerja paruh waktu, dan pilih negara dengan biaya kuliah rendah.",
     "isi": [
       "Beasiswa penuh bukan satu-satunya jalan. Banyak yang berangkat dengan cara menyusun beberapa sumber dana sekaligus.",
@@ -63,24 +96,38 @@
       "Kedua, cari beasiswa parsial dari kampus. Jumlahnya jauh lebih banyak dari beasiswa penuh pemerintah, dan pesaingnya lebih sedikit karena kurang populer.",
       "Ketiga, cek aturan kerja paruh waktu untuk pemegang visa pelajar. Di banyak negara, 20 jam per minggu cukup untuk menutup biaya hidup dasar.",
       "Yang perlu diingat: kombinasi ini menuntut perencanaan keuangan yang serius. Hitung dulu sampai tuntas sebelum memutuskan berangkat."
-    ]
+    ],
+    "menitBaca": 6,
+    "tanggalIso": "2026-07-16"
   },
   {
-    "id": "ar-6", "judul": "Cara Bikin Catatan Kuliah yang Beneran Dibaca Lagi", "inisial": "CB",
-    "penulis": "Nadia Putri", "inisialPenulis": "N", "terverifikasi": false, "sumber": "Jurnal Belajar Xdemia",
-    "tanggal": "14 Juli 2026", "views": 3560, "baca": "4 menit baca",
+    "id": "ar-6",
+    "judul": "Cara Bikin Catatan Kuliah yang Beneran Dibaca Lagi",
+    "inisial": "CB",
+    "penulis": "Nadia Putri",
+    "inisialPenulis": "N",
+    "terverifikasi": false,
+    "sumber": "Jurnal Belajar Xdemia",
+    "views": 3560,
     "ringkasan": "Catatan yang rapi belum tentu berguna. Yang berguna adalah catatan yang menjawab pertanyaan.",
     "isi": [
       "Banyak orang membuat catatan cantik yang tidak pernah dibuka lagi. Penyebabnya satu: catatan itu menyalin, bukan memproses.",
       "Coba ubah formatnya jadi tanya-jawab. Tulis pertanyaan di kolom kiri, jawaban di kolom kanan. Saat mengulang, tutup kolom kanan.",
       "Setelah kuliah selesai, sisihkan lima menit untuk menulis satu paragraf rangkuman dengan bahasa sendiri. Kalau tidak bisa, artinya ada bagian yang belum kamu pahami. Itu informasi berharga.",
       "Terakhir, beri tanggal dan topik di setiap halaman. Sederhana, tapi ini yang membedakan tumpukan kertas dengan arsip yang bisa dicari."
-    ]
+    ],
+    "menitBaca": 4,
+    "tanggalIso": "2026-07-14"
   },
   {
-    "id": "ar-7", "judul": "Burnout Belajar Itu Nyata, Ini Tandanya", "inisial": "BB",
-    "penulis": "Nadia Putri", "inisialPenulis": "N", "terverifikasi": false, "sumber": "Jurnal Belajar Xdemia",
-    "tanggal": "12 Juli 2026", "views": 8940, "baca": "5 menit baca",
+    "id": "ar-7",
+    "judul": "Burnout Belajar Itu Nyata, Ini Tandanya",
+    "inisial": "BB",
+    "penulis": "Nadia Putri",
+    "inisialPenulis": "N",
+    "terverifikasi": false,
+    "sumber": "Jurnal Belajar Xdemia",
+    "views": 8940,
     "ringkasan": "Bukan malas. Kalau tugas mudah terasa berat dan istirahat tidak memulihkan, itu tanda lain.",
     "isi": [
       "Burnout sering disalahartikan sebagai malas. Padahal keduanya berbeda: malas itu tidak mau memulai, burnout itu ingin memulai tapi tidak ada tenaganya.",
@@ -88,18 +135,27 @@
       "Tanda kedua, istirahat tidak lagi memulihkan. Tidur delapan jam tetap bangun lelah.",
       "Tanda ketiga, kamu mulai sinis terhadap hal yang dulu kamu suka. Bidang yang dipilih sendiri terasa membosankan.",
       "Yang membantu bukan libur panjang, tapi mengurangi beban secara bertahap dan mengembalikan kendali atas jadwal. Kalau berlanjut lebih dari sebulan, bicara dengan konselor kampus. Itu layanan yang sudah kamu bayar lewat uang kuliah."
-    ]
+    ],
+    "menitBaca": 5,
+    "tanggalIso": "2026-07-12"
   },
   {
-    "id": "ar-8", "judul": "Skripsi Macet di Bab 2? Coba Ubah Urutannya", "inisial": "SM",
-    "penulis": "Rizky Ramadhan", "inisialPenulis": "R", "terverifikasi": true, "sumber": "Jurnal Riset Kesehatan Masyarakat",
-    "tanggal": "10 Juli 2026", "views": 5210, "baca": "6 menit baca",
+    "id": "ar-8",
+    "judul": "Skripsi Macet di Bab 2? Coba Ubah Urutannya",
+    "inisial": "SM",
+    "penulis": "Rizky Ramadhan",
+    "inisialPenulis": "R",
+    "terverifikasi": true,
+    "sumber": "Jurnal Riset Kesehatan Masyarakat",
+    "views": 5210,
     "ringkasan": "Tinjauan pustaka susah ditulis kalau pertanyaan penelitiannya belum tajam. Balik urutannya.",
     "isi": [
       "Bab 2 sering jadi tempat mandek karena ditulis terlalu awal. Kamu diminta merangkum penelitian terdahulu padahal belum jelas apa yang mau kamu cari.",
       "Coba balik urutannya. Tajamkan dulu pertanyaan penelitian sampai bisa ditulis dalam satu kalimat. Baru cari referensi yang berhubungan langsung dengan kalimat itu.",
       "Dengan cara ini, tinjauan pustaka berubah dari daftar rangkuman jadi argumen: ini yang sudah diketahui, ini yang belum, dan di celah itulah penelitian saya berada.",
       "Satu tanda tinjauan pustaka yang sehat: setiap paragraf bisa dijelaskan kenapa dia ada di sana. Kalau tidak bisa, hapus."
-    ]
+    ],
+    "menitBaca": 6,
+    "tanggalIso": "2026-07-10"
   }
 ]

@@ -43,7 +43,7 @@
             <span class="pill">
               <i :class="petaLanjut[isi.jenis].ikon"></i> {{ $t('continueCard.' + petaLanjut[isi.jenis].kunci + '.label') }}
             </span>
-            <span class="muted">{{ isi.sisa }}</span>
+            <span class="muted">{{ $sisa(isi.sisa) }}</span>
           </template>
           <div class="progress-baris">
             <el-progress :percentage="isi.progress" :stroke-width="6" :show-text="false" />
@@ -70,16 +70,16 @@
           :key="materi.id"
           :inisial="materi.judul.charAt(0)"
           :judul="materi.judul"
-          :subjudul="materi.penyedia + ' · ' + materi.durasi"
+          :subjudul="materi.penyedia + ' · ' + $durasi(materi.jamDurasi)"
           clickable
           @click.native="buka(materi.id)"
         >
           <template slot="meta">
             <span class="pill">{{ materi.jenis === 'kursus' ? $t('learn.filters.kursus') : $t('learn.filters.materi') }}</span>
             <span v-if="materi.jenis === 'kursus'" class="pill">
-              <i class="el-icon-date"></i> {{ $t('common.start') }} {{ materi.tanggalMulai }}
+              <i class="el-icon-date"></i> {{ $t('course.startsOn', { date: $tanggal(materi.mulaiIso) }) }}
             </span>
-            <span v-else class="pill">{{ materi.jenjang }}</span>
+            <span v-else class="pill">{{ $t('course.level.' + materi.level) }}</span>
           </template>
           <template slot="action">
             <el-button size="small" type="primary" @click.stop="buka(materi.id)">

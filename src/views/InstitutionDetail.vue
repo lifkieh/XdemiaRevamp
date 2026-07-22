@@ -20,8 +20,8 @@
         <div class="cover"></div>
         <div class="hero-isi">
           <div class="logo">{{ lembaga.inisial }}</div>
-          <h1 class="title-lg">{{ lembaga.nama }}</h1>
-          <p class="muted">{{ lembaga.tipe }} · {{ lembaga.kota }}, {{ lembaga.negara }}</p>
+          <h1 class="title-lg" data-content="true">{{ lembaga.nama }}</h1>
+          <p class="muted"><span data-content="true">{{ lembaga.tipe }}</span> · <span data-content="true">{{ lembaga.kota }}</span>, {{ $t('country.' + lembaga.negaraKode) }}</p>
 
           <div class="pil-baris">
             <span class="pill">{{ $t('common.followers', { n: pengikut }) }}</span>
@@ -47,12 +47,12 @@
         <el-tab-pane :label="$t('institution.tabs.about')" name="tentang">
           <div class="card">
             <p class="title">{{ $t('common.about') }}</p>
-            <p class="paragraf">{{ lembaga.deskripsi }}</p>
+            <p class="paragraf" data-content="true">{{ lembaga.deskripsi }}</p>
           </div>
           <div class="card">
             <p class="title">{{ $t('common.info') }}</p>
-            <div class="info"><span class="muted">{{ $t('common.type') }}</span><span>{{ lembaga.tipe }}</span></div>
-            <div class="info"><span class="muted">{{ $t('common.location') }}</span><span>{{ lembaga.kota }}, {{ lembaga.negara }}</span></div>
+            <div class="info"><span class="muted">{{ $t('common.type') }}</span><span data-content="true">{{ lembaga.tipe }}</span></div>
+            <div class="info"><span class="muted">{{ $t('common.location') }}</span><span><span data-content="true">{{ lembaga.kota }}</span>, {{ $t('country.' + lembaga.negaraKode) }}</span></div>
             <div class="info"><span class="muted">{{ $t('you.stats.followers') }}</span><span>{{ pengikut }}</span></div>
             <div v-if="lembaga.prodi > 0" class="info">
               <span class="muted">{{ $t('institution.programmesLabel') }}</span><span>{{ lembaga.prodi }}</span>

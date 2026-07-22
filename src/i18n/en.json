@@ -40,7 +40,17 @@
     "discussion": "Discussion",
     "membersTab": "Members",
     "files": "Files",
-    "prototypeNote": "Xdemia prototype · sample data"
+    "prototypeNote": "Xdemia prototype · sample data",
+    "baruSaja": "Just now",
+    "kemarin": "Yesterday",
+    "menitLalu": "{n} minutes ago",
+    "jamLalu": "{n} hours ago",
+    "hariLalu": "{n} days ago",
+    "mingguLalu": "{n} weeks ago",
+    "articlesCount": "{n} articles",
+    "programmes": "{n} study programmes",
+    "peopleJoining": "{n} going",
+    "bulanLalu": "{n} months ago"
   },
   "nav": {
     "home": "Home",
@@ -79,7 +89,12 @@
       "community_update": "Communities"
     },
     "viewScholarship": "View scholarship",
-    "startLearning": "Start learning"
+    "startLearning": "Start learning",
+    "nudge": {
+      "streakTitle": "{n}-day streak",
+      "streakText": "Learn for 10 minutes today so it does not break."
+    },
+    "alertClosing": "{name} closes in {n} days"
   },
   "continueCard": {
     "learn": {
@@ -96,6 +111,13 @@
       "title": "Continue reading",
       "button": "Continue reading",
       "label": "Journal"
+    },
+    "sisa": {
+      "modulTersisa": "{modul} modules left · about {menit} min",
+      "menitBaca": "about {menit} min of reading left",
+      "bagian": "continue from the {bagian} section",
+      "babAwal": "just started the {bab} chapter",
+      "bagianTersisa": "{bagian} sections left"
     }
   },
   "rail": {
@@ -182,7 +204,15 @@
     "moduleDone": "Module \"{name}\" marked as done.",
     "notFoundTitle": "Course not found",
     "notFoundText": "It may have been removed, or the link is wrong.",
-    "notFoundAction": "See all courses"
+    "notFoundAction": "See all courses",
+    "durasiJam": "{n} hrs",
+    "level": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "startsOn": "Starts {date}",
+    "jadwalPola": "Every {hari}, {jam}"
   },
   "scholarship": {
     "title": "Scholarships",
@@ -542,5 +572,37 @@
   "eventPrivacy": {
     "Publik": "Public",
     "Privat": "Private"
+  },
+  "country": {
+    "ID": "Indonesia",
+    "GB": "United Kingdom",
+    "AU": "Australia",
+    "JP": "Japan",
+    "DE": "Germany",
+    "US": "United States",
+    "KR": "South Korea",
+    "SG": "Singapore"
+  },
+  "communityType": {
+    "open": "Open",
+    "closed": "Closed"
+  },
+  "journalSchedule": {
+    "monthly": "Monthly",
+    "quarterly": "Quarterly",
+    "biannual": "Twice a year"
+  },
+  "cartType": {
+    "course": "Class",
+    "ticket": "Event ticket",
+    "material": "Course"
+  },
+  "cartStatus": {
+    "done": "Completed",
+    "cancelled": "Cancelled"
+  },
+  "chapter": {
+    "kerangkaCerita": "story outline",
+    "metode": "Method"
   }
 }

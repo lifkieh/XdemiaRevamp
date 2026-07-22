@@ -22,25 +22,25 @@
         </div>
 
         <div class="artikel-isi">
-          <h1 class="judul">{{ artikel.judul }}</h1>
+          <h1 class="judul" data-content="true">{{ artikel.judul }}</h1>
 
           <div class="row penulis">
             <div class="thumb thumb-round">{{ artikel.inisialPenulis }}</div>
             <div class="grow">
               <p class="title nama-penulis">
-                {{ artikel.penulis }}
+                <span data-content="true">{{ artikel.penulis }}</span>
                 <i v-if="artikel.terverifikasi" class="el-icon-success verified" ></i>
               </p>
-              <p class="muted">{{ artikel.sumber }} · {{ artikel.tanggal }}</p>
+              <p class="muted"><span data-content="true">{{ artikel.sumber }}</span> · {{ $tanggal(artikel.tanggalIso) }}</p>
             </div>
           </div>
 
           <div class="pil-baris">
             <span class="pill"><i class="el-icon-view"></i> {{ $t('common.views', { n: views }) }}</span>
-            <span class="pill">{{ artikel.baca }}</span>
+            <span class="pill">{{ $t('common.readTime', { n: artikel.menitBaca }) }}</span>
           </div>
 
-          <p v-for="(p, i) in artikel.isi" :key="'p-' + i" class="paragraf">{{ p }}</p>
+          <p v-for="(p, i) in artikel.isi" :key="'p-' + i" class="paragraf" data-content="true">{{ p }}</p>
 
           <div class="kaki">
             <button class="tap" :class="{ 'is-active': tersimpan }" @click="toggleSimpan">
@@ -63,7 +63,7 @@
           :key="a.id"
           :inisial="a.inisial"
           :judul="a.judul"
-          :subjudul="a.penulis + ' · ' + a.baca"
+          :subjudul="a.penulis + ' · ' + $t('common.readTime', { n: a.menitBaca })"
           clickable
           @click.native="$router.push('/artikel/' + a.id)"
         />

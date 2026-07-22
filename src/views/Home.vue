@@ -70,10 +70,10 @@
               <div class="thumb nudge-thumb"><i :class="infoLanjut.ikon"></i></div>
               <div class="grow">
                 <p class="title">{{ $t('continueCard.' + infoLanjut.kunci + '.title') }}</p>
-                <p class="lanjut-judul">{{ lanjutkanTeratas.judul }}</p>
+                <p class="lanjut-judul" data-content="true">{{ lanjutkanTeratas.judul }}</p>
                 <div class="lanjut-meta">
                   <span class="pill">{{ $t('continueCard.' + infoLanjut.kunci + '.label') }}</span>
-                  <span class="muted">{{ lanjutkanTeratas.sisa }}</span>
+                  <span class="muted">{{ $sisa(lanjutkanTeratas.sisa) }}</span>
                 </div>
                 <el-progress
                   :percentage="lanjutkanTeratas.progress"
@@ -95,8 +95,8 @@
             <div class="row row-top">
               <div class="thumb nudge-thumb"><i class="el-icon-reading"></i></div>
               <div class="grow">
-                <p class="title">{{ item.judul }}</p>
-                <p class="muted">{{ item.deskripsi }}</p>
+                <p class="title">{{ $t('home.nudge.streakTitle', { n: streak }) }}</p>
+                <p class="muted">{{ $t('home.nudge.streakText') }}</p>
                 <el-progress
                   v-if="item.progress > 0"
                   :percentage="item.progress"
@@ -119,12 +119,15 @@
           <div class="row row-top">
             <div class="thumb alert-thumb"><i class="el-icon-medal"></i></div>
             <div class="grow">
-              <p class="title">{{ item.judul }}</p>
-              <p class="muted">{{ item.deskripsi }}</p>
+              <p class="title">{{ judulAlert(item) }}</p>
+              <p class="muted">
+                {{ beasiswaAlert(item).jenjang }} · {{ $t('country.' + beasiswaAlert(item).negaraKode) }} ·
+                <span data-content="true">{{ item.catatan }}</span>
+              </p>
             </div>
           </div>
           <div class="card-foot">
-            <el-button type="primary" size="small" @click="$router.push('/scholarships')">{{ $t('home.viewScholarship') }}</el-button>
+            <el-button type="primary" size="small" @click="$router.push('/beasiswa/' + item.beasiswaId)">{{ $t('home.viewScholarship') }}</el-button>
           </div>
         </div>
 
@@ -137,9 +140,9 @@
           <div class="row row-top">
             <div class="thumb">{{ item.judul.charAt(0) }}</div>
             <div class="grow">
-              <p class="title">{{ item.judul }}</p>
-              <p class="muted">{{ item.deskripsi }}</p>
-              <span class="pill">{{ item.anggota }}</span>
+              <p class="title" data-content="true">{{ item.judul }}</p>
+              <p class="muted" data-content="true">{{ item.deskripsi }}</p>
+              <span class="pill">{{ $t('common.members', { n: $angka(item.jumlahAnggota) }) }}</span>
             </div>
           </div>
         </div>
@@ -154,10 +157,10 @@
             <div class="thumb"><i class="el-icon-document"></i></div>
             <div class="grow">
               <p class="title">{{ item.judul }}</p>
-              <p class="muted">{{ item.sumber }} · {{ item.baca }}</p>
+              <p class="muted"><span data-content="true">{{ item.sumber }}</span> · {{ $t('common.readTime', { n: item.menitBaca }) }}</p>
             </div>
           </div>
-          <p class="article-ringkasan">{{ item.ringkasan }}</p>
+          <p class="article-ringkasan" data-content="true">{{ item.ringkasan }}</p>
           <div class="card-foot">
             <button class="tap" @click.stop="bukaArtikel(item)">
               <i class="el-icon-reading"></i><span>{{ $t('common.read') }}</span>
@@ -173,12 +176,12 @@
           <header class="row row-top penulis" @click="bukaProfil(item)">
             <div class="thumb thumb-round">{{ item.inisial }}</div>
             <div class="grow">
-              <p class="title">{{ item.penulis }}</p>
-              <p class="muted">{{ item.peran }} · {{ item.waktu }}</p>
+              <p class="title" data-content="true">{{ item.penulis }}</p>
+              <p class="muted"><span data-content="true">{{ item.peran }}</span> · {{ $waktuRelatif(item.waktu) }}</p>
             </div>
           </header>
 
-          <p class="post-konten">{{ item.konten }}</p>
+          <p class="post-konten" data-content="true">{{ item.konten }}</p>
 
           <!-- media hanya dirender kalau ada, jadi post teks tidak menyisakan ruang kosong -->
           <figure
@@ -212,6 +215,7 @@ import CardSkeleton from '@/components/CardSkeleton.vue'
 import EmptyState from '@/components/EmptyState.vue'
 import feedData from '@/mock/feed.json'
 import riwayatLanjut from '@/mock/lanjutkan.json'
+import beasiswaData from '@/mock/scholarships.json'
 // label, ikon, tombol, dan rute per jenis isi yang bisa dilanjutkan
 import petaLanjut from '@/mock/peta-lanjut.json'
 
@@ -230,6 +234,7 @@ export default {
   },
   computed: {
     inisial () { return this.$store.getters['user/inisial'] },
+    streak () { return this.$store.getters['user/streak'] },
     kategori () {
       return this.idKategori.map((id) => ({
         id,
@@ -304,6 +309,13 @@ export default {
         '--rasio': w + ' / ' + t,
         '--rasio-angka': (w / t).toFixed(4)
       }
+    },
+    beasiswaAlert (item) {
+      return beasiswaData.filter((b) => b.id === item.beasiswaId)[0] || {}
+    },
+    judulAlert (item) {
+      const b = this.beasiswaAlert(item)
+      return this.$t('home.alertClosing', { name: b.nama, n: b.sisaHari })
     },
     bukaLanjutkan (item) {
       const info = petaLanjut[item.jenis] || petaLanjut.materi

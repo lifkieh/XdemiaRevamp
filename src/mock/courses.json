@@ -1,131 +1,437 @@
 [
   {
-    "id": "c-1", "jenis": "materi", "judul": "Statistika Dasar untuk Data", "penyedia": "Xdemia Belajar",
-    "penulis": "Yoga Pratama", "jenjang": "Pemula", "durasi": "3 jam", "progress": 65,
-    "tag": ["Statistika", "Data", "Dasar"],
+    "id": "c-1",
+    "jenis": "materi",
+    "judul": "Statistika Dasar untuk Data",
+    "penyedia": "Xdemia Belajar",
+    "penulis": "Yoga Pratama",
+    "progress": 65,
+    "tag": [
+      "Statistika",
+      "Data",
+      "Dasar"
+    ],
     "deskripsi": "Ngerti angka sebelum ngerti kode. Materi ini bahas rata-rata, sebaran, sampai uji hipotesis pakai contoh sehari-hari, tanpa rumus yang bikin kabur.",
     "modul": [
-      { "id": "m-1", "judul": "Kenapa statistika penting", "selesai": true },
-      { "id": "m-2", "judul": "Rata-rata, median, modus", "selesai": true },
-      { "id": "m-3", "judul": "Sebaran data & standar deviasi", "selesai": true },
-      { "id": "m-4", "judul": "Uji hipotesis & p-value", "selesai": false },
-      { "id": "m-5", "judul": "Latihan studi kasus", "selesai": false }
-    ]
+      {
+        "id": "m-1",
+        "judul": "Kenapa statistika penting",
+        "selesai": true
+      },
+      {
+        "id": "m-2",
+        "judul": "Rata-rata, median, modus",
+        "selesai": true
+      },
+      {
+        "id": "m-3",
+        "judul": "Sebaran data & standar deviasi",
+        "selesai": true
+      },
+      {
+        "id": "m-4",
+        "judul": "Uji hipotesis & p-value",
+        "selesai": false
+      },
+      {
+        "id": "m-5",
+        "judul": "Latihan studi kasus",
+        "selesai": false
+      }
+    ],
+    "jamDurasi": 3.0,
+    "level": "beginner"
   },
   {
-    "id": "c-2", "jenis": "materi", "judul": "Python untuk Pemula", "penyedia": "Komunitas Data Indonesia",
-    "penulis": "Rizky Ramadhan", "jenjang": "Pemula", "durasi": "5 jam", "progress": 30,
-    "tag": ["Python", "Pemrograman"],
+    "id": "c-2",
+    "jenis": "materi",
+    "judul": "Python untuk Pemula",
+    "penyedia": "Komunitas Data Indonesia",
+    "penulis": "Rizky Ramadhan",
+    "progress": 30,
+    "tag": [
+      "Python",
+      "Pemrograman"
+    ],
     "deskripsi": "Mulai dari nol sampai bisa bikin skrip yang beneran kepakai. Fokus latihan, bukan teori panjang.",
     "modul": [
-      { "id": "m-1", "judul": "Pasang Python & editor", "selesai": true },
-      { "id": "m-2", "judul": "Variabel dan tipe data", "selesai": true },
-      { "id": "m-3", "judul": "Perulangan & kondisi", "selesai": false },
-      { "id": "m-4", "judul": "Fungsi", "selesai": false },
-      { "id": "m-5", "judul": "Baca file CSV", "selesai": false },
-      { "id": "m-6", "judul": "Proyek kecil: laporan otomatis", "selesai": false }
-    ]
+      {
+        "id": "m-1",
+        "judul": "Pasang Python & editor",
+        "selesai": true
+      },
+      {
+        "id": "m-2",
+        "judul": "Variabel dan tipe data",
+        "selesai": true
+      },
+      {
+        "id": "m-3",
+        "judul": "Perulangan & kondisi",
+        "selesai": false
+      },
+      {
+        "id": "m-4",
+        "judul": "Fungsi",
+        "selesai": false
+      },
+      {
+        "id": "m-5",
+        "judul": "Baca file CSV",
+        "selesai": false
+      },
+      {
+        "id": "m-6",
+        "judul": "Proyek kecil: laporan otomatis",
+        "selesai": false
+      }
+    ],
+    "jamDurasi": 5.0,
+    "level": "beginner"
   },
   {
-    "id": "c-3", "jenis": "kursus", "judul": "Nulis Esai Beasiswa yang Nyantol", "penyedia": "Ruang Beasiswa",
-    "penulis": "Dewi Anggraini", "jenjang": "Menengah", "durasi": "2 jam", "progress": 0,
-    "tanggalMulai": "1 Agustus 2026", "tanggalSelesai": "22 Agustus 2026", "jadwal": "Tiap Sabtu, 09.00 WIB",
-    "tag": ["Beasiswa", "Menulis"],
+    "id": "c-3",
+    "jenis": "kursus",
+    "judul": "Nulis Esai Beasiswa yang Nyantol",
+    "penyedia": "Ruang Beasiswa",
+    "penulis": "Dewi Anggraini",
+    "progress": 0,
+    "tag": [
+      "Beasiswa",
+      "Menulis"
+    ],
     "deskripsi": "Kerangka esai motivasi dan kontribusi yang dipakai penerima LPDP, Chevening, dan Australia Awards. Ada contoh esai lengkap plus bedahnya.",
     "modul": [
-      { "id": "m-1", "judul": "Apa yang dicari penilai", "selesai": false },
-      { "id": "m-2", "judul": "Kerangka cerita 3 babak", "selesai": false },
-      { "id": "m-3", "judul": "Nulis rencana kontribusi", "selesai": false },
-      { "id": "m-4", "judul": "Bedah contoh esai", "selesai": false }
-    ]
+      {
+        "id": "m-1",
+        "judul": "Apa yang dicari penilai",
+        "selesai": false
+      },
+      {
+        "id": "m-2",
+        "judul": "Kerangka cerita 3 babak",
+        "selesai": false
+      },
+      {
+        "id": "m-3",
+        "judul": "Nulis rencana kontribusi",
+        "selesai": false
+      },
+      {
+        "id": "m-4",
+        "judul": "Bedah contoh esai",
+        "selesai": false
+      }
+    ],
+    "jamDurasi": 2.0,
+    "level": "intermediate",
+    "mulaiIso": "2026-08-01",
+    "selesaiIso": "2026-08-22",
+    "jadwalHari": [
+      6
+    ],
+    "jadwalJam": {
+      "jam": 9,
+      "menit": 0
+    }
   },
   {
-    "id": "c-4", "jenis": "materi", "judul": "Dasar Desain Antarmuka", "penyedia": "Belajar UI/UX Bareng",
-    "penulis": "Ayu Lestari", "jenjang": "Pemula", "durasi": "4 jam", "progress": 12,
-    "tag": ["Desain", "UI/UX"],
+    "id": "c-4",
+    "jenis": "materi",
+    "judul": "Dasar Desain Antarmuka",
+    "penyedia": "Belajar UI/UX Bareng",
+    "penulis": "Ayu Lestari",
+    "progress": 12,
+    "tag": [
+      "Desain",
+      "UI/UX"
+    ],
     "deskripsi": "Prinsip hierarki, spasi, dan warna yang bikin tampilan enak dilihat tanpa perlu bakat seni.",
     "modul": [
-      { "id": "m-1", "judul": "Hierarki visual", "selesai": true },
-      { "id": "m-2", "judul": "Spasi & grid", "selesai": false },
-      { "id": "m-3", "judul": "Warna & kontras", "selesai": false },
-      { "id": "m-4", "judul": "Tipografi", "selesai": false },
-      { "id": "m-5", "judul": "Latihan redesain layar", "selesai": false }
-    ]
+      {
+        "id": "m-1",
+        "judul": "Hierarki visual",
+        "selesai": true
+      },
+      {
+        "id": "m-2",
+        "judul": "Spasi & grid",
+        "selesai": false
+      },
+      {
+        "id": "m-3",
+        "judul": "Warna & kontras",
+        "selesai": false
+      },
+      {
+        "id": "m-4",
+        "judul": "Tipografi",
+        "selesai": false
+      },
+      {
+        "id": "m-5",
+        "judul": "Latihan redesain layar",
+        "selesai": false
+      }
+    ],
+    "jamDurasi": 4.0,
+    "level": "beginner"
   },
   {
-    "id": "c-5", "jenis": "kursus", "judul": "IELTS Speaking Tanpa Panik", "penyedia": "English Circle ID",
-    "penulis": "Dewi Anggraini", "jenjang": "Menengah", "durasi": "3 jam", "progress": 0,
-    "tanggalMulai": "10 Agustus 2026", "tanggalSelesai": "7 September 2026", "jadwal": "Tiap Senin & Kamis, 19.30 WIB",
-    "tag": ["Bahasa Inggris", "IELTS"],
+    "id": "c-5",
+    "jenis": "kursus",
+    "judul": "IELTS Speaking Tanpa Panik",
+    "penyedia": "English Circle ID",
+    "penulis": "Dewi Anggraini",
+    "progress": 0,
+    "tag": [
+      "Bahasa Inggris",
+      "IELTS"
+    ],
     "deskripsi": "Pola jawaban part 1 sampai 3, plus latihan bicara 2 menit yang bisa dilakukan sendiri di kamar.",
     "modul": [
-      { "id": "m-1", "judul": "Format tes speaking", "selesai": false },
-      { "id": "m-2", "judul": "Part 1: jawab singkat tapi berisi", "selesai": false },
-      { "id": "m-3", "judul": "Part 2: bicara 2 menit", "selesai": false },
-      { "id": "m-4", "judul": "Part 3: diskusi abstrak", "selesai": false },
-      { "id": "m-5", "judul": "Latihan mandiri", "selesai": false }
-    ]
+      {
+        "id": "m-1",
+        "judul": "Format tes speaking",
+        "selesai": false
+      },
+      {
+        "id": "m-2",
+        "judul": "Part 1: jawab singkat tapi berisi",
+        "selesai": false
+      },
+      {
+        "id": "m-3",
+        "judul": "Part 2: bicara 2 menit",
+        "selesai": false
+      },
+      {
+        "id": "m-4",
+        "judul": "Part 3: diskusi abstrak",
+        "selesai": false
+      },
+      {
+        "id": "m-5",
+        "judul": "Latihan mandiri",
+        "selesai": false
+      }
+    ],
+    "jamDurasi": 3.0,
+    "level": "intermediate",
+    "mulaiIso": "2026-08-10",
+    "selesaiIso": "2026-09-07",
+    "jadwalHari": [
+      1,
+      4
+    ],
+    "jadwalJam": {
+      "jam": 19,
+      "menit": 30
+    }
   },
   {
-    "id": "c-6", "jenis": "materi", "judul": "Baca Jurnal Ilmiah dengan Cepat", "penyedia": "Xdemia Belajar",
-    "penulis": "Rizky Ramadhan", "jenjang": "Pemula", "durasi": "1,5 jam", "progress": 0,
-    "tag": ["Riset", "Membaca"],
+    "id": "c-6",
+    "jenis": "materi",
+    "judul": "Baca Jurnal Ilmiah dengan Cepat",
+    "penyedia": "Xdemia Belajar",
+    "penulis": "Rizky Ramadhan",
+    "progress": 0,
+    "tag": [
+      "Riset",
+      "Membaca"
+    ],
     "deskripsi": "Teknik baca lompat-lompat yang dipakai peneliti biar nggak tenggelam di satu paper seharian.",
     "modul": [
-      { "id": "m-1", "judul": "Anatomi paper", "selesai": false },
-      { "id": "m-2", "judul": "Urutan baca yang benar", "selesai": false },
-      { "id": "m-3", "judul": "Bikin catatan ringkas", "selesai": false }
-    ]
+      {
+        "id": "m-1",
+        "judul": "Anatomi paper",
+        "selesai": false
+      },
+      {
+        "id": "m-2",
+        "judul": "Urutan baca yang benar",
+        "selesai": false
+      },
+      {
+        "id": "m-3",
+        "judul": "Bikin catatan ringkas",
+        "selesai": false
+      }
+    ],
+    "jamDurasi": 1.5,
+    "level": "beginner"
   },
   {
-    "id": "c-7", "jenis": "materi", "judul": "Kelola Waktu Ala Mahasiswa Sibuk", "penyedia": "Xdemia Belajar",
-    "penulis": "Nadia Putri", "jenjang": "Pemula", "durasi": "1 jam", "progress": 0,
-    "tag": ["Produktivitas", "Kebiasaan"],
+    "id": "c-7",
+    "jenis": "materi",
+    "judul": "Kelola Waktu Ala Mahasiswa Sibuk",
+    "penyedia": "Xdemia Belajar",
+    "penulis": "Nadia Putri",
+    "progress": 0,
+    "tag": [
+      "Produktivitas",
+      "Kebiasaan"
+    ],
     "deskripsi": "Sistem sederhana buat ngatur kuliah, organisasi, dan belajar mandiri tanpa aplikasi ribet.",
     "modul": [
-      { "id": "m-1", "judul": "Petakan beban seminggu", "selesai": false },
-      { "id": "m-2", "judul": "Blok waktu belajar", "selesai": false },
-      { "id": "m-3", "judul": "Evaluasi mingguan", "selesai": false }
-    ]
+      {
+        "id": "m-1",
+        "judul": "Petakan beban seminggu",
+        "selesai": false
+      },
+      {
+        "id": "m-2",
+        "judul": "Blok waktu belajar",
+        "selesai": false
+      },
+      {
+        "id": "m-3",
+        "judul": "Evaluasi mingguan",
+        "selesai": false
+      }
+    ],
+    "jamDurasi": 1.0,
+    "level": "beginner"
   },
   {
-    "id": "c-8", "jenis": "kursus", "judul": "Pengantar Machine Learning", "penyedia": "Data Enthusiast Indonesia",
-    "penulis": "Yoga Pratama", "jenjang": "Menengah", "durasi": "6 jam", "progress": 0,
-    "tanggalMulai": "5 Agustus 2026", "tanggalSelesai": "30 September 2026", "jadwal": "Tiap Rabu, 20.00 WIB",
-    "tag": ["Machine Learning", "Data", "Python"],
+    "id": "c-8",
+    "jenis": "kursus",
+    "judul": "Pengantar Machine Learning",
+    "penyedia": "Data Enthusiast Indonesia",
+    "penulis": "Yoga Pratama",
+    "progress": 0,
+    "tag": [
+      "Machine Learning",
+      "Data",
+      "Python"
+    ],
     "deskripsi": "Konsep model, data latih, dan evaluasi dijelaskan pakai analogi sehari-hari sebelum masuk kode.",
     "modul": [
-      { "id": "m-1", "judul": "Apa itu model", "selesai": false },
-      { "id": "m-2", "judul": "Data latih & data uji", "selesai": false },
-      { "id": "m-3", "judul": "Regresi linear", "selesai": false },
-      { "id": "m-4", "judul": "Klasifikasi", "selesai": false },
-      { "id": "m-5", "judul": "Evaluasi model", "selesai": false },
-      { "id": "m-6", "judul": "Proyek akhir", "selesai": false }
-    ]
+      {
+        "id": "m-1",
+        "judul": "Apa itu model",
+        "selesai": false
+      },
+      {
+        "id": "m-2",
+        "judul": "Data latih & data uji",
+        "selesai": false
+      },
+      {
+        "id": "m-3",
+        "judul": "Regresi linear",
+        "selesai": false
+      },
+      {
+        "id": "m-4",
+        "judul": "Klasifikasi",
+        "selesai": false
+      },
+      {
+        "id": "m-5",
+        "judul": "Evaluasi model",
+        "selesai": false
+      },
+      {
+        "id": "m-6",
+        "judul": "Proyek akhir",
+        "selesai": false
+      }
+    ],
+    "jamDurasi": 6.0,
+    "level": "intermediate",
+    "mulaiIso": "2026-08-05",
+    "selesaiIso": "2026-09-30",
+    "jadwalHari": [
+      3
+    ],
+    "jadwalJam": {
+      "jam": 20,
+      "menit": 0
+    }
   },
   {
-    "id": "c-9", "jenis": "kursus", "judul": "Riset Literatur untuk Skripsi", "penyedia": "Universitas Brawijaya",
-    "penulis": "Rizky Ramadhan", "jenjang": "Menengah", "durasi": "2,5 jam", "progress": 0,
-    "tanggalMulai": "12 Agustus 2026", "tanggalSelesai": "2 September 2026", "jadwal": "Tiap Selasa, 16.00 WIB",
-    "tag": ["Riset", "Skripsi"],
+    "id": "c-9",
+    "jenis": "kursus",
+    "judul": "Riset Literatur untuk Skripsi",
+    "penyedia": "Universitas Brawijaya",
+    "penulis": "Rizky Ramadhan",
+    "progress": 0,
+    "tag": [
+      "Riset",
+      "Skripsi"
+    ],
     "deskripsi": "Cara nyari, nyaring, dan nyusun referensi biar bab 2 nggak jadi tempelan.",
     "modul": [
-      { "id": "m-1", "judul": "Nyari sumber yang layak", "selesai": false },
-      { "id": "m-2", "judul": "Kelola referensi", "selesai": false },
-      { "id": "m-3", "judul": "Nyusun tinjauan pustaka", "selesai": false },
-      { "id": "m-4", "judul": "Hindari plagiarisme", "selesai": false }
-    ]
+      {
+        "id": "m-1",
+        "judul": "Nyari sumber yang layak",
+        "selesai": false
+      },
+      {
+        "id": "m-2",
+        "judul": "Kelola referensi",
+        "selesai": false
+      },
+      {
+        "id": "m-3",
+        "judul": "Nyusun tinjauan pustaka",
+        "selesai": false
+      },
+      {
+        "id": "m-4",
+        "judul": "Hindari plagiarisme",
+        "selesai": false
+      }
+    ],
+    "jamDurasi": 2.5,
+    "level": "intermediate",
+    "mulaiIso": "2026-08-12",
+    "selesaiIso": "2026-09-02",
+    "jadwalHari": [
+      2
+    ],
+    "jadwalJam": {
+      "jam": 16,
+      "menit": 0
+    }
   },
   {
-    "id": "c-10", "jenis": "materi", "judul": "Bikin Portofolio Data Pertama", "penyedia": "Data Enthusiast Indonesia",
-    "penulis": "Yoga Pratama", "jenjang": "Menengah", "durasi": "4 jam", "progress": 0,
-    "tag": ["Portofolio", "Data", "Karier"],
+    "id": "c-10",
+    "jenis": "materi",
+    "judul": "Bikin Portofolio Data Pertama",
+    "penyedia": "Data Enthusiast Indonesia",
+    "penulis": "Yoga Pratama",
+    "progress": 0,
+    "tag": [
+      "Portofolio",
+      "Data",
+      "Karier"
+    ],
     "deskripsi": "Dari milih dataset sampai nulis cerita hasil analisis yang dibaca perekrut.",
     "modul": [
-      { "id": "m-1", "judul": "Pilih masalah, bukan dataset", "selesai": false },
-      { "id": "m-2", "judul": "Bersihin data", "selesai": false },
-      { "id": "m-3", "judul": "Visualisasi seperlunya", "selesai": false },
-      { "id": "m-4", "judul": "Tulis ceritanya", "selesai": false }
-    ]
+      {
+        "id": "m-1",
+        "judul": "Pilih masalah, bukan dataset",
+        "selesai": false
+      },
+      {
+        "id": "m-2",
+        "judul": "Bersihin data",
+        "selesai": false
+      },
+      {
+        "id": "m-3",
+        "judul": "Visualisasi seperlunya",
+        "selesai": false
+      },
+      {
+        "id": "m-4",
+        "judul": "Tulis ceritanya",
+        "selesai": false
+      }
+    ],
+    "jamDurasi": 4.0,
+    "level": "intermediate"
   }
 ]

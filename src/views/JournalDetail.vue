@@ -20,16 +20,16 @@
         <div class="row row-top">
           <div class="thumb logo">{{ jurnal.inisial }}</div>
           <div class="grow">
-            <h1 class="title-lg">{{ jurnal.nama }}</h1>
-            <p class="muted">{{ jurnal.penerbit }}</p>
+            <h1 class="title-lg" data-content="true">{{ jurnal.nama }}</h1>
+            <p class="muted" data-content="true">{{ jurnal.penerbit }}</p>
           </div>
         </div>
 
-        <p class="paragraf">{{ jurnal.deskripsi }}</p>
+        <p class="paragraf" data-content="true">{{ jurnal.deskripsi }}</p>
 
         <div class="info"><span class="muted">{{ $t('journal.issn') }}</span><span>{{ jurnal.issn }}</span></div>
         <div class="info"><span class="muted">{{ $t('journal.table.field') }}</span><span class="pill">{{ jurnal.bidang }}</span></div>
-        <div class="info"><span class="muted">{{ $t('journal.schedule') }}</span><span>{{ jurnal.terbit }}</span></div>
+        <div class="info"><span class="muted">{{ $t('journal.schedule') }}</span><span>{{ $t('journalSchedule.' + jurnal.terbitKunci) }}</span></div>
         <div class="info"><span class="muted">{{ $t('journal.articleCount') }}</span><span>{{ jurnal.jumlahTulisan }}</span></div>
 
         <div class="aksi">
@@ -53,15 +53,17 @@
           <el-table :data="jurnal.tulisan" style="width: 100%">
             <el-table-column prop="judul" :label="$t('journal.table.title')" sortable min-width="200">
               <template slot-scope="baris">
-                <span class="judul-tulisan">{{ baris.row.judul }}</span>
+                <span class="judul-tulisan" data-content="true">{{ baris.row.judul }}</span>
               </template>
             </el-table-column>
             <el-table-column prop="deskripsi" :label="$t('journal.table.description')" min-width="180">
               <template slot-scope="baris">
-                <span class="muted">{{ baris.row.deskripsi }}</span>
+                <span class="muted" data-content="true">{{ baris.row.deskripsi }}</span>
               </template>
             </el-table-column>
-            <el-table-column prop="terbit" :label="$t('journal.table.published')" sortable width="130" />
+            <el-table-column prop="terbitIso" :label="$t('journal.table.published')" sortable width="130">
+              <template slot-scope="baris">{{ $bulanTahun(baris.row.terbitIso) }}</template>
+            </el-table-column>
           </el-table>
         </div>
       </section>

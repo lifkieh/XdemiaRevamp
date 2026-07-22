@@ -5,8 +5,8 @@
       <div class="thumb" :class="{ 'thumb-round': bulat }">{{ inisial }}</div>
 
       <div class="grow">
-        <p class="title clamp-2">{{ judul }}</p>
-        <p v-if="subjudul" class="muted">{{ subjudul }}</p>
+        <p class="title clamp-2" data-content="true">{{ judul }}</p>
+        <p v-if="subjudul" class="muted" data-content="true">{{ subjudul }}</p>
         <div v-if="$slots.meta" class="basecard-meta">
           <slot name="meta"></slot>
         </div>

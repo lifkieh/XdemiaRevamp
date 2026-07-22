@@ -30,13 +30,15 @@
         >
           <el-table-column prop="nama" :label="$t('journal.table.name')" sortable min-width="180">
             <template slot-scope="baris">
-              <span class="nama-jurnal">{{ baris.row.nama }}</span>
-              <p class="muted sub">{{ baris.row.penerbit }}</p>
+              <span class="nama-jurnal" data-content="true">{{ baris.row.nama }}</span>
+              <p class="muted sub" data-content="true">{{ baris.row.penerbit }}</p>
             </template>
           </el-table-column>
           <el-table-column prop="bidang" :label="$t('journal.table.field')" sortable width="130" />
           <el-table-column prop="jumlahTulisan" :label="$t('journal.table.articles')" sortable width="110" align="right" />
-          <el-table-column prop="terbit" :label="$t('journal.table.published')" sortable width="150" />
+          <el-table-column prop="terbitKunci" :label="$t('journal.table.published')" sortable width="150">
+            <template slot-scope="baris">{{ $t('journalSchedule.' + baris.row.terbitKunci) }}</template>
+          </el-table-column>
         </el-table>
       </div>
 

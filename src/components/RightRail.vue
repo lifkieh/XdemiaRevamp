@@ -24,7 +24,7 @@
         >
           <div class="thumb thumb-mini">{{ m.judul.charAt(0) }}</div>
           <div class="grow">
-            <p class="baris-judul">{{ m.judul }}</p>
+            <p class="baris-judul" data-content="true">{{ m.judul }}</p>
             <p class="muted">{{ $t('common.percentDone', { n: m.progress }) }}</p>
           </div>
         </router-link>
@@ -41,7 +41,7 @@
         >
           <div class="thumb thumb-mini">{{ b.inisial }}</div>
           <div class="grow">
-            <p class="baris-judul">{{ b.nama }}</p>
+            <p class="baris-judul" data-content="true">{{ b.nama }}</p>
             <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">{{ $t('common.daysLeft', { n: b.sisaHari }) }}</span>
           </div>
         </router-link>
@@ -58,8 +58,8 @@
         >
           <div class="thumb thumb-mini">{{ e.inisial }}</div>
           <div class="grow">
-            <p class="baris-judul">{{ e.judul }}</p>
-            <p class="muted">{{ e.tanggal }} · {{ e.waktu }}</p>
+            <p class="baris-judul" data-content="true">{{ e.judul }}</p>
+            <p class="muted">{{ $tanggal(e.tanggalIso, true) }} · {{ $jam(e.jamMulai) }}</p>
           </div>
         </router-link>
       </div>
@@ -70,8 +70,8 @@
         <div v-for="o in saranOrang" :key="o.id" class="baris">
           <div class="thumb thumb-mini thumb-round">{{ o.inisial }}</div>
           <div class="grow">
-            <p class="baris-judul">{{ o.nama }}</p>
-            <p class="muted">{{ o.info }}</p>
+            <p class="baris-judul" data-content="true">{{ o.nama }}</p>
+            <p class="muted" data-content="true">{{ o.peran }}</p>
           </div>
           <el-button size="mini" type="primary" @click="ikuti(o)">{{ $t('common.follow') }}</el-button>
         </div>

@@ -20,9 +20,9 @@
         <div class="cover"></div>
         <div class="profil-isi">
           <div class="avatar-besar">{{ orang.inisial }}</div>
-          <h1 class="title-lg">{{ orang.nama }}</h1>
+          <h1 class="title-lg" data-content="true">{{ orang.nama }}</h1>
           <p class="muted">{{ orang.handle }} · {{ orang.peran }}</p>
-          <p class="bio">{{ orang.bio }}</p>
+          <p class="bio" data-content="true">{{ orang.bio }}</p>
 
           <div class="statistik">
             <div class="stat"><b>{{ orang.stats.postingan }}</b><span class="muted">{{ $t('you.stats.posts') }}</span></div>
@@ -48,8 +48,8 @@
       <el-tabs v-model="tab" class="tab-orang">
         <el-tab-pane :label="$t('person.tabs.posts')" name="postingan">
           <div v-for="p in orang.postingan" :key="p.id" class="card">
-            <p class="muted">{{ p.waktu }}</p>
-            <p class="post-konten">{{ p.konten }}</p>
+            <p class="muted">{{ $waktuRelatif(p.waktu) }}</p>
+            <p class="post-konten" data-content="true">{{ p.konten }}</p>
             <div class="card-foot">
               <span class="tap"><i class="el-icon-star-off"></i><span>{{ $t('common.like') }} {{ p.suka }}</span></span>
               <span class="tap"><i class="el-icon-chat-line-round"></i><span>{{ $t('common.comment') }} {{ p.komentar }}</span></span>
@@ -70,7 +70,7 @@
             :key="m.id"
             :inisial="m.judul.charAt(0)"
             :judul="m.judul"
-            :subjudul="m.penyedia + ' · ' + m.durasi"
+            :subjudul="m.penyedia + ' · ' + $durasi(m.jamDurasi)"
             clickable
             @click.native="$router.push('/materi/' + m.id)"
           >
@@ -86,7 +86,7 @@
             :key="k.id"
             :inisial="k.inisial"
             :judul="k.nama"
-            :subjudul="$t('common.members', { n: k.anggota.toLocaleString('id-ID') }) + ' · ' + k.tipe"
+            :subjudul="$t('common.members', { n: $angka(k.anggota) }) + ' · ' + $t('communityType.' + k.tipeKunci)"
             clickable
             @click.native="$router.push('/community/' + k.id)"
           />
@@ -98,7 +98,7 @@
             :key="a.id"
             :inisial="a.inisial"
             :judul="a.judul"
-            :subjudul="a.tanggal + ' · ' + a.waktu"
+            :subjudul="$tanggal(a.tanggalIso, true) + ' · ' + $jam(a.jamMulai)"
             clickable
             @click.native="$router.push('/acara/' + a.id)"
           >

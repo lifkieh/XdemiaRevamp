@@ -1,31 +1,286 @@
 [
-  { "id": "e-1", "tipe": "orang", "orangId": "o-1", "nama": "Nadia Putri", "inisial": "N", "info": "Mahasiswa Psikologi · UGM", "aksi": "Ikuti" },
-  { "id": "e-2", "tipe": "orang", "orangId": "o-2", "nama": "Yoga Pratama", "inisial": "Y", "info": "Data Analyst · Jakarta", "aksi": "Ikuti" },
-  { "id": "e-3", "tipe": "orang", "orangId": "o-3", "nama": "Bagas Wirawan", "inisial": "B", "info": "Alumni Teknik Elektro · ITB", "aksi": "Ikuti" },
-  { "id": "e-4", "tipe": "komunitas", "komunitasId": "k-1", "nama": "Data Enthusiast Indonesia", "inisial": "D", "info": "12.480 anggota", "aksi": "Gabung" },
-  { "id": "e-5", "tipe": "komunitas", "komunitasId": "k-2", "nama": "Pejuang Beasiswa Luar Negeri", "inisial": "P", "info": "38.902 anggota", "aksi": "Gabung" },
-  { "id": "e-6", "tipe": "komunitas", "komunitasId": "k-3", "nama": "Belajar UI/UX Bareng", "inisial": "B", "info": "7.115 anggota", "aksi": "Gabung" },
-  { "id": "e-7", "tipe": "kampus", "kampusId": "i-1", "nama": "Universitas Brawijaya", "inisial": "UB", "info": "Malang · 62 program studi", "aksi": "Ikuti" },
-  { "id": "e-8", "tipe": "kampus", "kampusId": "i-2", "nama": "Institut Teknologi Bandung", "inisial": "IT", "info": "Bandung · 49 program studi", "aksi": "Ikuti" },
-  { "id": "e-9", "tipe": "kampus", "kampusId": "i-3", "nama": "Universitas Gadjah Mada", "inisial": "UG", "info": "Yogyakarta · 78 program studi", "aksi": "Ikuti" },
-  { "id": "e-10", "tipe": "organisasi", "organisasiId": "i-4", "nama": "Ruang Beasiswa", "inisial": "RB", "info": "Organisasi Nirlaba · Jakarta", "aksi": "Ikuti" },
-  { "id": "e-11", "tipe": "organisasi", "organisasiId": "i-5", "nama": "Yayasan Literasi Digital", "inisial": "YL", "info": "Yayasan · Surabaya", "aksi": "Ikuti" },
-  { "id": "e-12", "tipe": "organisasi", "organisasiId": "i-6", "nama": "English Circle ID", "inisial": "EC", "info": "Komunitas Belajar · Yogyakarta", "aksi": "Ikuti" },
-  { "id": "e-13", "tipe": "jurnal", "jurnalId": "j-1", "nama": "Jurnal Pendidikan Digital", "inisial": "JP", "info": "214 tulisan · terbit tiap bulan", "aksi": "Ikuti" },
-  { "id": "e-14", "tipe": "jurnal", "jurnalId": "j-2", "nama": "Jurnal Riset Kesehatan Masyarakat", "inisial": "JR", "info": "97 tulisan · terbit tiap kuartal", "aksi": "Ikuti" },
-  { "id": "e-15", "tipe": "jurnal", "jurnalId": "j-3", "nama": "Catatan Riset Data Indonesia", "inisial": "CR", "info": "58 tulisan · terbit tiap bulan", "aksi": "Ikuti" },
-  { "id": "e-16", "tipe": "artikel", "artikelId": "ar-1", "nama": "Cara Baca Jurnal Ilmiah Tanpa Pusing", "inisial": "CB", "info": "Jurnal Belajar Xdemia · 4 menit baca", "aksi": "Baca" },
-  { "id": "e-17", "tipe": "artikel", "artikelId": "ar-2", "nama": "5 Kesalahan Umum Waktu Nulis Esai Beasiswa", "inisial": "5K", "info": "Ruang Beasiswa · 6 menit baca", "aksi": "Baca" },
-  { "id": "e-18", "tipe": "artikel", "artikelId": "ar-3", "nama": "Belajar Python 30 Menit Sehari, Realistis Nggak?", "inisial": "BP", "info": "Jurnal Belajar Xdemia · 5 menit baca", "aksi": "Baca" },
-  { "id": "e-19", "tipe": "artikel", "artikelId": "ar-4", "nama": "Portofolio atau IPK, Perekrut Lihat yang Mana?", "inisial": "PI", "info": "Jurnal Belajar Xdemia · 7 menit baca", "aksi": "Baca" },
-  { "id": "e-20", "tipe": "artikel", "artikelId": "ar-5", "nama": "Kuliah di Luar Negeri Tanpa Beasiswa Penuh, Mungkin?", "inisial": "KL", "info": "Ruang Beasiswa · 6 menit baca", "aksi": "Baca" },
-  { "id": "e-21", "tipe": "artikel", "artikelId": "ar-6", "nama": "Cara Bikin Catatan Kuliah yang Beneran Dibaca Lagi", "inisial": "CB", "info": "Jurnal Belajar Xdemia · 4 menit baca", "aksi": "Baca" },
-  { "id": "e-22", "tipe": "artikel", "artikelId": "ar-7", "nama": "Burnout Belajar Itu Nyata, Ini Tandanya", "inisial": "BB", "info": "Jurnal Belajar Xdemia · 5 menit baca", "aksi": "Baca" },
-  { "id": "e-23", "tipe": "artikel", "artikelId": "ar-8", "nama": "Skripsi Macet di Bab 2? Coba Ubah Urutannya", "inisial": "SM", "info": "Jurnal Riset Kesehatan Masyarakat · 6 menit baca", "aksi": "Baca" },
-  { "id": "e-24", "tipe": "acara", "acaraId": "ev-1", "nama": "Bedah Portofolio Data Bareng Praktisi", "inisial": "BP", "info": "Sabtu, 26 Juli 2026 · Online · Zoom", "aksi": "Lihat" },
-  { "id": "e-25", "tipe": "acara", "acaraId": "ev-2", "nama": "Kelas Menulis Esai Beasiswa", "inisial": "KM", "info": "Minggu, 27 Juli 2026 · Online · Google Meet", "aksi": "Lihat" },
-  { "id": "e-26", "tipe": "acara", "acaraId": "ev-3", "nama": "Info Session LPDP Batch 2", "inisial": "IS", "info": "Rabu, 30 Juli 2026 · Online · YouTube Live", "aksi": "Lihat" },
-  { "id": "e-27", "tipe": "acara", "acaraId": "ev-4", "nama": "Workshop Dasar Desain Antarmuka", "inisial": "WD", "info": "Sabtu, 2 Agustus 2026 · Malang · Gedung Widyaloka UB", "aksi": "Lihat" },
-  { "id": "e-28", "tipe": "acara", "acaraId": "ev-5", "nama": "Ngobrol Karier: Dari Kampus ke Industri Data", "inisial": "NK", "info": "Jumat, 8 Agustus 2026 · Online · Discord", "aksi": "Lihat" },
-  { "id": "e-29", "tipe": "acara", "acaraId": "ev-6", "nama": "Lomba Visualisasi Data Mahasiswa", "inisial": "LV", "info": "Sabtu, 16 Agustus 2026 · Online · Zoom", "aksi": "Lihat" }
+  {
+    "id": "e-1",
+    "tipe": "orang",
+    "orangId": "o-1",
+    "nama": "Nadia Putri",
+    "inisial": "N",
+    "aksi": "Ikuti",
+    "peran": "Mahasiswa Psikologi · UGM"
+  },
+  {
+    "id": "e-2",
+    "tipe": "orang",
+    "orangId": "o-2",
+    "nama": "Yoga Pratama",
+    "inisial": "Y",
+    "aksi": "Ikuti",
+    "peran": "Data Analyst · Jakarta"
+  },
+  {
+    "id": "e-3",
+    "tipe": "orang",
+    "orangId": "o-3",
+    "nama": "Bagas Wirawan",
+    "inisial": "B",
+    "aksi": "Ikuti",
+    "peran": "Alumni Teknik Elektro · ITB"
+  },
+  {
+    "id": "e-4",
+    "tipe": "komunitas",
+    "komunitasId": "k-1",
+    "nama": "Data Enthusiast Indonesia",
+    "inisial": "D",
+    "aksi": "Gabung",
+    "jumlahAnggota": 12480
+  },
+  {
+    "id": "e-5",
+    "tipe": "komunitas",
+    "komunitasId": "k-2",
+    "nama": "Pejuang Beasiswa Luar Negeri",
+    "inisial": "P",
+    "aksi": "Gabung",
+    "jumlahAnggota": 38902
+  },
+  {
+    "id": "e-6",
+    "tipe": "komunitas",
+    "komunitasId": "k-3",
+    "nama": "Belajar UI/UX Bareng",
+    "inisial": "B",
+    "aksi": "Gabung",
+    "jumlahAnggota": 7115
+  },
+  {
+    "id": "e-7",
+    "tipe": "kampus",
+    "kampusId": "i-1",
+    "nama": "Universitas Brawijaya",
+    "inisial": "UB",
+    "aksi": "Ikuti",
+    "kota": "Malang",
+    "prodi": 62
+  },
+  {
+    "id": "e-8",
+    "tipe": "kampus",
+    "kampusId": "i-2",
+    "nama": "Institut Teknologi Bandung",
+    "inisial": "IT",
+    "aksi": "Ikuti",
+    "kota": "Bandung",
+    "prodi": 49
+  },
+  {
+    "id": "e-9",
+    "tipe": "kampus",
+    "kampusId": "i-3",
+    "nama": "Universitas Gadjah Mada",
+    "inisial": "UG",
+    "aksi": "Ikuti",
+    "kota": "Yogyakarta",
+    "prodi": 78
+  },
+  {
+    "id": "e-10",
+    "tipe": "organisasi",
+    "organisasiId": "i-4",
+    "nama": "Ruang Beasiswa",
+    "inisial": "RB",
+    "aksi": "Ikuti",
+    "tipeLembaga": "Organisasi Nirlaba",
+    "kota": "Jakarta"
+  },
+  {
+    "id": "e-11",
+    "tipe": "organisasi",
+    "organisasiId": "i-5",
+    "nama": "Yayasan Literasi Digital",
+    "inisial": "YL",
+    "aksi": "Ikuti",
+    "tipeLembaga": "Yayasan",
+    "kota": "Surabaya"
+  },
+  {
+    "id": "e-12",
+    "tipe": "organisasi",
+    "organisasiId": "i-6",
+    "nama": "English Circle ID",
+    "inisial": "EC",
+    "aksi": "Ikuti",
+    "tipeLembaga": "Komunitas Belajar",
+    "kota": "Yogyakarta"
+  },
+  {
+    "id": "e-13",
+    "tipe": "jurnal",
+    "jurnalId": "j-1",
+    "nama": "Jurnal Pendidikan Digital",
+    "inisial": "JP",
+    "aksi": "Ikuti",
+    "jumlahTulisan": 214,
+    "terbitKunci": "monthly"
+  },
+  {
+    "id": "e-14",
+    "tipe": "jurnal",
+    "jurnalId": "j-2",
+    "nama": "Jurnal Riset Kesehatan Masyarakat",
+    "inisial": "JR",
+    "aksi": "Ikuti",
+    "jumlahTulisan": 97,
+    "terbitKunci": "quarterly"
+  },
+  {
+    "id": "e-15",
+    "tipe": "jurnal",
+    "jurnalId": "j-3",
+    "nama": "Catatan Riset Data Indonesia",
+    "inisial": "CR",
+    "aksi": "Ikuti",
+    "jumlahTulisan": 58,
+    "terbitKunci": "monthly"
+  },
+  {
+    "id": "e-16",
+    "tipe": "artikel",
+    "artikelId": "ar-1",
+    "nama": "Cara Baca Jurnal Ilmiah Tanpa Pusing",
+    "inisial": "CB",
+    "aksi": "Baca",
+    "sumber": "Jurnal Belajar Xdemia",
+    "menitBaca": 4
+  },
+  {
+    "id": "e-17",
+    "tipe": "artikel",
+    "artikelId": "ar-2",
+    "nama": "5 Kesalahan Umum Waktu Nulis Esai Beasiswa",
+    "inisial": "5K",
+    "aksi": "Baca",
+    "sumber": "Ruang Beasiswa",
+    "menitBaca": 6
+  },
+  {
+    "id": "e-18",
+    "tipe": "artikel",
+    "artikelId": "ar-3",
+    "nama": "Belajar Python 30 Menit Sehari, Realistis Nggak?",
+    "inisial": "BP",
+    "aksi": "Baca",
+    "sumber": "Jurnal Belajar Xdemia",
+    "menitBaca": 5
+  },
+  {
+    "id": "e-19",
+    "tipe": "artikel",
+    "artikelId": "ar-4",
+    "nama": "Portofolio atau IPK, Perekrut Lihat yang Mana?",
+    "inisial": "PI",
+    "aksi": "Baca",
+    "sumber": "Jurnal Belajar Xdemia",
+    "menitBaca": 7
+  },
+  {
+    "id": "e-20",
+    "tipe": "artikel",
+    "artikelId": "ar-5",
+    "nama": "Kuliah di Luar Negeri Tanpa Beasiswa Penuh, Mungkin?",
+    "inisial": "KL",
+    "aksi": "Baca",
+    "sumber": "Ruang Beasiswa",
+    "menitBaca": 6
+  },
+  {
+    "id": "e-21",
+    "tipe": "artikel",
+    "artikelId": "ar-6",
+    "nama": "Cara Bikin Catatan Kuliah yang Beneran Dibaca Lagi",
+    "inisial": "CB",
+    "aksi": "Baca",
+    "sumber": "Jurnal Belajar Xdemia",
+    "menitBaca": 4
+  },
+  {
+    "id": "e-22",
+    "tipe": "artikel",
+    "artikelId": "ar-7",
+    "nama": "Burnout Belajar Itu Nyata, Ini Tandanya",
+    "inisial": "BB",
+    "aksi": "Baca",
+    "sumber": "Jurnal Belajar Xdemia",
+    "menitBaca": 5
+  },
+  {
+    "id": "e-23",
+    "tipe": "artikel",
+    "artikelId": "ar-8",
+    "nama": "Skripsi Macet di Bab 2? Coba Ubah Urutannya",
+    "inisial": "SM",
+    "aksi": "Baca",
+    "sumber": "Jurnal Riset Kesehatan Masyarakat",
+    "menitBaca": 6
+  },
+  {
+    "id": "e-24",
+    "tipe": "acara",
+    "acaraId": "ev-1",
+    "nama": "Bedah Portofolio Data Bareng Praktisi",
+    "inisial": "BP",
+    "aksi": "Lihat",
+    "tanggalIso": "2026-07-26",
+    "lokasi": "Online · Zoom"
+  },
+  {
+    "id": "e-25",
+    "tipe": "acara",
+    "acaraId": "ev-2",
+    "nama": "Kelas Menulis Esai Beasiswa",
+    "inisial": "KM",
+    "aksi": "Lihat",
+    "tanggalIso": "2026-07-27",
+    "lokasi": "Online · Google Meet"
+  },
+  {
+    "id": "e-26",
+    "tipe": "acara",
+    "acaraId": "ev-3",
+    "nama": "Info Session LPDP Batch 2",
+    "inisial": "IS",
+    "aksi": "Lihat",
+    "tanggalIso": "2026-07-30",
+    "lokasi": "Online · YouTube Live"
+  },
+  {
+    "id": "e-27",
+    "tipe": "acara",
+    "acaraId": "ev-4",
+    "nama": "Workshop Dasar Desain Antarmuka",
+    "inisial": "WD",
+    "aksi": "Lihat",
+    "tanggalIso": "2026-08-02",
+    "lokasi": "Malang · Gedung Widyaloka UB"
+  },
+  {
+    "id": "e-28",
+    "tipe": "acara",
+    "acaraId": "ev-5",
+    "nama": "Ngobrol Karier: Dari Kampus ke Industri Data",
+    "inisial": "NK",
+    "aksi": "Lihat",
+    "tanggalIso": "2026-08-08",
+    "lokasi": "Online · Discord"
+  },
+  {
+    "id": "e-29",
+    "tipe": "acara",
+    "acaraId": "ev-6",
+    "nama": "Lomba Visualisasi Data Mahasiswa",
+    "inisial": "LV",
+    "aksi": "Lihat",
+    "tanggalIso": "2026-08-16",
+    "lokasi": "Online · Zoom"
+  }
 ]

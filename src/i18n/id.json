@@ -40,7 +40,17 @@
     "discussion": "Diskusi",
     "membersTab": "Anggota",
     "files": "File",
-    "prototypeNote": "Prototipe Xdemia · data contoh"
+    "prototypeNote": "Prototipe Xdemia · data contoh",
+    "baruSaja": "Baru saja",
+    "kemarin": "Kemarin",
+    "menitLalu": "{n} menit lalu",
+    "jamLalu": "{n} jam lalu",
+    "hariLalu": "{n} hari lalu",
+    "mingguLalu": "{n} minggu lalu",
+    "articlesCount": "{n} tulisan",
+    "programmes": "{n} program studi",
+    "peopleJoining": "{n} orang ikut",
+    "bulanLalu": "{n} bulan lalu"
   },
   "nav": {
     "home": "Beranda",
@@ -79,7 +89,12 @@
       "community_update": "Komunitas"
     },
     "viewScholarship": "Lihat beasiswa",
-    "startLearning": "Mulai belajar"
+    "startLearning": "Mulai belajar",
+    "nudge": {
+      "streakTitle": "Streak kamu {n} hari",
+      "streakText": "Belajar 10 menit hari ini biar streak-nya nggak putus."
+    },
+    "alertClosing": "{name} tutup {n} hari lagi"
   },
   "continueCard": {
     "learn": {
@@ -96,6 +111,13 @@
       "title": "Lanjutin baca",
       "button": "Lanjut baca",
       "label": "Jurnal"
+    },
+    "sisa": {
+      "modulTersisa": "{modul} modul lagi · sekitar {menit} menit",
+      "menitBaca": "tinggal sekitar {menit} menit baca",
+      "bagian": "lanjut dari bagian {bagian}",
+      "babAwal": "baru mulai bab {bab}",
+      "bagianTersisa": "tinggal {bagian} bagian terakhir"
     }
   },
   "rail": {
@@ -182,7 +204,15 @@
     "moduleDone": "Modul \"{name}\" ditandai selesai.",
     "notFoundTitle": "Materi nggak ketemu",
     "notFoundText": "Mungkin sudah dihapus atau tautannya salah.",
-    "notFoundAction": "Lihat semua materi"
+    "notFoundAction": "Lihat semua materi",
+    "durasiJam": "{n} jam",
+    "level": {
+      "beginner": "Pemula",
+      "intermediate": "Menengah",
+      "advanced": "Lanjutan"
+    },
+    "startsOn": "Mulai {date}",
+    "jadwalPola": "Tiap {hari}, {jam}"
   },
   "scholarship": {
     "title": "Beasiswa",
@@ -542,5 +572,37 @@
   "eventPrivacy": {
     "Publik": "Publik",
     "Privat": "Privat"
+  },
+  "country": {
+    "ID": "Indonesia",
+    "GB": "Inggris",
+    "AU": "Australia",
+    "JP": "Jepang",
+    "DE": "Jerman",
+    "US": "Amerika Serikat",
+    "KR": "Korea Selatan",
+    "SG": "Singapura"
+  },
+  "communityType": {
+    "open": "Terbuka",
+    "closed": "Tertutup"
+  },
+  "journalSchedule": {
+    "monthly": "Tiap bulan",
+    "quarterly": "Tiap kuartal",
+    "biannual": "Dua kali setahun"
+  },
+  "cartType": {
+    "course": "Kursus",
+    "ticket": "Tiket acara",
+    "material": "Materi"
+  },
+  "cartStatus": {
+    "done": "Selesai",
+    "cancelled": "Dibatalkan"
+  },
+  "chapter": {
+    "kerangkaCerita": "kerangka cerita",
+    "metode": "Metode"
   }
 }

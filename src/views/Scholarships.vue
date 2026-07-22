@@ -38,7 +38,7 @@
       >
         <template slot="meta">
           <span class="pill">{{ b.jenjang }}</span>
-          <span class="pill">{{ b.negara }}</span>
+          <span class="pill">{{ $t('country.' + b.negaraKode) }}</span>
           <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">{{ $t('common.daysLeft', { n: b.sisaHari }) }}</span>
         </template>
         <template slot="action">
@@ -76,7 +76,7 @@ export default {
       negara: 'all',
       urutan: 'relevan',
       idJenjang: ['all', 'S1', 'S2', 'S3'],
-      idNegara: ['all', 'Indonesia', 'Inggris', 'Australia', 'Jepang', 'Jerman', 'Amerika Serikat', 'Korea Selatan', 'Singapura'],
+      idNegara: ['all', 'ID', 'GB', 'AU', 'JP', 'DE', 'US', 'KR', 'SG'],
       idUrutan: ['relevan', 'deadline']
     }
   },
@@ -84,18 +84,18 @@ export default {
     jumlahTersimpan () { return this.$store.state.bookmarks.beasiswa.length },
     opsiJenjang () { return this.idJenjang.map((id) => (id === 'all' ? this.$t('scholarship.levelAll') : id)) },
     labelJenjang () { return this.jenjang === 'all' ? this.$t('scholarship.levelAll') : this.jenjang },
-    opsiNegara () { return this.idNegara.map((id) => (id === 'all' ? this.$t('scholarship.countryAll') : id)) },
-    labelNegara () { return this.negara === 'all' ? this.$t('scholarship.countryAll') : this.negara },
+    opsiNegara () { return this.idNegara.map((id) => (id === 'all' ? this.$t('scholarship.countryAll') : this.$t('country.' + id))) },
+    labelNegara () { return this.negara === 'all' ? this.$t('scholarship.countryAll') : this.$t('country.' + this.negara) },
     opsiUrutan () { return [this.$t('scholarship.sortRelevant'), this.$t('scholarship.sortDeadline')] },
     labelUrutan () { return this.urutan === 'deadline' ? this.$t('scholarship.sortDeadline') : this.$t('scholarship.sortRelevant') },
     hasil () {
       const q = this.kueri.trim().toLowerCase()
       let list = this.data.filter((b) => {
         const cocokJenjang = this.jenjang === 'all' || b.jenjang === this.jenjang
-        const cocokNegara = this.negara === 'all' || b.negara === this.negara
+        const cocokNegara = this.negara === 'all' || b.negaraKode === this.negara
         const cocokKueri = !q ||
           b.nama.toLowerCase().indexOf(q) !== -1 ||
-          b.negara.toLowerCase().indexOf(q) !== -1 ||
+          this.$t('country.' + b.negaraKode).toLowerCase().indexOf(q) !== -1 ||
           b.penyelenggara.toLowerCase().indexOf(q) !== -1
         return cocokJenjang && cocokNegara && cocokKueri
       })

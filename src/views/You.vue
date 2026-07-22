@@ -4,9 +4,9 @@
       <div class="cover"></div>
       <div class="profil-isi">
         <div class="avatar-besar">{{ profil.initial }}</div>
-        <h1 class="title-lg">{{ profil.name }}</h1>
+        <h1 class="title-lg" data-content="true">{{ profil.name }}</h1>
         <p class="muted">{{ profil.handle }} · {{ profil.campus }}</p>
-        <p class="bio">{{ profil.bio }}</p>
+        <p class="bio" data-content="true">{{ profil.bio }}</p>
 
         <div class="statistik">
           <div class="stat"><b>{{ profil.stats.postingan }}</b><span class="muted">{{ $t('you.stats.posts') }}</span></div>
@@ -29,8 +29,8 @@
         <CardSkeleton v-if="memuat" :jumlah="2" />
         <template v-else>
           <div v-for="p in profil.posts" :key="p.id" class="card">
-            <p class="muted">{{ p.waktu }}</p>
-            <p class="post-konten">{{ p.konten }}</p>
+            <p class="muted">{{ $waktuRelatif(p.waktu) }}</p>
+            <p class="post-konten" data-content="true">{{ p.konten }}</p>
             <div class="card-foot">
               <span class="tap"><i class="el-icon-star-off"></i><span>{{ $t('common.like') }} {{ p.suka }}</span></span>
               <span class="tap"><i class="el-icon-chat-line-round"></i><span>{{ $t('common.comment') }} {{ p.komentar }}</span></span>
@@ -103,7 +103,7 @@
           :key="f.id"
           :inisial="labelJenis(f.jenis)"
           :judul="f.nama"
-          :subjudul="f.ukuran + ' · ' + f.waktu"
+          :subjudul="$ukuran(f.ukuranByte) + ' · ' + $waktuRelatif(f.waktu)"
         >
           <template slot="meta">
             <span class="pill"><i :class="ikonJenis(f.jenis)"></i> {{ namaJenis(f.jenis) }}</span>
@@ -210,10 +210,10 @@ export default {
         .map((c) => ({ id: c.id, inisial: c.judul.charAt(0), judul: c.judul, subjudul: c.penyedia, label: c.jenis === 'kursus' ? this.$t('you.labels.class') : this.$t('you.labels.course'), rute: '/materi/' + c.id }))
       const dariArtikel = articles
         .filter((a) => b.artikel.indexOf(a.id) !== -1)
-        .map((a) => ({ id: a.id, inisial: a.inisial, judul: a.judul, subjudul: a.penulis + ' · ' + a.baca, label: this.$t('you.labels.article'), rute: '/artikel/' + a.id }))
+        .map((a) => ({ id: a.id, inisial: a.inisial, judul: a.judul, subjudul: a.penulis + ' · ' + this.$t('common.readTime', { n: a.menitBaca }), label: this.$t('you.labels.article'), rute: '/artikel/' + a.id }))
       const dariAcara = events
         .filter((e) => b.acara.indexOf(e.id) !== -1)
-        .map((e) => ({ id: e.id, inisial: e.inisial, judul: e.judul, subjudul: e.tanggal + ' · ' + e.waktu, label: this.$t('you.labels.event'), rute: '/acara/' + e.id }))
+        .map((e) => ({ id: e.id, inisial: e.inisial, judul: e.judul, subjudul: this.$tanggal(e.tanggalIso, true) + ' · ' + this.$jam(e.jamMulai), label: this.$t('you.labels.event'), rute: '/acara/' + e.id }))
       return dariBeasiswa.concat(dariMateri, dariArtikel, dariAcara)
     }
   },

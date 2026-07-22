@@ -1,133 +1,491 @@
 [
   {
-    "id": "o-1", "nama": "Nadia Putri", "inisial": "N", "handle": "@nadiabelajar",
-    "peran": "Mahasiswa Psikologi · UGM", "kampus": "Universitas Gadjah Mada",
+    "id": "o-1",
+    "nama": "Nadia Putri",
+    "inisial": "N",
+    "handle": "@nadiabelajar",
+    "peran": "Mahasiswa Psikologi · UGM",
+    "kampus": "Universitas Gadjah Mada",
     "bio": "Lagi skripsi soal motivasi belajar. Suka nulis catatan panjang yang nggak ada yang baca.",
-    "stats": { "postingan": 87, "pengikut": 1420, "mengikuti": 312 },
+    "stats": {
+      "postingan": 87,
+      "pengikut": 1420,
+      "mengikuti": 312
+    },
     "postingan": [
-      { "id": "p-1", "waktu": "10 menit lalu", "konten": "Tips kecil buat yang gampang burnout belajar: pasang timer 25 menit, kerjain satu hal aja. Selesai timer, berdiri.", "suka": 128, "komentar": 19 },
-      { "id": "p-2", "waktu": "2 hari lalu", "konten": "Catatan kuliah paling berguna itu yang formatnya tanya-jawab, bukan yang paling rapi.", "suka": 76, "komentar": 8 }
+      {
+        "id": "p-1",
+        "waktu": {
+          "menit": 10
+        },
+        "konten": "Tips kecil buat yang gampang burnout belajar: pasang timer 25 menit, kerjain satu hal aja. Selesai timer, berdiri.",
+        "suka": 128,
+        "komentar": 19
+      },
+      {
+        "id": "p-2",
+        "waktu": {
+          "hari": 2
+        },
+        "konten": "Catatan kuliah paling berguna itu yang formatnya tanya-jawab, bukan yang paling rapi.",
+        "suka": 76,
+        "komentar": 8
+      }
     ],
-    "materi": ["c-7"], "komunitas": ["k-3"], "acara": ["ev-1", "ev-5"],
+    "materi": [
+      "c-7"
+    ],
+    "komunitas": [
+      "k-3"
+    ],
+    "acara": [
+      "ev-1",
+      "ev-5"
+    ],
     "jaringan": [
-      { "id": "n-1", "nama": "Raka Mahendra", "inisial": "R", "peran": "Mahasiswa Informatika" },
-      { "id": "n-2", "nama": "Dewi Anggraini", "inisial": "D", "peran": "Mahasiswa Sastra Inggris" },
-      { "id": "n-3", "nama": "Sinta Larasati", "inisial": "S", "peran": "Mahasiswa Kedokteran" }
+      {
+        "id": "n-1",
+        "nama": "Raka Mahendra",
+        "inisial": "R",
+        "peran": "Mahasiswa Informatika"
+      },
+      {
+        "id": "n-2",
+        "nama": "Dewi Anggraini",
+        "inisial": "D",
+        "peran": "Mahasiswa Sastra Inggris"
+      },
+      {
+        "id": "n-3",
+        "nama": "Sinta Larasati",
+        "inisial": "S",
+        "peran": "Mahasiswa Kedokteran"
+      }
     ]
   },
   {
-    "id": "o-2", "nama": "Yoga Pratama", "inisial": "Y", "handle": "@yogadata",
-    "peran": "Data Analyst · Jakarta", "kampus": "Institut Teknologi Bandung",
+    "id": "o-2",
+    "nama": "Yoga Pratama",
+    "inisial": "Y",
+    "handle": "@yogadata",
+    "peran": "Data Analyst · Jakarta",
+    "kampus": "Institut Teknologi Bandung",
     "bio": "Analis data, 6 tahun di industri. Nulis soal karier data biar yang mulai nggak sesat kayak dulu.",
-    "stats": { "postingan": 214, "pengikut": 18700, "mengikuti": 184 },
+    "stats": {
+      "postingan": 214,
+      "pengikut": 18700,
+      "mengikuti": 184
+    },
     "postingan": [
-      { "id": "p-1", "waktu": "8 jam lalu", "konten": "Portofolio > IPK, tapi cuma kalau portofolionya beneran nyelesain masalah.", "suka": 512, "komentar": 64 },
-      { "id": "p-2", "waktu": "3 hari lalu", "konten": "SQL itu 70% dari kerjaan analis harian. Latihannya jangan dianggap remeh.", "suka": 388, "komentar": 41 }
+      {
+        "id": "p-1",
+        "waktu": {
+          "jam": 8
+        },
+        "konten": "Portofolio > IPK, tapi cuma kalau portofolionya beneran nyelesain masalah.",
+        "suka": 512,
+        "komentar": 64
+      },
+      {
+        "id": "p-2",
+        "waktu": {
+          "hari": 3
+        },
+        "konten": "SQL itu 70% dari kerjaan analis harian. Latihannya jangan dianggap remeh.",
+        "suka": 388,
+        "komentar": 41
+      }
     ],
-    "materi": ["c-1", "c-10"], "komunitas": ["k-1"], "acara": ["ev-1", "ev-5"],
+    "materi": [
+      "c-1",
+      "c-10"
+    ],
+    "komunitas": [
+      "k-1"
+    ],
+    "acara": [
+      "ev-1",
+      "ev-5"
+    ],
     "jaringan": [
-      { "id": "n-1", "nama": "Bagas Wirawan", "inisial": "B", "peran": "Alumni Teknik Elektro" },
-      { "id": "n-2", "nama": "Rizky Ramadhan", "inisial": "R", "peran": "Dosen Statistika" },
-      { "id": "n-3", "nama": "Sinta Larasati", "inisial": "S", "peran": "Mahasiswa Kedokteran" }
+      {
+        "id": "n-1",
+        "nama": "Bagas Wirawan",
+        "inisial": "B",
+        "peran": "Alumni Teknik Elektro"
+      },
+      {
+        "id": "n-2",
+        "nama": "Rizky Ramadhan",
+        "inisial": "R",
+        "peran": "Dosen Statistika"
+      },
+      {
+        "id": "n-3",
+        "nama": "Sinta Larasati",
+        "inisial": "S",
+        "peran": "Mahasiswa Kedokteran"
+      }
     ]
   },
   {
-    "id": "o-3", "nama": "Bagas Wirawan", "inisial": "B", "handle": "@bagaswrwn",
-    "peran": "Alumni Teknik Elektro · ITB", "kampus": "Institut Teknologi Bandung",
+    "id": "o-3",
+    "nama": "Bagas Wirawan",
+    "inisial": "B",
+    "handle": "@bagaswrwn",
+    "peran": "Alumni Teknik Elektro · ITB",
+    "kampus": "Institut Teknologi Bandung",
     "bio": "Awardee Chevening 2024. Sekarang bantu-bantu review esai orang lain sebagai bayar balik.",
-    "stats": { "postingan": 132, "pengikut": 9240, "mengikuti": 276 },
+    "stats": {
+      "postingan": 132,
+      "pengikut": 9240,
+      "mengikuti": 276
+    },
     "postingan": [
-      { "id": "p-1", "waktu": "2 jam lalu", "konten": "Baru selesai wawancara beasiswa Chevening. Mereka bener-bener ngulik rencana balik ke Indonesia.", "suka": 342, "komentar": 47 },
-      { "id": "p-2", "waktu": "1 minggu lalu", "konten": "Esai yang lolos itu bukan yang paling heroik, tapi yang paling jujur dan spesifik.", "suka": 604, "komentar": 72 }
+      {
+        "id": "p-1",
+        "waktu": {
+          "jam": 2
+        },
+        "konten": "Baru selesai wawancara beasiswa Chevening. Mereka bener-bener ngulik rencana balik ke Indonesia.",
+        "suka": 342,
+        "komentar": 47
+      },
+      {
+        "id": "p-2",
+        "waktu": {
+          "minggu": 1
+        },
+        "konten": "Esai yang lolos itu bukan yang paling heroik, tapi yang paling jujur dan spesifik.",
+        "suka": 604,
+        "komentar": 72
+      }
     ],
-    "materi": ["c-3"], "komunitas": ["k-2"], "acara": ["ev-3", "ev-9"],
+    "materi": [
+      "c-3"
+    ],
+    "komunitas": [
+      "k-2"
+    ],
+    "acara": [
+      "ev-3",
+      "ev-9"
+    ],
     "jaringan": [
-      { "id": "n-1", "nama": "Dewi Anggraini", "inisial": "D", "peran": "Mahasiswa Sastra Inggris" },
-      { "id": "n-2", "nama": "Yoga Pratama", "inisial": "Y", "peran": "Data Analyst" }
+      {
+        "id": "n-1",
+        "nama": "Dewi Anggraini",
+        "inisial": "D",
+        "peran": "Mahasiswa Sastra Inggris"
+      },
+      {
+        "id": "n-2",
+        "nama": "Yoga Pratama",
+        "inisial": "Y",
+        "peran": "Data Analyst"
+      }
     ]
   },
   {
-    "id": "o-4", "nama": "Sinta Larasati", "inisial": "S", "handle": "@sintalara",
-    "peran": "Mahasiswa Kedokteran · Unair", "kampus": "Universitas Airlangga",
+    "id": "o-4",
+    "nama": "Sinta Larasati",
+    "inisial": "S",
+    "handle": "@sintalara",
+    "peran": "Mahasiswa Kedokteran · Unair",
+    "kampus": "Universitas Airlangga",
     "bio": "Kedokteran tingkat 4. Nyari cara belajar anatomi yang nggak bikin ngantuk.",
-    "stats": { "postingan": 64, "pengikut": 980, "mengikuti": 420 },
+    "stats": {
+      "postingan": 64,
+      "pengikut": 980,
+      "mengikuti": 420
+    },
     "postingan": [
-      { "id": "p-1", "waktu": "4 jam lalu", "konten": "Nanya dong, ada yang punya rekomendasi materi anatomi yang visual?", "suka": 76, "komentar": 33 },
-      { "id": "p-2", "waktu": "5 hari lalu", "konten": "Gagal LPDP dua kali, lolos di percobaan ketiga. Yang bedain: esainya akhirnya jujur.", "suka": 874, "komentar": 96 }
+      {
+        "id": "p-1",
+        "waktu": {
+          "jam": 4
+        },
+        "konten": "Nanya dong, ada yang punya rekomendasi materi anatomi yang visual?",
+        "suka": 76,
+        "komentar": 33
+      },
+      {
+        "id": "p-2",
+        "waktu": {
+          "hari": 5
+        },
+        "konten": "Gagal LPDP dua kali, lolos di percobaan ketiga. Yang bedain: esainya akhirnya jujur.",
+        "suka": 874,
+        "komentar": 96
+      }
     ],
-    "materi": ["c-6"], "komunitas": ["k-1", "k-2"], "acara": ["ev-1"],
+    "materi": [
+      "c-6"
+    ],
+    "komunitas": [
+      "k-1",
+      "k-2"
+    ],
+    "acara": [
+      "ev-1"
+    ],
     "jaringan": [
-      { "id": "n-1", "nama": "Nadia Putri", "inisial": "N", "peran": "Mahasiswa Psikologi" },
-      { "id": "n-2", "nama": "Putri Handayani", "inisial": "P", "peran": "Mahasiswa Kedokteran" }
+      {
+        "id": "n-1",
+        "nama": "Nadia Putri",
+        "inisial": "N",
+        "peran": "Mahasiswa Psikologi"
+      },
+      {
+        "id": "n-2",
+        "nama": "Putri Handayani",
+        "inisial": "P",
+        "peran": "Mahasiswa Kedokteran"
+      }
     ]
   },
   {
-    "id": "o-5", "nama": "Dewi Anggraini", "inisial": "D", "handle": "@dewiang",
-    "peran": "Mahasiswa Sastra Inggris · UI", "kampus": "Universitas Indonesia",
+    "id": "o-5",
+    "nama": "Dewi Anggraini",
+    "inisial": "D",
+    "handle": "@dewiang",
+    "peran": "Mahasiswa Sastra Inggris · UI",
+    "kampus": "Universitas Indonesia",
     "bio": "IELTS 7.0 dari 5.5 dalam 4 bulan. Sekarang bantu latihan speaking orang lain.",
-    "stats": { "postingan": 156, "pengikut": 5310, "mengikuti": 198 },
+    "stats": {
+      "postingan": 156,
+      "pengikut": 5310,
+      "mengikuti": 198
+    },
     "postingan": [
-      { "id": "p-1", "waktu": "1 hari lalu", "konten": "IELTS 7.0 dari 5.5 dalam 4 bulan, modal latihan speaking sama temen tiap malam.", "suka": 289, "komentar": 41 }
+      {
+        "id": "p-1",
+        "waktu": {
+          "hari": 1
+        },
+        "konten": "IELTS 7.0 dari 5.5 dalam 4 bulan, modal latihan speaking sama temen tiap malam.",
+        "suka": 289,
+        "komentar": 41
+      }
     ],
-    "materi": ["c-5", "c-3"], "komunitas": ["k-2"], "acara": ["ev-2", "ev-7"],
+    "materi": [
+      "c-5",
+      "c-3"
+    ],
+    "komunitas": [
+      "k-2"
+    ],
+    "acara": [
+      "ev-2",
+      "ev-7"
+    ],
     "jaringan": [
-      { "id": "n-1", "nama": "Bagas Wirawan", "inisial": "B", "peran": "Alumni Teknik Elektro" },
-      { "id": "n-2", "nama": "Nadia Putri", "inisial": "N", "peran": "Mahasiswa Psikologi" }
+      {
+        "id": "n-1",
+        "nama": "Bagas Wirawan",
+        "inisial": "B",
+        "peran": "Alumni Teknik Elektro"
+      },
+      {
+        "id": "n-2",
+        "nama": "Nadia Putri",
+        "inisial": "N",
+        "peran": "Mahasiswa Psikologi"
+      }
     ]
   },
   {
-    "id": "o-6", "nama": "Rizky Ramadhan", "inisial": "R", "handle": "@rizkyriset",
-    "peran": "Dosen Statistika · UB", "kampus": "Universitas Brawijaya",
+    "id": "o-6",
+    "nama": "Rizky Ramadhan",
+    "inisial": "R",
+    "handle": "@rizkyriset",
+    "peran": "Dosen Statistika · UB",
+    "kampus": "Universitas Brawijaya",
     "bio": "Ngajar statistika dan metode penelitian. Percaya bab 2 harus ditulis belakangan.",
-    "stats": { "postingan": 98, "pengikut": 7640, "mengikuti": 142 },
+    "stats": {
+      "postingan": 98,
+      "pengikut": 7640,
+      "mengikuti": 142
+    },
     "postingan": [
-      { "id": "p-1", "waktu": "4 jam lalu", "konten": "Bedanya kualitatif sama kuantitatif itu bukan soal angka, tapi soal pertanyaan yang mau dijawab.", "suka": 118, "komentar": 21 }
+      {
+        "id": "p-1",
+        "waktu": {
+          "jam": 4
+        },
+        "konten": "Bedanya kualitatif sama kuantitatif itu bukan soal angka, tapi soal pertanyaan yang mau dijawab.",
+        "suka": 118,
+        "komentar": 21
+      }
     ],
-    "materi": ["c-9", "c-6"], "komunitas": ["k-4"], "acara": ["ev-8", "ev-6"],
+    "materi": [
+      "c-9",
+      "c-6"
+    ],
+    "komunitas": [
+      "k-4"
+    ],
+    "acara": [
+      "ev-8",
+      "ev-6"
+    ],
     "jaringan": [
-      { "id": "n-1", "nama": "Putri Handayani", "inisial": "P", "peran": "Asisten Peneliti" },
-      { "id": "n-2", "nama": "Yoga Pratama", "inisial": "Y", "peran": "Data Analyst" }
+      {
+        "id": "n-1",
+        "nama": "Putri Handayani",
+        "inisial": "P",
+        "peran": "Asisten Peneliti"
+      },
+      {
+        "id": "n-2",
+        "nama": "Yoga Pratama",
+        "inisial": "Y",
+        "peran": "Data Analyst"
+      }
     ]
   },
   {
-    "id": "o-7", "nama": "Ayu Lestari", "inisial": "A", "handle": "@ayudesain",
-    "peran": "Mahasiswa Ilmu Komputer · UB", "kampus": "Universitas Brawijaya",
+    "id": "o-7",
+    "nama": "Ayu Lestari",
+    "inisial": "A",
+    "handle": "@ayudesain",
+    "peran": "Mahasiswa Ilmu Komputer · UB",
+    "kampus": "Universitas Brawijaya",
     "bio": "Belajar desain antarmuka sambil kuliah. Pengurus komunitas Belajar UI/UX Bareng.",
-    "stats": { "postingan": 73, "pengikut": 2180, "mengikuti": 264 },
+    "stats": {
+      "postingan": 73,
+      "pengikut": 2180,
+      "mengikuti": 264
+    },
     "postingan": [
-      { "id": "p-1", "waktu": "1 jam lalu", "konten": "Tantangan minggu ini: redesain halaman checkout e-commerce lokal.", "suka": 64, "komentar": 19 }
+      {
+        "id": "p-1",
+        "waktu": {
+          "jam": 1
+        },
+        "konten": "Tantangan minggu ini: redesain halaman checkout e-commerce lokal.",
+        "suka": 64,
+        "komentar": 19
+      }
     ],
-    "materi": ["c-4"], "komunitas": ["k-3", "k-4"], "acara": ["ev-4"],
+    "materi": [
+      "c-4"
+    ],
+    "komunitas": [
+      "k-3",
+      "k-4"
+    ],
+    "acara": [
+      "ev-4"
+    ],
     "jaringan": [
-      { "id": "n-1", "nama": "Fajar Nugroho", "inisial": "F", "peran": "Mahasiswa Teknik Industri" },
-      { "id": "n-2", "nama": "Putri Handayani", "inisial": "P", "peran": "Asisten Peneliti" }
+      {
+        "id": "n-1",
+        "nama": "Fajar Nugroho",
+        "inisial": "F",
+        "peran": "Mahasiswa Teknik Industri"
+      },
+      {
+        "id": "n-2",
+        "nama": "Putri Handayani",
+        "inisial": "P",
+        "peran": "Asisten Peneliti"
+      }
     ]
   },
   {
-    "id": "o-8", "nama": "Fajar Nugroho", "inisial": "F", "handle": "@fajarnug",
-    "peran": "Mahasiswa Teknik Industri · UB", "kampus": "Universitas Brawijaya",
+    "id": "o-8",
+    "nama": "Fajar Nugroho",
+    "inisial": "F",
+    "handle": "@fajarnug",
+    "peran": "Mahasiswa Teknik Industri · UB",
+    "kampus": "Universitas Brawijaya",
     "bio": "Koordinator program literasi digital. Sering nanya hal mendasar biar semua ikut paham.",
-    "stats": { "postingan": 41, "pengikut": 860, "mengikuti": 331 },
+    "stats": {
+      "postingan": 41,
+      "pengikut": 860,
+      "mengikuti": 331
+    },
     "postingan": [
-      { "id": "p-1", "waktu": "6 jam lalu", "konten": "Kapan sebenarnya kita butuh bottom nav dan kapan cukup sidebar?", "suka": 92, "komentar": 38 }
+      {
+        "id": "p-1",
+        "waktu": {
+          "jam": 6
+        },
+        "konten": "Kapan sebenarnya kita butuh bottom nav dan kapan cukup sidebar?",
+        "suka": 92,
+        "komentar": 38
+      }
     ],
-    "materi": ["c-4", "c-7"], "komunitas": ["k-3", "k-4"], "acara": ["ev-3", "ev-6"],
+    "materi": [
+      "c-4",
+      "c-7"
+    ],
+    "komunitas": [
+      "k-3",
+      "k-4"
+    ],
+    "acara": [
+      "ev-3",
+      "ev-6"
+    ],
     "jaringan": [
-      { "id": "n-1", "nama": "Ayu Lestari", "inisial": "A", "peran": "Mahasiswa Ilmu Komputer" }
+      {
+        "id": "n-1",
+        "nama": "Ayu Lestari",
+        "inisial": "A",
+        "peran": "Mahasiswa Ilmu Komputer"
+      }
     ]
   },
   {
-    "id": "o-9", "nama": "Putri Handayani", "inisial": "P", "handle": "@putrihnd",
-    "peran": "Asisten Peneliti · UGM", "kampus": "Universitas Gadjah Mada",
+    "id": "o-9",
+    "nama": "Putri Handayani",
+    "inisial": "P",
+    "handle": "@putrihnd",
+    "peran": "Asisten Peneliti · UGM",
+    "kampus": "Universitas Gadjah Mada",
     "bio": "Asisten peneliti bidang kesehatan masyarakat. Suka bikin palet warna aksesibel di waktu luang.",
-    "stats": { "postingan": 55, "pengikut": 1340, "mengikuti": 210 },
+    "stats": {
+      "postingan": 55,
+      "pengikut": 1340,
+      "mengikuti": 210
+    },
     "postingan": [
-      { "id": "p-1", "waktu": "3 hari lalu", "konten": "Sharing palet warna aksesibel yang aku pakai, kontrasnya lolos WCAG AA semua.", "suka": 203, "komentar": 15 }
+      {
+        "id": "p-1",
+        "waktu": {
+          "hari": 3
+        },
+        "konten": "Sharing palet warna aksesibel yang aku pakai, kontrasnya lolos WCAG AA semua.",
+        "suka": 203,
+        "komentar": 15
+      }
     ],
-    "materi": ["c-9"], "komunitas": ["k-3", "k-4"], "acara": ["ev-2", "ev-6"],
+    "materi": [
+      "c-9"
+    ],
+    "komunitas": [
+      "k-3",
+      "k-4"
+    ],
+    "acara": [
+      "ev-2",
+      "ev-6"
+    ],
     "jaringan": [
-      { "id": "n-1", "nama": "Sinta Larasati", "inisial": "S", "peran": "Mahasiswa Kedokteran" },
-      { "id": "n-2", "nama": "Rizky Ramadhan", "inisial": "R", "peran": "Dosen Statistika" }
+      {
+        "id": "n-1",
+        "nama": "Sinta Larasati",
+        "inisial": "S",
+        "peran": "Mahasiswa Kedokteran"
+      },
+      {
+        "id": "n-2",
+        "nama": "Rizky Ramadhan",
+        "inisial": "R",
+        "peran": "Dosen Statistika"
+      }
     ]
   }
 ]

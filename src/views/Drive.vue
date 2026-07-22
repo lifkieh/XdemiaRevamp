@@ -39,14 +39,16 @@
             <template slot-scope="baris">
               <div class="sel-nama">
                 <span class="tanda">{{ labelJenis(baris.row.jenis) }}</span>
-                <span class="nama-berkas">{{ baris.row.nama }}</span>
+                <span class="nama-berkas" data-content="true">{{ baris.row.nama }}</span>
               </div>
             </template>
           </el-table-column>
           <el-table-column prop="ukuranByte" :label="$t('drive.table.size')" sortable width="110" align="right">
-            <template slot-scope="baris">{{ baris.row.ukuran }}</template>
+            <template slot-scope="baris">{{ $ukuran(baris.row.ukuranByte) }}</template>
           </el-table-column>
-          <el-table-column prop="tanggal" :label="$t('drive.table.date')" sortable width="140" />
+          <el-table-column prop="tanggalIso" :label="$t('drive.table.date')" sortable width="140">
+            <template slot-scope="baris">{{ $tanggal(baris.row.tanggalIso) }}</template>
+          </el-table-column>
           <el-table-column prop="jenis" :label="$t('drive.table.type')" sortable width="110">
             <template slot-scope="baris">{{ namaJenis(baris.row.jenis) }}</template>
           </el-table-column>
@@ -85,7 +87,7 @@ export default {
     },
     totalUkuran () {
       const byte = this.data.reduce((n, f) => n + f.ukuranByte, 0)
-      return (byte / 1048576).toFixed(1).replace('.', ',') + ' MB'
+      return this.$ukuran(byte)
     }
   },
   created () {

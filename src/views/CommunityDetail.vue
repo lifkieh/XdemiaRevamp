@@ -20,8 +20,8 @@
         <div class="cover"></div>
         <div class="profil-isi">
           <div class="logo-komunitas">{{ komunitas.inisial }}</div>
-          <h1 class="title-lg">{{ komunitas.nama }}</h1>
-          <p class="muted">{{ $t('common.members', { n: jumlahAnggota }) }} · {{ komunitas.tipe }}</p>
+          <h1 class="title-lg" data-content="true">{{ komunitas.nama }}</h1>
+          <p class="muted">{{ $t('common.members', { n: jumlahAnggota }) }} · {{ $t('communityType.' + komunitas.tipeKunci) }}</p>
 
           <div class="aksi">
             <el-button
@@ -42,18 +42,18 @@
         <el-tab-pane :label="$t('community.tabs.about')" name="tentang">
           <div class="card">
             <p class="title">{{ $t('community.aboutTitle') }}</p>
-            <p class="deskripsi">{{ komunitas.deskripsi }}</p>
+            <p class="deskripsi" data-content="true">{{ komunitas.deskripsi }}</p>
           </div>
 
           <div class="card">
             <p class="title">{{ $t('common.info') }}</p>
             <div class="info">
               <span class="muted">{{ $t('common.created') }}</span>
-              <span>{{ komunitas.dibuat }}</span>
+              <span>{{ $bulanTahun(komunitas.dibuatIso) }}</span>
             </div>
             <div class="info">
               <span class="muted">{{ $t('common.type') }}</span>
-              <span class="pill">{{ komunitas.tipe }}</span>
+              <span class="pill">{{ $t('communityType.' + komunitas.tipeKunci) }}</span>
             </div>
             <div class="info">
               <span class="muted">{{ $t('common.membersTab') }}</span>
@@ -61,7 +61,7 @@
             </div>
             <div class="info">
               <span class="muted">{{ $t('common.rules') }}</span>
-              <span class="aturan">{{ komunitas.aturan }}</span>
+              <span class="aturan" data-content="true">{{ komunitas.aturan }}</span>
             </div>
           </div>
         </el-tab-pane>
@@ -71,11 +71,11 @@
             <div class="row row-top">
               <div class="thumb thumb-round">{{ d.inisial }}</div>
               <div class="grow">
-                <p class="title">{{ d.penulis }}</p>
-                <p class="muted">{{ d.waktu }}</p>
+                <p class="title" data-content="true">{{ d.penulis }}</p>
+                <p class="muted">{{ $waktuRelatif(d.waktu) }}</p>
               </div>
             </div>
-            <p class="post-konten">{{ d.konten }}</p>
+            <p class="post-konten" data-content="true">{{ d.konten }}</p>
             <div class="card-foot">
               <button class="tap" @click="belumTersedia">
                 <i class="el-icon-star-off"></i><span>{{ $t('common.like') }} {{ d.suka }}</span>
@@ -108,7 +108,7 @@
             :key="b.id"
             :inisial="labelJenis(b.jenis)"
             :judul="b.nama"
-            :subjudul="b.ukuran + ' · ' + b.waktu"
+            :subjudul="$ukuran(b.ukuranByte) + ' · ' + $waktuRelatif(b.waktu)"
           >
             <template slot="action">
               <el-button size="small" @click="belumTersedia">{{ $t('common.download') }}</el-button>

@@ -23,37 +23,37 @@
 
         <div class="hero-isi">
           <span class="pill jenis">{{ isKursus ? $t('course.scheduled') : $t('course.selfPaced') }}</span>
-          <h1 class="title-lg">{{ materi.judul }}</h1>
-          <p class="muted">{{ materi.penyedia }} · {{ materi.durasi }}</p>
+          <h1 class="title-lg" data-content="true">{{ materi.judul }}</h1>
+          <p class="muted"><span data-content="true">{{ materi.penyedia }}</span> · {{ $durasi(materi.jamDurasi) }}</p>
 
           <div class="row penulis">
             <div class="thumb thumb-round">{{ materi.penulis.charAt(0) }}</div>
             <div class="grow">
-              <p class="title nama-penulis">{{ materi.penulis }}</p>
+              <p class="title nama-penulis" data-content="true">{{ materi.penulis }}</p>
               <p class="muted">{{ $t('course.author') }}</p>
             </div>
           </div>
 
           <div class="pil-baris">
-            <span class="pill">{{ materi.jenjang }}</span>
+            <span class="pill">{{ $t('course.level.' + materi.level) }}</span>
             <span v-for="t in materi.tag" :key="t" class="pill">{{ t }}</span>
           </div>
 
-          <p class="deskripsi">{{ materi.deskripsi }}</p>
+          <p class="deskripsi" data-content="true">{{ materi.deskripsi }}</p>
 
           <!-- Kursus punya jadwal, materi mandiri tidak -->
           <div v-if="isKursus" class="jadwal">
             <div class="jadwal-baris">
               <i class="el-icon-date"></i>
               <div>
-                <p class="jadwal-judul">{{ materi.tanggalMulai }} — {{ materi.tanggalSelesai }}</p>
+                <p class="jadwal-judul">{{ $tanggal(materi.mulaiIso) }} — {{ $tanggal(materi.selesaiIso) }}</p>
                 <p class="muted">{{ $t('course.period') }}</p>
               </div>
             </div>
             <div class="jadwal-baris">
               <i class="el-icon-alarm-clock"></i>
               <div>
-                <p class="jadwal-judul">{{ materi.jadwal }}</p>
+                <p class="jadwal-judul">{{ jadwalTeks }}</p>
                 <p class="muted">{{ $t('course.meetings') }}</p>
               </div>
             </div>
@@ -121,6 +121,16 @@ export default {
     },
     tersimpan () {
       return this.materi ? this.$store.getters['bookmarks/isMateriTersimpan'](this.materi.id) : false
+    },
+    // "Tiap Sabtu, 09.00" dirangkai dari angka hari + jam supaya ikut bahasa
+    jadwalTeks () {
+      if (!this.materi || !this.materi.jadwalHari) return ''
+      const tag = this.$i18n.locale === 'id' ? 'id-ID' : 'en-GB'
+      const hari = this.materi.jadwalHari.map((h) => {
+        const d = new Date(2026, 0, 4 + h)
+        return new Intl.DateTimeFormat(tag, { weekday: 'long' }).format(d)
+      }).join(' & ')
+      return this.$t('course.jadwalPola', { hari, jam: this.$jam(this.materi.jadwalJam) })
     }
   },
   created () { this.muat() },

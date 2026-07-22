@@ -32,8 +32,8 @@
             >
               <div class="thumb notif-ikon"><i :class="ikon(n.tipe)"></i></div>
               <div class="grow">
-                <p class="notif-teks">{{ n.teks }}</p>
-                <p class="muted">{{ n.waktu }}</p>
+                <p class="notif-teks" data-content="true">{{ n.teks }}</p>
+                <p class="muted">{{ $waktuRelatif(n.waktu) }}</p>
               </div>
               <span v-if="n.baru" class="titik"></span>
             </div>
@@ -59,9 +59,9 @@
                   <i :class="u.tipe === 'acara' ? 'el-icon-date' : 'el-icon-s-flag'"></i>
                 </div>
                 <div class="grow">
-                  <p class="title">{{ u.judul }}</p>
-                  <p class="muted">{{ u.keterangan }}</p>
-                  <p class="muted waktu">{{ u.waktu }}</p>
+                  <p class="title" data-content="true">{{ u.judul }}</p>
+                  <p class="muted">{{ keterangan(u) }}</p>
+                  <p class="muted waktu">{{ $waktuRelatif(u.waktu) }}</p>
                 </div>
               </div>
               <div class="aksi-undangan">
@@ -81,6 +81,7 @@ import OverlayPanel from '@/components/OverlayPanel.vue'
 import EmptyState from '@/components/EmptyState.vue'
 import notifData from '@/mock/notifications.json'
 import undanganData from '@/mock/invitations.json'
+import acaraData from '@/mock/events.json'
 
 export default {
   name: 'NotifDrawer',
@@ -96,6 +97,13 @@ export default {
     }
   },
   methods: {
+    // undangan acara merangkai tanggal + jam dari data acara supaya ikut bahasa
+    keterangan (u) {
+      if (u.tipe !== 'acara') return u.keterangan
+      const a = acaraData.filter((x) => x.id === u.acaraId)[0]
+      if (!a) return ''
+      return this.$tanggal(a.tanggalIso, true) + ' · ' + this.$jam(a.jamMulai) + ' · ' + a.lokasi
+    },
     ikon (tipe) {
       const peta = {
         beasiswa: 'el-icon-medal',

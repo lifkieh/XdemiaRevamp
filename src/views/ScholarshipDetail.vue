@@ -20,12 +20,12 @@
         <div class="cover"></div>
         <div class="hero-isi">
           <div class="logo-beasiswa">{{ beasiswa.inisial }}</div>
-          <h1 class="title-lg">{{ beasiswa.nama }}</h1>
-          <p class="muted">{{ beasiswa.penyelenggara }}</p>
+          <h1 class="title-lg" data-content="true">{{ beasiswa.nama }}</h1>
+          <p class="muted" data-content="true">{{ beasiswa.penyelenggara }}</p>
 
           <div class="pil-baris">
             <span class="pill">{{ beasiswa.jenjang }}</span>
-            <span class="pill">{{ beasiswa.negara }}</span>
+            <span class="pill">{{ $t('country.' + beasiswa.negaraKode) }}</span>
             <span class="pill" :class="{ 'pill-warn': beasiswa.sisaHari <= 7 }">{{ $t('common.daysLeft', { n: beasiswa.sisaHari }) }}</span>
           </div>
 
@@ -43,17 +43,17 @@
 
       <div class="card">
         <p class="title">{{ $t('scholarship.about') }}</p>
-        <p class="paragraf">{{ beasiswa.tentang }}</p>
+        <p class="paragraf" data-content="true">{{ beasiswa.tentang }}</p>
         <div class="info">
           <span class="muted">{{ $t('scholarship.coverage') }}</span>
-          <span>{{ beasiswa.cakupan }}</span>
+          <span data-content="true">{{ beasiswa.cakupan }}</span>
         </div>
       </div>
 
       <div class="card">
         <p class="title">{{ $t('scholarship.requirements') }}</p>
         <ul class="daftar-titik">
-          <li v-for="(s, i) in beasiswa.syarat" :key="'sy-' + i">{{ s }}</li>
+          <li v-for="(s, i) in beasiswa.syarat" :key="'sy-' + i" data-content="true">{{ s }}</li>
         </ul>
       </div>
 
@@ -61,7 +61,7 @@
         <p class="title">{{ $t('scholarship.benefits') }}</p>
         <ul class="daftar-centang">
           <li v-for="(b, i) in beasiswa.benefit" :key="'bn-' + i">
-            <i class="el-icon-check"></i><span>{{ b }}</span>
+            <i class="el-icon-check"></i><span data-content="true">{{ b }}</span>
           </li>
         </ul>
       </div>
@@ -71,7 +71,7 @@
         <ol class="daftar-langkah">
           <li v-for="(c, i) in beasiswa.caraDaftar" :key="'cd-' + i">
             <span class="nomor">{{ i + 1 }}</span>
-            <span>{{ c }}</span>
+            <span data-content="true">{{ c }}</span>
           </li>
         </ol>
       </div>
@@ -92,7 +92,7 @@
         >
           <template slot="meta">
             <span class="pill">{{ b.jenjang }}</span>
-            <span class="pill">{{ b.negara }}</span>
+            <span class="pill">{{ $t('country.' + b.negaraKode) }}</span>
             <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">{{ $t('common.daysLeft', { n: b.sisaHari }) }}</span>
           </template>
         </BaseCard>

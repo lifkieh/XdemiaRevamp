@@ -6,18 +6,94 @@
   "bio": "Mahasiswa Informatika. Lagi ngulik data science sambil nyari beasiswa S2.",
   "campus": "Universitas Brawijaya",
   "streak": 6,
-  "stats": { "postingan": 24, "pengikut": 312, "mengikuti": 187 },
+  "stats": {
+    "postingan": 24,
+    "pengikut": 312,
+    "mengikuti": 187
+  },
   "posts": [
-    { "id": "up-1", "waktu": "2 hari lalu", "konten": "Akhirnya kelar modul 3 Statistika Dasar. Ternyata p-value nggak semenakutkan itu 😮‍💨", "suka": 34, "komentar": 5 },
-    { "id": "up-2", "waktu": "5 hari lalu", "konten": "Ada yang udah pernah daftar LPDP jalur reguler? Butuh tips esai kontribusi.", "suka": 58, "komentar": 21 },
-    { "id": "up-3", "waktu": "1 minggu lalu", "konten": "Bikin dashboard pertama pakai Python. Jelek tapi jalan, itu yang penting.", "suka": 91, "komentar": 12 }
+    {
+      "id": "up-1",
+      "waktu": {
+        "hari": 2
+      },
+      "konten": "Akhirnya kelar modul 3 Statistika Dasar. Ternyata p-value nggak semenakutkan itu 😮‍💨",
+      "suka": 34,
+      "komentar": 5
+    },
+    {
+      "id": "up-2",
+      "waktu": {
+        "hari": 5
+      },
+      "konten": "Ada yang udah pernah daftar LPDP jalur reguler? Butuh tips esai kontribusi.",
+      "suka": 58,
+      "komentar": 21
+    },
+    {
+      "id": "up-3",
+      "waktu": {
+        "minggu": 1
+      },
+      "konten": "Bikin dashboard pertama pakai Python. Jelek tapi jalan, itu yang penting.",
+      "suka": 91,
+      "komentar": 12
+    }
   ],
   "files": [
-    { "id": "f-1", "nama": "Catatan Statistika Dasar.pdf", "ukuran": "2,4 MB", "waktu": "3 hari lalu", "jenis": "pdf" },
-    { "id": "f-2", "nama": "Draft Esai LPDP.docx", "ukuran": "68 KB", "waktu": "1 minggu lalu", "jenis": "word" },
-    { "id": "f-3", "nama": "Dataset Latihan Pandas.csv", "ukuran": "1,1 MB", "waktu": "2 minggu lalu", "jenis": "tabel" },
-    { "id": "f-4", "nama": "Sertifikat Webinar Data.png", "ukuran": "420 KB", "waktu": "3 minggu lalu", "jenis": "gambar" },
-    { "id": "f-5", "nama": "Rangkuman Modul Python.pdf", "ukuran": "1,7 MB", "waktu": "1 bulan lalu", "jenis": "pdf" },
-    { "id": "f-6", "nama": "Rekaman Latihan Speaking.mp3", "ukuran": "12,3 MB", "waktu": "1 bulan lalu", "jenis": "audio" }
+    {
+      "id": "f-1",
+      "nama": "Catatan Statistika Dasar.pdf",
+      "waktu": {
+        "hari": 3
+      },
+      "jenis": "pdf",
+      "ukuranByte": 2516582
+    },
+    {
+      "id": "f-2",
+      "nama": "Draft Esai LPDP.docx",
+      "waktu": {
+        "minggu": 1
+      },
+      "jenis": "word",
+      "ukuranByte": 69632
+    },
+    {
+      "id": "f-3",
+      "nama": "Dataset Latihan Pandas.csv",
+      "waktu": {
+        "minggu": 2
+      },
+      "jenis": "tabel",
+      "ukuranByte": 1153434
+    },
+    {
+      "id": "f-4",
+      "nama": "Sertifikat Webinar Data.png",
+      "waktu": {
+        "minggu": 3
+      },
+      "jenis": "gambar",
+      "ukuranByte": 430080
+    },
+    {
+      "id": "f-5",
+      "nama": "Rangkuman Modul Python.pdf",
+      "waktu": {
+        "bulan": 1
+      },
+      "jenis": "pdf",
+      "ukuranByte": 1782579
+    },
+    {
+      "id": "f-6",
+      "nama": "Rekaman Latihan Speaking.mp3",
+      "waktu": {
+        "bulan": 1
+      },
+      "jenis": "audio",
+      "ukuranByte": 12897485
+    }
   ]
 }

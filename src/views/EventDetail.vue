@@ -21,7 +21,7 @@
           <span class="cover-inisial">{{ acara.inisial }}</span>
         </div>
         <div class="hero-isi">
-          <h1 class="title-lg">{{ acara.judul }}</h1>
+          <h1 class="title-lg" data-content="true">{{ acara.judul }}</h1>
           <p class="muted">{{ $t('event.organiser', { name: acara.penyelenggara }) }}</p>
 
           <div class="pil-baris">
@@ -37,14 +37,14 @@
             <div class="ringkas-baris">
               <i class="el-icon-date"></i>
               <div>
-                <p class="ringkas-judul">{{ acara.tanggal }}</p>
-                <p class="muted">{{ $t('common.start') }} {{ acara.waktu }}</p>
+                <p class="ringkas-judul">{{ $tanggal(acara.tanggalIso, true) }}</p>
+                <p class="muted">{{ $t('common.start') }} {{ $jam(acara.jamMulai) }}</p>
               </div>
             </div>
             <div class="ringkas-baris">
               <i :class="acara.daring ? 'el-icon-video-camera' : 'el-icon-location-outline'"></i>
               <div>
-                <p class="ringkas-judul">{{ acara.lokasi }}</p>
+                <p class="ringkas-judul" data-content="true">{{ acara.lokasi }}</p>
                 <p class="muted">{{ acara.daring ? $t('event.online') : $t('event.offline') }}</p>
               </div>
             </div>
@@ -76,7 +76,7 @@
 
       <div class="card">
         <p class="title">{{ $t('event.aboutEvent') }}</p>
-        <p class="paragraf">{{ acara.deskripsi }}</p>
+        <p class="paragraf" data-content="true">{{ acara.deskripsi }}</p>
       </div>
 
       <section class="section">

@@ -37,12 +37,14 @@
         <el-table :data="barisJurnal" style="width: 100%" @row-click="bukaJurnal">
           <el-table-column prop="nama" :label="$t('explore.table.name')" sortable min-width="170">
             <template slot-scope="baris">
-              <span class="nama-jurnal">{{ baris.row.nama }}</span>
-              <p class="muted sub">{{ baris.row.penerbit }}</p>
+              <span class="nama-jurnal" data-content="true">{{ baris.row.nama }}</span>
+              <p class="muted sub" data-content="true">{{ baris.row.penerbit }}</p>
             </template>
           </el-table-column>
           <el-table-column prop="jumlahTulisan" :label="$t('explore.table.articles')" sortable width="100" align="right" />
-          <el-table-column prop="terbit" :label="$t('explore.table.published')" sortable width="140" />
+          <el-table-column prop="terbitKunci" :label="$t('explore.table.published')" sortable width="140">
+            <template slot-scope="baris">{{ $t('journalSchedule.' + baris.row.terbitKunci) }}</template>
+          </el-table-column>
         </el-table>
       </div>
 
@@ -52,7 +54,7 @@
         :key="item.id"
         :inisial="item.inisial"
         :judul="item.nama"
-        :subjudul="item.info"
+        :subjudul="infoTeks(item)"
         :bulat="item.tipe === 'orang'"
         clickable
         @click.native="buka(item)"
@@ -115,7 +117,7 @@ export default {
         const cocokFilter = this.filter === 'all' || item.tipe === this.filter
         const cocokKueri = !q ||
           item.nama.toLowerCase().indexOf(q) !== -1 ||
-          item.info.toLowerCase().indexOf(q) !== -1
+          this.infoTeks(item).toLowerCase().indexOf(q) !== -1
         return cocokFilter && cocokKueri
       })
     },
@@ -158,6 +160,19 @@ export default {
     }
   },
   methods: {
+    // ringkasan tiap entri disusun di sini supaya satuannya ikut bahasa
+    infoTeks (item) {
+      if (item.tipe === 'orang') return item.peran
+      if (item.tipe === 'komunitas') return this.$t('common.members', { n: this.$angka(item.jumlahAnggota) })
+      if (item.tipe === 'kampus') return item.kota + ' · ' + this.$t('common.programmes', { n: item.prodi })
+      if (item.tipe === 'organisasi') return item.tipeLembaga + ' · ' + item.kota
+      if (item.tipe === 'jurnal') {
+        return this.$t('common.articlesCount', { n: item.jumlahTulisan }) + ' · ' + this.$t('journalSchedule.' + item.terbitKunci)
+      }
+      if (item.tipe === 'artikel') return item.sumber + ' · ' + this.$t('common.readTime', { n: item.menitBaca })
+      if (item.tipe === 'acara') return this.$tanggal(item.tanggalIso, true) + ' · ' + item.lokasi
+      return ''
+    },
     pilihFilter (label) {
       const i = this.opsiFilter.indexOf(label)
       if (i !== -1) this.filter = this.idFilter[i]

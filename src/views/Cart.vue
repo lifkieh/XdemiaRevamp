@@ -29,7 +29,7 @@
             :subjudul="i.penjual"
           >
             <template slot="meta">
-              <span class="pill">{{ i.jenis }}</span>
+              <span class="pill">{{ $t('cartType.' + i.jenisKunci) }}</span>
               <span class="pill">{{ $t('cart.itemCount', { n: i.jumlah }) }}</span>
             </template>
             <div class="kaki">
@@ -72,11 +72,11 @@
           :key="r.id"
           :inisial="r.inisial"
           :judul="r.nama"
-          :subjudul="r.penjual + ' · ' + r.tanggal"
+          :subjudul="r.penjual + ' · ' + $tanggal(r.tanggalIso)"
         >
           <template slot="meta">
-            <span class="pill">{{ r.jenis }}</span>
-            <span class="pill" :class="{ 'pill-warn': r.status === 'Dibatalkan' }">{{ r.status }}</span>
+            <span class="pill">{{ $t('cartType.' + r.jenisKunci) }}</span>
+            <span class="pill" :class="{ 'pill-warn': r.statusKunci === 'cancelled' }">{{ $t('cartStatus.' + r.statusKunci) }}</span>
           </template>
           <div class="kaki">
             <span class="harga">{{ rupiah(r.harga) }}</span>

@@ -4,26 +4,42 @@
     "nama": "Nadia Putri",
     "inisial": "N",
     "cuplikan": "Nanti aku kirim catatannya ya",
-    "waktu": "09.42",
+    "waktu": {
+      "jam": 9,
+      "menit": 42,
+      "jamDinding": true
+    },
     "belumDibaca": 2,
     "pesan": [
       {
         "id": "p-1",
         "dari": "mereka",
         "teks": "Ka, kamu udah kelar modul statistika?",
-        "waktu": "09.30"
+        "waktu": {
+          "jam": 9,
+          "menit": 30,
+          "jamDinding": true
+        }
       },
       {
         "id": "p-2",
         "dari": "saya",
         "teks": "Tinggal 2 modul, mentok di p-value hehe",
-        "waktu": "09.35"
+        "waktu": {
+          "jam": 9,
+          "menit": 35,
+          "jamDinding": true
+        }
       },
       {
         "id": "p-3",
         "dari": "mereka",
         "teks": "Sama banget. Nanti aku kirim catatannya ya",
-        "waktu": "09.42"
+        "waktu": {
+          "jam": 9,
+          "menit": 42,
+          "jamDinding": true
+        }
       }
     ],
     "tipe": "pribadi"
@@ -33,26 +49,42 @@
     "nama": "Kelompok Skripsi",
     "inisial": "K",
     "cuplikan": "Bagas: besok kumpul jam 4 ya",
-    "waktu": "08.15",
+    "waktu": {
+      "jam": 8,
+      "menit": 15,
+      "jamDinding": true
+    },
     "belumDibaca": 5,
     "pesan": [
       {
         "id": "p-1",
         "dari": "mereka",
         "teks": "Bab 2 punyaku udah 70%",
-        "waktu": "08.02"
+        "waktu": {
+          "jam": 8,
+          "menit": 2,
+          "jamDinding": true
+        }
       },
       {
         "id": "p-2",
         "dari": "saya",
         "teks": "Mantap, aku masih nyari referensi",
-        "waktu": "08.10"
+        "waktu": {
+          "jam": 8,
+          "menit": 10,
+          "jamDinding": true
+        }
       },
       {
         "id": "p-3",
         "dari": "mereka",
         "teks": "Besok kumpul jam 4 ya",
-        "waktu": "08.15"
+        "waktu": {
+          "jam": 8,
+          "menit": 15,
+          "jamDinding": true
+        }
       }
     ],
     "tipe": "grup"
@@ -62,20 +94,30 @@
     "nama": "Bagas Wirawan",
     "inisial": "B",
     "cuplikan": "Esainya kirim aja, nanti aku baca",
-    "waktu": "Kemarin",
+    "waktu": {
+      "kemarin": true
+    },
     "belumDibaca": 0,
     "pesan": [
       {
         "id": "p-1",
         "dari": "saya",
         "teks": "Kak, boleh minta review esai LPDP?",
-        "waktu": "20.11"
+        "waktu": {
+          "jam": 20,
+          "menit": 11,
+          "jamDinding": true
+        }
       },
       {
         "id": "p-2",
         "dari": "mereka",
         "teks": "Boleh. Esainya kirim aja, nanti aku baca",
-        "waktu": "20.30"
+        "waktu": {
+          "jam": 20,
+          "menit": 30,
+          "jamDinding": true
+        }
       }
     ],
     "tipe": "pribadi"
@@ -85,20 +127,30 @@
     "nama": "Data Enthusiast ID",
     "inisial": "D",
     "cuplikan": "Sinta: link sesi live udah dishare",
-    "waktu": "Kemarin",
+    "waktu": {
+      "kemarin": true
+    },
     "belumDibaca": 0,
     "pesan": [
       {
         "id": "p-1",
         "dari": "mereka",
         "teks": "Link sesi live udah dishare di pengumuman",
-        "waktu": "17.20"
+        "waktu": {
+          "jam": 17,
+          "menit": 20,
+          "jamDinding": true
+        }
       },
       {
         "id": "p-2",
         "dari": "saya",
         "teks": "Siap, ikut hadir",
-        "waktu": "17.45"
+        "waktu": {
+          "jam": 17,
+          "menit": 45,
+          "jamDinding": true
+        }
       }
     ],
     "tipe": "grup"
@@ -108,20 +160,30 @@
     "nama": "Sinta Larasati",
     "inisial": "S",
     "cuplikan": "Makasih rekomendasinya!",
-    "waktu": "2 hari lalu",
+    "waktu": {
+      "hari": 2
+    },
     "belumDibaca": 0,
     "pesan": [
       {
         "id": "p-1",
         "dari": "saya",
         "teks": "Coba materi anatomi yang di Xdemia, visualnya bagus",
-        "waktu": "11.05"
+        "waktu": {
+          "jam": 11,
+          "menit": 5,
+          "jamDinding": true
+        }
       },
       {
         "id": "p-2",
         "dari": "mereka",
         "teks": "Makasih rekomendasinya!",
-        "waktu": "11.20"
+        "waktu": {
+          "jam": 11,
+          "menit": 20,
+          "jamDinding": true
+        }
       }
     ],
     "tipe": "pribadi"
@@ -131,20 +193,30 @@
     "nama": "Yoga Pratama",
     "inisial": "Y",
     "cuplikan": "Portofolio kamu udah rapi kok",
-    "waktu": "3 hari lalu",
+    "waktu": {
+      "hari": 3
+    },
     "belumDibaca": 0,
     "pesan": [
       {
         "id": "p-1",
         "dari": "saya",
         "teks": "Bang, portofolio aku kurang apa ya?",
-        "waktu": "14.02"
+        "waktu": {
+          "jam": 14,
+          "menit": 2,
+          "jamDinding": true
+        }
       },
       {
         "id": "p-2",
         "dari": "mereka",
         "teks": "Portofolio kamu udah rapi kok, tinggal tambahin cerita masalahnya",
-        "waktu": "14.30"
+        "waktu": {
+          "jam": 14,
+          "menit": 30,
+          "jamDinding": true
+        }
       }
     ],
     "tipe": "pribadi"
@@ -154,14 +226,20 @@
     "nama": "Ruang Beasiswa",
     "inisial": "R",
     "cuplikan": "Pendaftaran batch 2 dibuka",
-    "waktu": "4 hari lalu",
+    "waktu": {
+      "hari": 4
+    },
     "belumDibaca": 0,
     "pesan": [
       {
         "id": "p-1",
         "dari": "mereka",
         "teks": "Pendaftaran batch 2 dibuka minggu depan",
-        "waktu": "10.00"
+        "waktu": {
+          "jam": 10,
+          "menit": 0,
+          "jamDinding": true
+        }
       }
     ],
     "tipe": "grup"
@@ -171,20 +249,30 @@
     "nama": "Dewi Anggraini",
     "inisial": "D",
     "cuplikan": "Latihan speaking bareng lagi yuk",
-    "waktu": "1 minggu lalu",
+    "waktu": {
+      "minggu": 1
+    },
     "belumDibaca": 0,
     "pesan": [
       {
         "id": "p-1",
         "dari": "mereka",
         "teks": "Latihan speaking bareng lagi yuk, jam 8 malam",
-        "waktu": "19.10"
+        "waktu": {
+          "jam": 19,
+          "menit": 10,
+          "jamDinding": true
+        }
       },
       {
         "id": "p-2",
         "dari": "saya",
         "teks": "Ayo, aku siapin topiknya",
-        "waktu": "19.25"
+        "waktu": {
+          "jam": 19,
+          "menit": 25,
+          "jamDinding": true
+        }
       }
     ],
     "tipe": "pribadi"

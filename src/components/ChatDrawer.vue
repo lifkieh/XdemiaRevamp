@@ -33,11 +33,11 @@
           >
             <div class="thumb" :class="c.tipe === 'grup' ? '' : 'thumb-round'">{{ c.inisial }}</div>
             <div class="grow teks">
-              <p class="title">{{ c.nama }}</p>
-              <p class="muted clamp-1">{{ c.cuplikan }}</p>
+              <p class="title" data-content="true">{{ c.nama }}</p>
+              <p class="muted clamp-1" data-content="true">{{ c.cuplikan }}</p>
             </div>
             <div class="kanan">
-              <span class="muted">{{ c.waktu }}</span>
+              <span class="muted">{{ waktuChat(c.waktu) }}</span>
               <span v-if="c.belumDibaca" class="badge">{{ c.belumDibaca }}</span>
             </div>
           </button>
@@ -54,8 +54,8 @@
             :class="p.dari === 'saya' ? 'kanan-baris' : 'kiri-baris'"
           >
             <div class="bubble" :class="p.dari === 'saya' ? 'bubble-saya' : 'bubble-mereka'">
-              <p>{{ p.teks }}</p>
-              <span class="waktu">{{ p.waktu }}</span>
+              <p data-content="true">{{ p.teks }}</p>
+              <span class="waktu">{{ waktuChat(p.waktu) }}</span>
             </div>
           </div>
         </div>
@@ -87,8 +87,8 @@
           >
             <div class="thumb thumb-round">{{ o.inisial }}</div>
             <div class="grow teks">
-              <p class="title">{{ o.nama }}</p>
-              <p class="muted clamp-1">{{ o.peran }}</p>
+              <p class="title" data-content="true">{{ o.nama }}</p>
+              <p class="muted clamp-1" data-content="true">{{ o.peran }}</p>
             </div>
             <i class="el-icon-arrow-right muted"></i>
           </button>
@@ -139,6 +139,11 @@ export default {
     }
   },
   methods: {
+    // jam dinding pakai format jam, sisanya waktu relatif
+    waktuChat (w) {
+      if (w && w.jamDinding) return this.$jam(w)
+      return this.$waktuRelatif(w)
+    },
     pilihTab (label) {
       const i = this.opsiTab.indexOf(label)
       if (i !== -1) this.tab = this.idTab[i]
@@ -154,7 +159,7 @@ export default {
         inisial: o.inisial,
         tipe: 'pribadi',
         cuplikan: this.$t('chat.newConversation'),
-        waktu: this.$t('chat.justNow'),
+        waktu: {},
         belumDibaca: 0,
         pesan: []
       }
@@ -169,7 +174,7 @@ export default {
         id: 'p-' + (this.aktif.pesan.length + 1),
         dari: 'saya',
         teks,
-        waktu: this.$t('chat.justNow')
+        waktu: {}
       })
       this.aktif.cuplikan = teks
       this.draf = ''
