@@ -1,9 +1,19 @@
 <template>
-  <header class="topbar">
+  <header class="topbar" :class="{ 'topbar-desktop': isDesktop }">
     <div class="topbar-inner">
-      <router-link to="/" class="logo" aria-label="Beranda Xdemia">xδ</router-link>
+      <router-link v-if="!isDesktop" to="/" class="logo" aria-label="Beranda Xdemia">xδ</router-link>
 
-      <span class="grow"></span>
+      <!-- desktop: search jadi pintu utama, langsung di top bar -->
+      <div v-if="isDesktop" class="cari grow">
+        <el-input
+          v-model="kueri"
+          placeholder="Cari orang, komunitas, kampus, jurnal"
+          prefix-icon="el-icon-search"
+          clearable
+          @keyup.enter.native="cari"
+        />
+      </div>
+      <span v-else class="grow"></span>
 
       <button class="tap topbar-btn" @click="$emit('buka-chat')">
         <i class="el-icon-chat-dot-round"></i>
@@ -27,9 +37,20 @@
 <script>
 export default {
   name: 'TopBar',
+  data () {
+    return { kueri: '' }
+  },
   computed: {
     inisial () { return this.$store.getters['user/inisial'] },
-    notifBelumDibaca () { return this.$store.state.user.notifBelumDibaca }
+    notifBelumDibaca () { return this.$store.state.user.notifBelumDibaca },
+    isDesktop () { return this.$store.getters['layout/isDesktop'] }
+  },
+  methods: {
+    cari () {
+      const q = this.kueri.trim()
+      if (!q) return
+      this.$router.push({ path: '/explore', query: { q } }).catch(() => {})
+    }
   }
 }
 </script>
@@ -50,6 +71,14 @@ export default {
   height: 56px;
   padding: 0 12px;
 }
+
+.topbar-desktop .topbar-inner {
+  height: 64px;
+  gap: 8px;
+  padding: 0 14px;
+}
+
+.cari { max-width: 340px; }
 
 .logo {
   font-size: 22px;

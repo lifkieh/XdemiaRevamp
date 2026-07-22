@@ -80,10 +80,13 @@
         <BaseCard
           v-for="f in profil.files"
           :key="f.id"
-          inisial="F"
+          :inisial="labelJenis(f.jenis)"
           :judul="f.nama"
           :subjudul="f.ukuran + ' · ' + f.waktu"
         >
+          <template slot="meta">
+            <span class="pill"><i :class="ikonJenis(f.jenis)"></i> {{ namaJenis(f.jenis) }}</span>
+          </template>
           <template slot="action">
             <el-button size="small" @click="belumTersedia">Unduh</el-button>
           </template>
@@ -92,10 +95,26 @@
 
       <el-tab-pane label="Pengaturan" name="pengaturan">
         <div class="card">
+          <button
+            v-for="item in menuSetelan"
+            :key="item.id"
+            class="baris-setelan"
+            @click="belumTersedia"
+          >
+            <div class="thumb setelan-ikon"><i :class="item.ikon"></i></div>
+            <div class="grow kiri">
+              <p class="title">{{ item.judul }}</p>
+              <p class="muted">{{ item.keterangan }}</p>
+            </div>
+            <i class="el-icon-arrow-right panah"></i>
+          </button>
+        </div>
+
+        <div class="card">
           <div class="setelan">
             <div class="grow">
-              <p class="title">Notifikasi belajar</p>
-              <p class="muted">Pengingat harian biar streak nggak putus.</p>
+              <p class="title">Pengingat belajar harian</p>
+              <p class="muted">Biar streak kamu nggak putus.</p>
             </div>
             <el-switch v-model="setelan.pengingat" active-color="#17a2a2" />
           </div>
@@ -106,15 +125,11 @@
             </div>
             <el-switch v-model="setelan.beasiswa" active-color="#17a2a2" />
           </div>
-          <div class="setelan">
-            <div class="grow">
-              <p class="title">Profil bisa dicari</p>
-              <p class="muted">Orang lain bisa nemu kamu di Jelajah.</p>
-            </div>
-            <el-switch v-model="setelan.publik" active-color="#17a2a2" />
-          </div>
         </div>
-        <el-button class="keluar" @click="belumTersedia">Keluar akun</el-button>
+
+        <el-button class="keluar" @click="belumTersedia">
+          <i class="el-icon-switch-button"></i> Keluar akun
+        </el-button>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -134,7 +149,14 @@ export default {
     return {
       memuat: true,
       tab: 'postingan',
-      setelan: { pengingat: true, beasiswa: true, publik: false }
+      setelan: { pengingat: true, beasiswa: true },
+      menuSetelan: [
+        { id: 's-1', judul: 'Ubah profil', keterangan: 'Nama, bio, foto, dan kampus', ikon: 'el-icon-edit' },
+        { id: 's-2', judul: 'Privasi', keterangan: 'Siapa yang bisa lihat aktivitas kamu', ikon: 'el-icon-lock' },
+        { id: 's-3', judul: 'Notifikasi', keterangan: 'Atur kabar yang mau kamu terima', ikon: 'el-icon-bell' },
+        { id: 's-4', judul: 'Bahasa', keterangan: 'Bahasa Indonesia', ikon: 'el-icon-chat-line-square' },
+        { id: 's-5', judul: 'Bantuan', keterangan: 'Pertanyaan umum dan lapor masalah', ikon: 'el-icon-question' }
+      ]
     }
   },
   computed: {
@@ -159,6 +181,24 @@ export default {
     clearTimeout(this.timer)
   },
   methods: {
+    labelJenis (jenis) {
+      const peta = { pdf: 'PDF', word: 'DOC', tabel: 'CSV', gambar: 'IMG', audio: 'MP3' }
+      return peta[jenis] || 'FILE'
+    },
+    namaJenis (jenis) {
+      const peta = { pdf: 'Dokumen', word: 'Dokumen', tabel: 'Tabel', gambar: 'Gambar', audio: 'Audio' }
+      return peta[jenis] || 'Berkas'
+    },
+    ikonJenis (jenis) {
+      const peta = {
+        pdf: 'el-icon-document',
+        word: 'el-icon-document',
+        tabel: 'el-icon-s-grid',
+        gambar: 'el-icon-picture-outline',
+        audio: 'el-icon-headset'
+      }
+      return peta[jenis] || 'el-icon-folder'
+    },
     belumTersedia () { this.$message('Belum aktif di prototipe ini.') }
   }
 }
@@ -235,6 +275,28 @@ export default {
 }
 
 .setelan:last-child { border-bottom: 0; }
+
+.baris-setelan {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 56px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.baris-setelan:last-child { border-bottom: 0; }
+.baris-setelan:hover .title { color: var(--brand); }
+
+.setelan-ikon { width: 38px; height: 38px; font-size: 17px; }
+
+.panah { color: var(--muted); flex: none; }
 
 .keluar { width: 100%; min-height: 44px; color: #c0392b; }
 </style>

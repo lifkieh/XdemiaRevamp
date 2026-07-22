@@ -1,6 +1,11 @@
 <template>
   <div class="screen">
-    <h1 class="title-lg jelajah-judul">Jelajah</h1>
+    <div class="row jelajah-head">
+      <h1 class="title-lg grow">Jelajah</h1>
+      <router-link to="/events" class="tap tautan-acara">
+        <i class="el-icon-date"></i><span>Acara</span>
+      </router-link>
+    </div>
 
     <SearchBar v-model="kueri" placeholder="Cari orang, komunitas, kampus, jurnal" />
     <FilterChips v-model="filter" :opsi="opsiFilter" />
@@ -23,6 +28,8 @@
         :judul="item.nama"
         :subjudul="item.info"
         :bulat="item.tipe === 'orang'"
+        :clickable="!!item.komunitasId"
+        @click.native="buka(item)"
       >
         <template slot="meta">
           <span class="pill">{{ labelTipe[item.tipe] }}</span>
@@ -31,7 +38,7 @@
           <el-button
             size="small"
             :type="diikuti[item.id] ? 'default' : 'primary'"
-            @click="toggleIkuti(item)"
+            @click.stop="toggleIkuti(item)"
           >
             {{ diikuti[item.id] ? 'Batal' : item.aksi }}
           </el-button>
@@ -77,6 +84,8 @@ export default {
     }
   },
   created () {
+    // kueri bisa datang dari search di top bar desktop
+    if (this.$route.query.q) this.kueri = String(this.$route.query.q)
     this.timer = setTimeout(() => {
       this.data = exploreData
       this.memuat = false
@@ -85,7 +94,13 @@ export default {
   beforeDestroy () {
     clearTimeout(this.timer)
   },
+  watch: {
+    '$route.query.q' (q) { this.kueri = q ? String(q) : '' }
+  },
   methods: {
+    buka (item) {
+      if (item.komunitasId) this.$router.push('/community/' + item.komunitasId)
+    },
     toggleIkuti (item) {
       const baru = !this.diikuti[item.id]
       this.$set(this.diikuti, item.id, baru)
@@ -99,6 +114,12 @@ export default {
 </script>
 
 <style scoped>
-.jelajah-judul { margin: 4px 2px 10px; }
+.jelajah-head { margin: 4px 2px 10px; }
+
+.tautan-acara {
+  color: var(--brand);
+  font-weight: 600;
+  font-size: 13.5px;
+}
 .hasil-info { margin: 2px 2px 8px; }
 </style>

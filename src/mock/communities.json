@@ -1,0 +1,135 @@
+[
+  {
+    "id": "k-1",
+    "nama": "Data Enthusiast Indonesia",
+    "inisial": "DE",
+    "anggota": 12480,
+    "tipe": "Terbuka",
+    "dibuat": "Maret 2021",
+    "deskripsi": "Tempat kumpul orang-orang yang lagi belajar data di Indonesia, dari yang baru kenal Excel sampai yang udah kerja jadi analis. Isinya diskusi, bedah portofolio, dan info lowongan. Nggak ada pertanyaan yang terlalu dasar di sini.",
+    "aturan": "Sopan, tidak jualan, dan tolong sertakan konteks waktu bertanya.",
+    "diskusi": [
+      { "id": "d-1", "penulis": "Yoga Pratama", "inisial": "Y", "waktu": "2 jam lalu", "konten": "Ada yang udah nyoba bikin dashboard pakai Looker Studio? Bandingin sama Metabase gimana buat kebutuhan tim kecil?", "suka": 34, "komentar": 12 },
+      { "id": "d-2", "penulis": "Sinta Larasati", "inisial": "S", "waktu": "5 jam lalu", "konten": "Share pengalaman: interview data analyst kemarin ternyata 70% SQL, 30% cerita soal proyek. Latihan SQL jangan dianggap remeh.", "suka": 128, "komentar": 27 },
+      { "id": "d-3", "penulis": "Bagas Wirawan", "inisial": "B", "waktu": "1 hari lalu", "konten": "Sesi live Sabtu nanti kita bedah 3 portofolio anggota. Yang mau portofolionya dibedah, komen di bawah ya.", "suka": 89, "komentar": 41 },
+      { "id": "d-4", "penulis": "Nadia Putri", "inisial": "N", "waktu": "2 hari lalu", "konten": "Nanya dong, buat pemula lebih baik langsung belajar Python atau kuatin Excel dulu? Bingung mulai dari mana.", "suka": 56, "komentar": 33 },
+      { "id": "d-5", "penulis": "Dewi Anggraini", "inisial": "D", "waktu": "3 hari lalu", "konten": "Kumpulan dataset publik Indonesia yang rapi buat latihan, aku taruh di tab File ya. Semoga membantu.", "suka": 210, "komentar": 18 }
+    ],
+    "daftarAnggota": [
+      { "id": "a-1", "nama": "Yoga Pratama", "inisial": "Y", "peran": "Pengurus" },
+      { "id": "a-2", "nama": "Sinta Larasati", "inisial": "S", "peran": "Anggota" },
+      { "id": "a-3", "nama": "Bagas Wirawan", "inisial": "B", "peran": "Pengurus" },
+      { "id": "a-4", "nama": "Nadia Putri", "inisial": "N", "peran": "Anggota" },
+      { "id": "a-5", "nama": "Dewi Anggraini", "inisial": "D", "peran": "Anggota" },
+      { "id": "a-6", "nama": "Raka Mahendra", "inisial": "R", "peran": "Anggota" },
+      { "id": "a-7", "nama": "Fajar Nugroho", "inisial": "F", "peran": "Anggota" },
+      { "id": "a-8", "nama": "Ayu Lestari", "inisial": "A", "peran": "Anggota" },
+      { "id": "a-9", "nama": "Rizky Ramadhan", "inisial": "R", "peran": "Anggota" },
+      { "id": "a-10", "nama": "Putri Handayani", "inisial": "P", "peran": "Anggota" }
+    ],
+    "berkas": [
+      { "id": "b-1", "nama": "Kumpulan Dataset Publik Indonesia.xlsx", "ukuran": "3,2 MB", "waktu": "3 hari lalu", "jenis": "excel" },
+      { "id": "b-2", "nama": "Materi Sesi Live - Bedah Portofolio.pdf", "ukuran": "1,8 MB", "waktu": "1 minggu lalu", "jenis": "pdf" },
+      { "id": "b-3", "nama": "Template Portofolio Data.docx", "ukuran": "240 KB", "waktu": "2 minggu lalu", "jenis": "word" },
+      { "id": "b-4", "nama": "Latihan SQL Dasar.sql", "ukuran": "18 KB", "waktu": "3 minggu lalu", "jenis": "kode" },
+      { "id": "b-5", "nama": "Rekaman Ngobrol Karier.mp4", "ukuran": "184 MB", "waktu": "1 bulan lalu", "jenis": "video" }
+    ]
+  },
+  {
+    "id": "k-2",
+    "nama": "Pejuang Beasiswa Luar Negeri",
+    "inisial": "PB",
+    "anggota": 38902,
+    "tipe": "Terbuka",
+    "dibuat": "Januari 2020",
+    "deskripsi": "Komunitas buat yang lagi nyiapin beasiswa ke luar negeri. Isinya info deadline, review esai antar-anggota, dan cerita jujur dari yang gagal maupun yang lolos.",
+    "aturan": "Dilarang jual jasa esai. Info beasiswa wajib sertakan tautan resmi.",
+    "diskusi": [
+      { "id": "d-1", "penulis": "Bagas Wirawan", "inisial": "B", "waktu": "3 jam lalu", "konten": "Baru selesai wawancara Chevening. Mereka ngulik banget rencana balik ke Indonesia, siapin itu serius.", "suka": 342, "komentar": 47 },
+      { "id": "d-2", "penulis": "Dewi Anggraini", "inisial": "D", "waktu": "8 jam lalu", "konten": "IELTS 5.5 ke 7.0 dalam 4 bulan modal latihan speaking tiap malam sama temen. Gratis, cuma butuh malu-maluin diri sendiri dikit.", "suka": 289, "komentar": 41 },
+      { "id": "d-3", "penulis": "Nadia Putri", "inisial": "N", "waktu": "1 hari lalu", "konten": "Reminder: Beasiswa Unggulan tutup 3 hari lagi. Yang berkasnya belum lengkap, kejar sekarang.", "suka": 156, "komentar": 22 },
+      { "id": "d-4", "penulis": "Sinta Larasati", "inisial": "S", "waktu": "2 hari lalu", "konten": "Gagal LPDP dua kali, lolos di percobaan ketiga. Yang bedain cuma satu: esainya akhirnya jujur, bukan sok heroik.", "suka": 874, "komentar": 96 }
+    ],
+    "daftarAnggota": [
+      { "id": "a-1", "nama": "Bagas Wirawan", "inisial": "B", "peran": "Pengurus" },
+      { "id": "a-2", "nama": "Dewi Anggraini", "inisial": "D", "peran": "Pengurus" },
+      { "id": "a-3", "nama": "Nadia Putri", "inisial": "N", "peran": "Anggota" },
+      { "id": "a-4", "nama": "Sinta Larasati", "inisial": "S", "peran": "Anggota" },
+      { "id": "a-5", "nama": "Raka Mahendra", "inisial": "R", "peran": "Anggota" },
+      { "id": "a-6", "nama": "Fajar Nugroho", "inisial": "F", "peran": "Anggota" },
+      { "id": "a-7", "nama": "Ayu Lestari", "inisial": "A", "peran": "Anggota" },
+      { "id": "a-8", "nama": "Yoga Pratama", "inisial": "Y", "peran": "Anggota" }
+    ],
+    "berkas": [
+      { "id": "b-1", "nama": "Contoh Esai LPDP yang Lolos.pdf", "ukuran": "890 KB", "waktu": "4 hari lalu", "jenis": "pdf" },
+      { "id": "b-2", "nama": "Kalender Deadline Beasiswa 2026.xlsx", "ukuran": "120 KB", "waktu": "1 minggu lalu", "jenis": "excel" },
+      { "id": "b-3", "nama": "Template Surat Rekomendasi.docx", "ukuran": "64 KB", "waktu": "2 minggu lalu", "jenis": "word" },
+      { "id": "b-4", "nama": "Rekaman Info Session LPDP.mp4", "ukuran": "212 MB", "waktu": "1 bulan lalu", "jenis": "video" }
+    ]
+  },
+  {
+    "id": "k-3",
+    "nama": "Belajar UI/UX Bareng",
+    "inisial": "BU",
+    "anggota": 7115,
+    "tipe": "Tertutup",
+    "dibuat": "September 2022",
+    "deskripsi": "Ruang latihan desain antarmuka untuk pemula sampai menengah. Tiap minggu ada tantangan redesain, hasilnya saling dikomentari. Gabung perlu persetujuan pengurus.",
+    "aturan": "Kritik boleh tajam, tapi soal karya, bukan orangnya.",
+    "diskusi": [
+      { "id": "d-1", "penulis": "Ayu Lestari", "inisial": "A", "waktu": "1 jam lalu", "konten": "Tantangan minggu ini: redesain halaman checkout e-commerce lokal. Kumpul Minggu malam ya.", "suka": 64, "komentar": 19 },
+      { "id": "d-2", "penulis": "Fajar Nugroho", "inisial": "F", "waktu": "6 jam lalu", "konten": "Pertanyaan serius: kapan sebenarnya kita butuh bottom nav dan kapan cukup sidebar? Ada yang punya patokan?", "suka": 92, "komentar": 38 },
+      { "id": "d-3", "penulis": "Raka Mahendra", "inisial": "R", "waktu": "1 hari lalu", "konten": "Belajar dari revamp app kampus: ikon tanpa label itu jebakan. Orang nebak-nebak, bukan navigasi.", "suka": 148, "komentar": 24 },
+      { "id": "d-4", "penulis": "Putri Handayani", "inisial": "P", "waktu": "3 hari lalu", "konten": "Sharing palet warna aksesibel yang aku pakai, kontrasnya lolos WCAG AA semua. File-nya di tab File.", "suka": 203, "komentar": 15 }
+    ],
+    "daftarAnggota": [
+      { "id": "a-1", "nama": "Ayu Lestari", "inisial": "A", "peran": "Pengurus" },
+      { "id": "a-2", "nama": "Fajar Nugroho", "inisial": "F", "peran": "Anggota" },
+      { "id": "a-3", "nama": "Raka Mahendra", "inisial": "R", "peran": "Anggota" },
+      { "id": "a-4", "nama": "Putri Handayani", "inisial": "P", "peran": "Pengurus" },
+      { "id": "a-5", "nama": "Nadia Putri", "inisial": "N", "peran": "Anggota" },
+      { "id": "a-6", "nama": "Rizky Ramadhan", "inisial": "R", "peran": "Anggota" },
+      { "id": "a-7", "nama": "Sinta Larasati", "inisial": "S", "peran": "Anggota" },
+      { "id": "a-8", "nama": "Yoga Pratama", "inisial": "Y", "peran": "Anggota" },
+      { "id": "a-9", "nama": "Dewi Anggraini", "inisial": "D", "peran": "Anggota" }
+    ],
+    "berkas": [
+      { "id": "b-1", "nama": "Palet Warna Aksesibel.fig", "ukuran": "4,1 MB", "waktu": "3 hari lalu", "jenis": "desain" },
+      { "id": "b-2", "nama": "Panduan Hierarki Visual.pdf", "ukuran": "2,6 MB", "waktu": "1 minggu lalu", "jenis": "pdf" },
+      { "id": "b-3", "nama": "Aset Ikon Dasar.zip", "ukuran": "8,4 MB", "waktu": "2 minggu lalu", "jenis": "arsip" },
+      { "id": "b-4", "nama": "Hasil Tantangan Redesain.pdf", "ukuran": "5,9 MB", "waktu": "3 minggu lalu", "jenis": "pdf" }
+    ]
+  },
+  {
+    "id": "k-4",
+    "nama": "Riset Mahasiswa Nusantara",
+    "inisial": "RM",
+    "anggota": 5240,
+    "tipe": "Terbuka",
+    "dibuat": "Juli 2023",
+    "deskripsi": "Wadah diskusi metode penelitian, penulisan skripsi, dan publikasi jurnal untuk mahasiswa dari berbagai kampus.",
+    "aturan": "Sertakan bidang studi saat bertanya supaya jawabannya nyambung.",
+    "diskusi": [
+      { "id": "d-1", "penulis": "Rizky Ramadhan", "inisial": "R", "waktu": "4 jam lalu", "konten": "Bedanya penelitian kualitatif sama kuantitatif itu bukan soal angka, tapi soal pertanyaan yang mau dijawab.", "suka": 118, "komentar": 21 },
+      { "id": "d-2", "penulis": "Putri Handayani", "inisial": "P", "waktu": "1 hari lalu", "konten": "Ada yang pernah publikasi di jurnal Sinta 2? Berapa lama proses reviewnya biasanya?", "suka": 47, "komentar": 16 },
+      { "id": "d-3", "penulis": "Fajar Nugroho", "inisial": "F", "waktu": "2 hari lalu", "konten": "Tips: kelola referensi pakai Zotero dari awal. Jangan nunggu bab 4 baru rapi-rapi.", "suka": 165, "komentar": 12 },
+      { "id": "d-4", "penulis": "Ayu Lestari", "inisial": "A", "waktu": "4 hari lalu", "konten": "Sidang minggu depan. Doain lancar, nanti aku share pertanyaan pengujinya di sini.", "suka": 231, "komentar": 44 }
+    ],
+    "daftarAnggota": [
+      { "id": "a-1", "nama": "Rizky Ramadhan", "inisial": "R", "peran": "Pengurus" },
+      { "id": "a-2", "nama": "Putri Handayani", "inisial": "P", "peran": "Anggota" },
+      { "id": "a-3", "nama": "Fajar Nugroho", "inisial": "F", "peran": "Anggota" },
+      { "id": "a-4", "nama": "Ayu Lestari", "inisial": "A", "peran": "Anggota" },
+      { "id": "a-5", "nama": "Raka Mahendra", "inisial": "R", "peran": "Anggota" },
+      { "id": "a-6", "nama": "Sinta Larasati", "inisial": "S", "peran": "Anggota" },
+      { "id": "a-7", "nama": "Bagas Wirawan", "inisial": "B", "peran": "Anggota" },
+      { "id": "a-8", "nama": "Nadia Putri", "inisial": "N", "peran": "Anggota" }
+    ],
+    "berkas": [
+      { "id": "b-1", "nama": "Panduan Metode Penelitian.pdf", "ukuran": "6,3 MB", "waktu": "5 hari lalu", "jenis": "pdf" },
+      { "id": "b-2", "nama": "Template Proposal Skripsi.docx", "ukuran": "180 KB", "waktu": "2 minggu lalu", "jenis": "word" },
+      { "id": "b-3", "nama": "Daftar Jurnal Sinta Terakreditasi.xlsx", "ukuran": "420 KB", "waktu": "3 minggu lalu", "jenis": "excel" },
+      { "id": "b-4", "nama": "Contoh Tinjauan Pustaka.pdf", "ukuran": "1,4 MB", "waktu": "1 bulan lalu", "jenis": "pdf" }
+    ]
+  }
+]

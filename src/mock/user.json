@@ -13,9 +13,11 @@
     { "id": "up-3", "waktu": "1 minggu lalu", "konten": "Bikin dashboard pertama pakai Python. Jelek tapi jalan, itu yang penting.", "suka": 91, "komentar": 12 }
   ],
   "files": [
-    { "id": "f-1", "nama": "Catatan Statistika Dasar.pdf", "ukuran": "2,4 MB", "waktu": "3 hari lalu" },
-    { "id": "f-2", "nama": "Draft Esai LPDP.docx", "ukuran": "68 KB", "waktu": "1 minggu lalu" },
-    { "id": "f-3", "nama": "Dataset Latihan Pandas.csv", "ukuran": "1,1 MB", "waktu": "2 minggu lalu" },
-    { "id": "f-4", "nama": "Sertifikat Webinar Data.png", "ukuran": "420 KB", "waktu": "3 minggu lalu" }
+    { "id": "f-1", "nama": "Catatan Statistika Dasar.pdf", "ukuran": "2,4 MB", "waktu": "3 hari lalu", "jenis": "pdf" },
+    { "id": "f-2", "nama": "Draft Esai LPDP.docx", "ukuran": "68 KB", "waktu": "1 minggu lalu", "jenis": "word" },
+    { "id": "f-3", "nama": "Dataset Latihan Pandas.csv", "ukuran": "1,1 MB", "waktu": "2 minggu lalu", "jenis": "tabel" },
+    { "id": "f-4", "nama": "Sertifikat Webinar Data.png", "ukuran": "420 KB", "waktu": "3 minggu lalu", "jenis": "gambar" },
+    { "id": "f-5", "nama": "Rangkuman Modul Python.pdf", "ukuran": "1,7 MB", "waktu": "1 bulan lalu", "jenis": "pdf" },
+    { "id": "f-6", "nama": "Rekaman Latihan Speaking.mp3", "ukuran": "12,3 MB", "waktu": "1 bulan lalu", "jenis": "audio" }
   ]
 }

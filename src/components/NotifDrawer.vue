@@ -1,67 +1,101 @@
 <template>
-  <el-drawer
-    :visible="terbuka"
-    direction="rtl"
-    size="100%"
-    :with-header="false"
-    custom-class="notif-drawer"
-    @update:visible="tutup"
-  >
+  <OverlayPanel :terbuka="terbuka" kelas="notif-drawer" @tutup="$emit('tutup')">
     <div class="drawer-isi">
       <header class="drawer-head">
         <button class="tap" @click="$emit('tutup')">
           <i class="el-icon-arrow-left"></i><span>Tutup</span>
         </button>
         <p class="title grow drawer-judul">Notifikasi</p>
-        <el-button size="mini" @click="tandaiSemua">Tandai semua dibaca</el-button>
+        <el-button v-if="tab === 'notif'" size="mini" @click="tandaiSemua">Tandai semua dibaca</el-button>
       </header>
 
-      <div class="daftar">
-        <EmptyState
-          v-if="notifikasi.length === 0"
-          ikon="el-icon-bell"
-          judul="Belum ada notifikasi"
-          pesan="Nanti kalau ada kabar, muncul di sini."
-        />
+      <el-tabs v-model="tab" class="tab-notif">
+        <el-tab-pane name="notif">
+          <span slot="label">
+            <i class="el-icon-bell"></i> Notifikasi
+          </span>
 
-        <div
-          v-for="n in notifikasi"
-          v-else
-          :key="n.id"
-          class="notif"
-          :class="{ 'is-baru': n.baru }"
-        >
-          <div class="thumb notif-ikon"><i :class="ikon(n.tipe)"></i></div>
-          <div class="grow">
-            <p class="notif-teks">{{ n.teks }}</p>
-            <p class="muted">{{ n.waktu }}</p>
+          <div class="daftar">
+            <EmptyState
+              v-if="notifikasi.length === 0"
+              ikon="el-icon-bell"
+              judul="Belum ada notifikasi"
+              pesan="Nanti kalau ada kabar, muncul di sini."
+            />
+
+            <div
+              v-for="n in notifikasi"
+              v-else
+              :key="n.id"
+              class="notif"
+              :class="{ 'is-baru': n.baru }"
+            >
+              <div class="thumb notif-ikon"><i :class="ikon(n.tipe)"></i></div>
+              <div class="grow">
+                <p class="notif-teks">{{ n.teks }}</p>
+                <p class="muted">{{ n.waktu }}</p>
+              </div>
+              <span v-if="n.baru" class="titik"></span>
+            </div>
           </div>
-          <span v-if="n.baru" class="titik"></span>
-        </div>
-      </div>
+        </el-tab-pane>
+
+        <el-tab-pane name="undangan">
+          <span slot="label">
+            <i class="el-icon-message-solid"></i> Undangan
+          </span>
+
+          <div class="daftar">
+            <EmptyState
+              v-if="undangan.length === 0"
+              ikon="el-icon-message-solid"
+              judul="Belum ada undangan"
+              pesan="Undangan komunitas dan acara muncul di sini."
+            />
+
+            <div v-for="u in undangan" v-else :key="u.id" class="undangan">
+              <div class="row row-top">
+                <div class="thumb notif-ikon">
+                  <i :class="u.tipe === 'acara' ? 'el-icon-date' : 'el-icon-s-flag'"></i>
+                </div>
+                <div class="grow">
+                  <p class="title">{{ u.judul }}</p>
+                  <p class="muted">{{ u.keterangan }}</p>
+                  <p class="muted waktu">{{ u.waktu }}</p>
+                </div>
+              </div>
+              <div class="aksi-undangan">
+                <el-button size="small" type="primary" @click="jawab(u, true)">Terima</el-button>
+                <el-button size="small" @click="jawab(u, false)">Tolak</el-button>
+              </div>
+            </div>
+          </div>
+        </el-tab-pane>
+      </el-tabs>
     </div>
-  </el-drawer>
+  </OverlayPanel>
 </template>
 
 <script>
+import OverlayPanel from '@/components/OverlayPanel.vue'
 import EmptyState from '@/components/EmptyState.vue'
 import notifData from '@/mock/notifications.json'
+import undanganData from '@/mock/invitations.json'
 
 export default {
   name: 'NotifDrawer',
-  components: { EmptyState },
+  components: { OverlayPanel, EmptyState },
   props: {
     terbuka: { type: Boolean, default: false }
   },
   data () {
     return {
-      notifikasi: notifData.map((n) => ({ ...n }))
+      tab: 'notif',
+      notifikasi: notifData.map((n) => ({ ...n })),
+      undangan: undanganData.map((u) => ({ ...u }))
     }
   },
   methods: {
-    tutup (nilai) {
-      if (!nilai) this.$emit('tutup')
-    },
     ikon (tipe) {
       const peta = {
         beasiswa: 'el-icon-medal',
@@ -77,6 +111,12 @@ export default {
       this.notifikasi.forEach((n) => { n.baru = false })
       this.$store.dispatch('user/bacaSemuaNotif')
       this.$message({ message: 'Semua notifikasi ditandai dibaca.', type: 'success' })
+    },
+    jawab (u, terima) {
+      this.$message({
+        message: (terima ? 'Undangan diterima: ' : 'Undangan ditolak: ') + u.judul,
+        type: terima ? 'success' : 'info'
+      })
     }
   }
 }
@@ -101,7 +141,20 @@ export default {
 
 .drawer-judul { margin: 0; }
 
-.daftar { overflow-y: auto; padding: 8px; }
+.tab-notif {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-notif >>> .el-tabs__header { margin: 0; background: var(--card); }
+.tab-notif >>> .el-tabs__nav { width: 100%; display: flex; }
+.tab-notif >>> .el-tabs__item { flex: 1; text-align: center; min-height: 44px; line-height: 44px; }
+.tab-notif >>> .el-tabs__content { flex: 1; min-height: 0; overflow-y: auto; }
+.tab-notif >>> .el-tab-pane { height: 100%; }
+
+.daftar { padding: 8px; }
 
 .notif {
   display: flex;
@@ -129,9 +182,24 @@ export default {
   background: var(--brand);
   margin-top: 6px;
 }
-</style>
 
-<style>
-.notif-drawer { max-width: 480px; }
-.notif-drawer .el-drawer__body { padding: 0; height: 100%; overflow: hidden; }
+.undangan {
+  padding: 12px;
+  margin-bottom: 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.undangan .waktu { font-size: 12px; margin-top: 2px; }
+
+.aksi-undangan {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.aksi-undangan .el-button { flex: 1; }
 </style>

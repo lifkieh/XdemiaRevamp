@@ -1,12 +1,5 @@
 <template>
-  <el-drawer
-    :visible="terbuka"
-    direction="rtl"
-    size="100%"
-    :with-header="false"
-    custom-class="chat-drawer"
-    @update:visible="tutup"
-  >
+  <OverlayPanel :terbuka="terbuka" kelas="chat-drawer" @tutup="$emit('tutup')">
     <div class="drawer-isi">
       <header class="drawer-head">
         <button class="tap" @click="kembali">
@@ -60,14 +53,16 @@
         </form>
       </div>
     </div>
-  </el-drawer>
+  </OverlayPanel>
 </template>
 
 <script>
+import OverlayPanel from '@/components/OverlayPanel.vue'
 import chatsData from '@/mock/chats.json'
 
 export default {
   name: 'ChatDrawer',
+  components: { OverlayPanel },
   props: {
     terbuka: { type: Boolean, default: false }
   },
@@ -79,9 +74,6 @@ export default {
     }
   },
   methods: {
-    tutup (nilai) {
-      if (!nilai) this.$emit('tutup')
-    },
     kembali () {
       if (this.aktif) this.aktif = null
       else this.$emit('tutup')
@@ -207,9 +199,4 @@ export default {
 
 .kirim >>> .el-input { flex: 1; }
 .tombol-kirim { min-width: 44px; min-height: 44px; }
-</style>
-
-<style>
-.chat-drawer { max-width: 480px; margin: 0 auto; }
-.chat-drawer .el-drawer__body { padding: 0; height: 100%; overflow: hidden; }
 </style>

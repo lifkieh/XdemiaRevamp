@@ -5,7 +5,7 @@
         <h1 class="title-lg">Belajar</h1>
         <p class="muted">Streak kamu {{ streak }} hari. Jangan putus ya.</p>
       </div>
-      <span class="pill"><i class="el-icon-lightning"></i> {{ streak }} hari</span>
+      <span class="pill"><i class="el-icon-trophy"></i> {{ streak }} hari</span>
     </div>
 
     <CardSkeleton v-if="memuat" :jumlah="4" />
