@@ -19,6 +19,7 @@ const routes = [
   // --- daftar lain ---
   { path: '/events', name: 'events', component: () => import(/* webpackChunkName: "events" */ '@/views/Events.vue'), meta: { judul: 'Acara', requiresAuth: true } },
   { path: '/jurnal', name: 'journals', component: () => import(/* webpackChunkName: "journals" */ '@/views/Journals.vue'), meta: { judul: 'Jurnal', requiresAuth: true } },
+  { path: '/newsroom', name: 'newsroom', component: () => import(/* webpackChunkName: "newsroom" */ '@/views/Newsroom.vue'), meta: { judul: 'Newsroom', requiresAuth: true } },
   { path: '/keranjang', name: 'cart', component: () => import(/* webpackChunkName: "cart" */ '@/views/Cart.vue'), meta: { judul: 'Keranjang', requiresAuth: true } },
   { path: '/drive', name: 'drive', component: () => import(/* webpackChunkName: "drive" */ '@/views/Drive.vue'), meta: { judul: 'Drive', requiresAuth: true } },
   { path: '/pengaturan', name: 'settings', component: () => import(/* webpackChunkName: "settings" */ '@/views/Settings.vue'), meta: { judul: 'Pengaturan', requiresAuth: true } },

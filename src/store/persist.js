@@ -5,6 +5,7 @@ import { JENIS } from './modules/bookmarks'
 const KEY = 'xdemia:bookmarks'
 const KEY_AUTH = 'xdemia:auth'
 const KEY_PERAN = 'xdemia:peran'
+const KEY_TEMA = 'xdemia:tema'
 
 const daftarString = (nilai) =>
   Array.isArray(nilai) ? nilai.filter((v) => typeof v === 'string') : []
@@ -74,6 +75,29 @@ function tulisPeran (peran) {
   }
 }
 
+function bacaTema () {
+  try {
+    if (typeof window === 'undefined' || !window.localStorage) return null
+    return window.localStorage.getItem(KEY_TEMA)
+  } catch (e) {
+    return null
+  }
+}
+
+function tulisTema (tema) {
+  try {
+    if (typeof window === 'undefined' || !window.localStorage) return
+    window.localStorage.setItem(KEY_TEMA, tema)
+  } catch (e) {
+    // abaikan
+  }
+}
+
+function terapkanTema (tema) {
+  if (typeof document === 'undefined') return
+  document.documentElement.setAttribute('data-theme', tema === 'gelap' ? 'dark' : 'light')
+}
+
 export default function persist (store) {
   const tersimpan = bacaBookmarks()
   if (tersimpan) store.commit('bookmarks/HYDRATE', tersimpan)
@@ -82,6 +106,10 @@ export default function persist (store) {
 
   const peranTersimpan = bacaPeran()
   if (peranTersimpan) store.commit('user/SET_PERAN', peranTersimpan)
+
+  const temaTersimpan = bacaTema()
+  if (temaTersimpan) store.commit('layout/SET_TEMA', temaTersimpan)
+  terapkanTema(store.state.layout.tema)
 
   store.subscribe((mutation, state) => {
     if (mutation.type.indexOf('bookmarks/') === 0) {
@@ -94,6 +122,11 @@ export default function persist (store) {
     }
     if (mutation.type === 'user/SET_PERAN') {
       tulisPeran(state.user.profil.peran)
+      return
+    }
+    if (mutation.type === 'layout/SET_TEMA') {
+      tulisTema(state.layout.tema)
+      terapkanTema(state.layout.tema)
     }
   })
 }

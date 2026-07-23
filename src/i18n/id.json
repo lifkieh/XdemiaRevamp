@@ -64,6 +64,7 @@
     "you": "Kamu",
     "events": "Acara",
     "journals": "Jurnal",
+    "newsroom": "Newsroom",
     "drive": "Drive",
     "saved": "Tersimpan",
     "cart": "Keranjang",
@@ -150,6 +151,20 @@
     "emptyTitle": "Nggak ketemu",
     "emptyText": "Coba kata kunci lain atau ganti filternya.",
     "allJournals": "Semua jurnal",
+    "createCommunity": "Buat komunitas",
+    "communityForm": {
+      "title": "Buat komunitas",
+      "name": "Nama komunitas",
+      "namePlaceholder": "Nama komunitas",
+      "description": "Deskripsi",
+      "descriptionPlaceholder": "Komunitas ini tentang apa?",
+      "privacy": "Privasi",
+      "open": "Terbuka — siapa saja bisa bergabung",
+      "closed": "Tertutup — perlu persetujuan",
+      "submit": "Buat komunitas",
+      "needName": "Nama komunitas belum diisi.",
+      "created": "Komunitas \"{name}\" dibuat (contoh prototipe)."
+    },
     "allEvents": "Semua acara",
     "filters": {
       "all": "Semua",
@@ -250,6 +265,16 @@
     "emptyTitle": "Belum ada beasiswa yang cocok",
     "emptyText": "Coba longgarkan filternya, mungkin ada yang kelewat.",
     "resetFilter": "Reset filter",
+    "matchScore": "{n}% cocok",
+    "trackApplication": "Lacak lamaran",
+    "applyStatusToast": "{name} ditandai {status}",
+    "applyStatus": {
+      "terdaftar": "Terdaftar",
+      "ditinjau": "Ditinjau",
+      "diterima": "Diterima",
+      "ditolak": "Tidak lolos",
+      "clear": "Hapus status"
+    },
     "levelAll": "Semua jenjang",
     "countryAll": "Semua negara",
     "sortRelevant": "Paling relevan",
@@ -377,6 +402,29 @@
     "notFoundText": "Mungkin sudah dihapus atau tautannya salah.",
     "notFoundAction": "Jelajah lainnya"
   },
+  "newsroom": {
+    "title": "Newsroom",
+    "subtitle": "Berita dan riset ringkas, dikurasi untuk pembelajar.",
+    "emptyTitle": "Belum ada berita",
+    "emptyText": "Cek lagi nanti ya."
+  },
+  "institution": {
+    "title": "Dasbor Institusi",
+    "subtitle": "Kelola kehadiran belajar publikmu",
+    "stats": {
+      "blocks": "Building Block diterbitkan",
+      "enrolments": "Pendaftar",
+      "scholarships": "Beasiswa terdaftar",
+      "views": "Dilihat bulan ini"
+    },
+    "actionsTitle": "Aksi cepat",
+    "actions": {
+      "publish": { "title": "Terbitkan kelas", "text": "Jangkau pembelajar di luar LMS-mu" },
+      "manage": { "title": "Kelola & bagikan", "text": "Konten, akses, dan analitik" },
+      "monetize": { "title": "Monetisasi konten", "text": "Pembayaran aman, sesuai standar UE" }
+    },
+    "activityTitle": "Aktivitas terbaru"
+  },
   "journal": {
     "title": "Jurnal",
     "subtitle": "Kumpulan jurnal terbuka dari kampus dan komunitas.",
@@ -450,6 +498,9 @@
       "notificationsSub": "Atur kabar yang mau kamu terima",
       "language": "Bahasa",
       "languageSub": "Bahasa Indonesia",
+      "appearance": "Tampilan",
+      "darkMode": "Mode gelap",
+      "darkModeSub": "Lebih nyaman di mata saat malam.",
       "help": "Bantuan",
       "helpSub": "Pertanyaan umum dan lapor masalah"
     },

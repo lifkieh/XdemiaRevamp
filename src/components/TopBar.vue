@@ -76,7 +76,8 @@ export default {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(255, 255, 255, .86);
+  background: var(--card);
+  opacity: .96;
   backdrop-filter: blur(14px) saturate(140%);
   border-bottom: 1px solid var(--line);
 }

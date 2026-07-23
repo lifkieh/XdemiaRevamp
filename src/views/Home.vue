@@ -1,5 +1,9 @@
 <template>
   <div class="screen">
+    <!-- Organisasi/institusi dapat dashboard, bukan feed pribadi -->
+    <InstitutionDashboard v-if="peran === 'organisasi'" />
+
+    <template v-else>
     <!-- Composer ringkas: satu aksi utama di layar ini -->
     <div class="card composer">
       <div class="row">
@@ -237,12 +241,14 @@
         </article>
       </div>
     </template>
+    </template>
   </div>
 </template>
 
 <script>
 import CardSkeleton from '@/components/CardSkeleton.vue'
 import EmptyState from '@/components/EmptyState.vue'
+import InstitutionDashboard from '@/components/InstitutionDashboard.vue'
 import feedData from '@/mock/feed.json'
 import riwayatLanjut from '@/mock/lanjutkan.json'
 import beasiswaData from '@/mock/scholarships.json'
@@ -251,7 +257,7 @@ import petaLanjut from '@/mock/peta-lanjut.json'
 
 export default {
   name: 'HomeView',
-  components: { CardSkeleton, EmptyState },
+  components: { CardSkeleton, EmptyState, InstitutionDashboard },
   data () {
     return {
       memuat: true,

@@ -42,10 +42,10 @@ export default {
 .is-clickable:hover { border-color: var(--brand); }
 
 .basecard-meta {
-  margin-top: 6px;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
 }
 

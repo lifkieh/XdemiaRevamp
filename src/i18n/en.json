@@ -64,6 +64,7 @@
     "you": "You",
     "events": "Events",
     "journals": "Journals",
+    "newsroom": "Newsroom",
     "drive": "My Drive",
     "saved": "Saved",
     "cart": "Cart",
@@ -151,6 +152,20 @@
     "emptyText": "Try another keyword or a different filter.",
     "allJournals": "All journals",
     "allEvents": "All events",
+    "createCommunity": "Create community",
+    "communityForm": {
+      "title": "Create a community",
+      "name": "Community name",
+      "namePlaceholder": "Community name",
+      "description": "Description",
+      "descriptionPlaceholder": "What is this community about?",
+      "privacy": "Privacy",
+      "open": "Open — anyone can join",
+      "closed": "Closed — approval needed",
+      "submit": "Create community",
+      "needName": "The community name is empty.",
+      "created": "Community \"{name}\" created (prototype)."
+    },
     "filters": {
       "all": "All",
       "orang": "People",
@@ -250,6 +265,16 @@
     "emptyTitle": "No scholarships match",
     "emptyText": "Loosen the filters — you may be missing one.",
     "resetFilter": "Reset filters",
+    "matchScore": "{n}% match",
+    "trackApplication": "Track application",
+    "applyStatusToast": "{name} marked as {status}",
+    "applyStatus": {
+      "terdaftar": "Applied",
+      "ditinjau": "In review",
+      "diterima": "Accepted",
+      "ditolak": "Not selected",
+      "clear": "Clear status"
+    },
     "levelAll": "All levels",
     "countryAll": "All countries",
     "sortRelevant": "Most relevant",
@@ -377,6 +402,29 @@
     "notFoundText": "It may have been removed, or the link is wrong.",
     "notFoundAction": "Explore instead"
   },
+  "newsroom": {
+    "title": "Newsroom",
+    "subtitle": "Bite-sized news and research, curated for learners.",
+    "emptyTitle": "No news yet",
+    "emptyText": "Check back soon."
+  },
+  "institution": {
+    "title": "Institution Dashboard",
+    "subtitle": "Manage your public learning presence",
+    "stats": {
+      "blocks": "Building Blocks published",
+      "enrolments": "Enrolments",
+      "scholarships": "Scholarships listed",
+      "views": "Views this month"
+    },
+    "actionsTitle": "Quick actions",
+    "actions": {
+      "publish": { "title": "Publish courses", "text": "Reach learners beyond your LMS" },
+      "manage": { "title": "Manage & share", "text": "Content, access and analytics" },
+      "monetize": { "title": "Monetize content", "text": "Secure payments, EU compliant" }
+    },
+    "activityTitle": "Recent activity"
+  },
   "journal": {
     "title": "Journals",
     "subtitle": "Open journals from Institute and communities.",
@@ -450,6 +498,9 @@
       "notificationsSub": "Choose what you want to hear about",
       "language": "Language",
       "languageSub": "English",
+      "appearance": "Appearance",
+      "darkMode": "Dark mode",
+      "darkModeSub": "Easier on the eyes at night.",
       "help": "Help",
       "helpSub": "Common questions and reporting"
     },

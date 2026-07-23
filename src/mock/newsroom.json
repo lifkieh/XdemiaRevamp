@@ -1,0 +1,74 @@
+[
+  {
+    "id": "nr-1",
+    "judul": "Kemendikbudristek buka gelombang baru Beasiswa Unggulan 2026",
+    "sumber": "Newsroom Xdemia",
+    "ringkasan": "Pendaftaran dibuka untuk mahasiswa S1 berprestasi dengan fokus baru pada kontribusi riset terapan.",
+    "tag": "Beasiswa",
+    "waktu": { "hari": 1 },
+    "menitBaca": 3
+  },
+  {
+    "id": "nr-2",
+    "judul": "Tiga kampus mitra luncurkan Building Block bersama tentang energi terbarukan",
+    "sumber": "Newsroom Xdemia",
+    "ringkasan": "Modul lintas institusi ini bisa dipakai langsung oleh pengajar lain lewat LMS Bridge tanpa perlu membangun dari nol.",
+    "tag": "Building Blocks",
+    "waktu": { "hari": 2 },
+    "menitBaca": 4
+  },
+  {
+    "id": "nr-3",
+    "judul": "Studi: sesi belajar singkat dan konsisten lebih efektif dari sistem kebut semalam",
+    "sumber": "Newsroom Xdemia",
+    "ringkasan": "Ringkasan riset terbaru soal microlearning dan dampaknya pada retensi jangka panjang.",
+    "tag": "Riset",
+    "waktu": { "hari": 3 },
+    "menitBaca": 5
+  },
+  {
+    "id": "nr-4",
+    "judul": "LPDP perpanjang masa pendaftaran jalur reguler tahap kedua",
+    "sumber": "Newsroom Xdemia",
+    "ringkasan": "Perpanjangan diberikan menyusul lonjakan pendaftar dari luar Jawa.",
+    "tag": "Beasiswa",
+    "waktu": { "hari": 4 },
+    "menitBaca": 2
+  },
+  {
+    "id": "nr-5",
+    "judul": "Panduan singkat: membaca hasil uji hipotesis tanpa kepala pusing",
+    "sumber": "Jurnal Belajar Xdemia",
+    "ringkasan": "Tiga pertanyaan sederhana yang bisa kamu tanyakan sebelum percaya sebuah p-value.",
+    "tag": "Belajar",
+    "waktu": { "hari": 5 },
+    "menitBaca": 4
+  },
+  {
+    "id": "nr-6",
+    "judul": "Komunitas Data Enthusiast Indonesia capai 12.000 anggota",
+    "sumber": "Newsroom Xdemia",
+    "ringkasan": "Pertumbuhan didorong oleh seri sesi live bulanan bersama praktisi industri.",
+    "tag": "Komunitas",
+    "waktu": { "minggu": 1 },
+    "menitBaca": 3
+  },
+  {
+    "id": "nr-7",
+    "judul": "Uni Eropa perbarui kerangka data sovereignty untuk platform pendidikan",
+    "sumber": "Newsroom Xdemia",
+    "ringkasan": "Pembaruan regulasi ini memperkuat standar privasi yang sudah diikuti oleh platform yang dihosting di Eropa.",
+    "tag": "Kebijakan",
+    "waktu": { "minggu": 1 },
+    "menitBaca": 6
+  },
+  {
+    "id": "nr-8",
+    "judul": "Lima kebiasaan kecil yang bikin progres belajar bahasa terasa nyata",
+    "sumber": "Jurnal Belajar Xdemia",
+    "ringkasan": "Bukan soal belajar lebih lama, tapi lebih sering dalam potongan waktu yang realistis.",
+    "tag": "Belajar",
+    "waktu": { "minggu": 2 },
+    "menitBaca": 3
+  }
+]

@@ -73,6 +73,7 @@ export default {
       return [
         { path: '/events', label: this.$t('nav.events'), ikon: 'el-icon-date' },
         { path: '/jurnal', label: this.$t('nav.journals'), ikon: 'el-icon-notebook-2' },
+        { path: '/newsroom', label: this.$t('nav.newsroom'), ikon: 'el-icon-reading' },
         { path: '/drive', label: this.$t('nav.drive'), ikon: 'el-icon-folder' },
         { path: '/you?tab=tersimpan', label: this.$t('nav.saved'), ikon: 'el-icon-collection-tag' }
       ]

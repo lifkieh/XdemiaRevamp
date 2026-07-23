@@ -37,12 +37,30 @@
         @click.native="$router.push('/beasiswa/' + b.id)"
       >
         <template slot="meta">
+          <span class="pill pill-match"><i class="el-icon-magic-stick"></i> {{ $t('scholarship.matchScore', { n: skorCocok(b) }) }}</span>
           <span v-if="b.isNew" class="pill pill-new">{{ $t('common.new') }}</span>
           <span class="pill">{{ b.jenjang }}</span>
           <span class="pill">{{ $t('country.' + b.negaraKode) }}</span>
           <span class="pill" :class="{ 'pill-warn': b.sisaHari <= 7 }">{{ $t('common.daysLeft', { n: b.sisaHari }) }}</span>
+          <span v-if="lamaran[b.id]" class="pill pill-lamaran" :class="'status-' + lamaran[b.id]">
+            {{ $t('scholarship.applyStatus.' + lamaran[b.id]) }}
+          </span>
         </template>
         <template slot="action">
+          <el-dropdown trigger="click" @command="(status) => setStatusLamaran(b, status)" @click.native.stop>
+            <button class="tap lamar" :class="{ 'is-active': lamaran[b.id] }" @click.stop>
+              <i class="el-icon-notebook-1"></i>
+              <span>{{ lamaran[b.id] ? $t('scholarship.applyStatus.' + lamaran[b.id]) : $t('scholarship.trackApplication') }}</span>
+            </button>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item command="terdaftar">{{ $t('scholarship.applyStatus.terdaftar') }}</el-dropdown-item>
+              <el-dropdown-item command="ditinjau">{{ $t('scholarship.applyStatus.ditinjau') }}</el-dropdown-item>
+              <el-dropdown-item command="diterima">{{ $t('scholarship.applyStatus.diterima') }}</el-dropdown-item>
+              <el-dropdown-item command="ditolak">{{ $t('scholarship.applyStatus.ditolak') }}</el-dropdown-item>
+              <el-dropdown-item divided command="">{{ $t('scholarship.applyStatus.clear') }}</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+
           <button
             class="tap simpan"
             :class="{ 'is-active': tersimpan(b.id) }"
@@ -78,7 +96,8 @@ export default {
       urutan: 'relevan',
       idJenjang: ['all', 'S1', 'S2', 'S3'],
       idNegara: ['all', 'ID', 'GB', 'AU', 'JP', 'DE', 'US', 'KR', 'SG'],
-      idUrutan: ['relevan', 'deadline']
+      idUrutan: ['relevan', 'deadline'],
+      lamaran: {}
     }
   },
   computed: {
@@ -126,6 +145,20 @@ export default {
       this.jenjang = 'all'
       this.negara = 'all'
       this.urutan = 'relevan'
+    },
+    // skor konsisten per beasiswa (bukan acak tiap render), disusun dari id-nya
+    skorCocok (b) {
+      let hash = 0
+      for (let i = 0; i < b.id.length; i++) hash = (hash * 31 + b.id.charCodeAt(i)) % 29
+      return 68 + hash
+    },
+    setStatusLamaran (b, status) {
+      if (!status) {
+        this.$delete(this.lamaran, b.id)
+        return
+      }
+      this.$set(this.lamaran, b.id, status)
+      this.$message({ message: this.$t('scholarship.applyStatusToast', { name: b.nama, status: this.$t('scholarship.applyStatus.' + status) }), type: 'success' })
     }
   }
 }
@@ -142,4 +175,16 @@ export default {
 
 .simpan { flex-direction: column; gap: 0; font-size: 11px; width: 64px; }
 .simpan i { font-size: 18px; }
+
+.lamar { flex-direction: column; gap: 0; font-size: 11px; width: 76px; }
+.lamar i { font-size: 18px; }
+.lamar.is-active { color: var(--brand); font-weight: 600; }
+
+.pill-match { background: var(--brand-soft); color: var(--brand-dark); }
+
+.pill-lamaran { font-weight: 700; }
+.status-terdaftar { background: var(--brand-soft); color: var(--brand-dark); }
+.status-ditinjau { background: #fff2e6; color: #c76a10; }
+.status-diterima { background: rgba(77, 186, 135, .16); color: var(--accent-dark); }
+.status-ditolak { background: #fdeceb; color: #c0392b; }
 </style>

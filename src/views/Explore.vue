@@ -2,6 +2,9 @@
   <div class="screen">
     <div class="row jelajah-head">
       <h1 class="title-lg grow">{{ $t('explore.title') }}</h1>
+      <el-button type="primary" size="small" class="tombol-buat-komunitas" @click="formKomunitasTerbuka = true">
+        <i class="el-icon-plus"></i> {{ $t('explore.createCommunity') }}
+      </el-button>
     </div>
 
     <!-- Di desktop kotak pencarian ada di top bar, jadi di sini cukup untuk mobile -->
@@ -83,6 +86,36 @@
         </template>
       </BaseCard>
     </template>
+
+    <!-- Buat komunitas (dummy) -->
+    <el-dialog
+      :title="$t('explore.communityForm.title')"
+      :visible.sync="formKomunitasTerbuka"
+      :width="isDesktop ? '440px' : '92%'"
+    >
+      <div class="isian">
+        <label class="label">{{ $t('explore.communityForm.name') }}</label>
+        <el-input v-model="formKomunitas.nama" :placeholder="$t('explore.communityForm.namePlaceholder')" />
+      </div>
+
+      <div class="isian">
+        <label class="label">{{ $t('explore.communityForm.description') }}</label>
+        <el-input v-model="formKomunitas.deskripsi" type="textarea" :rows="3" :placeholder="$t('explore.communityForm.descriptionPlaceholder')" />
+      </div>
+
+      <div class="isian">
+        <label class="label">{{ $t('explore.communityForm.privacy') }}</label>
+        <el-radio-group v-model="formKomunitas.privasi">
+          <el-radio label="terbuka" border>{{ $t('explore.communityForm.open') }}</el-radio>
+          <el-radio label="tertutup" border>{{ $t('explore.communityForm.closed') }}</el-radio>
+        </el-radio-group>
+      </div>
+
+      <span slot="footer">
+        <el-button @click="formKomunitasTerbuka = false">{{ $t('common.cancel') }}</el-button>
+        <el-button type="primary" @click="buatKomunitas">{{ $t('explore.communityForm.submit') }}</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -105,7 +138,9 @@ export default {
       filter: 'all',
       idFilter: ['all', 'orang', 'komunitas', 'kampus', 'organisasi', 'jurnal', 'artikel', 'acara'],
       data: [],
-      diikuti: {}
+      diikuti: {},
+      formKomunitasTerbuka: false,
+      formKomunitas: { nama: '', deskripsi: '', privasi: 'terbuka' }
     }
   },
   computed: {
@@ -172,6 +207,15 @@ export default {
       if (item.tipe === 'acara') return this.$tanggal(item.tanggalIso, true) + ' · ' + item.lokasi
       return ''
     },
+    buatKomunitas () {
+      if (!this.formKomunitas.nama.trim()) {
+        this.$message({ message: this.$t('explore.communityForm.needName'), type: 'warning' })
+        return
+      }
+      this.formKomunitasTerbuka = false
+      this.$message({ message: this.$t('explore.communityForm.created', { name: this.formKomunitas.nama }), type: 'success' })
+      this.formKomunitas = { nama: '', deskripsi: '', privasi: 'terbuka' }
+    },
     // aksi kartu mengikuti jenisnya, bukan teks dari data
     aksiLabel (item) {
       if (item.tipe === 'artikel') return this.$t('common.read')
@@ -208,6 +252,17 @@ export default {
 
 <style scoped>
 .jelajah-head { margin: 4px 2px 10px; }
+.tombol-buat-komunitas { min-height: 44px; flex: none; }
+
+.isian { margin-bottom: 14px; }
+
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
 
 .tautan-semua {
   color: var(--brand);

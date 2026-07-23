@@ -17,6 +17,19 @@
       </el-radio-group>
     </div>
 
+    <!-- Tampilan -->
+    <div class="card">
+      <p class="title bagian">{{ $t('settings.appearance') }}</p>
+
+      <div class="setelan">
+        <div class="grow">
+          <p class="title">{{ $t('settings.darkMode') }}</p>
+          <p class="muted">{{ $t('settings.darkModeSub') }}</p>
+        </div>
+        <el-switch v-model="gelap" active-color="#088898" />
+      </div>
+    </div>
+
     <!-- Profil -->
     <div class="card">
       <p class="title bagian">{{ $t('settings.profile') }}</p>
@@ -163,6 +176,10 @@ export default {
     peran: {
       get () { return this.$store.getters['user/peran'] },
       set (nilai) { this.$store.dispatch('user/gantiPeran', nilai) }
+    },
+    gelap: {
+      get () { return this.$store.getters['layout/isGelap'] },
+      set () { this.$store.dispatch('layout/toggleTema') }
     }
   },
   watch: {
