@@ -96,7 +96,10 @@ export default {
   padding: 0 14px;
 }
 
-.cari { max-width: 340px; }
+/* search isi sisa ruang di topbar-inner, mepet ke ikon Cart */
+.cari { flex: 1 1 0; min-width: 0; max-width: none; }
+.cari >>> .el-input,
+.cari >>> .el-input__inner { width: 100%; }
 
 .logo {
   font-family: var(--font-head);
